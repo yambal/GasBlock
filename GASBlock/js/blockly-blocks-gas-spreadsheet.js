@@ -199,18 +199,18 @@ Blockly.JavaScript['spreadsheet_addviewers_emailaddress'] = function(block) {
 // ----------------------------------------------------------------
 Blockly.Blocks['spreadsheet_appendrow'] = {
     init: function() {
-        this.appendDummyInput()
-            .appendField("シート");
-        this.appendValueInput("ROWCONTENT")
-            .setCheck("Array")
-            .appendField("値の配列");
-        this.appendDummyInput()
-            .appendField("を");
         this.appendValueInput("SHEET")
             .setCheck("Sheet")
             .appendField("シート");
         this.appendDummyInput()
-            .appendField("の最後に追加");
+            .appendField("の最後に");
+        this.appendValueInput("ROWCONTENT")
+            .setCheck("Array")
+            .appendField("行(リスト)");
+        this.appendDummyInput()
+            .appendField("を");
+        this.appendDummyInput()
+            .appendField("追加");
         this.setInputsInline(true);
         this.setOutput(true, "Sheet");
         this.setColour(20);
@@ -225,19 +225,20 @@ Blockly.JavaScript['spreadsheet_appendrow'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
 // autoResizeColumn()
 Blockly.Blocks['sheet_autoresizecolumn'] = {
     init: function() {
-        this.appendDummyInput()
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("列の幅をフィットする");
         this.appendValueInput("SHEET")
             .setCheck("Sheet")
             .appendField("シート");
+        this.appendDummyInput()
+            .appendField("の");
         this.appendValueInput("COLUMN")
             .setCheck("Number")
             .appendField("列");
+        this.appendDummyInput()
+            .appendField("の幅をフィット");
         this.setInputsInline(true);
         this.setOutput(true, "Sheet");
         this.setColour(20);
@@ -248,10 +249,12 @@ Blockly.Blocks['sheet_autoresizecolumn'] = {
 Blockly.JavaScript['sheet_autoresizecolumn'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var value_column = Blockly.JavaScript.valueToCode(block, 'COLUMN', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.autoResizeColumn(' + value_column + ');';
+    var code = value_sheet + '.autoResizeColumn(' + value_column + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// copy(name)
 Blockly.Blocks['spreadsheet_copy'] = {
     init: function() {
         this.appendDummyInput()
@@ -271,7 +274,6 @@ Blockly.Blocks['spreadsheet_copy'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#copy(String)');
     }
 };
-
 Blockly.JavaScript['spreadsheet_copy'] = function(block) {
     var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SPREADSHEET', Blockly.JavaScript.ORDER_NONE);
     var value_newname = Blockly.JavaScript.valueToCode(block, 'NEWNAME', Blockly.JavaScript.ORDER_NONE);
@@ -279,17 +281,19 @@ Blockly.JavaScript['spreadsheet_copy'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// deleteActiveSheet()
 Blockly.Blocks['spreadsheet_deleteactivesheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("シート");
+            .appendField("新しくアクティブになったシート");
         this.appendDummyInput()
-            .appendField("削除");
+            .appendField("現在アクティブなシートを");
         this.appendValueInput("SPREADSHEET")
             .setCheck("Spreadsheet")
             .appendField("スプレッドシート");
         this.appendDummyInput()
-            .appendField("のアクティブなシート");
+            .appendField("から削除");
         this.setInputsInline(true);
         this.setOutput(true, "Sheet");
         this.setColour(20);
@@ -304,18 +308,20 @@ Blockly.JavaScript['spreadsheet_deleteactivesheet'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// deleteColumn(columnPosition)
 Blockly.Blocks['sheet_deletecolumn'] = {
     init: function() {
-        this.appendDummyInput()
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("列を削除する");
         this.appendValueInput("SHEET")
             .setCheck("Sheet")
             .appendField("シート");
+        this.appendDummyInput()
+            .appendField("の");
         this.appendValueInput("COLUMN")
             .setCheck("Number")
             .appendField("列");
+        this.appendDummyInput()
+            .appendField("を削除");
         this.setInputsInline(true);
         this.setOutput(true, "Sheet");
         this.setColour(20);
@@ -330,22 +336,23 @@ Blockly.JavaScript['sheet_deletecolumn'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-
+// ----------------------------------------------------------------
+// deleteColumns(columnPosition, howMany)
 Blockly.Blocks['sheet_deletecolumns'] = {
     init: function() {
-        this.appendDummyInput()
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("列を削除");
         this.appendValueInput("SHEET")
             .setCheck("Sheet")
             .appendField("シート");
+        this.appendDummyInput()
+            .appendField("の列を");
         this.appendValueInput("COLUMN")
             .setCheck("Number")
-            .appendField("列");
+        this.appendDummyInput()
+            .appendField("から");
         this.appendValueInput("HOWMANY")
             .setCheck("Number")
-            .appendField("列数");
+        this.appendDummyInput()
+            .appendField("個削除");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -362,18 +369,20 @@ Blockly.JavaScript['sheet_deletecolumns'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// deleteRow(rowPosition)
 Blockly.Blocks['sheet_deleterow'] = {
     init: function() {
-        this.appendDummyInput()
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("行を削除");
         this.appendValueInput("SHEET")
             .setCheck("Sheet")
             .appendField("シート");
+        this.appendDummyInput()
+            .appendField("の");
         this.appendValueInput("rowPosition")
             .setCheck("Number")
             .appendField("行");
+        this.appendDummyInput()
+            .appendField("を削除");
         this.setInputsInline(true);
         this.setOutput(true, "Sheet");
         this.setColour(20);
@@ -381,7 +390,6 @@ Blockly.Blocks['sheet_deleterow'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteRow(Integer)');
     }
 };
-
 Blockly.JavaScript['sheet_deleterow'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var value_rowposition = Blockly.JavaScript.valueToCode(block, 'rowPosition', Blockly.JavaScript.ORDER_NONE);
@@ -389,21 +397,21 @@ Blockly.JavaScript['sheet_deleterow'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// deleteRows(rowPosition, howMany)
 Blockly.Blocks['sheet_deleterows'] = {
     init: function() {
-        this.appendDummyInput()
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("行を削除");
         this.appendValueInput("SHEET")
             .setCheck("Sheet")
             .appendField("シート");
+        this.appendDummyInput()
+            .appendField("の行を");
         this.appendValueInput("rowPosition")
             .setCheck("Number")
-            .appendField("行");
+            .appendField("から");
         this.appendValueInput("HOWMANY")
             .setCheck("Number")
-            .appendField("行数");
+            .appendField("個削除");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -420,18 +428,20 @@ Blockly.JavaScript['sheet_deleterows'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// ----------------------------------------------------------------
+// deleteSheet(sheet)
 Blockly.Blocks['spreadsheet_deletesheet'] = {
     init: function() {
+        this.appendValueInput("Sheet")
+            .setCheck("Sheet")
+            .appendField("シート");
         this.appendDummyInput()
-            .appendField("スプレッドシート");
-        this.appendDummyInput()
-            .appendField("シートを削除");
+            .appendField("を");
         this.appendValueInput("SpreadSheet")
             .setCheck("Spreadsheet")
             .appendField("スプレッドシート");
-        this.appendValueInput("Sheet")
-            .setCheck("Sheet")
-            .appendField("のシート");
+        this.appendDummyInput()
+            .appendField("から削除");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -447,17 +457,17 @@ Blockly.JavaScript['spreadsheet_deletesheet'] = function(block) {
     return code;
 };
 
+// ----------------------------------------------------------------
+// duplicateActiveSheet()
 Blockly.Blocks['spreadsheet_duplicateactivesheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("複製");
+            .appendField("新しいシート");
         this.appendValueInput("Spreadsheet")
             .setCheck("Spreadsheet")
             .appendField("スプレッドシート");
         this.appendDummyInput()
-            .appendField("のアクティブなシート");
+            .appendField("のアクティブなシートを複製してアクティブに");
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(20);
@@ -471,15 +481,17 @@ Blockly.JavaScript['spreadsheet_duplicateactivesheet'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-Blockly.Blocks['sheet_getactivecell'] = {
+// ----------------------------------------------------------------
+// getActiveCell()
+Blockly.Blocks['spreadsheet_getactivecell'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("範囲");
-        this.appendDummyInput()
-            .appendField("アクティブなセルの範囲を取得");
         this.appendValueInput("Sheet")
             .setCheck("Sheet")
             .appendField("シート");
+        this.appendDummyInput()
+            .appendField("のアクティブなセルの範囲");
         this.setInputsInline(true);
         this.setOutput(true, "Range");
         this.setColour(20);
@@ -488,7 +500,7 @@ Blockly.Blocks['sheet_getactivecell'] = {
     }
 };
 
-Blockly.JavaScript['sheet_getactivecell'] = function(block) {
+Blockly.JavaScript['spreadsheet_getactivecell'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getActiveCell()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];

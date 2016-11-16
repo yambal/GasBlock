@@ -42,6 +42,7 @@
     <script src="js/blockly-blocks-gas-spreadsheet-app.js"></script>
     <script src="js/blockly-blocks-gas-spreadsheet.js"></script>
     <script src="js/gas-logger.js"></script>
+    <script src="js/gas-ui.js"></script>
     <script>
     (function() {
         $(document).ready(function() {
@@ -59,11 +60,21 @@
             $categoryGasLogger.append('<block type="logger_getlog"></block>');
             $categoryGasLogger.append('<block type="logger_log_format__values_"></block>');
 
+            // UI
+            var $categoryGasUI = $('<category name="UI" colour="210" />');
+            $categoryGasUI.append('<block type="ui_alert_prompt"></block>');
+            $categoryGasUI.append('<block type="alert_prompt_buttons"></block>');
+            $categoryGasUI.append('<block type="alert_title_prompt_buttons"></block>');
+            $categoryGasUI.append('<block type="ui_prompt_prompt"></block>');
+            $categoryGasUI.append('<block type="promptresponse_getresponsetext"></block>');
+            $categoryGasUI.append('<block type="promptresponse_getselectedbutton"></block>');
+            $categoryGasUI.append('<block type="button"></block>');
+            $categoryGasUI.append('<block type="alert_button_set"></block>');
+
             // スプレッドシート
             var $categorySpreadSheetRoot = $('<category name="スプレッドシート" colour="20" />');
             $categorySpreadSheetRoot.append('<block type="next"></block>');
             
-
             var $categorySpreadSheetAppClass = $('<category name="スプレッドシート APP" colour="20" />');
             $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_create"></block>');
             $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_flush"></block>');
@@ -81,28 +92,35 @@
             $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_setactivespreadsheet"></block>');
             $categorySpreadSheetRoot.append($categorySpreadSheetAppClass);
 
-            var $categorySheetClass = $('<category name="シート" colour="20" />');
-            $categorySheetClass.append('<block type="spreadsheet_addeditor_emailaddress"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_addeditor_user"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_addeditors_emailaddresses"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_addmenu"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_addviewer_emailaddress"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_addviewer_user"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_addviewers_emailaddress"></block>');
+            var $categorySheetClass_EditorAndViewer = $('<category name="編集者・閲覧者" colour="20" />');
+            $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addeditor_emailaddress"></block>');
+            $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addeditor_user"></block>');
+            $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addeditors_emailaddresses"></block>');
+            $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addviewer_emailaddress"></block>');
+            $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addviewer_user"></block>');
+            $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addviewers_emailaddress"></block>');
+            $categorySpreadSheetRoot.append($categorySheetClass_EditorAndViewer);
+
+            $categorySpreadSheetRoot.append('<block type="spreadsheet_addmenu"></block>');
+            $categorySpreadSheetRoot.append('<block type="spreadsheet_copy"></block>');
             
-            
-            $categorySheetClass.append('<block type="spreadsheet_appendrow"></block>');
-            $categorySheetClass.append('<block type="sheet_autoresizecolumn"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_copy"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_deleteactivesheet"></block>');
-            $categorySheetClass.append('<block type="sheet_deletecolumn"></block>');
-            $categorySheetClass.append('<block type="sheet_deletecolumns"></block>');
-            $categorySheetClass.append('<block type="sheet_deleterow"></block>');
-            $categorySheetClass.append('<block type="sheet_deleterows"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_deletesheet"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_duplicateactivesheet"></block>');
-            $categorySheetClass.append('<block type="sheet_getactivecell"></block>');
-            $categorySpreadSheetRoot.append($categorySheetClass);
+
+            var $categorySheet = $('<category name="シート" colour="20" />');
+            $categorySheet.append('<block type="sheet_autoresizecolumn"></block>');
+            $categorySheet.append('<block type="spreadsheet_appendrow"></block>');
+            $categorySheet.append('<block type="spreadsheet_deleteactivesheet"></block>');
+            $categorySheet.append('<block type="sheet_deletecolumn"></block>');
+            $categorySheet.append('<block type="sheet_deletecolumns"></block>');
+            $categorySheet.append('<block type="sheet_deleterow"></block>');
+            $categorySheet.append('<block type="sheet_deleterows"></block>');
+            $categorySheet.append('<block type="spreadsheet_deletesheet"></block>');
+            $categorySheet.append('<block type="spreadsheet_duplicateactivesheet"></block>');
+            $categorySpreadSheetRoot.append($categorySheet);
+
+            var $categoryRange = $('<category name="範囲" colour="20" />');
+            $categoryRange.append('<block type="spreadsheet_getactivecell"></block>');
+            $categorySpreadSheetRoot.append($categoryRange);
+
             /*
             var $categoryQModel = $('<category name="プロセスデータ" colour="210" />');
             $categoryQModel.append('<block type="get_process_instance_title"></block>');
@@ -207,6 +225,7 @@
             $xml.append('<sep></sep>');
 
             $xml.append($categoryGasLogger);
+            $xml.append($categoryGasUI);
             $xml.append('<sep></sep>');
             /*
             $xml.append($categoryParse);

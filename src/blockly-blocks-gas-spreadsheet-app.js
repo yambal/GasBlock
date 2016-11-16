@@ -195,7 +195,7 @@ Blockly.Blocks['spreadsheetapp_getui'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(Blockly.Msg.GAS_PREADSHEETAPP_GETUI);
-    this.setOutput(true, "Ui");
+    this.setOutput(true, "UI");
     this.setColour(20);
     this.setTooltip(Blockly.Msg.GAS_PREADSHEETAPP_GETUI.HELP);
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getUi()');
