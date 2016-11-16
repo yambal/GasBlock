@@ -1,6 +1,7 @@
 Blockly.Msg.GAS_LOGGER = "ロガー";
 Blockly.Msg.GAS_LOGGER_LOG_HELP = "ログに追記する";
 
+// ----------------------------------------------------------------
 Blockly.Blocks['logger'] = {
   init: function() {
     this.appendDummyInput()
@@ -13,36 +14,36 @@ Blockly.Blocks['logger'] = {
   }
 };
 Blockly.JavaScript['logger'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
   var code = 'Logger';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// ----------------------------------------------------------------
 // Logger.log
 Blockly.Blocks['logger_clear'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ロガー");
+        .appendField(Blockly.Msg.GAS_LOGGER);
     this.appendDummyInput()
         .appendField("クリアー");
     this.appendValueInput("Logger")
         .setCheck("Logger")
-        .appendField("ロガー");
+        .appendField(Blockly.Msg.GAS_LOGGER);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(210);
-    this.setTooltip('');
+    this.setTooltip('ログをクリアする');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/base/logger#clear()');
   }
 };
 Blockly.JavaScript['logger_clear'] = function(block) {
   var value_logger = Blockly.JavaScript.valueToCode(block, 'Logger', Blockly.JavaScript.ORDER_NONE);
-  // TODO: Assemble JavaScript into code variable.
   var code = value_logger + '.clear();\n';
   return code;
 };
 
+// ----------------------------------------------------------------
 // Logger.log
 Blockly.Blocks['logger_log'] = {
   init: function() {
@@ -70,11 +71,12 @@ Blockly.JavaScript['logger_log'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
 // getlog
 Blockly.Blocks['logger_getlog'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ロガー");
+        .appendField(Blockly.Msg.GAS_LOGGER);
     this.appendDummyInput()
         .appendField("取得");
     this.appendValueInput("Logger")
@@ -93,11 +95,12 @@ Blockly.JavaScript['logger_getlog'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
 // log(format, values)
 Blockly.Blocks['logger_log_format__values_'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ロガー");
+        .appendField(Blockly.Msg.GAS_LOGGER);
     this.appendDummyInput()
         .appendField("整形追記（スペニット）");
     this.appendValueInput("Logger")
@@ -106,7 +109,7 @@ Blockly.Blocks['logger_log_format__values_'] = {
     this.setInputsInline(true);
     this.setOutput(true, "Logger");
     this.setColour(210);
-    this.setTooltip('提供されるフォーマットと値を使用してログに追記します');
+    this.setTooltip('提供されるフォーマットと値を使用してログに追記します : このブロックはダミーです。スペニットとして参考にして下さい。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/base/logger#log(String,Object...)');
   }
 };

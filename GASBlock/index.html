@@ -60,49 +60,45 @@
             $categoryGasLogger.append('<block type="logger_log_format__values_"></block>');
 
             // スプレッドシート
-            var $categorySpreadSheetApp = $('<category name="スプレッドシート" colour="20" />');
-            $categorySpreadSheetApp.append('<block type="next"></block>');
-            $categorySpreadSheetApp.append('<block type="spreadsheetapp_flush"></block>');
-            $categorySpreadSheetApp.append('<block type="spreadsheetapp_getactiverange"></block>');
-            
-            $categorySpreadSheetApp.append('<block type="spreadsheetapp_getui"></block>');
+            var $categorySpreadSheetRoot = $('<category name="スプレッドシート" colour="20" />');
+            $categorySpreadSheetRoot.append('<block type="next"></block>');
+            $categorySpreadSheetRoot.append('<block type="spreadsheet_addmenu"></block>');
 
-            $categorySpreadSheetApp.append('<block type="spreadsheetapp_setactiverange"></block>');
-            
+            var $categorySpreadSheetAppClass = $('<category name="スプレッドシート APP" colour="20" />');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_create"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_flush"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getactive"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getactiverange"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getactivesheet"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getactivespreadsheet"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getui"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_newdatavalidation"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_open"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_openbyid"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_openbyurl"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_setactiverange"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_setactivesheet"></block>');
+            $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_setactivespreadsheet"></block>');
+            $categorySpreadSheetRoot.append($categorySpreadSheetAppClass);
 
-            $categorySpreadSheetApp.append('<block type="spreadsheet_addmenu"></block>');
-
-            var $categorySpreadSheet = $('<category name="スプレッドシート APP" colour="20" />');
-            $categorySpreadSheet.append('<block type="spreadsheetapp_create"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheetapp_getactive"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheetapp_getactivespreadsheet"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheetapp_open"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheetapp_openbyid"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheetapp_openbyurl"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheetapp_setactivespreadsheet"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheet_addeditor_emailaddress"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheet_addviewer_emailaddress"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheet_addviewers_emailaddress"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheet_addeditor_user"></block>');
-            $categorySpreadSheet.append('<block type="spreadsheet_addviewer_user"></block>');
-
-            $categorySpreadSheetApp.append($categorySpreadSheet);
-
-            var $categorySheet = $('<category name="シート" colour="20" />');
-            $categorySheet.append('<block type="spreadsheetapp_getactivesheet"></block>');
-            $categorySheet.append('<block type="spreadsheetapp_setactivesheet"></block>');
-            $categorySheet.append('<block type="spreadsheet_appendrow"></block>');
-            $categorySheet.append('<block type="sheet_autoresizecolumn"></block>');
-            $categorySheet.append('<block type="spreadsheet_copy"></block>');
-            $categorySheet.append('<block type="spreadsheet_deleteactivesheet"></block>');
-            $categorySheet.append('<block type="sheet_deletecolumn"></block>');
-            $categorySheet.append('<block type="sheet_deletecolumns"></block>');
-            $categorySheet.append('<block type="sheet_deleterow"></block>');
-            $categorySheet.append('<block type="sheet_deleterows"></block>');
-            $categorySheet.append('<block type="spreadsheet_deletesheet"></block>');
-            $categorySheet.append('<block type="spreadsheet_duplicateactivesheet"></block>');
-            $categorySheet.append('<block type="sheet_getactivecell"></block>');
-            $categorySpreadSheetApp.append($categorySheet);
+            var $categorySheetClass = $('<category name="シート" colour="20" />');
+            $categorySheetClass.append('<block type="spreadsheet_addeditor_emailaddress"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_addviewer_emailaddress"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_addviewers_emailaddress"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_addeditor_user"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_addviewer_user"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_appendrow"></block>');
+            $categorySheetClass.append('<block type="sheet_autoresizecolumn"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_copy"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_deleteactivesheet"></block>');
+            $categorySheetClass.append('<block type="sheet_deletecolumn"></block>');
+            $categorySheetClass.append('<block type="sheet_deletecolumns"></block>');
+            $categorySheetClass.append('<block type="sheet_deleterow"></block>');
+            $categorySheetClass.append('<block type="sheet_deleterows"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_deletesheet"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_duplicateactivesheet"></block>');
+            $categorySheetClass.append('<block type="sheet_getactivecell"></block>');
+            $categorySpreadSheetRoot.append($categorySheetClass);
             /*
             var $categoryQModel = $('<category name="プロセスデータ" colour="210" />');
             $categoryQModel.append('<block type="get_process_instance_title"></block>');
@@ -203,7 +199,7 @@
             $categoryError.append('<block type="throw_new_error"></block>');
 
             
-            $xml.append($categorySpreadSheetApp);
+            $xml.append($categorySpreadSheetRoot);
             $xml.append('<sep></sep>');
 
             $xml.append($categoryGasLogger);
