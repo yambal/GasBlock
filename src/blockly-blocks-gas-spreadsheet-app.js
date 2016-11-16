@@ -128,6 +128,46 @@ Blockly.JavaScript['spreadsheetapp_getactive'] = function(block) {
 };
 
 // ------------------------------------------------------------
+// SpreadsheetApp.getActiveRange()
+Blockly.Blocks['spreadsheetapp_getactiverange'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVERANGE);
+    this.appendDummyInput()
+        .appendField("選択されている範囲");
+    this.setInputsInline(true);
+    this.setOutput(true, "Range");
+    this.setColour(20);
+    this.setTooltip(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVERANGE_HELP);
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveRange()');
+  }
+};
+Blockly.JavaScript['spreadsheetapp_getactiverange'] = function(block) {
+  var code = 'SpreadsheetApp.getActiveRange()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ------------------------------------------------------------
+// SpreadsheetApp.getActiveSheet()
+Blockly.Blocks['spreadsheetapp_getactivesheet'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVESHEET);
+    this.appendDummyInput()
+        .appendField("現在のアクティブ");
+    this.setInputsInline(true);
+    this.setOutput(true, "Sheet");
+    this.setColour(20);
+    this.setTooltip(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVESHEET_HELP);
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveSheet()');
+  }
+};
+Blockly.JavaScript['spreadsheetapp_getactivesheet'] = function(block) {
+  var code = 'SpreadsheetApp.getActiveSheet()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ------------------------------------------------------------
 // SpreadsheetApp.getActiveSpreadsheet()
 Blockly.Blocks['spreadsheetapp_getactivespreadsheet'] = {
   init: function() {
@@ -150,48 +190,6 @@ Blockly.JavaScript['spreadsheetapp_getactivespreadsheet'] = function(block) {
 };
 
 // ------------------------------------------------------------
-// SpreadsheetApp.getActiveRange()
-Blockly.Blocks['spreadsheetapp_getactiverange'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVERANGE);
-    this.appendDummyInput()
-        .appendField("選択されている範囲");
-    this.setInputsInline(true);
-    this.setOutput(true, "Range");
-    this.setColour(20);
-    this.setTooltip(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVERANGE_HELP);
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveRange()');
-  }
-};
-
-Blockly.JavaScript['spreadsheetapp_getactiverange'] = function(block) {
-  var code = 'SpreadsheetApp.getActiveRange()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-
-// ------------------------------------------------------------
-// SpreadsheetApp.getActiveSheet()
-Blockly.Blocks['spreadsheetapp_getactivesheet'] = {
-  init: function() {
-  	this.appendDummyInput()
-        .appendField(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVESHEET);
-    this.appendDummyInput()
-        .appendField("現在のアクティブ");
-    this.setInputsInline(true);
-    this.setOutput(true, "Sheet");
-    this.setColour(20);
-    this.setTooltip(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVESHEET_HELP);
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveSheet()');
-  }
-};
-
-Blockly.JavaScript['spreadsheetapp_getactivesheet'] = function(block) {
-  var code = 'SpreadsheetApp.getActiveSheet()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-
-// ------------------------------------------------------------
 // SpreadsheetApp.getUi()
 Blockly.Blocks['spreadsheetapp_getui'] = {
   init: function() {
@@ -207,6 +205,7 @@ Blockly.JavaScript['spreadsheetapp_getui'] = function(block) {
   var code = 'SpreadsheetApp.getUi()';
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
 
 // ------------------------------------------------------------
 // SpreadsheetApp.newDataValidation()
@@ -291,6 +290,8 @@ Blockly.JavaScript['spreadsheetapp_openbyurl'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ------------------------------------------------------------
+// SpreadsheetApp.setActiveRange(range)
 Blockly.Blocks['spreadsheetapp_setactiverange'] = {
   init: function() {
     this.appendDummyInput()
@@ -313,6 +314,8 @@ Blockly.JavaScript['spreadsheetapp_setactiverange'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ------------------------------------------------------------
+// SpreadsheetApp.setActiveSheet(sheet)
 Blockly.Blocks['spreadsheetapp_setactivesheet'] = {
   init: function() {
     this.appendDummyInput()
@@ -335,6 +338,8 @@ Blockly.JavaScript['spreadsheetapp_setactivesheet'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ------------------------------------------------------------
+// SpreadsheetApp.setActiveSpreadsheet(newActiveSpreadsheet)
 Blockly.Blocks['spreadsheetapp_setactivespreadsheet'] = {
   init: function() {
     this.appendDummyInput()

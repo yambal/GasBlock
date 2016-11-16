@@ -59,6 +59,7 @@
             $categoryGasLogger.append('<block type="logger_getlog"></block>');
             $categoryGasLogger.append('<block type="logger_log_format__values_"></block>');
 
+            // スプレッドシート
             var $categorySpreadSheetApp = $('<category name="スプレッドシート" colour="20" />');
             $categorySpreadSheetApp.append('<block type="next"></block>');
             $categorySpreadSheetApp.append('<block type="spreadsheetapp_flush"></block>');
@@ -71,7 +72,7 @@
 
             $categorySpreadSheetApp.append('<block type="spreadsheet_addmenu"></block>');
 
-            var $categorySpreadSheet = $('<category name="スプレッドシート" colour="20" />');
+            var $categorySpreadSheet = $('<category name="スプレッドシート APP" colour="20" />');
             $categorySpreadSheet.append('<block type="spreadsheetapp_create"></block>');
             $categorySpreadSheet.append('<block type="spreadsheetapp_getactive"></block>');
             $categorySpreadSheet.append('<block type="spreadsheetapp_getactivespreadsheet"></block>');
