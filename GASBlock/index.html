@@ -62,7 +62,7 @@
             // スプレッドシート
             var $categorySpreadSheetRoot = $('<category name="スプレッドシート" colour="20" />');
             $categorySpreadSheetRoot.append('<block type="next"></block>');
-            $categorySpreadSheetRoot.append('<block type="spreadsheet_addmenu"></block>');
+            
 
             var $categorySpreadSheetAppClass = $('<category name="スプレッドシート APP" colour="20" />');
             $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_create"></block>');
@@ -83,10 +83,14 @@
 
             var $categorySheetClass = $('<category name="シート" colour="20" />');
             $categorySheetClass.append('<block type="spreadsheet_addeditor_emailaddress"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_addviewer_emailaddress"></block>');
-            $categorySheetClass.append('<block type="spreadsheet_addviewers_emailaddress"></block>');
             $categorySheetClass.append('<block type="spreadsheet_addeditor_user"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_addeditors_emailaddresses"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_addmenu"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_addviewer_emailaddress"></block>');
             $categorySheetClass.append('<block type="spreadsheet_addviewer_user"></block>');
+            $categorySheetClass.append('<block type="spreadsheet_addviewers_emailaddress"></block>');
+            
+            
             $categorySheetClass.append('<block type="spreadsheet_appendrow"></block>');
             $categorySheetClass.append('<block type="sheet_autoresizecolumn"></block>');
             $categorySheetClass.append('<block type="spreadsheet_copy"></block>');

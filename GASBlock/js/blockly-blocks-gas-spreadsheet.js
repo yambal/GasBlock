@@ -25,58 +25,6 @@ Blockly.JavaScript['spreadsheet_addeditor_emailaddress'] = function(block) {
 };
 
 // ----------------------------------------------------------------
-// addViewer(String)
-Blockly.Blocks['spreadsheet_addviewer_emailaddress'] = {
-    init: function() {
-        this.appendValueInput("Spreadsheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
-        this.appendDummyInput()
-            .appendField("閲覧者を追加");
-        this.appendValueInput("EMAIL")
-            .setCheck("String")
-            .appendField("emailAddress");
-        this.setInputsInline(true);
-        this.setOutput(true, "Spreadsheet");
-        this.setColour(20);
-        this.setTooltip('閲覧者のリストに与えられたユーザーを追加します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addViewer(String)');
-    }
-};
-Blockly.JavaScript['spreadsheet_addviewer_emailaddress'] = function(block) {
-    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
-    var value_email = Blockly.JavaScript.valueToCode(block, 'EMAIL', Blockly.JavaScript.ORDER_NONE);
-    var code = value_spreadsheet + '.addViewer(' + value_email + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-
-// ----------------------------------------------------------------
-// addViewers(String)
-Blockly.Blocks['spreadsheet_addviewers_emailaddress'] = {
-    init: function() {
-        this.appendValueInput("Spreadsheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
-        this.appendDummyInput()
-            .appendField("閲覧者を追加");
-        this.appendValueInput("EMAILS")
-            .setCheck("Array")
-            .appendField("emailAddress（複数）");
-        this.setInputsInline(true);
-        this.setOutput(true, "Spreadsheet");
-        this.setColour(20);
-        this.setTooltip('閲覧者のリストに与えられたユーザー（複数）を追加します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addViewers(String)');
-    }
-};
-Blockly.JavaScript['spreadsheet_addviewers_emailaddress'] = function(block) {
-    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
-    var value_emails = Blockly.JavaScript.valueToCode(block, 'EMAILS', Blockly.JavaScript.ORDER_NONE);
-    var code = value_spreadsheet + '.addViewers(' + value_emails + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-
-// ----------------------------------------------------------------
 // addEditor(User)
 Blockly.Blocks['spreadsheet_addeditor_user'] = {
     init: function() {
@@ -103,29 +51,32 @@ Blockly.JavaScript['spreadsheet_addeditor_user'] = function(block) {
 };
 
 // ----------------------------------------------------------------
-// addEditor(User)
-Blockly.Blocks['spreadsheet_addviewer_user'] = {
-    init: function() {
-        this.appendValueInput("Spreadsheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
-        this.appendDummyInput()
-            .appendField("閲覧者を追加");
-        this.appendValueInput("USER")
-            .setCheck("User")
-            .appendField("ユーザー");
-        this.setInputsInline(true);
-        this.setOutput(true, "Spreadsheet");
-        this.setColour(20);
-        this.setTooltip('閲覧者のリストに与えられたユーザーを追加します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addViewer(User)');
-    }
+// addEditors(emailAddresses)
+Blockly.Blocks['spreadsheet_addeditors_emailaddresses'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("スプレッドシート");
+    this.appendValueInput("Spreadsheet")
+        .setCheck("Spreadsheet");
+    this.appendDummyInput()
+        .appendField("に");
+    this.appendDummyInput()
+        .appendField("編集者を追加");
+    this.appendValueInput("emailAddresses")
+        .setCheck("Array")
+        .appendField("メールアドレス（リスト）");
+    this.setInputsInline(true);
+    this.setOutput(true, "Spreadsheet");
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addEditors(String)');
+  }
 };
-Blockly.JavaScript['spreadsheet_addviewer_user'] = function(block) {
-    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
-    var value_user = Blockly.JavaScript.valueToCode(block, 'USER', Blockly.JavaScript.ORDER_NONE);
-    var code = value_spreadsheet + '.addViewer(' + value_user + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+Blockly.JavaScript['spreadsheet_addeditors_emailaddresses'] = function(block) {
+  var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+  var value_emailaddresses = Blockly.JavaScript.valueToCode(block, 'emailAddresses', Blockly.JavaScript.ORDER_NONE);
+  var code = value_spreadsheet + '.addEditors(' + value_emailaddresses + ')';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ----------------------------------------------------------------
@@ -161,6 +112,88 @@ Blockly.JavaScript['spreadsheet_addmenu'] = function(block) {
     var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SPREADSHEET', Blockly.JavaScript.ORDER_NONE);
     var code = value_spreadsheet + '.addMenu(' + value_menuname + ', ' + value_submenues + ');\n';
     return code;
+};
+
+// ----------------------------------------------------------------
+// addViewer(String)
+Blockly.Blocks['spreadsheet_addviewer_emailaddress'] = {
+    init: function() {
+        this.appendValueInput("Spreadsheet")
+            .setCheck("Spreadsheet")
+            .appendField("スプレッドシート");
+        this.appendDummyInput()
+        .appendField("に");
+        this.appendDummyInput()
+            .appendField("閲覧者を追加");
+        this.appendValueInput("EMAIL")
+            .setCheck("String")
+            .appendField("emailAddress");
+        this.setInputsInline(true);
+        this.setOutput(true, "Spreadsheet");
+        this.setColour(20);
+        this.setTooltip('閲覧者のリストに与えられたユーザーを追加します');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addViewer(String)');
+    }
+};
+Blockly.JavaScript['spreadsheet_addviewer_emailaddress'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+    var value_email = Blockly.JavaScript.valueToCode(block, 'EMAIL', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.addViewer(' + value_email + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ----------------------------------------------------------------
+// addEditor(User)
+Blockly.Blocks['spreadsheet_addviewer_user'] = {
+    init: function() {
+        this.appendValueInput("Spreadsheet")
+            .setCheck("Spreadsheet")
+            .appendField("スプレッドシート");
+        this.appendDummyInput()
+            .appendField("閲覧者を追加");
+        this.appendValueInput("USER")
+            .setCheck("User")
+            .appendField("ユーザー");
+        this.setInputsInline(true);
+        this.setOutput(true, "Spreadsheet");
+        this.setColour(20);
+        this.setTooltip('閲覧者のリストに与えられたユーザーを追加します');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addViewer(User)');
+    }
+};
+Blockly.JavaScript['spreadsheet_addviewer_user'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+    var value_user = Blockly.JavaScript.valueToCode(block, 'USER', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.addViewer(' + value_user + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ----------------------------------------------------------------
+// addViewers(String)
+Blockly.Blocks['spreadsheet_addviewers_emailaddress'] = {
+    init: function() {
+        this.appendValueInput("Spreadsheet")
+            .setCheck("Spreadsheet")
+            .appendField("スプレッドシート");
+        this.appendDummyInput()
+        .appendField("に");
+        this.appendDummyInput()
+            .appendField("閲覧者を追加");
+        this.appendValueInput("EMAILS")
+            .setCheck("Array")
+            .appendField("emailAddress（複数）");
+        this.setInputsInline(true);
+        this.setOutput(true, "Spreadsheet");
+        this.setColour(20);
+        this.setTooltip('閲覧者のリストに与えられたユーザー（複数）を追加します');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addViewers(String)');
+    }
+};
+Blockly.JavaScript['spreadsheet_addviewers_emailaddress'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+    var value_emails = Blockly.JavaScript.valueToCode(block, 'EMAILS', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.addViewers(' + value_emails + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ----------------------------------------------------------------
