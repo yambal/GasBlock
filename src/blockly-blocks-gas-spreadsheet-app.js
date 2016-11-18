@@ -112,8 +112,6 @@ Blockly.Blocks['spreadsheetapp_getactive'] = {
         .appendField(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVE);
     this.appendDummyInput()
         .appendField("現在のアクティブ");
-    this.appendDummyInput()
-        .appendField("getActive()");
     this.setInputsInline(true);
     this.setOutput(true, "Spreadsheet");
     this.setColour(20);
@@ -175,8 +173,6 @@ Blockly.Blocks['spreadsheetapp_getactivespreadsheet'] = {
         .appendField(Blockly.Msg.GAS_PREADSHEETAPP_GETACTIVESPREADSHEET);
     this.appendDummyInput()
         .appendField("現在のアクティブ");
-    this.appendDummyInput()
-        .appendField("getActiveSpreadsheet()");
     this.setInputsInline(true);
     this.setOutput(true, "Spreadsheet");
     this.setColour(20);
