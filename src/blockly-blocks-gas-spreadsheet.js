@@ -196,62 +196,9 @@ Blockly.JavaScript['spreadsheet_addviewers_emailaddress'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-// ----------------------------------------------------------------
-Blockly.Blocks['spreadsheet_appendrow'] = {
-    init: function() {
-        this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("の最後に");
-        this.appendValueInput("ROWCONTENT")
-            .setCheck("Array")
-            .appendField("行(リスト)");
-        this.appendDummyInput()
-            .appendField("を");
-        this.appendDummyInput()
-            .appendField("追加");
-        this.setInputsInline(true);
-        this.setOutput(true, "Sheet");
-        this.setColour(20);
-        this.setTooltip('シートに行を追加します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#appendRow(Object)');
-    }
-};
-Blockly.JavaScript['spreadsheet_appendrow'] = function(block) {
-    var value_rowcontent = Blockly.JavaScript.valueToCode(block, 'ROWCONTENT', Blockly.JavaScript.ORDER_NONE);
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.appendRow(' + value_rowcontent + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
 
-// ----------------------------------------------------------------
-// autoResizeColumn()
-Blockly.Blocks['sheet_autoresizecolumn'] = {
-    init: function() {
-        this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("の");
-        this.appendValueInput("COLUMN")
-            .setCheck("Number")
-            .appendField("列");
-        this.appendDummyInput()
-            .appendField("の幅をフィット");
-        this.setInputsInline(true);
-        this.setOutput(true, "Sheet");
-        this.setColour(20);
-        this.setTooltip('列の幅をその内容に合わせてます');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#autoResizeColumn(Integer)');
-    }
-};
-Blockly.JavaScript['sheet_autoresizecolumn'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
-    var value_column = Blockly.JavaScript.valueToCode(block, 'COLUMN', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.autoResizeColumn(' + value_column + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
+
+
 
 // ----------------------------------------------------------------
 // copy(name)
@@ -308,128 +255,15 @@ Blockly.JavaScript['spreadsheet_deleteactivesheet'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-// ----------------------------------------------------------------
-// deleteColumn(columnPosition)
-Blockly.Blocks['sheet_deletecolumn'] = {
-    init: function() {
-        this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("の");
-        this.appendValueInput("COLUMN")
-            .setCheck("Number")
-            .appendField("列");
-        this.appendDummyInput()
-            .appendField("を削除");
-        this.setInputsInline(true);
-        this.setOutput(true, "Sheet");
-        this.setColour(20);
-        this.setTooltip('指定した列の位置の列を削除します（最初の列は 1 となります）');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteColumn(Integer)');
-    }
-};
-Blockly.JavaScript['sheet_deletecolumn'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
-    var value_column = Blockly.JavaScript.valueToCode(block, 'COLUMN', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.deleteColumn(' + value_column + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-
-// ----------------------------------------------------------------
-// deleteColumns(columnPosition, howMany)
-Blockly.Blocks['sheet_deletecolumns'] = {
-    init: function() {
-        this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("の列を");
-        this.appendValueInput("COLUMN")
-            .setCheck("Number")
-        this.appendDummyInput()
-            .appendField("から");
-        this.appendValueInput("HOWMANY")
-            .setCheck("Number")
-        this.appendDummyInput()
-            .appendField("個削除");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(20);
-        this.setTooltip('指定した列の位置（最初の列は 1）から、指定数の列を削除します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteColumns(Integer,Integer)');
-    }
-};
-Blockly.JavaScript['sheet_deletecolumns'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
-    var value_column = Blockly.JavaScript.valueToCode(block, 'COLUMN', Blockly.JavaScript.ORDER_NONE);
-    var value_howmany = Blockly.JavaScript.valueToCode(block, 'HOWMANY', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.deleteColumns(' + value_column + ', ' + value_howmany + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-
-// ----------------------------------------------------------------
-// deleteRow(rowPosition)
-Blockly.Blocks['sheet_deleterow'] = {
-    init: function() {
-        this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("の");
-        this.appendValueInput("rowPosition")
-            .setCheck("Number")
-            .appendField("行");
-        this.appendDummyInput()
-            .appendField("を削除");
-        this.setInputsInline(true);
-        this.setOutput(true, "Sheet");
-        this.setColour(20);
-        this.setTooltip('指定された行（最初の行は 1）を削除します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteRow(Integer)');
-    }
-};
-Blockly.JavaScript['sheet_deleterow'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
-    var value_rowposition = Blockly.JavaScript.valueToCode(block, 'rowPosition', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.deleteRow(' + value_rowposition + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-
-// ----------------------------------------------------------------
-// deleteRows(rowPosition, howMany)
-Blockly.Blocks['sheet_deleterows'] = {
-    init: function() {
-        this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("の行を");
-        this.appendValueInput("rowPosition")
-            .setCheck("Number")
-            .appendField("から");
-        this.appendValueInput("HOWMANY")
-            .setCheck("Number")
-            .appendField("個削除");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(20);
-        this.setTooltip('指定した行の位置（最初の列は 1）から、指定数の行を削除します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteRows(Integer,Integer)');
-    }
-};
-Blockly.JavaScript['sheet_deleterows'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_rowposition = Blockly.JavaScript.valueToCode(block, 'rowPosition', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_howmany = Blockly.JavaScript.valueToCode(block, 'HOWMANY', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = value_sheet + '.deleteRows(' + value_rowposition + ', ' + value_howmany + ')';
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
+/*
+deleteColumn(columnPosition)    Sheet   Deletes the column at the given column position.
+deleteColumns(columnPosition, howMany)  void    Deletes a number of columns starting at the given column position.
+deleteRow(rowPosition)  Sheet   Deletes the row at the given row position.
+deleteRows(rowPosition, howMany)    void    Deletes a number of rows starting at the given row position. 
+*/
 // ----------------------------------------------------------------
 // deleteSheet(sheet)
+// Deletes the specified sheet.
 Blockly.Blocks['spreadsheet_deletesheet'] = {
     init: function() {
         this.appendValueInput("Sheet")
@@ -456,9 +290,10 @@ Blockly.JavaScript['spreadsheet_deletesheet'] = function(block) {
     var code = value_spreadsheet + '.deleteSheet(' + value_sheet + ')';
     return code;
 };
-
+  
 // ----------------------------------------------------------------
 // duplicateActiveSheet()
+// Duplicates the active sheet and makes it the active sheet.
 Blockly.Blocks['spreadsheet_duplicateactivesheet'] = {
     init: function() {
         this.appendDummyInput()
@@ -480,28 +315,115 @@ Blockly.JavaScript['spreadsheet_duplicateactivesheet'] = function(block) {
     var code = value_spreadsheet + '.duplicateActiveSheet()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+/*
+getActiveCell() Range   Returns the active cell in this sheet.
+getActiveRange()    Range   Returns the active range for the active sheet.
 
+*/
 // ----------------------------------------------------------------
-// getActiveCell()
-Blockly.Blocks['spreadsheet_getactivecell'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField("範囲");
-        this.appendValueInput("Sheet")
-            .setCheck("Sheet")
-            .appendField("シート");
-        this.appendDummyInput()
-            .appendField("のアクティブなセルの範囲");
-        this.setInputsInline(true);
-        this.setOutput(true, "Range");
-        this.setColour(20);
-        this.setTooltip('シートのアクティブセルを返します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getActiveCell()');
-    }
+// getActiveSheet()
+// Gets the active sheet in a spreadsheet.
+Blockly.Blocks['spreadsheet_getactivesheet'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("シート");
+    this.appendValueInput("Spreadsheet")
+        .setCheck("Spreadsheet")
+        .appendField("スプレッドシート");
+    this.appendDummyInput()
+        .appendField("のアクティブシートを取得");
+    this.setInputsInline(true);
+    this.setOutput(true, "Sheet");
+    this.setColour(20);
+    this.setTooltip('スプレッドシート内のアクティブシートを取得します');
+    this.setHelpUrl('http://www.example.com/');
+  }
 };
+Blockly.JavaScript['spreadsheet_getactivesheet'] = function(block) {
+  var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+  var code = value_spreadsheet + '.getActiveSheet()';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+/*
+getAs(contentType)  Blob    Return the data inside this object as a blob converted to the specified content type.
+getBlob()   Blob    Return the data inside this object as a blob.
+getColumnWidth(columnPosition)  Integer Gets the width in pixels of the given column.
+getDataRange()  Range   Returns a Range corresponding to the dimensions in which data is present.
+getEditors()    User[]  Gets the list of editors for this Spreadsheet.
+getFormUrl()    String  Returns the url for the form attached to the spreadsheet, null if there is no form.
+getFrozenColumns()  Integer Returns the number of frozen columns.
+getFrozenRows() Integer Returns the number of frozen rows.
+getId() String  Gets a unique identifier for this spreadsheet.
+getLastColumn() Integer Returns the position of the last column that has content.
+getLastRow()    Integer Returns the position of the last row that has content.
+getName()   String  Gets the name of the document.
+getNamedRanges()    NamedRange[]    Gets all the named ranges in this spreadsheet.
+getNumSheets()  Integer Returns the number of sheets in this spreadsheet.
+getOwner()  User    Returns the owner of the document.
+getProtections(type)    Protection[]    Gets an array of objects representing all protected ranges or sheets in the spreadsheet.
+getRange(a1Notation)    Range   Returns the range as specified in A1 notation or R1C1 notation.
+getRangeByName(name)    Range   Returns a named range, or null if no range with the given name is found.
+getRowHeight(rowPosition)   Integer Gets the height in pixels of the given row.
+getSheetByName(name)    Sheet   Returns a sheet with the given name.
+getSheetId()    Integer Returns the ID of the sheet represented by this object.
+getSheetName()  String  Returns the sheet name.
+getSheetValues(startRow, startColumn, numRows, numColumns)  Object[][]  Returns the rectangular grid of values for this range starting at the given coordinates.
+getSheets() Sheet[] Gets all the sheets in this spreadsheet.
+getSpreadsheetLocale()  String  Gets the spreadsheet locale.
+getSpreadsheetTimeZone()    String  Gets the time zone for the spreadsheet.
+getUrl()    String  Returns the url for the given spreadsheet.
+getViewers()    User[]  Gets the list of viewers and commenters for this Spreadsheet.
+hideColumn(column)  void    Hides the columns in the given range.
+hideRow(row)    void    Hides the rows in the given range.
+insertColumnAfter(afterPosition)    Sheet   Inserts a column after the given column position.
+insertColumnBefore(beforePosition)  Sheet   Inserts a column before the given column position.
+insertColumnsAfter(afterPosition, howMany)  Sheet   Inserts a number of columns after the given column position.
+insertColumnsBefore(beforePosition, howMany)    Sheet   Inserts a number of columns before the given column position.
+insertImage(blob, column, row)  void    Inserts a Blob as an image in the document at a given row and column.
+insertImage(blob, column, row, offsetX, offsetY)    void    Inserts a Blob as an image in the document at a given row and column, with a pixel offset.
+insertImage(url, column, row)   void    Inserts an image in the document at a given row and column.
+insertImage(url, column, row, offsetX, offsetY) void    Inserts an image in the document at a given row and column, with a pixel offset.
+insertRowAfter(afterPosition)   Sheet   Inserts a row after the given row position.
+insertRowBefore(beforePosition) Sheet   Inserts a row before the given row position.
+insertRowsAfter(afterPosition, howMany) Sheet   Inserts a number of rows after the given row position.
+insertRowsBefore(beforePosition, howMany)   Sheet   Inserts a number of rows before the given row position.
+insertSheet()   Sheet   Inserts a new sheet in the spreadsheet, with a default name.
+insertSheet(sheetIndex) Sheet   Inserts a new sheet in the spreadsheet at the given index.
+insertSheet(sheetIndex, options)    Sheet   Inserts a new sheet in the spreadsheet at the given index and uses optional advanced arguments.
+insertSheet(options)    Sheet   Inserts a new sheet in the spreadsheet, with a default name and uses optional advanced arguments.
+insertSheet(sheetName)  Sheet   Inserts a new sheet in the spreadsheet with the given name.
+insertSheet(sheetName, sheetIndex)  Sheet   Inserts a new sheet in the spreadsheet with the given name at the given index.
+insertSheet(sheetName, sheetIndex, options) Sheet   Inserts a new sheet in the spreadsheet with the given name at the given index and uses optional advanced arguments.
+insertSheet(sheetName, options) Sheet   Inserts a new sheet in the spreadsheet with the given name and uses optional advanced arguments.
+moveActiveSheet(pos)    void    Moves the active sheet to the given position in the list of sheets.
+removeEditor(emailAddress)  Spreadsheet Removes the given user from the list of editors for the Spreadsheet.
+removeEditor(user)  Spreadsheet Removes the given user from the list of editors for the Spreadsheet.
+removeMenu(name)    void    Removes a menu that was added by addMenu(name, subMenus).
+removeNamedRange(name)  void    Deletes a named range with the given name.
+removeViewer(emailAddress)  Spreadsheet Removes the given user from the list of viewers and commenters for the Spreadsheet.
+removeViewer(user)  Spreadsheet Removes the given user from the list of viewers and commenters for the Spreadsheet.
+rename(newName) void    Renames the document.
+renameActiveSheet(newName)  void    Renames the current active sheet to the given new name.
+setActiveRange(range)   Range   Sets the active range for the active sheet.
+setActiveSelection(range)   Range   Sets the active selection region for this sheet.
+setActiveSelection(a1Notation)  Range   Sets the active selection, as specified in A1 notation or R1C1 notation.
+setActiveSheet(sheet)   Sheet   Sets the given sheet to be the active sheet in the spreadsheet.
+setColumnWidth(columnPosition, width)   Sheet   Sets the width of the given column in pixels.
+setFrozenColumns(columns)   void    Freezes the given number of columns.
+setFrozenRows(rows) void    Freezes the given number of rows.
+setNamedRange(name, range)  void    Names a range.
+setRowHeight(rowPosition, height)   Sheet   Sets the row height of the given row in pixels.
+setSpreadsheetLocale(locale)    void    Sets the spreadsheet locale.
+setSpreadsheetTimeZone(timezone)    void    Sets the time zone for the spreadsheet.
+show(userInterface) void    Displays a custom user interface component in a dialog centered in the user's browser's viewport.
+sort(columnPosition)    Sheet   Sorts a sheet by column, ascending.
+sort(columnPosition, ascending) Sheet   Sorts a sheet by column.
+toast(msg)  void    Shows a popup window in the lower right corner of the spreadsheet with the given message.
+toast(msg, title)   void    Shows a popup window in the lower right corner of the spreadsheet with the given message and title.
+toast(msg, title, timeoutSeconds)   void    Shows a popup window in the lower right corner of the spreadsheet with the given title and message, that stays visible for a certain length of time.
+unhideColumn(column)    void    Unhides the column in the given range.
+unhideRow(row)  void    Unhides the row in the given range.
+updateMenu(name, subMenus)  void    Updates a menu that was added by addMenu(name, subMenus).
+*/
 
-Blockly.JavaScript['spreadsheet_getactivecell'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.getActiveCell()';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
