@@ -49,7 +49,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |Yes		|	getRange(a1Notation)					|	Range			|
 |None		|	getProtections(type)					|	Protection[]		|
 |None		|	getRangeByName(name)				|	Range			|
-|None		|	getSheetByName(name)				|	Sheet			|
+|Yes		|	getSheetByName(name)				|	Sheet			|
 |None		|	getSheets()						|	Sheet[]			|
 |None		|	getSpreadsheetLocale()				|	String			|
 |None		|	getSpreadsheetTimeZone()				|	String			|

@@ -454,7 +454,7 @@ Blockly.Blocks['spreadsheet_getrange_a1notation'] = {
       .setCheck(Blockly.TYPE.GAS.SS)
       .appendField(Blockly.Msg.GAS.SS.IO.SS);
     this.appendDummyInput()
-      .appendField("の");
+      .appendField("の内");
     this.appendValueInput("a1Notation")
       .setCheck("String")
       .appendField(Blockly.Msg.GAS.SS.IO.STRING_A1NOTATION);
@@ -477,7 +477,39 @@ Blockly.JavaScript['spreadsheet_getrange_a1notation'] = function(block) {
 /*
 getRangeByName(name)    Range   Returns a named range, or null if no range with the given name is found.
 getRowHeight(rowPosition)   Integer Gets the height in pixels of the given row.
-getSheetByName(name)    Sheet   Returns a sheet with the given name.
+*/
+// getSheetByName(name)
+// Returns a sheet with the given name.
+Blockly.Blocks['spreadsheet_getsheetbyname'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+    this.appendValueInput("Spreadsheet")
+      .setCheck(Blockly.TYPE.GAS.SHEET)
+      .appendField(Blockly.Msg.GAS.SS.IO.SS);
+    this.appendDummyInput()
+      .appendField("の");
+    this.appendValueInput("name")
+      .setCheck("String")
+      .appendField(Blockly.Msg.GAS.SS.IO.STRING_NAME);
+    this.appendDummyInput()
+      .appendField("のシート");
+    this.setInputsInline(true);
+    this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+    this.setColour(20);
+    this.setTooltip('指定された名前のシートを返します。複数のシートが同じ名前を持つ場合一番左のものが返されます。指定された名前のシートがない場合はnullを返します。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getSheetByName(String)');
+  }
+};
+Blockly.JavaScript['spreadsheet_getsheetbyname'] = function(block) {
+  var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
+  var code = value_spreadsheet + '.getSheetByName(' + value_name + ')';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 getSheetId()    Integer Returns the ID of the sheet represented by this object.
 getSheetName()  String  Returns the sheet name.
 getSheetValues(startRow, startColumn, numRows, numColumns)  Object[][]  Returns the rectangular grid of values for this range starting at the given coordinates.
