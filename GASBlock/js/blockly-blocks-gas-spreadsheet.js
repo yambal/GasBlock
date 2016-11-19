@@ -376,7 +376,7 @@ Blockly.Blocks['spreadsheet_getid'] = {
     this.setInputsInline(true);
     this.setOutput(true, "String");
     this.setColour(20);
-    this.setTooltip('');
+    this.setTooltip('このスプレッドシートの一意のIDを取得します');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getId()');
   }
 };
@@ -385,10 +385,33 @@ Blockly.JavaScript['spreadsheet_getid'] = function(block) {
   var code = value_spreadsheet + '.getId()';
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+// ----------------------------------------------------------------
+// getName() 
+// Gets the name of the document.
+Blockly.Blocks['spreadsheet_getname'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.GAS.SS.IO.STRING_NAME);
+    this.appendValueInput("Spreadsheet")
+        .setCheck(Blockly.TYPE.GAS.SS)
+        .appendField(Blockly.Msg.GAS.SS.IO.SS);
+    this.appendDummyInput()
+        .appendField("の名前");
+    this.setInputsInline(true);
+    this.setOutput(true, "String");
+    this.setColour(20);
+    this.setTooltip('ドキュメントの名前を取得します');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getname');
+  }
+};
+Blockly.JavaScript['spreadsheet_getname'] = function(block) {
+  var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+  var code = value_spreadsheet + '.getName()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 /*
-getLastColumn() Integer Returns the position of the last column that has content.
-getLastRow()    Integer Returns the position of the last row that has content.
-getName()   String  Gets the name of the document.
 getNamedRanges()    NamedRange[]    Gets all the named ranges in this spreadsheet.
 getNumSheets()  Integer Returns the number of sheets in this spreadsheet.
 getOwner()  User    Returns the owner of the document.

@@ -42,7 +42,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	getEditors()						|	User[]			|
 |None		|	getFormUrl()						|	String			|
 |Yes		|	getId()							|	String			|
-|None		|	getName()						|	String			|
+|Yes		|	getName()						|	String			|
 |None		|	getNamedRanges()					|	NamedRange[]		|
 |None		|	getNumSheets()					|	Integer			|
 |None		|	getOwner()						|	User			|
