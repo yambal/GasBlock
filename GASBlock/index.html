@@ -97,8 +97,7 @@
 
             // スプレッドシート > スプレッドシート
             var $categorySpreadSheet = $('<category name="スプレッドシート" colour="20" />');
-            $categorySpreadSheet.append($categorySheetClass_EditorAndViewer);
-            $categorySpreadSheet.append('<block type="spreadsheet_addmenu"></block>');
+            //$categorySpreadSheet.append('<block type="spreadsheet_addmenu"></block>');
             $categorySpreadSheet.append('<block type="spreadsheet_copy"></block>');
             $categorySpreadSheet.append('<block type="spreadsheet_deleteactivesheet"></block>');
             $categorySpreadSheet.append('<block type="spreadsheet_deletesheet"></block>');
@@ -120,12 +119,13 @@
             $categorySpreadSheet.append($categorySheet);
 
             // スプレッドシート > スプレッドシート　> 編集者・閲覧者
+
             var $categorySheetClass_EditorAndViewer = $('<category name="編集者・閲覧者" colour="20" />');
             $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addeditor_emailaddress"></block>');
-            $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addeditor_user"></block>');
+            //$categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addeditor_user"></block>');
             $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addeditors_emailaddresses"></block>');
             $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addviewer_emailaddress"></block>');
-            $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addviewer_user"></block>');
+            //$categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addviewer_user"></block>');
             $categorySheetClass_EditorAndViewer.append('<block type="spreadsheet_addviewers_emailaddress"></block>');
             $categorySpreadSheet.append($categorySheetClass_EditorAndViewer);
             

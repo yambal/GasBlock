@@ -3,8 +3,8 @@
 Blockly.Blocks['spreadsheet_addeditor_emailaddress'] = {
     init: function() {
         this.appendValueInput("Spreadsheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
             .appendField("エディタを追加");
         this.appendValueInput("EMAIL")
@@ -24,13 +24,14 @@ Blockly.JavaScript['spreadsheet_addeditor_emailaddress'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+/*
 // ----------------------------------------------------------------
 // addEditor(User)
 Blockly.Blocks['spreadsheet_addeditor_user'] = {
     init: function() {
         this.appendValueInput("Spreadsheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
             .appendField("エディタを追加");
         this.appendValueInput("USER")
@@ -49,15 +50,16 @@ Blockly.JavaScript['spreadsheet_addeditor_user'] = function(block) {
     var code = value_spreadsheet + '.addEditor(' + value_user + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+*/
 
 // ----------------------------------------------------------------
 // addEditors(emailAddresses)
 Blockly.Blocks['spreadsheet_addeditors_emailaddresses'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("スプレッドシート");
+        .appendField(Blockly.Msg.GAS.SS.IO.SS);
     this.appendValueInput("Spreadsheet")
-        .setCheck("Spreadsheet");
+        .setCheck(Blockly.TYPE.GAS.SS);
     this.appendDummyInput()
         .appendField("に");
     this.appendDummyInput()
@@ -79,6 +81,7 @@ Blockly.JavaScript['spreadsheet_addeditors_emailaddresses'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+/*
 // ----------------------------------------------------------------
 // addMenu()
 Blockly.Blocks['spreadsheet_addmenu'] = {
@@ -94,8 +97,8 @@ Blockly.Blocks['spreadsheet_addmenu'] = {
         this.appendDummyInput()
             .appendField("を");
         this.appendValueInput("SPREADSHEET")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
             .appendField("に作成");
         this.setInputsInline(true);
@@ -113,14 +116,15 @@ Blockly.JavaScript['spreadsheet_addmenu'] = function(block) {
     var code = value_spreadsheet + '.addMenu(' + value_menuname + ', ' + value_submenues + ');\n';
     return code;
 };
+*/
 
 // ----------------------------------------------------------------
 // addViewer(String)
 Blockly.Blocks['spreadsheet_addviewer_emailaddress'] = {
     init: function() {
         this.appendValueInput("Spreadsheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
         .appendField("に");
         this.appendDummyInput()
@@ -142,13 +146,14 @@ Blockly.JavaScript['spreadsheet_addviewer_emailaddress'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+/*
 // ----------------------------------------------------------------
 // addEditor(User)
 Blockly.Blocks['spreadsheet_addviewer_user'] = {
     init: function() {
         this.appendValueInput("Spreadsheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
             .appendField("閲覧者を追加");
         this.appendValueInput("USER")
@@ -167,14 +172,15 @@ Blockly.JavaScript['spreadsheet_addviewer_user'] = function(block) {
     var code = value_spreadsheet + '.addViewer(' + value_user + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+*/
 
 // ----------------------------------------------------------------
 // addViewers(String)
 Blockly.Blocks['spreadsheet_addviewers_emailaddress'] = {
     init: function() {
         this.appendValueInput("Spreadsheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
         .appendField("に");
         this.appendDummyInput()
@@ -196,26 +202,24 @@ Blockly.JavaScript['spreadsheet_addviewers_emailaddress'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-
-
-
-
 // ----------------------------------------------------------------
 // copy(name)
 Blockly.Blocks['spreadsheet_copy'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("スプレッドシート");
-        this.appendDummyInput()
-            .appendField("コピー");
+            .appendField(Blockly.Msg.GAS.SS.IO.SS_COPY_ORIGINAL);
         this.appendValueInput("SPREADSHEET")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+        this.appendDummyInput()
+            .appendField("を");
         this.appendValueInput("NEWNAME")
             .setCheck(null)
-            .appendField("名前");
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_NAME);
+        this.appendDummyInput()
+            .appendField("で複製");
         this.setInputsInline(true);
-        this.setOutput(true, "Spreadsheet");
+        this.setOutput(true, Blockly.TYPE.GAS.SS);
         this.setColour(20);
         this.setTooltip('スプレッドシートをコピーします');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#copy(String)');
@@ -233,16 +237,16 @@ Blockly.JavaScript['spreadsheet_copy'] = function(block) {
 Blockly.Blocks['spreadsheet_deleteactivesheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("新しくアクティブになったシート");
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET_ACTIVED);
         this.appendDummyInput()
             .appendField("現在アクティブなシートを");
         this.appendValueInput("SPREADSHEET")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
             .appendField("から削除");
         this.setInputsInline(true);
-        this.setOutput(true, "Sheet");
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
         this.setColour(20);
         this.setTooltip('現在アクティブなシートを削除します');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteActiveSheet()');
@@ -266,14 +270,16 @@ deleteRows(rowPosition, howMany)    void    Deletes a number of rows starting at
 // Deletes the specified sheet.
 Blockly.Blocks['spreadsheet_deletesheet'] = {
     init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
         this.appendValueInput("Sheet")
-            .setCheck("Sheet")
-            .appendField("シート");
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendDummyInput()
             .appendField("を");
         this.appendValueInput("SpreadSheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
             .appendField("から削除");
         this.setInputsInline(true);
@@ -297,14 +303,14 @@ Blockly.JavaScript['spreadsheet_deletesheet'] = function(block) {
 Blockly.Blocks['spreadsheet_duplicateactivesheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("新しいシート");
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET_COPIED);
         this.appendValueInput("Spreadsheet")
-            .setCheck("Spreadsheet")
-            .appendField("スプレッドシート");
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
-            .appendField("のアクティブなシートを複製してアクティブに");
+            .appendField("のアクティブなシートを複製");
         this.setInputsInline(true);
-        this.setOutput(true, null);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
         this.setColour(20);
         this.setTooltip('アクティブなシートを複製し、その複製したシートをアクティブにします');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#duplicateActiveSheet()');
@@ -326,14 +332,14 @@ getActiveRange()    Range   Returns the active range for the active sheet.
 Blockly.Blocks['spreadsheet_getactivesheet'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("シート");
+        .appendField(Blockly.Msg.GAS.SS.IO.SHEET_ACTIVE);
     this.appendValueInput("Spreadsheet")
-        .setCheck("Spreadsheet")
-        .appendField("スプレッドシート");
+        .setCheck(Blockly.TYPE.GAS.SS)
+        .appendField(Blockly.Msg.GAS.SS.IO.SS);
     this.appendDummyInput()
-        .appendField("のアクティブシートを取得");
+        .appendField("のアクティブシート");
     this.setInputsInline(true);
-    this.setOutput(true, "Sheet");
+    this.setOutput(true, Blockly.TYPE.GAS.SHEET);
     this.setColour(20);
     this.setTooltip('スプレッドシート内のアクティブシートを取得します');
     this.setHelpUrl('http://www.example.com/');
