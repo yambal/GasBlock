@@ -457,7 +457,38 @@ removeMenu(name)    void    Removes a menu that was added by addMenu(name, subMe
 removeNamedRange(name)  void    Deletes a named range with the given name.
 removeViewer(emailAddress)  Spreadsheet Removes the given user from the list of viewers and commenters for the Spreadsheet.
 removeViewer(user)  Spreadsheet Removes the given user from the list of viewers and commenters for the Spreadsheet.
-rename(newName) void    Renames the document.
+*/
+// rename(newName) 
+// Renames the document.
+Blockly.Blocks['spreadsheet_rename'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+    this.appendValueInput("Spreadsheet")
+        .setCheck(Blockly.TYPE.GAS.SS)
+        .appendField(Blockly.Msg.GAS.SS.IO.SS);
+    this.appendDummyInput()
+        .appendField("の名前を");
+    this.appendValueInput("newName")
+        .setCheck("String")
+        .appendField(Blockly.Msg.GAS.SS.IO.STRING);
+    this.appendDummyInput()
+        .appendField("に変更");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('ドキュメントの名前を変更します');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#renamenewname');
+  }
+};
+Blockly.JavaScript['spreadsheet_rename'] = function(block) {
+  var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+  var value_newname = Blockly.JavaScript.valueToCode(block, 'newName', Blockly.JavaScript.ORDER_NONE);
+  var code = value_spreadsheet + '.rename(' + value_newname + ');\n';
+  return code;
+};
+/*
 renameActiveSheet(newName)  void    Renames the current active sheet to the given new name.
 setActiveRange(range)   Range   Sets the active range for the active sheet.
 setActiveSelection(range)   Range   Sets the active selection region for this sheet.

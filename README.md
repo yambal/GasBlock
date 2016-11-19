@@ -69,7 +69,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	removeNamedRange(name)				|	void			|
 |None		|	removeViewer(emailAddress)				|	Spreadsheet		|
 |None		|	removeViewer(user)					|	Spreadsheet		|
-|None		|	rename(newName)					|	void			|
+|Yes		|	rename(newName)					|	void			|
 |None		|	renameActiveSheet(newName)				|	void			|
 |None		|	setActiveSheet(sheet)					|	Sheet			|
 |None		|	setNamedRange(name, range)				|	void			|
