@@ -46,6 +46,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	getNamedRanges()					|	NamedRange[]		|
 |Yes		|	getNumSheets()					|	Integer			|
 |None		|	getOwner()						|	User			|
+|Yes		|	getRange(a1Notation)					|	Range			|
 |None		|	getProtections(type)					|	Protection[]		|
 |None		|	getRangeByName(name)				|	Range			|
 |None		|	getSheetByName(name)				|	Sheet			|

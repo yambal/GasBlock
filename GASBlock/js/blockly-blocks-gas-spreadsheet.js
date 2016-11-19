@@ -443,7 +443,38 @@ Blockly.JavaScript['spreadsheet_getnumsheets'] = function(block) {
 /*
 getOwner()  User    Returns the owner of the document.
 getProtections(type)    Protection[]    Gets an array of objects representing all protected ranges or sheets in the spreadsheet.
-getRange(a1Notation)    Range   Returns the range as specified in A1 notation or R1C1 notation.
+*/
+// getRange(a1Notation) 
+// Returns the range as specified in A1 notation or R1C1 notation.
+Blockly.Blocks['spreadsheet_getrange_a1notation'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+    this.appendValueInput("Spreadsheet")
+      .setCheck(Blockly.TYPE.GAS.SS)
+      .appendField(Blockly.Msg.GAS.SS.IO.SS);
+    this.appendDummyInput()
+      .appendField("の");
+    this.appendValueInput("a1Notation")
+      .setCheck("String")
+      .appendField(Blockly.Msg.GAS.SS.IO.STRING_A1NOTATION);
+    this.appendDummyInput()
+      .appendField("で指定された範囲");
+    this.setInputsInline(true);
+    this.setOutput(true, Blockly.Msg.GAS.SS.IO.RANGE);
+    this.setColour(20);
+    this.setTooltip('A1表記またはR1C1表記で指定された範囲を返します');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getrangea1notation');
+  }
+};
+Blockly.JavaScript['spreadsheet_getrange_a1notation'] = function(block) {
+  var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+  var value_a1notation = Blockly.JavaScript.valueToCode(block, 'a1Notation', Blockly.JavaScript.ORDER_NONE);
+  var code = value_spreadsheet + '.getRange(' + value_a1notation + ')';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 getRangeByName(name)    Range   Returns a named range, or null if no range with the given name is found.
 getRowHeight(rowPosition)   Integer Gets the height in pixels of the given row.
 getSheetByName(name)    Sheet   Returns a sheet with the given name.
