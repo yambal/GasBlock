@@ -394,15 +394,16 @@ Blockly.JavaScript['spreadsheetapp_setactivesheet'] = function(block) {
 Blockly.Blocks['spreadsheetapp_setactivespreadsheet'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GAS.SS.IO.SS_ACTIVED);
+      .appendField(Blockly.Msg.GAS.SS.IO.VOID);
     this.appendValueInput("SPREADSHEET")
       .setCheck(Blockly.TYPE.GAS.SS)
       .appendField(Blockly.Msg.GAS.SS.IO.SS);
     this.appendDummyInput()
       .appendField(Blockly.Msg.GAS.SS_AP.SETACTIVE_SPREADSHEET);
     this.setInputsInline(true);
-    this.setOutput(true, Blockly.TYPE.GAS.SS);
     this.setColour(20);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.GAS.HELP.SETACTIVESPREADSHEET);
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#setActiveSpreadsheet(Spreadsheet)');
   }
