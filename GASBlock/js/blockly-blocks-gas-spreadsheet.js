@@ -414,7 +414,30 @@ Blockly.JavaScript['spreadsheet_getname'] = function(block) {
 /*
 getNamedRanges()    NamedRange[]    Gets all the named ranges in this spreadsheet.
 */
-//getNumSheets()  Integer Returns the number of sheets in this spreadsheet.
+
+// getNumSheets() 
+// Returns the number of sheets in this spreadsheet.
+Blockly.Blocks['spreadsheet_getnumsheets'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.GAS.SS.IO.NUMBER);
+    this.appendValueInput("Spreadsheet")
+        .setCheck(Blockly.TYPE.GAS.SS)
+        .appendField(Blockly.Msg.GAS.SS.IO.SS);
+    this.appendDummyInput()
+        .appendField("内のシート数");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setColour(20);
+    this.setTooltip('スプレッドシート内のシート数を返します');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getnumsheets');
+  }
+};
+Blockly.JavaScript['spreadsheet_getnumsheets'] = function(block) {
+  var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+  var code = value_spreadsheet + '.getNumSheets()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 
 /*
 getOwner()  User    Returns the owner of the document.
