@@ -3,8 +3,9 @@ GasBlock
 
 https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 
-||	Method							|	Return type		|
-| -- |:---------------------------------------------------------------------------------:|:---------------------------------------:|
+## Class SpreadsheetApp
+| 実装 |	Method							|	Return type		|
+| --- |:---:| ---:|
 |OK|	create(name)						|	Spreadsheet		|
 |OK|	create(name, rows, columns)				|	Spreadsheet		|
 |OK|	flush()							|	void			|
