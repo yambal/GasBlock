@@ -413,7 +413,10 @@ Blockly.JavaScript['spreadsheet_getname'] = function(block) {
 
 /*
 getNamedRanges()    NamedRange[]    Gets all the named ranges in this spreadsheet.
-getNumSheets()  Integer Returns the number of sheets in this spreadsheet.
+*/
+//getNumSheets()  Integer Returns the number of sheets in this spreadsheet.
+
+/*
 getOwner()  User    Returns the owner of the document.
 getProtections(type)    Protection[]    Gets an array of objects representing all protected ranges or sheets in the spreadsheet.
 getRange(a1Notation)    Range   Returns the range as specified in A1 notation or R1C1 notation.
@@ -496,6 +499,8 @@ Blockly.JavaScript['spreadsheet_rename'] = function(block) {
 // Renames the current active sheet to the given new name.
 Blockly.Blocks['spreadsheet_renameactivesheet'] = {
   init: function() {
+    this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
     this.appendValueInput("Spreadsheet")
         .setCheck(Blockly.TYPE.GAS.SS)
         .appendField(Blockly.Msg.GAS.SS.IO.SS);
