@@ -70,7 +70,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	removeViewer(emailAddress)				|	Spreadsheet		|
 |None		|	removeViewer(user)					|	Spreadsheet		|
 |Yes		|	rename(newName)					|	void			|
-|None		|	renameActiveSheet(newName)				|	void			|
+|Yes		|	renameActiveSheet(newName)				|	void			|
 |None		|	setActiveSheet(sheet)					|	Sheet			|
 |None		|	setNamedRange(name, range)				|	void			|
 |None		|	setSpreadsheetLocale(locale)				|	void			|
