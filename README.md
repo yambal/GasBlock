@@ -3,20 +3,20 @@ GasBlock
 
 https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 
-|	Method							|	Return type		|
-| --------------------------------------------------------------------------------- |:---------------------------------------:|
-|	create(name)						|	Spreadsheet		|
-|	create(name, rows, columns)				|	Spreadsheet		|
-|	flush()							|	void			|
-|	getActive()						|	Spreadsheet		|
-|	getActiveRange()					|	Range			|
-|	getActiveSheet()					|	Sheet			|
-|	getActiveSpreadsheet()					|	Spreadsheet		|
-|	getUi()							|	Ui			|
-|	newDataValidation()					|	DataValidationBuilder	|
-|	open(file)						|	Spreadsheet		|
-|	openById(id)						|	Spreadsheet		|
-|	openByUrl(url)						|	Spreadsheet		|
-|	setActiveRange(range)					|	Range			|
-|	setActiveSheet(sheet)					|	Sheet			|
-|	setActiveSpreadsheet(newActiveSpreadsheet)		|	void			|
+||	Method							|	Return type		|
+| -- |:---------------------------------------------------------------------------------:|:---------------------------------------:|
+|OK|	create(name)						|	Spreadsheet		|
+|OK|	create(name, rows, columns)				|	Spreadsheet		|
+|OK|	flush()							|	void			|
+|OK|	getActive()						|	Spreadsheet		|
+|OK|	getActiveRange()					|	Range			|
+|OK|	getActiveSheet()					|	Sheet			|
+|OK|	getActiveSpreadsheet()					|	Spreadsheet		|
+|OK|	getUi()							|	Ui			|
+|NO|	newDataValidation()					|	DataValidationBuilder	|
+|NO|	open(file)						|	Spreadsheet		|
+|OK|	openById(id)						|	Spreadsheet		|
+|OK|	openByUrl(url)						|	Spreadsheet		|
+|OK|	setActiveRange(range)					|	Range			|
+|OK|	setActiveSheet(sheet)					|	Sheet			|
+|OK|	setActiveSpreadsheet(newActiveSpreadsheet)		|	void			|
