@@ -41,7 +41,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	getBlob()						|	Blob			|
 |None		|	getEditors()						|	User[]			|
 |None		|	getFormUrl()						|	String			|
-|None		|	getId()							|	String			|
+|Yes		|	getId()							|	String			|
 |None		|	getName()						|	String			|
 |None		|	getNamedRanges()					|	NamedRange[]		|
 |None		|	getNumSheets()					|	Integer			|

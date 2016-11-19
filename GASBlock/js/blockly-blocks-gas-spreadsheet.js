@@ -360,7 +360,32 @@ getEditors()    User[]  Gets the list of editors for this Spreadsheet.
 getFormUrl()    String  Returns the url for the form attached to the spreadsheet, null if there is no form.
 getFrozenColumns()  Integer Returns the number of frozen columns.
 getFrozenRows() Integer Returns the number of frozen rows.
-getId() String  Gets a unique identifier for this spreadsheet.
+*/
+// ----------------------------------------------------------------
+// getId() 
+// Gets a unique identifier for this spreadsheet.
+Blockly.Blocks['spreadsheet_getid'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.GAS.SS.IO.STRING_ID);
+    this.appendValueInput("Spreadsheet")
+        .setCheck(Blockly.TYPE.GAS.SS)
+        .appendField(Blockly.Msg.GAS.SS.IO.SS);
+    this.appendDummyInput()
+        .appendField("のID");
+    this.setInputsInline(true);
+    this.setOutput(true, "String");
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getId()');
+  }
+};
+Blockly.JavaScript['spreadsheet_getid'] = function(block) {
+  var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+  var code = value_spreadsheet + '.getId()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+/*
 getLastColumn() Integer Returns the position of the last column that has content.
 getLastRow()    Integer Returns the position of the last row that has content.
 getName()   String  Gets the name of the document.
