@@ -927,6 +927,7 @@ insertImage(url, column, row)   void    Inserts an image in the document at a gi
 insertImage(url, column, row, offsetX, offsetY) void    Inserts an image in the document at a given row and column, with a pixel offset.
 */
 
+// ----------------------------------------------------------------
 // insertRowAfter(afterPosition)
 // Inserts a row after the given row position.
 Blockly.Blocks['sheet_insertrowafter'] = {
@@ -957,8 +958,38 @@ Blockly.JavaScript['sheet_insertrowafter'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// insertRowBefore(beforePosition)
+// Inserts a row before the given row position.
+Blockly.Blocks['sheet_insertrowbefore'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("beforePosition")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendDummyInput()
+            .appendField("の前に行を挿入");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.Msg.GAS.SS.IO.SHEET);
+        this.setColour(20);
+        this.setTooltip('指定された行の位置の前に行を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowAfter(Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertrowbefore'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertRowBefore(' + value_beforePosition + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 /*
-insertRowBefore(beforePosition) Sheet   Inserts a row before the given row position.
 insertRows(rowIndex)    void    Inserts a blank row in a sheet at the specified location.
 insertRows(rowIndex, numRows)   void    Inserts one or more consecutive blank rows in a sheet starting at the specified location.
 insertRowsAfter(afterPosition, howMany) Sheet   Inserts a number of rows after the given row position.
