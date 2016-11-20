@@ -267,20 +267,19 @@ Blockly.JavaScript['sheet_deleterows'] = function(block) {
 Blockly.Blocks['sheet_getactivecell'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("範囲");
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
         this.appendValueInput("Sheet")
-            .setCheck("Sheet")
-            .appendField("シート");
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendDummyInput()
             .appendField("のアクティブなセルの範囲");
         this.setInputsInline(true);
-        this.setOutput(true, "Range");
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
         this.setColour(20);
-        this.setTooltip('シートのアクティブセルを返します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getActiveCell()');
+        this.setTooltip('シート内のアクティブなセルを返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getActiveCell()');
     }
 };
-
 Blockly.JavaScript['sheet_getactivecell'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getActiveCell()';
