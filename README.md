@@ -118,8 +118,8 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | getRange(row, column, numRows,numColumns) | Range |
 | Yes | getRange(a1Notation) | Range |
 | No | getRowHeight(rowPosition) | Integer |
-| No | getSheetId() | Integer |
-| No | getSheetName() | String |
+| Yes | getSheetId() | Integer |
+| Yes | getSheetName() | String |
 | No | getSheetValues(startRow,startColumn, numRows,numColumns) | Object[][] |
 | No | getTabColor() | String |
 | No | hideColumn(column) | void |
