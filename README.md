@@ -94,7 +94,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | clearNotes() | Sheet |
 | Yes | copyTo(spreadsheet) | Sheet |
 | Yes | deleteColumn(columnPosition) | Sheet |
-| No | deleteColumns(columnPosition,howMany) | void |
+| Yes | deleteColumns(columnPosition,howMany) | void |
 | No | deleteRow(rowPosition) | Sheet |
 | No | deleteRows(rowPosition,howMany) | void |
 | No | getActiveCell() | Range |

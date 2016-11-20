@@ -159,25 +159,29 @@ Blockly.JavaScript['sheet_deletecolumn'] = function(block) {
 // Deletes a number of columns starting at the given column position.
 Blockly.Blocks['sheet_deletecolumns'] = {
     init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
         this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendDummyInput()
             .appendField("の列を");
         this.appendValueInput("COLUMN")
             .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
         this.appendDummyInput()
             .appendField("から");
         this.appendValueInput("HOWMANY")
             .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
         this.appendDummyInput()
             .appendField("個削除");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(20);
-        this.setTooltip('指定した列の位置（最初の列は 1）から、指定数の列を削除します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteColumns(Integer,Integer)');
+        this.setTooltip('指定された列の位置から始まるいくつかの列を削除します');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteColumns(Integer,Integer)');
     }
 };
 Blockly.JavaScript['sheet_deletecolumns'] = function(block) {
