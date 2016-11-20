@@ -310,10 +310,38 @@ Blockly.JavaScript['sheet_getactiverange'] = function(block) {
     var code = value_sheet + '.getActiveRange()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
 /*
 getCharts() EmbeddedChart[] Returns an array of charts on this sheet.
 getColumnWidth(columnPosition)  Integer Gets the width in pixels of the given column.
-getDataRange()  Range   Returns a Range corresponding to the dimensions in which data is present.
+*/
+
+// ----------------------------------------------------------------
+// getDataRange()
+// Returns a Range corresponding to the dimensions in which data is present.
+Blockly.Blocks['sheet_getdatarange'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("のデータが存在する範囲");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(20);
+        this.setTooltip('データが存在する次元に対応するRangeを返します');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getDataRange()');
+    }
+};
+Blockly.JavaScript['sheet_getdatarange'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.getDataRange()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 getFrozenColumns()  Integer Returns the number of frozen columns.
 getFrozenRows() Integer Returns the number of frozen rows.
 getIndex()  Integer Gets the position of the sheet in its parent spreadsheet.

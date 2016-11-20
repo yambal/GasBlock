@@ -101,7 +101,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | getActiveRange() | Range |
 | No | getCharts() | EmbeddedChart[] |
 | No | getColumnWidth(columnPosition) | Integer |
-| No | getDataRange() | Range |
+| Yes | getDataRange() | Range |
 | No | getFrozenColumns() | Integer |
 | No | getFrozenRows() | Integer |
 | No | getIndex() | Integer |
