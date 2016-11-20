@@ -712,9 +712,103 @@ hideRows(rowIndex)  void    Hides the row at the given index.
 hideRows(rowIndex, numRows) void    Hides one or more consecutive rows starting at the given index.
 hideSheet() Sheet   Hides this sheet.
 insertChart(chart)  void    Adds a new chart to this sheet.
-insertColumnAfter(afterPosition)    Sheet   Inserts a column after the given column position.
-insertColumnBefore(beforePosition)  Sheet   Inserts a column before the given column position.
-insertColumns(columnIndex)  void    Inserts a blank column in a sheet at the specified location.
+*/
+
+// ----------------------------------------------------------------
+// insertColumnAfter(afterPosition) 
+// Inserts a column after the given column position.
+Blockly.Blocks['sheet_insertcolumnafter'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("afterPosition")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
+        this.appendDummyInput()
+            .appendField("の後に列を挿入");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(20);
+        this.setTooltip('指定された列の位置の後に列を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnAfter(Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertcolumnafter'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_afterposition = Blockly.JavaScript.valueToCode(block, 'afterPosition', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertColumnAfter(' + value_afterposition + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ----------------------------------------------------------------
+// insertColumnBefore(beforePosition)
+// Inserts a column before the given column position.
+Blockly.Blocks['sheet_insertcolumnbefore'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("beforePosition")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
+        this.appendDummyInput()
+            .appendField("の前に列を挿入");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(20);
+        this.setTooltip('指定された列の位置の前に列を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnBefore(Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertcolumnbefore'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertColumnBefore(' + value_beforePosition + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ----------------------------------------------------------------
+// insertColumns(columnIndex)
+// Inserts a blank column in a sheet at the specified location.
+Blockly.Blocks['sheet_insertcolumns_columnindex'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("columnIndex")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
+        this.appendDummyInput()
+            .appendField("に空白列を挿入");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(20);
+        this.setTooltip('シートの指定された場所に空白の列を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumns(Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertcolumns_columnindex'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_columnIndex = Blockly.JavaScript.valueToCode(block, 'columnIndex', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertColumns(' + value_columnIndex + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 insertColumns(columnIndex, numColumns)  void    Inserts one or more consecutive blank columns in a sheet starting at the specified location.
 insertColumnsAfter(afterPosition, howMany)  Sheet   Inserts a number of columns after the given column position.
 insertColumnsBefore(beforePosition, howMany)    Sheet   Inserts a number of columns before the given column position.

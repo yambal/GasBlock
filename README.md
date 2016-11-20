@@ -130,9 +130,9 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | hideRows(rowIndex, numRows) | void |
 | No | hideSheet() | Sheet |
 | No | insertChart(chart) | void |
-| No | insertColumnAfter(afterPosition) | Sheet |
-| No | insertColumnBefore(beforePosition) | Sheet |
-| No | insertColumns(columnIndex) | void |
+| Yes | insertColumnAfter(afterPosition) | Sheet |
+| Yes | insertColumnBefore(beforePosition) | Sheet |
+| Yes | insertColumns(columnIndex) | void |
 | No | insertColumns(columnIndex,numColumns) | void |
 | No | insertColumnsAfter(afterPosition, howMany) | Sheet |
 | No | insertColumnsBefore(beforePosition, howMany) | Sheet |

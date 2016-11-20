@@ -9,6 +9,7 @@
   <meta name="author" content="">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>GASBlock</title>
 </head>
 
 <body>
@@ -145,6 +146,9 @@
       $categorySheet.append('<block type="sheet_getsheetid"></block>');
       $categorySheet.append('<block type="sheet_getsheetname"></block>');
       $categorySheet.append('<block type="sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns"></block>');
+      $categorySheet.append('<block type="sheet_insertcolumnafter"></block>');
+      $categorySheet.append('<block type="sheet_insertcolumnbefore"></block>');
+      $categorySheet.append('<block type="sheet_insertcolumns_columnindex"></block>');
 
       $categorySpreadSheet.append($categorySheet);
 
