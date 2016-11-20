@@ -852,7 +852,7 @@ Blockly.JavaScript['sheet_insertcolumns_columnindex_numcolumns'] = function(bloc
 Blockly.Blocks['sheet_insertcolumnsafter_afterposition_howmany'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Sheet");
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
@@ -883,13 +883,13 @@ Blockly.JavaScript['sheet_insertcolumnsafter_afterposition_howmany'] = function(
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-
+// ----------------------------------------------------------------
 // insertColumnsBefore(beforePosition, howMany)
 // Inserts a number of columns before the given column position.
-Blockly.Blocks['sheet_nsertcolumnsbefore_beforeposition_howmany'] = {
+Blockly.Blocks['sheet_insertcolumnsbefore_beforeposition_howmany'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Sheet");
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
@@ -912,7 +912,7 @@ Blockly.Blocks['sheet_nsertcolumnsbefore_beforeposition_howmany'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnsBefore(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_nsertcolumnsbefore_beforeposition_howmany'] = function(block) {
+Blockly.JavaScript['sheet_insertcolumnsbefore_beforeposition_howmany'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
     var value_howmany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
@@ -925,7 +925,39 @@ insertImage(blob, column, row)  void    Inserts a Blob as an image in the docume
 insertImage(blob, column, row, offsetX, offsetY)    void    Inserts a Blob as an image in the document at a given row and column, with a pixel offset.
 insertImage(url, column, row)   void    Inserts an image in the document at a given row and column.
 insertImage(url, column, row, offsetX, offsetY) void    Inserts an image in the document at a given row and column, with a pixel offset.
-insertRowAfter(afterPosition)   Sheet   Inserts a row after the given row position.
+*/
+
+// insertRowAfter(afterPosition)
+// Inserts a row after the given row position.
+Blockly.Blocks['sheet_insertrowafter'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("afterPosition")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendDummyInput()
+            .appendField("の後に行を挿入");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.Msg.GAS.SS.IO.SHEET);
+        this.setColour(20);
+        this.setTooltip('指定された行の位置の後に行を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowAfter(Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertrowafter'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_afterposition = Blockly.JavaScript.valueToCode(block, 'afterPosition', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertRowAfter(' + value_afterposition + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 insertRowBefore(beforePosition) Sheet   Inserts a row before the given row position.
 insertRows(rowIndex)    void    Inserts a blank row in a sheet at the specified location.
 insertRows(rowIndex, numRows)   void    Inserts one or more consecutive blank rows in a sheet starting at the specified location.
