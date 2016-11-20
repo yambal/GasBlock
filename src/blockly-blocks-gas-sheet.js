@@ -658,8 +658,51 @@ Blockly.JavaScript['sheet_getsheetname'] = function(block) {
     var code = value_sheet + '.getSheetName()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+// ----------------------------------------------------------------
+// getSheetValues(startRow, startColumn, numRows, numColumns)
+//Returns the rectangular grid of values for this range starting at the given coordinates.
+Blockly.Blocks['sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.ARRAY);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("startRow")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendValueInput("startColumn")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
+        this.appendDummyInput()
+            .appendField("から");
+        this.appendValueInput("numRows")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW_LENGTH);
+        this.appendValueInput("numColumns")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
+        this.appendDummyInput()
+            .appendField("の値");
+        this.setInputsInline(true);
+        this.setOutput(true, "Array");
+        this.setColour(20);
+        this.setTooltip('指定された座標から始まるこの範囲の矩形グリッド値を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getSheetValues(Integer,Integer,Integer,Integer)');
+    }
+};
+Blockly.JavaScript['sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_startrow = Blockly.JavaScript.valueToCode(block, 'startRow', Blockly.JavaScript.ORDER_NONE);
+    var value_startcolumn = Blockly.JavaScript.valueToCode(block, 'startColumn', Blockly.JavaScript.ORDER_NONE);
+    var value_numrows = Blockly.JavaScript.valueToCode(block, 'numRows', Blockly.JavaScript.ORDER_NONE);
+    var value_numcolumns = Blockly.JavaScript.valueToCode(block, 'numColumns', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.getSheetValues(' + value_startrow + ', ' + value_startcolumn + ', ' + value_numrows + ', ' + value_numcolumns + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 /*
-getSheetValues(startRow, startColumn, numRows, numColumns)  Object[][]  Returns the rectangular grid of values for this range starting at the given coordinates.
 getTabColor()   String  Gets the sheet tab color, or null if the sheet tab has no color.
 hideColumn(column)  void    Hides the columns in the given range.
 hideColumns(columnIndex)    void    Hides the column at the given index.

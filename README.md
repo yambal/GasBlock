@@ -120,7 +120,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | getRowHeight(rowPosition) | Integer |
 | Yes | getSheetId() | Integer |
 | Yes | getSheetName() | String |
-| No | getSheetValues(startRow,startColumn, numRows,numColumns) | Object[][] |
+| Yes | getSheetValues(startRow,startColumn, numRows,numColumns) | Object[][] |
 | No | getTabColor() | String |
 | No | hideColumn(column) | void |
 | No | hideColumns(columnIndex) | void |
