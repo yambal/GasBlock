@@ -1,6 +1,27 @@
-/**
-activate()  Sheet   Activates this sheet.
-*/
+// activate()
+// Activates this sheet.
+Blockly.Blocks['sheet_activate'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET_ACTIVED);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("をアクティブ");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(20);
+        this.setTooltip('シートをアクティブにします');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#activate()');
+    }
+};
+Blockly.JavaScript['sheet_activate'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.activate()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 // ----------------------------------------------------------------
 // appendRow(rowContents)
 // Appends a row to the spreadsheet.
@@ -66,8 +87,39 @@ clear(options)  Sheet   Clears the sheet of contents and/or format, as specified
 clearContents() Sheet   Clears the sheet of contents, while preserving formatting information.
 clearFormats()  Sheet   Clears the sheet of formatting, while preserving contents.
 clearNotes()    Sheet   Clears the sheet of all notes.
-copyTo(spreadsheet) Sheet   Copies the sheet to a given spreadsheet, which can be the same spreadsheet as the source.
 */
+
+// ----------------------------------------------------------------
+// copyTo(spreadsheet)
+// Copies the sheet to a given spreadsheet, which can be the same spreadsheet as the source.
+Blockly.Blocks['sheet_copyto'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET_COPIED);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("を");
+        this.appendValueInput("spreadsheet")
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+        this.appendDummyInput()
+            .appendField("にコピー");
+        this.setInputsInline(true);
+        this.setOutput(true, "Sheet");
+        this.setColour(20);
+        this.setTooltip('シートを特定のスプレッドシートにコピーします。スプレッドシートはソースと同じスプレッドシートにすることができます。コピーした用紙の名前は「元の名前のコピー」となります。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#copyTo(Spreadsheet)');
+    }
+};
+Blockly.JavaScript['sheet_copyto'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'spreadsheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.copyTo(' + value_spreadsheet + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 // ----------------------------------------------------------------
 // deleteColumn(columnPosition)
 // Deletes the column at the given column position.

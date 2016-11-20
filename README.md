@@ -81,11 +81,11 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	show(userInterface)					|	void			|
 |None		|	updateMenu(name, subMenus)				|	void			|
 
-## Class Spreadsheet
+## Class Sheet
 | 実装 |	Method | Return type |
 | --- |:---:| ---:|
-| No | activate() | Sheet |
-| No | appendRow(rowContents) | Sheet |
+| Yes | activate() | Sheet |
+| Yes | appendRow(rowContents) | Sheet |
 | No | autoResizeColumn(columnPosition) | Sheet |
 | No | clear() | Sheet |
 | No | clear(options) | Sheet |

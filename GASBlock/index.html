@@ -123,8 +123,10 @@
 
       // スプレッドシート > スプレッドシート > シート
       var $categorySheet = $('<category name="シート" colour="20" />');
+      $categorySheet.append('<block type="sheet_activate"></block>');
       $categorySheet.append('<block type="sheet_appendrow"></block>');
       $categorySheet.append('<block type="sheet_autoresizecolumn"></block>');
+      $categorySheet.append('<block type="sheet_copyto"></block>');
       $categorySheet.append('<block type="sheet_deletecolumn"></block>');
       $categorySheet.append('<block type="sheet_deletecolumns"></block>');
       $categorySheet.append('<block type="sheet_deleterow"></block>');
@@ -135,7 +137,7 @@
       $categorySpreadSheet.append($categorySheet);
 
       $categorySpreadSheetRoot.append($categorySpreadSheet);
-      
+
       var $categoryRange = $('<category name="範囲" colour="20" />');
       $categoryRange.append('<block type="range_setvalue"></block>');
       $categorySpreadSheetRoot.append($categoryRange);
