@@ -145,7 +145,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | insertRows(rowIndex) | void |
 | Yes | insertRows(rowIndex, numRows) | void |
 | Yes | insertRowsAfter(afterPosition,howMany) | Sheet |
-| No | insertRowsBefore(beforePosition, howMany) | Sheet |
+| Yes | insertRowsBefore(beforePosition, howMany) | Sheet |
 | No | isSheetHidden() | Boolean |
 | No | newChart() | EmbeddedChartBuilder |
 | No | protect() | Protection |

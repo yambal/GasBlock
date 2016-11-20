@@ -1095,8 +1095,44 @@ Blockly.JavaScript['sheet_insertrowsafter_afterposition_howmany'] = function(blo
     var code = value_sheet + '.insertRowsAfter(' + value_afterposition + ', ' + value_howmany + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+
+// insertRowsBefore(beforePosition, howMany)
+// Inserts a number of rows before the given row position.
+Blockly.Blocks['sheet_insertrowsbefore_beforeposition_howmany'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET)
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("beforePosition")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendDummyInput()
+            .appendField("の前に");
+        this.appendValueInput("howMany")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
+        this.appendDummyInput()
+            .appendField("を挿入");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(20);
+        this.setTooltip('指定された行の位置の前にいくつかの行を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowsBefore(Integer,Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertrowsbefore_beforeposition_howmany'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
+    var value_howmany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertRowsBefore(' + value_beforePosition + ', ' + value_howmany + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 /*
-insertRowsBefore(beforePosition, howMany)   Sheet   Inserts a number of rows before the given row position.
 isSheetHidden() Boolean Returns true if the sheet is currently hidden.
 newChart()  EmbeddedChartBuilder    Returns a builder to create a new chart for this sheet.
 protect()   Protection  Creates an object that can protect the sheet from being edited except by users who have permission.
