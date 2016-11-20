@@ -1021,8 +1021,44 @@ Blockly.JavaScript['sheet_insertrows_rowindex'] = function(block) {
     return code;
 };
 
+// ----------------------------------------------------------------
+// insertRows(rowIndex, numRows)
+// Inserts one or more consecutive blank rows in a sheet starting at the specified location.
+Blockly.Blocks['sheet_insertrows_rowindex_numrows'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("rowIndex")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendDummyInput()
+            .appendField("に");
+        this.appendValueInput("numRows")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW_LENGTH);
+        this.appendDummyInput()
+            .appendField("の空行を挿入");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(20);
+        this.setTooltip('指定された位置から開始して、1つまたは複数の連続した空行をシートに挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRows(Integer,Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertrows_rowindex_numrows'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_rowindex = Blockly.JavaScript.valueToCode(block, 'rowIndex', Blockly.JavaScript.ORDER_NONE);
+    var value_numRows = Blockly.JavaScript.valueToCode(block, 'numRows', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertRows(' + value_rowindex + ', ' + value_numRows + ');\n';
+    return code;
+};
 /*
-insertRows(rowIndex, numRows)   void    Inserts one or more consecutive blank rows in a sheet starting at the specified location.
 insertRowsAfter(afterPosition, howMany) Sheet   Inserts a number of rows after the given row position.
 insertRowsBefore(beforePosition, howMany)   Sheet   Inserts a number of rows before the given row position.
 isSheetHidden() Boolean Returns true if the sheet is currently hidden.

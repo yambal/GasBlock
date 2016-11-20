@@ -143,7 +143,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | insertRowAfter(afterPosition) | Sheet |
 | Yes | insertRowBefore(beforePosition) | Sheet |
 | Yes | insertRows(rowIndex) | void |
-| No | insertRows(rowIndex, numRows) | void |
+| Yes | insertRows(rowIndex, numRows) | void |
 | No | insertRowsAfter(afterPosition,howMany) | Sheet |
 | No | insertRowsBefore(beforePosition, howMany) | Sheet |
 | No | isSheetHidden() | Boolean |
