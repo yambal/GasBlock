@@ -308,7 +308,7 @@ Blockly.Blocks['spreadsheet_getsheetbyname'] = {
         this.appendDummyInput()
             .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendValueInput("Spreadsheet")
-            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .setCheck(Blockly.TYPE.GAS.SS)
             .appendField(Blockly.Msg.GAS.SS.IO.SS);
         this.appendDummyInput()
             .appendField("の");

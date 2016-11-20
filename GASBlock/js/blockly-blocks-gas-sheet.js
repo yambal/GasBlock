@@ -1195,10 +1195,10 @@ Blockly.Blocks['sheet_setactiveselection'] = {
     }
 };
 Blockly.JavaScript['sheet_setactiveselection'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.setActiveSelection(' + value_range + ')';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ----------------------------------------------------------------
@@ -1277,7 +1277,33 @@ showColumns(columnIndex)    void    Unhides the column at the given index.
 showColumns(columnIndex, numColumns)    void    Unhides one or more consecutive columns starting at the given index.
 showRows(rowIndex)  void    Unhides the row at the given index.
 showRows(rowIndex, numRows) void    Unhides one or more consecutive rows starting at the given index.
-showSheet() Sheet   Makes the sheet visible.
+*/
+
+// ----------------------------------------------------------------
+// showSheet()
+// Makes the sheet visible.
+Blockly.Blocks['sheet_showsheet'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET_ACTIVED);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("を可視状態");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(20);
+        this.setTooltip('シートを可視にします。シートがすでに表示されている場合は効果がありません。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#showSheet()');
+    }
+};
+Blockly.JavaScript['sheet_showsheet'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.showSheet()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+/*
 sort(columnPosition)    Sheet   Sorts a sheet by column, ascending.
 sort(columnPosition, ascending) Sheet   Sorts a sheet by column.
 unhideColumn(column)    void    Unhides the column in the given range.
