@@ -30,6 +30,7 @@ Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH = "列数" + Blockly.Msg.GAS.SS.IO.NUMBE
 Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_INDEX = "シートインデックス" + Blockly.Msg.GAS.SS.IO.NUMBER;
 Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_SEC = "秒" + Blockly.Msg.GAS.SS.IO.NUMBER;
 Blockly.Msg.GAS.SS.IO.ARRAY_OF_SHEET = "シート" + Blockly.Msg.GAS.SS.IO.ARRAY;
+Blockly.Msg.GAS.SS.IO.ARRAY_OF_ROW_VALUES = "行" + Blockly.Msg.GAS.SS.IO.ARRAY;
 Blockly.Msg.GAS.UI.UI = "[UI]";
 
 Blockly.TYPE = {};
