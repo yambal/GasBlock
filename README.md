@@ -98,7 +98,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | deleteRow(rowPosition) | Sheet |
 | Yes | deleteRows(rowPosition,howMany) | void |
 | Yes | getActiveCell() | Range |
-| No | getActiveRange() | Range |
+| Yes | getActiveRange() | Range |
 | No | getCharts() | EmbeddedChart[] |
 | No | getColumnWidth(columnPosition) | Integer |
 | No | getDataRange() | Range |

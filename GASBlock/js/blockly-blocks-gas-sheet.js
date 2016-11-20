@@ -292,16 +292,16 @@ Blockly.JavaScript['sheet_getactivecell'] = function(block) {
 Blockly.Blocks['sheet_getactiverange'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("範囲");
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
         this.appendValueInput("Sheet")
-            .setCheck("Sheet")
-            .appendField("シート");
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendDummyInput()
-            .appendField("のアクティブなセルの範囲");
+            .appendField("のアクティブ範囲");
         this.setInputsInline(true);
-        this.setOutput(true, "Range");
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
         this.setColour(20);
-        this.setTooltip('シートのアクティブセルを返します');
+        this.setTooltip('アクティブシートのアクティブ範囲を返します。現在アクティブと見なされているセルの範囲を返します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getActiveRange()');
     }
 };
