@@ -53,7 +53,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |Yes		|	getSheets()						|	Sheet[]			|
 |None		|	getSpreadsheetLocale()				|	String			|
 |None		|	getSpreadsheetTimeZone()				|	String			|
-|None		|	getUrl()							|	String			|
+|Yes		|	getUrl()							|	String			|
 |None		|	getViewers()						|	User[]			|
 |None		|	insertSheet()						|	Sheet			|
 |None		|	insertSheet(sheetIndex)					|	Sheet			|

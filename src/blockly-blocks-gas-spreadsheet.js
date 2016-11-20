@@ -541,7 +541,33 @@ Blockly.JavaScript['spreadsheet_getsheets'] = function(block) {
 /*
 getSpreadsheetLocale()  String  Gets the spreadsheet locale.
 getSpreadsheetTimeZone()    String  Gets the time zone for the spreadsheet.
-getUrl()    String  Returns the url for the given spreadsheet.
+*/
+
+// ----------------------------------------------------------------
+//getUrl()
+// Returns the url for the given spreadsheet.
+Blockly.Blocks['spreadsheet_geturl'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_URL);
+        this.appendValueInput("Spreadsheet")
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+        this.appendDummyInput()
+            .appendField("のURL");
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour(20);
+        this.setTooltip('スプレッドシートのURLを返します');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getUrl()');
+    }
+};
+Blockly.JavaScript['spreadsheet_geturl'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.getUrl()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+/*
 getViewers()    User[]  Gets the list of viewers and commenters for this Spreadsheet.
 hideColumn(column)  void    Hides the columns in the given range.
 hideRow(row)    void    Hides the rows in the given range.
