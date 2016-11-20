@@ -87,11 +87,6 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | activate() | Sheet |
 | Yes | appendRow(rowContents) | Sheet |
 | Yes | autoResizeColumn(columnPosition) | Sheet |
-| No | clear() | Sheet |
-| No | clear(options) | Sheet |
-| No | clearContents() | Sheet |
-| No | clearFormats() | Sheet |
-| No | clearNotes() | Sheet |
 | Yes | copyTo(spreadsheet) | Sheet |
 | Yes | deleteColumn(columnPosition) | Sheet |
 | Yes | deleteColumns(columnPosition,howMany) | void |
@@ -99,28 +94,49 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | deleteRows(rowPosition,howMany) | void |
 | Yes | getActiveCell() | Range |
 | Yes | getActiveRange() | Range |
-| No | getCharts() | EmbeddedChart[] |
-| No | getColumnWidth(columnPosition) | Integer |
 | Yes | getDataRange() | Range |
-| No | getFrozenColumns() | Integer |
-| No | getFrozenRows() | Integer |
 | Yes | getIndex() | Integer |
 | Yes | getLastColumn() | Integer |
 | Yes | getLastRow() | Integer |
-| No | getMaxColumns() | Integer |
-| No | getMaxRows() | Integer |
 | Yes | getName() | String |
-| No | getNamedRanges() | NamedRange[] |
-| No | getParent() | Spreadsheet |
-| No | getProtections(type) | Protection[] |
 | Yes | getRange(row, column) | Range |
 | Yes | getRange(row, column, numRows) | Range |
 | Yes | getRange(row, column, numRows,numColumns) | Range |
 | Yes | getRange(a1Notation) | Range |
-| No | getRowHeight(rowPosition) | Integer |
 | Yes | getSheetId() | Integer |
 | Yes | getSheetName() | String |
 | Yes | getSheetValues(startRow,startColumn, numRows,numColumns) | Object[][] |
+| Yes | insertColumnAfter(afterPosition) | Sheet |
+| Yes | insertColumnBefore(beforePosition) | Sheet |
+| Yes | insertColumns(columnIndex) | void |
+| Yes | insertColumns(columnIndex,numColumns) | void |
+| Yes | insertColumnsAfter(afterPosition, howMany) | Sheet |
+| Yes | insertColumnsBefore(beforePosition, howMany) | Sheet |
+| Yes | insertRowAfter(afterPosition) | Sheet |
+| Yes | insertRowBefore(beforePosition) | Sheet |
+| Yes | insertRows(rowIndex) | void |
+| Yes | insertRows(rowIndex, numRows) | void |
+| Yes | insertRowsAfter(afterPosition,howMany) | Sheet |
+| Yes | insertRowsBefore(beforePosition, howMany) | Sheet |
+| Yes | setActiveRange(range) | Range |
+| Yes | setActiveSelection(range) | Range |
+| Yes | setActiveSelection(a1Notation) | Range |
+| Yes | setName(name) | Sheet |
+| No | clear() | Sheet |
+| No | clear(options) | Sheet |
+| No | clearContents() | Sheet |
+| No | clearFormats() | Sheet |
+| No | clearNotes() | Sheet |
+| No | getCharts() | EmbeddedChart[] |
+| No | getColumnWidth(columnPosition) | Integer |
+| No | getFrozenColumns() | Integer |
+| No | getFrozenRows() | Integer |
+| No | getMaxColumns() | Integer |
+| No | getMaxRows() | Integer |
+| No | getNamedRanges() | NamedRange[] |
+| No | getParent() | Spreadsheet |
+| No | getProtections(type) | Protection[] |
+| No | getRowHeight(rowPosition) | Integer |
 | No | getTabColor() | String |
 | No | hideColumn(column) | void |
 | No | hideColumns(columnIndex) | void |
@@ -130,33 +146,17 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | hideRows(rowIndex, numRows) | void |
 | No | hideSheet() | Sheet |
 | No | insertChart(chart) | void |
-| Yes | insertColumnAfter(afterPosition) | Sheet |
-| Yes | insertColumnBefore(beforePosition) | Sheet |
-| Yes | insertColumns(columnIndex) | void |
-| Yes | insertColumns(columnIndex,numColumns) | void |
-| Yes | insertColumnsAfter(afterPosition, howMany) | Sheet |
-| Yes | insertColumnsBefore(beforePosition, howMany) | Sheet |
 | No | insertImage(blob, column, row) | void |
 | No | insertImage(blob, column, row,offsetX, offsetY) | void |
 | No | insertImage(url, column, row) | void |
 | No | insertImage(url, column, row,offsetX, offsetY) | void |
-| Yes | insertRowAfter(afterPosition) | Sheet |
-| Yes | insertRowBefore(beforePosition) | Sheet |
-| Yes | insertRows(rowIndex) | void |
-| Yes | insertRows(rowIndex, numRows) | void |
-| Yes | insertRowsAfter(afterPosition,howMany) | Sheet |
-| Yes | insertRowsBefore(beforePosition, howMany) | Sheet |
 | No | isSheetHidden() | Boolean |
 | No | newChart() | EmbeddedChartBuilder |
 | No | protect() | Protection |
 | No | removeChart(chart) | void |
-| Yes | setActiveRange(range) | Range |
-| Yes | setActiveSelection(range) | Range |
-| Yes | setActiveSelection(a1Notation) | Range |
 | No | setColumnWidth(columnPosition,width) | Sheet |
 | No | setFrozenColumns(columns) | void |
 | No | setFrozenRows(rows) | void |
-| Yes | setName(name) | Sheet |
 | No | setRowHeight(rowPosition,height) | Sheet |
 | No | setTabColor(color) | Sheet |
 | No | showColumns(columnIndex) | void |
