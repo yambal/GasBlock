@@ -104,7 +104,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | getDataRange() | Range |
 | No | getFrozenColumns() | Integer |
 | No | getFrozenRows() | Integer |
-| No | getIndex() | Integer |
+| Yes | getIndex() | Integer |
 | No | getLastColumn() | Integer |
 | No | getLastRow() | Integer |
 | No | getMaxColumns() | Integer |

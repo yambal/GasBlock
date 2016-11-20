@@ -344,7 +344,34 @@ Blockly.JavaScript['sheet_getdatarange'] = function(block) {
 /*
 getFrozenColumns()  Integer Returns the number of frozen columns.
 getFrozenRows() Integer Returns the number of frozen rows.
-getIndex()  Integer Gets the position of the sheet in its parent spreadsheet.
+*/
+
+// ----------------------------------------------------------------
+// getIndex()
+// Gets the position of the sheet in its parent spreadsheet.
+Blockly.Blocks['sheet_getindex'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_INDEX);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("のシートインデックス");
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(20);
+        this.setTooltip('スプレッドシート内のシートの位置を取得します。 1で始まります。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getIndex()');
+    }
+};
+Blockly.JavaScript['sheet_getindex'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.getIndex()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 getLastColumn() Integer Returns the position of the last column that has content.
 getLastRow()    Integer Returns the position of the last row that has content.
 getMaxColumns() Integer Returns the current number of columns in the sheet, regardless of content.
