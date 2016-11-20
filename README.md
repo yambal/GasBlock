@@ -115,8 +115,8 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | getProtections(type) | Protection[] |
 | Yes | getRange(row, column) | Range |
 | Yes | getRange(row, column, numRows) | Range |
-| No | getRange(row, column, numRows,numColumns) | Range |
-| No | getRange(a1Notation) | Range |
+| Yes | getRange(row, column, numRows,numColumns) | Range |
+| Yes | getRange(a1Notation) | Range |
 | No | getRowHeight(rowPosition) | Integer |
 | No | getSheetId() | Integer |
 | No | getSheetName() | String |

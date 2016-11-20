@@ -532,9 +532,80 @@ Blockly.JavaScript['sheet_getrange_row_column_numrows'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// getRange(row, column, numRows, numColumns)
+// Returns the range with the top left cell at the given coordinates with the given number of rows and columns.
+Blockly.Blocks['sheet_getrange_row_column_numrows_numcolumns'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("row")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendValueInput("column")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
+        this.appendDummyInput()
+            .appendField("から");
+        this.appendValueInput("numrows")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW_LENGTH);
+        this.appendValueInput("numcols")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
+        this.appendDummyInput()
+            .appendField("の範囲");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(20);
+        this.setTooltip('指定された座標の左上のセル、与えられた数の行と列を持つ範囲を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getRange(Integer,Integer,Integer,Integer)');
+    }
+};
+Blockly.JavaScript['sheet_getrange_row_column_numrows_numcolumns'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_NONE);
+    var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
+    var value_numrows = Blockly.JavaScript.valueToCode(block, 'numrows', Blockly.JavaScript.ORDER_NONE);
+    var value_numcols = Blockly.JavaScript.valueToCode(block, 'numcols', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.getRange(' + value_row + ',' + value_column + ',' + value_numrows + ',' + value_numcols + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ----------------------------------------------------------------
+// getRange(a1Notation)
+// Returns the range as specified in A1 notation or R1C1 notation.
+Blockly.Blocks['sheet_getrange_a1notation'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("a1Notation")
+            .setCheck("String")
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_A1NOTATION);
+        this.appendDummyInput()
+            .appendField("の範囲");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(20);
+        this.setTooltip('A1表記またはR1C1表記で指定された範囲を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getRange(String)');
+    }
+};
+Blockly.JavaScript['sheet_getrange_a1notation'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_a1notation = Blockly.JavaScript.valueToCode(block, 'a1Notation', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.getRange(' + value_a1notation + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 /*
-getRange(row, column, numRows, numColumns)  Range   Returns the range with the top left cell at the given coordinates with the given number of rows and columns.
-getRange(a1Notation)    Range   Returns the range as specified in A1 notation or R1C1 notation.
 getRowHeight(rowPosition)   Integer Gets the height in pixels of the given row.
 getSheetId()    Integer Returns the ID of the sheet represented by this object.
 getSheetName()  String  Returns the sheet name.
