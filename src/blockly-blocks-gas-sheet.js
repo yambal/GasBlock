@@ -188,8 +188,8 @@ Blockly.JavaScript['sheet_deletecolumns'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var value_column = Blockly.JavaScript.valueToCode(block, 'COLUMN', Blockly.JavaScript.ORDER_NONE);
     var value_howmany = Blockly.JavaScript.valueToCode(block, 'HOWMANY', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.deleteColumns(' + value_column + ', ' + value_howmany + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var code = value_sheet + '.deleteColumns(' + value_column + ', ' + value_howmany + ');\n';
+    return code;
 };
 
 // ----------------------------------------------------------------
@@ -254,11 +254,11 @@ Blockly.Blocks['sheet_deleterows'] = {
     }
 };
 Blockly.JavaScript['sheet_deleterows'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_rowposition = Blockly.JavaScript.valueToCode(block, 'rowPosition', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_howmany = Blockly.JavaScript.valueToCode(block, 'HOWMANY', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = value_sheet + '.deleteRows(' + value_rowposition + ', ' + value_howmany + ')';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
+    var value_rowposition = Blockly.JavaScript.valueToCode(block, 'rowPosition', Blockly.JavaScript.ORDER_NONE);
+    var value_howmany = Blockly.JavaScript.valueToCode(block, 'HOWMANY', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.deleteRows(' + value_rowposition + ', ' + value_howmany + ');\n';
+    return code;
 };
 
 // ----------------------------------------------------------------
@@ -1164,10 +1164,10 @@ Blockly.Blocks['sheet_setactiverange'] = {
     }
 };
 Blockly.JavaScript['sheet_setactiverange'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.setActiveRange(' + value_range + ')';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ----------------------------------------------------------------
@@ -1226,10 +1226,10 @@ Blockly.Blocks['sheet_setactiveselection_a1notation'] = {
     }
 };
 Blockly.JavaScript['sheet_setactiveselection_a1notation'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_a1Notation = Blockly.JavaScript.valueToCode(block, 'a1Notation', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_a1Notation = Blockly.JavaScript.valueToCode(block, 'a1Notation', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.setActiveSelection(' + value_a1Notation + ')';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 
