@@ -63,7 +63,6 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |Yes		|	insertSheet(sheetName, sheetIndex)			|	Sheet			|
 |None		|	insertSheet(sheetName, sheetIndex, options)		|	Sheet			|
 |None		|	insertSheet(sheetName, options)			|	Sheet			|
-|None		|	moveActiveSheet(pos)					|	void			|
 |None		|	removeEditor(emailAddress)				|	Spreadsheet		|
 |None		|	removeEditor(user)					|	Spreadsheet		|
 |None		|	removeMenu(name)					|	void			|
@@ -72,7 +71,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	removeViewer(user)					|	Spreadsheet		|
 |Yes		|	rename(newName)					|	void			|
 |Yes		|	renameActiveSheet(newName)				|	void			|
-|None		|	setActiveSheet(sheet)					|	Sheet			|
+|Yes		|	setActiveSheet(sheet)					|	Sheet			|
 |None		|	setNamedRange(name, range)				|	void			|
 |None		|	setSpreadsheetLocale(locale)				|	void			|
 |None		|	setSpreadsheetTimeZone(timezone)			|	void			|

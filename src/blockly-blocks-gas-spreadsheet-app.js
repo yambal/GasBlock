@@ -17,6 +17,7 @@ Blockly.Msg.GAS.SS.IO.STRING_NAME = "名前" + Blockly.Msg.GAS.SS.IO.STRING;
 Blockly.Msg.GAS.SS.IO.STRING_ID = "ID" + Blockly.Msg.GAS.SS.IO.STRING;
 Blockly.Msg.GAS.SS.IO.STRING_URL = "URL" + Blockly.Msg.GAS.SS.IO.STRING;
 Blockly.Msg.GAS.SS.IO.STRING_A1NOTATION = "a1Notation" + Blockly.Msg.GAS.SS.IO.STRING;
+Blockly.Msg.GAS.SS.IO.STRING_MSG = "メッセージ" + Blockly.Msg.GAS.SS.IO.STRING;
 Blockly.Msg.GAS.SS.IO.RANGE_ACTIVED = "アクティブになった" + Blockly.Msg.GAS.SS.IO.RANGE;
 Blockly.Msg.GAS.SS.IO.SHEET_ACTIVE = "アクティブな" + Blockly.Msg.GAS.SS.IO.SHEET;
 Blockly.Msg.GAS.SS.IO.SHEET_ACTIVED = "アクティブになった" + Blockly.Msg.GAS.SS.IO.SHEET;

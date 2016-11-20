@@ -705,7 +705,6 @@ Blockly.JavaScript['spreadsheet_insertsheet_sheetname_sheetindex'] = function(bl
 /*
 insertSheet(sheetName, sheetIndex, options) Sheet   Inserts a new sheet in the spreadsheet with the given name at the given index and uses optional advanced arguments.
 insertSheet(sheetName, options) Sheet   Inserts a new sheet in the spreadsheet with the given name and uses optional advanced arguments.
-moveActiveSheet(pos)    void    Moves the active sheet to the given position in the list of sheets.
 removeEditor(emailAddress)  Spreadsheet Removes the given user from the list of editors for the Spreadsheet.
 removeEditor(user)  Spreadsheet Removes the given user from the list of editors for the Spreadsheet.
 removeMenu(name)    void    Removes a menu that was added by addMenu(name, subMenus).
@@ -778,22 +777,76 @@ Blockly.JavaScript['spreadsheet_renameactivesheet'] = function(block) {
     return code;
 };
 
+// ----------------------------------------------------------------
+// setActiveSheet(sheet) 
+// Sets the given sheet to be the active sheet in the spreadsheet.
+Blockly.Blocks['spreadsheet_setactivesheet_sheet'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("SpreadSheet")
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("をアクティブ");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(20);
+        this.setTooltip('シートをスプレッドシート内のアクティブなシートに設定。シートが別のスプレッドシートに属していない場合、選択したシートが表示されます');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#setActiveSheet(Sheet)');
+    }
+};
+Blockly.JavaScript['spreadsheet_setactivesheet_sheet'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SpreadSheet', Blockly.JavaScript.ORDER_NONE);
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'sheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.setActiveSheet(' + value_sheet + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 /*
-setActiveRange(range)   Range   Sets the active range for the active sheet.
-setActiveSelection(range)   Range   Sets the active selection region for this sheet.
-setActiveSelection(a1Notation)  Range   Sets the active selection, as specified in A1 notation or R1C1 notation.
-setActiveSheet(sheet)   Sheet   Sets the given sheet to be the active sheet in the spreadsheet.
-setColumnWidth(columnPosition, width)   Sheet   Sets the width of the given column in pixels.
-setFrozenColumns(columns)   void    Freezes the given number of columns.
-setFrozenRows(rows) void    Freezes the given number of rows.
 setNamedRange(name, range)  void    Names a range.
-setRowHeight(rowPosition, height)   Sheet   Sets the row height of the given row in pixels.
 setSpreadsheetLocale(locale)    void    Sets the spreadsheet locale.
 setSpreadsheetTimeZone(timezone)    void    Sets the time zone for the spreadsheet.
 show(userInterface) void    Displays a custom user interface component in a dialog centered in the user's browser's viewport.
-sort(columnPosition)    Sheet   Sorts a sheet by column, ascending.
-sort(columnPosition, ascending) Sheet   Sorts a sheet by column.
-toast(msg)  void    Shows a popup window in the lower right corner of the spreadsheet with the given message.
+*/
+
+// toast(msg)
+// Shows a popup window in the lower right corner of the spreadsheet with the given message.
+Blockly.Blocks['spreadsheet_toast'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+        this.appendValueInput("SpreadSheet")
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+        this.appendDummyInput()
+            .appendField("に");
+        this.appendValueInput("msg")
+            .setCheck("String")
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_MSG);
+        this.appendDummyInput()
+            .appendField("を表示");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(20);
+        this.setTooltip('メッセージのポップアップウィンドウを表示します');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#toast(String)');
+    }
+};
+Blockly.JavaScript['spreadsheet_toast'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SpreadSheet', Blockly.JavaScript.ORDER_NONE);
+    var value_msg = Blockly.JavaScript.valueToCode(block, 'msg', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.toast(' + value_msg + ');\n';
+    return code;
+};
+
+/*
 toast(msg, title)   void    Shows a popup window in the lower right corner of the spreadsheet with the given message and title.
 toast(msg, title, timeoutSeconds)   void    Shows a popup window in the lower right corner of the spreadsheet with the given title and message, that stays visible for a certain length of time.
 unhideColumn(column)    void    Unhides the column in the given range.
