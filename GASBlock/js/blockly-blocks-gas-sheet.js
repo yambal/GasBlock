@@ -804,12 +804,49 @@ Blockly.Blocks['sheet_insertcolumns_columnindex'] = {
 Blockly.JavaScript['sheet_insertcolumns_columnindex'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_columnIndex = Blockly.JavaScript.valueToCode(block, 'columnIndex', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.insertColumns(' + value_columnIndex + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var code = value_sheet + '.insertColumns(' + value_columnIndex + '):\n';
+    return code;
+};
+
+
+// insertColumns(columnIndex, numColumns)
+// Inserts one or more consecutive blank columns in a sheet starting at the specified location.
+Blockly.Blocks['sheet_insertcolumns_columnindex_numcolumns'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("columnIndex")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
+        this.appendDummyInput()
+            .appendField("に");
+        this.appendValueInput("numColumns")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
+        this.appendDummyInput()
+            .appendField("の空白列を挿入");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(20);
+        this.setTooltip('シートの指定された場所に、1つまたは複数の連続する空白列を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumns(Integer,Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertcolumns_columnindex_numcolumns'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_columnIndex = Blockly.JavaScript.valueToCode(block, 'columnIndex', Blockly.JavaScript.ORDER_NONE);
+    var value_numColumns　 = Blockly.JavaScript.valueToCode(block, 'numColumns', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertColumns(' + value_columnIndex + ',' + value_numColumns + ');\n';
+    return code;
 };
 
 /*
-insertColumns(columnIndex, numColumns)  void    Inserts one or more consecutive blank columns in a sheet starting at the specified location.
 insertColumnsAfter(afterPosition, howMany)  Sheet   Inserts a number of columns after the given column position.
 insertColumnsBefore(beforePosition, howMany)    Sheet   Inserts a number of columns before the given column position.
 insertImage(blob, column, row)  void    Inserts a Blob as an image in the document at a given row and column.
