@@ -50,7 +50,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	getProtections(type)					|	Protection[]		|
 |None		|	getRangeByName(name)				|	Range			|
 |Yes		|	getSheetByName(name)				|	Sheet			|
-|None		|	getSheets()						|	Sheet[]			|
+|Yes		|	getSheets()						|	Sheet[]			|
 |None		|	getSpreadsheetLocale()				|	String			|
 |None		|	getSpreadsheetTimeZone()				|	String			|
 |None		|	getUrl()							|	String			|

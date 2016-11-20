@@ -12,6 +12,7 @@ Blockly.Msg.GAS.SS.IO.SS = "[スプレッドシート]";
 Blockly.Msg.GAS.SS.IO.SHEET = "[シート]";
 Blockly.Msg.GAS.SS.IO.RANGE = "[範囲]";
 Blockly.Msg.GAS.SS.IO.NUMBER = "[数]";
+Blockly.Msg.GAS.SS.IO.ARRAY = "[リスト]";
 Blockly.Msg.GAS.SS.IO.STRING_NAME = "名前" + Blockly.Msg.GAS.SS.IO.STRING;
 Blockly.Msg.GAS.SS.IO.STRING_ID = "ID" + Blockly.Msg.GAS.SS.IO.STRING;
 Blockly.Msg.GAS.SS.IO.STRING_URL = "URL" + Blockly.Msg.GAS.SS.IO.STRING;
@@ -24,6 +25,7 @@ Blockly.Msg.GAS.SS.IO.SS_ACTIVED = "アクティブになった" + Blockly.Msg.G
 Blockly.Msg.GAS.SS.IO.SS_COPY_ORIGINAL = "複製元" + Blockly.Msg.GAS.SS.IO.SS;
 Blockly.Msg.GAS.SS.IO.NUMBER_ROW_LENGTH = "行数" + Blockly.Msg.GAS.SS.IO.NUMBER;
 Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH = "列数" + Blockly.Msg.GAS.SS.IO.NUMBER;
+Blockly.Msg.GAS.SS.IO.ARRAY_OF_SHEET = "シート" + Blockly.Msg.GAS.SS.IO.ARRAY;
 Blockly.Msg.GAS.UI.UI = "[UI]";
 
 Blockly.TYPE = {};
