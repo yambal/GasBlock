@@ -1058,8 +1058,44 @@ Blockly.JavaScript['sheet_insertrows_rowindex_numrows'] = function(block) {
     var code = value_sheet + '.insertRows(' + value_rowindex + ', ' + value_numRows + ');\n';
     return code;
 };
+
+// ----------------------------------------------------------------
+// insertRowsAfter(afterPosition, howMany)
+// Inserts a number of rows after the given row position.
+Blockly.Blocks['sheet_insertrowsafter_afterposition_howmany'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET)
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("afterPosition")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendDummyInput()
+            .appendField("の後に");
+        this.appendValueInput("howMany")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
+        this.appendDummyInput()
+            .appendField("を挿入");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(20);
+        this.setTooltip('指定された行の位置の後ろにいくつかの行を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowsAfter(Integer,Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertrowsafter_afterposition_howmany'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_afterposition = Blockly.JavaScript.valueToCode(block, 'afterPosition', Blockly.JavaScript.ORDER_NONE);
+    var value_howmany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertRowsAfter(' + value_afterposition + ', ' + value_howmany + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 /*
-insertRowsAfter(afterPosition, howMany) Sheet   Inserts a number of rows after the given row position.
 insertRowsBefore(beforePosition, howMany)   Sheet   Inserts a number of rows before the given row position.
 isSheetHidden() Boolean Returns true if the sheet is currently hidden.
 newChart()  EmbeddedChartBuilder    Returns a builder to create a new chart for this sheet.
