@@ -1,56 +1,11 @@
-// ----------------------------------------------------------------
-// addEditor(String)
-Blockly.Blocks['spreadsheet_addeditor_emailaddress'] = {
-    init: function() {
-        this.appendValueInput("Spreadsheet")
-            .setCheck(Blockly.TYPE.GAS.SS)
-            .appendField(Blockly.Msg.GAS.SS.IO.SS);
-        this.appendDummyInput()
-            .appendField("エディタを追加");
-        this.appendValueInput("EMAIL")
-            .setCheck("String")
-            .appendField("emailAddress");
-        this.setInputsInline(true);
-        this.setOutput(true, "Spreadsheet");
-        this.setColour(20);
-        this.setTooltip('エディタのリストに与えられたユーザーを追加します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addEditor(String)');
-    }
-};
-Blockly.JavaScript['spreadsheet_addeditor_emailaddress'] = function(block) {
-    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
-    var value_email = Blockly.JavaScript.valueToCode(block, 'EMAIL', Blockly.JavaScript.ORDER_NONE);
-    var code = value_spreadsheet + '.addEditor(' + value_email + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-
 /*
 // ----------------------------------------------------------------
+// addEditor(String)
+
+
+
+// ----------------------------------------------------------------
 // addEditor(User)
-Blockly.Blocks['spreadsheet_addeditor_user'] = {
-    init: function() {
-        this.appendValueInput("Spreadsheet")
-            .setCheck(Blockly.TYPE.GAS.SS)
-            .appendField(Blockly.Msg.GAS.SS.IO.SS);
-        this.appendDummyInput()
-            .appendField("エディタを追加");
-        this.appendValueInput("USER")
-            .setCheck("User")
-            .appendField("ユーザー");
-        this.setInputsInline(true);
-        this.setOutput(true, "Spreadsheet");
-        this.setColour(20);
-        this.setTooltip('エディタのリストに与えられたユーザーを追加します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addEditor(User)');
-    }
-};
-Blockly.JavaScript['spreadsheet_addeditor_user'] = function(block) {
-    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
-    var value_user = Blockly.JavaScript.valueToCode(block, 'USER', Blockly.JavaScript.ORDER_NONE);
-    var code = value_spreadsheet + '.addEditor(' + value_user + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-*/
 
 // ----------------------------------------------------------------
 // addEditors(emailAddresses)
@@ -81,7 +36,6 @@ Blockly.JavaScript['spreadsheet_addeditors_emailaddresses'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-/*
 // ----------------------------------------------------------------
 // addMenu()
 Blockly.Blocks['spreadsheet_addmenu'] = {
@@ -116,7 +70,6 @@ Blockly.JavaScript['spreadsheet_addmenu'] = function(block) {
     var code = value_spreadsheet + '.addMenu(' + value_menuname + ', ' + value_submenues + ');\n';
     return code;
 };
-*/
 
 // ----------------------------------------------------------------
 // addViewer(String)
@@ -146,7 +99,6 @@ Blockly.JavaScript['spreadsheet_addviewer_emailaddress'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-/*
 // ----------------------------------------------------------------
 // addEditor(User)
 Blockly.Blocks['spreadsheet_addviewer_user'] = {
@@ -172,7 +124,6 @@ Blockly.JavaScript['spreadsheet_addviewer_user'] = function(block) {
     var code = value_spreadsheet + '.addViewer(' + value_user + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
-*/
 
 // ----------------------------------------------------------------
 // addViewers(String)
@@ -201,7 +152,7 @@ Blockly.JavaScript['spreadsheet_addviewers_emailaddress'] = function(block) {
     var code = value_spreadsheet + '.addViewers(' + value_emails + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
-
+*/
 // ----------------------------------------------------------------
 // copy(name)
 Blockly.Blocks['spreadsheet_copy'] = {
@@ -815,6 +766,7 @@ setSpreadsheetTimeZone(timezone)    void    Sets the time zone for the spreadshe
 show(userInterface) void    Displays a custom user interface component in a dialog centered in the user's browser's viewport.
 */
 
+// ----------------------------------------------------------------
 // toast(msg)
 // Shows a popup window in the lower right corner of the spreadsheet with the given message.
 Blockly.Blocks['spreadsheet_toast'] = {
@@ -846,9 +798,85 @@ Blockly.JavaScript['spreadsheet_toast'] = function(block) {
     return code;
 };
 
+// ----------------------------------------------------------------
+// toast(msg, title)
+//Shows a popup window in the lower right corner of the spreadsheet with the given message and title.
+Blockly.Blocks['spreadsheet_toast_msg_title'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+        this.appendValueInput("SpreadSheet")
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+        this.appendDummyInput()
+            .appendField("に");
+        this.appendValueInput("title")
+            .setCheck("String")
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_TITLE);
+        this.appendValueInput("msg")
+            .setCheck("String")
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_MSG);
+        this.appendDummyInput()
+            .appendField("を表示");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(20);
+        this.setTooltip('タイトル、メッセージのポップアップウィンドウを表示します');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#toast(String,String)');
+    }
+};
+Blockly.JavaScript['spreadsheet_toast_msg_title'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SpreadSheet', Blockly.JavaScript.ORDER_NONE);
+    var value_title = Blockly.JavaScript.valueToCode(block, 'title', Blockly.JavaScript.ORDER_NONE);
+    var value_msg = Blockly.JavaScript.valueToCode(block, 'msg', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.toast(' + value_msg + ', ' + value_title + ');\n';
+    return code;
+};
+
+// ----------------------------------------------------------------
+// toast(msg, title, timeoutSeconds)
+// Shows a popup window in the lower right corner of the spreadsheet with the given title and message, that stays visible for a certain length of time.
+Blockly.Blocks['spreadsheet_toast_msg_title_timeoutseconds'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+        this.appendValueInput("SpreadSheet")
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+        this.appendDummyInput()
+            .appendField("に");
+        this.appendValueInput("title")
+            .setCheck("String")
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_TITLE);
+        this.appendValueInput("msg")
+            .setCheck("String")
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_MSG)
+        this.appendDummyInput()
+            .appendField("を");
+        this.appendValueInput("timeoutSeconds")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_SEC);
+        this.appendDummyInput()
+            .appendField("表示");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(20);
+        this.setTooltip('タイトル、メッセージのポップアップウィンドウを、指定秒表示します');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#toast(String,String,Number)');
+    }
+};
+Blockly.JavaScript['spreadsheet_toast_msg_title_timeoutseconds'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SpreadSheet', Blockly.JavaScript.ORDER_NONE);
+    var value_title = Blockly.JavaScript.valueToCode(block, 'title', Blockly.JavaScript.ORDER_NONE);
+    var value_msg = Blockly.JavaScript.valueToCode(block, 'msg', Blockly.JavaScript.ORDER_NONE);
+    var value_timeoutseconds = Blockly.JavaScript.valueToCode(block, 'timeoutSeconds', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.toast(' + value_msg + ', ' + value_title + ', ' + value_timeoutseconds + ');\n';
+    return code;
+};
+
 /*
-toast(msg, title)   void    Shows a popup window in the lower right corner of the spreadsheet with the given message and title.
-toast(msg, title, timeoutSeconds)   void    Shows a popup window in the lower right corner of the spreadsheet with the given title and message, that stays visible for a certain length of time.
 unhideColumn(column)    void    Unhides the column in the given range.
 unhideRow(row)  void    Unhides the row in the given range.
 updateMenu(name, subMenus)  void    Updates a menu that was added by addMenu(name, subMenus).

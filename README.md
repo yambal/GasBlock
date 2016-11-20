@@ -25,13 +25,13 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 ## Class Spreadsheet
 | 実装 |	Method									|	Return type		|
 | --- |:---:| ---:|
-|Yes		|	addEditor(emailAddress)				|	Spreadsheet		|
+|None		|	addEditor(emailAddress)				|	Spreadsheet		|
 |None		|	addEditor(user)						|	Spreadsheet		|
-|Yes		|	addEditors(emailAddresses)				|	Spreadsheet		|
+|None		|	addEditors(emailAddresses)				|	Spreadsheet		|
 |None		|	addMenu(name, subMenus)				|	void			|
-|Yes		|	addViewer(emailAddress)				|	Spreadsheet		|
+|None		|	addViewer(emailAddress)				|	Spreadsheet		|
 |None		|	addViewer(user)					|	Spreadsheet		|
-|Yes		|	addViewers(emailAddresses)				|	Spreadsheet		|
+|None		|	addViewers(emailAddresses)				|	Spreadsheet		|
 |Yes		|	copy(name)						|	Spreadsheet		|
 |Yes		|	deleteActiveSheet()					|	Sheet			|
 |Yes		|	deleteSheet(sheet)					|	void			|
@@ -76,7 +76,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	setSpreadsheetLocale(locale)				|	void			|
 |None		|	setSpreadsheetTimeZone(timezone)			|	void			|
 |None		|	show(userInterface)					|	void			|
-|None		|	toast(msg)						|	void			|
-|None		|	toast(msg, title)						|	void			|
-|None		|	toast(msg, title, timeoutSeconds)			|	void			|
+|Yes		|	toast(msg)						|	void			|
+|Yes		|	toast(msg, title)						|	void			|
+|Yes		|	toast(msg, title, timeoutSeconds)			|	void			|
 |None		|	updateMenu(name, subMenus)				|	void			|
