@@ -60,7 +60,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	insertSheet(sheetIndex, options)			|	Sheet			|
 |None		|	insertSheet(options)					|	Sheet			|
 |Yes		|	insertSheet(sheetName)				|	Sheet			|
-|None		|	insertSheet(sheetName, sheetIndex)			|	Sheet			|
+|Yes		|	insertSheet(sheetName, sheetIndex)			|	Sheet			|
 |None		|	insertSheet(sheetName, sheetIndex, options)		|	Sheet			|
 |None		|	insertSheet(sheetName, options)			|	Sheet			|
 |None		|	moveActiveSheet(pos)					|	void			|

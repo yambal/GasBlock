@@ -638,8 +638,6 @@ insertSheet(options)    Sheet   Inserts a new sheet in the spreadsheet, with a d
 // ----------------------------------------------------------------
 // insertSheet(sheetName)
 // Inserts a new sheet in the spreadsheet with the given name.
-
-
 Blockly.Blocks['spreadsheet_insertsheet_sheetname'] = {
     init: function() {
         this.appendDummyInput()
@@ -668,8 +666,43 @@ Blockly.JavaScript['spreadsheet_insertsheet_sheetname'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// insertSheet(sheetName, sheetIndex)
+// Inserts a new sheet in the spreadsheet with the given name at the given index.
+Blockly.Blocks['spreadsheet_insertsheet_sheetname_sheetindex'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("SpreadSheet")
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("sheetIndex")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_INDEX);
+        this.appendDummyInput()
+            .appendField("に");
+        this.appendValueInput("SheetName")
+            .setCheck("String")
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_NAME);
+        this.appendDummyInput()
+            .appendField("で新しいシートを挿入");
+        this.setInputsInline(true);
+        this.setOutput(true, "Sheet");
+        this.setColour(20);
+        this.setTooltip('スプレッドシートに指定されたインデックス/名前の新しいシートを挿入し、アクティブなシートになります。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#insertSheet(String,Integer)');
+    }
+}
+Blockly.JavaScript['spreadsheet_insertsheet_sheetname_sheetindex'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SpreadSheet', Blockly.JavaScript.ORDER_NONE);
+    var value_sheetindex = Blockly.JavaScript.valueToCode(block, 'sheetIndex', Blockly.JavaScript.ORDER_NONE);
+    var value_sheetname = Blockly.JavaScript.valueToCode(block, 'SheetName', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.insertSheet(' + value_sheetname + ', ' + value_sheetindex + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 /*
-insertSheet(sheetName, sheetIndex)  Sheet   Inserts a new sheet in the spreadsheet with the given name at the given index.
 insertSheet(sheetName, sheetIndex, options) Sheet   Inserts a new sheet in the spreadsheet with the given name at the given index and uses optional advanced arguments.
 insertSheet(sheetName, options) Sheet   Inserts a new sheet in the spreadsheet with the given name and uses optional advanced arguments.
 moveActiveSheet(pos)    void    Moves the active sheet to the given position in the list of sheets.
