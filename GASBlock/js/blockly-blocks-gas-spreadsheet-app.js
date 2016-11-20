@@ -26,6 +26,7 @@ Blockly.Msg.GAS.SS.IO.SHEET_COPIED = "コピーした" + Blockly.Msg.GAS.SS.IO.S
 Blockly.Msg.GAS.SS.IO.SS_ACTIVED = "アクティブになった" + Blockly.Msg.GAS.SS.IO.SS;
 Blockly.Msg.GAS.SS.IO.SS_COPY_ORIGINAL = "複製元" + Blockly.Msg.GAS.SS.IO.SS;
 Blockly.Msg.GAS.SS.IO.NUMBER_ROW_LENGTH = "行数" + Blockly.Msg.GAS.SS.IO.NUMBER;
+Blockly.Msg.GAS.SS.IO.NUMBER_ROW = "行" + Blockly.Msg.GAS.SS.IO.NUMBER;
 Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH = "列数" + Blockly.Msg.GAS.SS.IO.NUMBER;
 Blockly.Msg.GAS.SS.IO.NUMBER_COL = "列" + Blockly.Msg.GAS.SS.IO.NUMBER;
 Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_INDEX = "シートインデックス" + Blockly.Msg.GAS.SS.IO.NUMBER;

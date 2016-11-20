@@ -197,21 +197,23 @@ Blockly.JavaScript['sheet_deletecolumns'] = function(block) {
 // Deletes the row at the given row position.
 Blockly.Blocks['sheet_deleterow'] = {
     init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendDummyInput()
             .appendField("の");
         this.appendValueInput("rowPosition")
             .setCheck("Number")
-            .appendField("行");
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
         this.appendDummyInput()
             .appendField("を削除");
         this.setInputsInline(true);
-        this.setOutput(true, "Sheet");
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
         this.setColour(20);
-        this.setTooltip('指定された行（最初の行は 1）を削除します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteRow(Integer)');
+        this.setTooltip('指定された行位置の行を削除します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteRow(Integer)');
     }
 };
 Blockly.JavaScript['sheet_deleterow'] = function(block) {
