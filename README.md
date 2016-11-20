@@ -142,7 +142,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | insertImage(url, column, row,offsetX, offsetY) | void |
 | Yes | insertRowAfter(afterPosition) | Sheet |
 | Yes | insertRowBefore(beforePosition) | Sheet |
-| No | insertRows(rowIndex) | void |
+| Yes | insertRows(rowIndex) | void |
 | No | insertRows(rowIndex, numRows) | void |
 | No | insertRowsAfter(afterPosition,howMany) | Sheet |
 | No | insertRowsBefore(beforePosition, howMany) | Sheet |

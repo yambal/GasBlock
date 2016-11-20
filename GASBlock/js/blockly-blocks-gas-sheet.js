@@ -952,7 +952,7 @@ Blockly.Blocks['sheet_insertrowafter'] = {
     }
 };
 Blockly.JavaScript['sheet_insertrowafter'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_afterposition = Blockly.JavaScript.valueToCode(block, 'afterPosition', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.insertRowAfter(' + value_afterposition + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -979,18 +979,49 @@ Blockly.Blocks['sheet_insertrowbefore'] = {
         this.setOutput(true, Blockly.Msg.GAS.SS.IO.SHEET);
         this.setColour(20);
         this.setTooltip('指定された行の位置の前に行を挿入します。');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowAfter(Integer)');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowBefore(Integer)');
     }
 };
 Blockly.JavaScript['sheet_insertrowbefore'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.insertRowBefore(' + value_beforePosition + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// insertRows(rowIndex)
+// Inserts a blank row in a sheet at the specified location.
+Blockly.Blocks['sheet_insertrows_rowindex'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("rowIndex")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendDummyInput()
+            .appendField("に空行を挿入");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(20);
+        this.setTooltip('指定された場所のシートに空の行を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRows(Integer)');
+    }
+};
+Blockly.JavaScript['sheet_insertrows_rowindex'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_rowindex = Blockly.JavaScript.valueToCode(block, 'rowIndex', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertRows(' + value_rowindex + ');\n';
+    return code;
+};
+
 /*
-insertRows(rowIndex)    void    Inserts a blank row in a sheet at the specified location.
 insertRows(rowIndex, numRows)   void    Inserts one or more consecutive blank rows in a sheet starting at the specified location.
 insertRowsAfter(afterPosition, howMany) Sheet   Inserts a number of rows after the given row position.
 insertRowsBefore(beforePosition, howMany)   Sheet   Inserts a number of rows before the given row position.
