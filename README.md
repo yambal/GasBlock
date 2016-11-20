@@ -113,8 +113,8 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | getNamedRanges() | NamedRange[] |
 | No | getParent() | Spreadsheet |
 | No | getProtections(type) | Protection[] |
-| No | getRange(row, column) | Range |
-| No | getRange(row, column, numRows) | Range |
+| Yes | getRange(row, column) | Range |
+| Yes | getRange(row, column, numRows) | Range |
 | No | getRange(row, column, numRows,numColumns) | Range |
 | No | getRange(a1Notation) | Range |
 | No | getRowHeight(rowPosition) | Integer |
