@@ -1201,8 +1201,39 @@ Blockly.JavaScript['sheet_setactiveselection'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// ----------------------------------------------------------------
+// setActiveSelection(a1Notation)
+// Sets the active selection, as specified in A1 notation or R1C1 notation.
+Blockly.Blocks['sheet_setactiveselection_a1notation'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET)
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("a1Notation")
+            .setCheck("String")
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_A1NOTATION);
+        this.appendDummyInput()
+            .appendField("をアクティブな選択範囲");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(20);
+        this.setTooltip('A1表記またはR1C1表記で指定されたアクティブな選択を設定します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setActiveSelection(String)');
+    }
+};
+Blockly.JavaScript['sheet_setactiveselection_a1notation'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_a1Notation = Blockly.JavaScript.valueToCode(block, 'a1Notation', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = value_sheet + '.setActiveSelection(' + value_a1Notation + ')';
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+
 /*
-setActiveSelection(a1Notation)  Range   Sets the active selection, as specified in A1 notation or R1C1 notation.
 setColumnWidth(columnPosition, width)   Sheet   Sets the width of the given column in pixels.
 setFrozenColumns(columns)   void    Freezes the given number of columns.
 setFrozenRows(rows) void    Freezes the given number of rows.
