@@ -1137,8 +1137,71 @@ isSheetHidden() Boolean Returns true if the sheet is currently hidden.
 newChart()  EmbeddedChartBuilder    Returns a builder to create a new chart for this sheet.
 protect()   Protection  Creates an object that can protect the sheet from being edited except by users who have permission.
 removeChart(chart)  void    Removes a chart from the parent sheet.
-setActiveRange(range)   Range   Sets the active range for the active sheet.
-setActiveSelection(range)   Range   Sets the active selection region for this sheet.
+*/
+
+// ----------------------------------------------------------------
+// setActiveRange(range)
+// Sets the active range for the active sheet.
+Blockly.Blocks['sheet_setactiverange'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET)
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+        this.appendDummyInput()
+            .appendField("をアクティブ");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(20);
+        this.setTooltip('アクティブシートのアクティブ範囲を設定します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setActiveRange(Range)');
+    }
+};
+Blockly.JavaScript['sheet_setactiverange'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = value_sheet + '.setActiveRange(' + value_range + ')';
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+// ----------------------------------------------------------------
+// setActiveSelection(range)
+// Sets the active selection region for this sheet.
+Blockly.Blocks['sheet_setactiveselection'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET)
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+        this.appendDummyInput()
+            .appendField("をアクティブな選択範囲");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(20);
+        this.setTooltip('このシートのアクティブな選択範囲を設定します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setActiveSelection(Range)');
+    }
+};
+Blockly.JavaScript['sheet_setactiveselection'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = value_sheet + '.setActiveSelection(' + value_range + ')';
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+/*
 setActiveSelection(a1Notation)  Range   Sets the active selection, as specified in A1 notation or R1C1 notation.
 setColumnWidth(columnPosition, width)   Sheet   Sets the width of the given column in pixels.
 setFrozenColumns(columns)   void    Freezes the given number of columns.

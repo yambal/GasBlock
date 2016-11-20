@@ -150,8 +150,8 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | newChart() | EmbeddedChartBuilder |
 | No | protect() | Protection |
 | No | removeChart(chart) | void |
-| No | setActiveRange(range) | Range |
-| No | setActiveSelection(range) | Range |
+| Yes | setActiveRange(range) | Range |
+| Yes | setActiveSelection(range) | Range |
 | No | setActiveSelection(a1Notation) | Range |
 | No | setColumnWidth(columnPosition,width) | Sheet |
 | No | setFrozenColumns(columns) | void |
