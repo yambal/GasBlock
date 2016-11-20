@@ -386,7 +386,7 @@ Blockly.Blocks['sheet_getlastcolumn'] = {
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(20);
-        this.setTooltip('コンテンツを持つ最後の列の位置を返します。');
+        this.setTooltip('最後の列の位置を返します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getLastColumn()');
     }
 };
@@ -396,9 +396,31 @@ Blockly.JavaScript['sheet_getlastcolumn'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-
+// ----------------------------------------------------------------
+// getLastRow()
+// Returns the position of the last row that has content.
+Blockly.Blocks['sheet_getlastrow'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の最後の行位置");
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(20);
+        this.setTooltip('最後の行の位置を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getLastRow()');
+    }
+};
+Blockly.JavaScript['sheet_getlastrow'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.getLastRow()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 /*
-getLastRow()    Integer Returns the position of the last row that has content.
 getMaxColumns() Integer Returns the current number of columns in the sheet, regardless of content.
 getMaxRows()    Integer Returns the current number of rows in the sheet, regardless of content.
 getName()   String  Returns the name of the sheet.
