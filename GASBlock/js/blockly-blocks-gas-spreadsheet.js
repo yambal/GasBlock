@@ -567,23 +567,39 @@ Blockly.JavaScript['spreadsheet_geturl'] = function(block) {
     var code = value_spreadsheet + '.getUrl()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
 /*
 getViewers()    User[]  Gets the list of viewers and commenters for this Spreadsheet.
 hideColumn(column)  void    Hides the columns in the given range.
 hideRow(row)    void    Hides the rows in the given range.
-insertColumnAfter(afterPosition)    Sheet   Inserts a column after the given column position.
-insertColumnBefore(beforePosition)  Sheet   Inserts a column before the given column position.
-insertColumnsAfter(afterPosition, howMany)  Sheet   Inserts a number of columns after the given column position.
-insertColumnsBefore(beforePosition, howMany)    Sheet   Inserts a number of columns before the given column position.
-insertImage(blob, column, row)  void    Inserts a Blob as an image in the document at a given row and column.
-insertImage(blob, column, row, offsetX, offsetY)    void    Inserts a Blob as an image in the document at a given row and column, with a pixel offset.
-insertImage(url, column, row)   void    Inserts an image in the document at a given row and column.
-insertImage(url, column, row, offsetX, offsetY) void    Inserts an image in the document at a given row and column, with a pixel offset.
-insertRowAfter(afterPosition)   Sheet   Inserts a row after the given row position.
-insertRowBefore(beforePosition) Sheet   Inserts a row before the given row position.
-insertRowsAfter(afterPosition, howMany) Sheet   Inserts a number of rows after the given row position.
-insertRowsBefore(beforePosition, howMany)   Sheet   Inserts a number of rows before the given row position.
-insertSheet()   Sheet   Inserts a new sheet in the spreadsheet, with a default name.
+*/
+
+// ----------------------------------------------------------------
+// insertSheet()
+// Inserts a new sheet in the spreadsheet, with a default name.
+Blockly.Blocks['spreadsheet_insertsheet'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("Spreadsheet")
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+        this.appendDummyInput()
+            .appendField("に新しいシートを挿入");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(20);
+        this.setTooltip('スプレッドシートにデフォルトの名前で新しいシートを挿入します。副作用として、アクティブなシートになります。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#insertSheet()');
+    }
+};
+Blockly.JavaScript['spreadsheet_insertsheet'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'Spreadsheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.insertSheet()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 insertSheet(sheetIndex) Sheet   Inserts a new sheet in the spreadsheet at the given index.
 insertSheet(sheetIndex, options)    Sheet   Inserts a new sheet in the spreadsheet at the given index and uses optional advanced arguments.
 insertSheet(options)    Sheet   Inserts a new sheet in the spreadsheet, with a default name and uses optional advanced arguments.

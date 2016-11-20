@@ -55,7 +55,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |None		|	getSpreadsheetTimeZone()				|	String			|
 |Yes		|	getUrl()							|	String			|
 |None		|	getViewers()						|	User[]			|
-|None		|	insertSheet()						|	Sheet			|
+|Yes		|	insertSheet()						|	Sheet			|
 |None		|	insertSheet(sheetIndex)					|	Sheet			|
 |None		|	insertSheet(sheetIndex, options)			|	Sheet			|
 |None		|	insertSheet(options)					|	Sheet			|
