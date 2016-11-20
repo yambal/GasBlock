@@ -109,7 +109,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | getLastRow() | Integer |
 | No | getMaxColumns() | Integer |
 | No | getMaxRows() | Integer |
-| No | getName() | String |
+| Yes | getName() | String |
 | No | getNamedRanges() | NamedRange[] |
 | No | getParent() | Spreadsheet |
 | No | getProtections(type) | Protection[] |

@@ -423,7 +423,34 @@ Blockly.JavaScript['sheet_getlastrow'] = function(block) {
 /*
 getMaxColumns() Integer Returns the current number of columns in the sheet, regardless of content.
 getMaxRows()    Integer Returns the current number of rows in the sheet, regardless of content.
-getName()   String  Returns the name of the sheet.
+*/
+
+// ----------------------------------------------------------------
+// getName()
+// Returns the name of the sheet.
+Blockly.Blocks['sheet_getname'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の名前");
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour(20);
+        this.setTooltip('シートの名前を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getName()');
+    }
+};
+Blockly.JavaScript['sheet_getname'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.getName()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 getNamedRanges()    NamedRange[]    Gets all the named ranges in this sheet.
 getParent() Spreadsheet Returns the Spreadsheet that contains this sheet.
 getProtections(type)    Protection[]    Gets an array of objects representing all protected ranges in the sheet, or a single-element array representing the protection on the sheet itself.
