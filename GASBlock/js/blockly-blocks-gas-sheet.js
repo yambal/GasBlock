@@ -371,8 +371,33 @@ Blockly.JavaScript['sheet_getindex'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+// ----------------------------------------------------------------
+// getLastColumn()
+// Returns the position of the last column that has content.
+Blockly.Blocks['sheet_getlastcolumn'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の最後の列位置");
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(20);
+        this.setTooltip('コンテンツを持つ最後の列の位置を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getLastColumn()');
+    }
+};
+Blockly.JavaScript['sheet_getlastcolumn'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.getLastColumn()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+
 /*
-getLastColumn() Integer Returns the position of the last column that has content.
 getLastRow()    Integer Returns the position of the last row that has content.
 getMaxColumns() Integer Returns the current number of columns in the sheet, regardless of content.
 getMaxRows()    Integer Returns the current number of rows in the sheet, regardless of content.
