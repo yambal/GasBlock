@@ -128,21 +128,23 @@ Blockly.JavaScript['sheet_copyto'] = function(block) {
 // Deletes the column at the given column position.
 Blockly.Blocks['sheet_deletecolumn'] = {
     init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendDummyInput()
             .appendField("の");
         this.appendValueInput("COLUMN")
             .setCheck("Number")
-            .appendField("列");
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
         this.appendDummyInput()
             .appendField("を削除");
         this.setInputsInline(true);
-        this.setOutput(true, "Sheet");
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
         this.setColour(20);
-        this.setTooltip('指定した列の位置の列を削除します（最初の列は 1 となります）');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteColumn(Integer)');
+        this.setTooltip('指定された列位置の列を削除します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteColumn(Integer)');
     }
 };
 Blockly.JavaScript['sheet_deletecolumn'] = function(block) {

@@ -93,7 +93,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | clearFormats() | Sheet |
 | No | clearNotes() | Sheet |
 | Yes | copyTo(spreadsheet) | Sheet |
-| No | deleteColumn(columnPosition) | Sheet |
+| Yes | deleteColumn(columnPosition) | Sheet |
 | No | deleteColumns(columnPosition,howMany) | void |
 | No | deleteRow(rowPosition) | Sheet |
 | No | deleteRows(rowPosition,howMany) | void |
