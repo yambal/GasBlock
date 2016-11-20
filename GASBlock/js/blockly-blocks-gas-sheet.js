@@ -607,7 +607,34 @@ Blockly.JavaScript['sheet_getrange_a1notation'] = function(block) {
 };
 /*
 getRowHeight(rowPosition)   Integer Gets the height in pixels of the given row.
-getSheetId()    Integer Returns the ID of the sheet represented by this object.
+*/
+
+// ----------------------------------------------------------------
+// getSheetId()
+// Returns the ID of the sheet represented by this object.
+Blockly.Blocks['sheet_getsheetid'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_ID);
+    this.appendValueInput("Sheet")
+        .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+    this.appendDummyInput()
+        .appendField("のID");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setColour(20);
+    this.setTooltip('このオブジェクトが表すシートのIDを返します。これは、スプレッドシートに固有のシートのIDです。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getSheetId()');
+  }
+};
+Blockly.JavaScript['sheet_getsheetid'] = function(block) {
+  var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+  var code = value_sheet + '.getSheetId()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 getSheetName()  String  Returns the sheet name.
 getSheetValues(startRow, startColumn, numRows, numColumns)  Object[][]  Returns the rectangular grid of values for this range starting at the given coordinates.
 getTabColor()   String  Gets the sheet tab color, or null if the sheet tab has no color.
