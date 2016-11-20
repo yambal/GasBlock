@@ -56,10 +56,10 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |Yes		|	getUrl()							|	String			|
 |None		|	getViewers()						|	User[]			|
 |Yes		|	insertSheet()						|	Sheet			|
-|None		|	insertSheet(sheetIndex)					|	Sheet			|
+|Yes		|	insertSheet(sheetIndex)					|	Sheet			|
 |None		|	insertSheet(sheetIndex, options)			|	Sheet			|
 |None		|	insertSheet(options)					|	Sheet			|
-|None		|	insertSheet(sheetName)				|	Sheet			|
+|Yes		|	insertSheet(sheetName)				|	Sheet			|
 |None		|	insertSheet(sheetName, sheetIndex)			|	Sheet			|
 |None		|	insertSheet(sheetName, sheetIndex, options)		|	Sheet			|
 |None		|	insertSheet(sheetName, options)			|	Sheet			|
