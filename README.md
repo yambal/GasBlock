@@ -156,7 +156,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | setColumnWidth(columnPosition,width) | Sheet |
 | No | setFrozenColumns(columns) | void |
 | No | setFrozenRows(rows) | void |
-| No | setName(name) | Sheet |
+| Yes | setName(name) | Sheet |
 | No | setRowHeight(rowPosition,height) | Sheet |
 | No | setTabColor(color) | Sheet |
 | No | showColumns(columnIndex) | void |

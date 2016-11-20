@@ -1237,7 +1237,40 @@ Blockly.JavaScript['sheet_setactiveselection_a1notation'] = function(block) {
 setColumnWidth(columnPosition, width)   Sheet   Sets the width of the given column in pixels.
 setFrozenColumns(columns)   void    Freezes the given number of columns.
 setFrozenRows(rows) void    Freezes the given number of rows.
-setName(name)   Sheet   Sets the sheet name.
+*/
+
+// ----------------------------------------------------------------
+// setName(name)
+// Sets the sheet name.
+Blockly.Blocks['sheet_setname'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET)
+        this.appendDummyInput()
+            .appendField("に");
+        this.appendValueInput("name")
+            .setCheck("String")
+            .appendField(Blockly.Msg.GAS.SS.IO.STRING_NAME);
+        this.appendDummyInput()
+            .appendField("をセットする");
+        this.setInputsInline(true);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(20);
+        this.setTooltip('シート名を設定します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setName(String)');
+    }
+};
+Blockly.JavaScript['sheet_setname'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.setName(' + value_name + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 setRowHeight(rowPosition, height)   Sheet   Sets the row height of the given row in pixels.
 setTabColor(color)  Sheet   Sets the sheet tab color.
 showColumns(columnIndex)    void    Unhides the column at the given index.
