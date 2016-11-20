@@ -883,8 +883,44 @@ Blockly.JavaScript['sheet_insertcolumnsafter_afterposition_howmany'] = function(
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+
+// insertColumnsBefore(beforePosition, howMany)
+// Inserts a number of columns before the given column position.
+Blockly.Blocks['sheet_nsertcolumnsbefore_beforeposition_howmany'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Sheet");
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+        this.appendDummyInput()
+            .appendField("の");
+        this.appendValueInput("beforePosition")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
+        this.appendDummyInput()
+            .appendField("の前に");
+        this.appendValueInput("howMany")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
+        this.appendDummyInput()
+            .appendField("の列を挿入");
+        this.setInputsInline(true);
+        this.setOutput(true, "Sheet");
+        this.setColour(20);
+        this.setTooltip('指定された列の位置の前にいくつかの列を挿入します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnsBefore(Integer,Integer)');
+    }
+};
+Blockly.JavaScript['sheet_nsertcolumnsbefore_beforeposition_howmany'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
+    var value_howmany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.insertColumnsBefore(' + value_beforePosition + ', ' + value_howmany + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 /*
-insertColumnsBefore(beforePosition, howMany)    Sheet   Inserts a number of columns before the given column position.
 insertImage(blob, column, row)  void    Inserts a Blob as an image in the document at a given row and column.
 insertImage(blob, column, row, offsetX, offsetY)    void    Inserts a Blob as an image in the document at a given row and column, with a pixel offset.
 insertImage(url, column, row)   void    Inserts an image in the document at a given row and column.

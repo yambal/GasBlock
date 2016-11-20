@@ -135,7 +135,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | Yes | insertColumns(columnIndex) | void |
 | Yes | insertColumns(columnIndex,numColumns) | void |
 | Yes | insertColumnsAfter(afterPosition, howMany) | Sheet |
-| No | insertColumnsBefore(beforePosition, howMany) | Sheet |
+| Yes | insertColumnsBefore(beforePosition, howMany) | Sheet |
 | No | insertImage(blob, column, row) | void |
 | No | insertImage(blob, column, row,offsetX, offsetY) | void |
 | No | insertImage(url, column, row) | void |
