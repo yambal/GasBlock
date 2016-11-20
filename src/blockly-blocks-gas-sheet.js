@@ -203,7 +203,7 @@ Blockly.Blocks['sheet_deleterow'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendDummyInput()
-            .appendField("の");
+            .appendField("の行を");
         this.appendValueInput("rowPosition")
             .setCheck("Number")
             .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
@@ -228,23 +228,29 @@ Blockly.JavaScript['sheet_deleterow'] = function(block) {
 // Deletes a number of rows starting at the given row position.
 Blockly.Blocks['sheet_deleterows'] = {
     init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
         this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendDummyInput()
             .appendField("の行を");
         this.appendValueInput("rowPosition")
             .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+        this.appendDummyInput()
             .appendField("から");
         this.appendValueInput("HOWMANY")
             .setCheck("Number")
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW_LENGTH);
+        this.appendDummyInput()
             .appendField("個削除");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(20);
-        this.setTooltip('指定した行の位置（最初の列は 1）から、指定数の行を削除します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#deleteRows(Integer,Integer)');
+        this.setTooltip('gru指定された行位置から始まるいくつかの行を削除します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteRows(Integer,Integer)');
     }
 };
 Blockly.JavaScript['sheet_deleterows'] = function(block) {
