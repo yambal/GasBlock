@@ -86,13 +86,13 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | --- |:---:| ---:|
 | Yes | activate() | Sheet |
 | Yes | appendRow(rowContents) | Sheet |
-| No | autoResizeColumn(columnPosition) | Sheet |
+| Yes | autoResizeColumn(columnPosition) | Sheet |
 | No | clear() | Sheet |
 | No | clear(options) | Sheet |
 | No | clearContents() | Sheet |
 | No | clearFormats() | Sheet |
 | No | clearNotes() | Sheet |
-| No | copyTo(spreadsheet) | Sheet |
+| Yes | copyTo(spreadsheet) | Sheet |
 | No | deleteColumn(columnPosition) | Sheet |
 | No | deleteColumns(columnPosition,howMany) | void |
 | No | deleteRow(rowPosition) | Sheet |

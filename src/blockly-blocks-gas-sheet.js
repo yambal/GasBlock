@@ -58,21 +58,23 @@ Blockly.JavaScript['sheet_appendrow'] = function(block) {
 // Sets the width of the given column to fit its contents
 Blockly.Blocks['sheet_autoresizecolumn'] = {
     init: function() {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendValueInput("SHEET")
-            .setCheck("Sheet")
-            .appendField("シート");
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
         this.appendDummyInput()
             .appendField("の");
         this.appendValueInput("COLUMN")
             .setCheck("Number")
-            .appendField("列");
+            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
         this.appendDummyInput()
             .appendField("の幅をフィット");
         this.setInputsInline(true);
-        this.setOutput(true, "Sheet");
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
         this.setColour(20);
-        this.setTooltip('列の幅をその内容に合わせてます');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#autoResizeColumn(Integer)');
+        this.setTooltip('指定された列の幅を内容に合わせて設定します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#autoResizeColumn(Integer)');
     }
 };
 Blockly.JavaScript['sheet_autoresizecolumn'] = function(block) {
@@ -81,6 +83,7 @@ Blockly.JavaScript['sheet_autoresizecolumn'] = function(block) {
     var code = value_sheet + '.autoResizeColumn(' + value_column + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
 /*
 clear() Sheet   Clears the sheet of content and formatting information.
 clear(options)  Sheet   Clears the sheet of contents and/or format, as specified with the given advanced options.
