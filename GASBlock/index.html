@@ -129,30 +129,27 @@
       var $categoryRowColOperation = $('<category name="行・列操作" colour="60" />');
       var $categoryRowOperation = $('<category name="行操作" colour="60" />');
       $categoryRowOperation.append('<block type="sheet_appendrow"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrows_rowindex"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrowafter"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrowsafter_afterposition_howmany"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrowbefore"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrowsbefore_beforeposition_howmany"></block>');
       $categoryRowOperation.append('<block type="sheet_deleterow"></block>');
       $categoryRowOperation.append('<block type="sheet_deleterows"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrowafter"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrowbefore"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrows_rowindex"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrows_rowindex_numrows"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrowsafter_afterposition_howmany"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrowsbefore_beforeposition_howmany"></block>');
       $categoryRowColOperation.append($categoryRowOperation);
 
       var $categoryColOperation = $('<category name="列操作" colour="60" />');
-      $categoryColOperation.append('<block type="sheet_autoresizecolumn"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumns_columnindex"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumnafter"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumnsafter_afterposition_howmany"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumnbefore"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumnsbefore_beforeposition_howmany"></block>');
       $categoryColOperation.append('<block type="sheet_deletecolumn"></block>');
       $categoryColOperation.append('<block type="sheet_deletecolumns"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumnafter"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumnbefore"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumns_columnindex"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumnsafter_afterposition_howmany"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumnsbefore_beforeposition_howmany"></block>');
+      $categoryColOperation.append('<block type="sheet_autoresizecolumn"></block>');
       $categoryRowColOperation.append($categoryColOperation);
-      
       $categorySheet.append($categoryRowColOperation);
 
-      
       $categorySheet.append('<block type="sheet_getactivecell"></block>');
       $categorySheet.append('<block type="sheet_getactiverange"></block>');
       $categorySheet.append('<block type="sheet_getdatarange"></block>');
