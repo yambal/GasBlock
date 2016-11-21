@@ -803,21 +803,28 @@ Blockly.JavaScript['sheet_insertcolumnbefore'] = function(block) {
 Blockly.Blocks['sheet_insertcolumns_columnindex'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("列挿入");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("columnIndex")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-        this.appendDummyInput()
-            .appendField("に空白列を挿入");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("numColumns")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.OP, 15, 15, "*"))
+            .appendField("列数")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('シートの指定された場所に空白の列を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumns(Integer)');
     }
@@ -825,45 +832,11 @@ Blockly.Blocks['sheet_insertcolumns_columnindex'] = {
 Blockly.JavaScript['sheet_insertcolumns_columnindex'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_columnIndex = Blockly.JavaScript.valueToCode(block, 'columnIndex', Blockly.JavaScript.ORDER_NONE);
+    var value_numColumns = Blockly.JavaScript.valueToCode(block, 'numColumns', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.insertColumns(' + value_columnIndex + '):\n';
-    return code;
-};
-
-// ----------------------------------------------------------------
-// insertColumns(columnIndex, numColumns)
-// Inserts one or more consecutive blank columns in a sheet starting at the specified location.
-Blockly.Blocks['sheet_insertcolumns_columnindex_numcolumns'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
-        this.appendValueInput("Sheet")
-            .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の");
-        this.appendValueInput("columnIndex")
-            .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-        this.appendDummyInput()
-            .appendField("に");
-        this.appendValueInput("numColumns")
-            .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
-        this.appendDummyInput()
-            .appendField("の空白列を挿入");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(20);
-        this.setTooltip('シートの指定された場所に、1つまたは複数の連続する空白列を挿入します。');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumns(Integer,Integer)');
+    if(value_numColumns){
+        code = value_sheet + '.insertColumns(' + value_columnIndex + ',' + value_numColumns + '):\n';
     }
-};
-Blockly.JavaScript['sheet_insertcolumns_columnindex_numcolumns'] = function(block) {
-    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
-    var value_columnIndex = Blockly.JavaScript.valueToCode(block, 'columnIndex', Blockly.JavaScript.ORDER_NONE);
-    var value_numColumns　 = Blockly.JavaScript.valueToCode(block, 'numColumns', Blockly.JavaScript.ORDER_NONE);
-    var code = value_sheet + '.insertColumns(' + value_columnIndex + ',' + value_numColumns + ');\n';
     return code;
 };
 
@@ -873,25 +846,28 @@ Blockly.JavaScript['sheet_insertcolumns_columnindex_numcolumns'] = function(bloc
 Blockly.Blocks['sheet_insertcolumnsafter_afterposition_howmany'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("後に列挿入");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("afterPosition")
-            .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-        this.appendDummyInput()
-            .appendField("の後に");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.appendValueInput("howMany")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
-        this.appendDummyInput()
-            .appendField("の列を挿入");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.OP, 15, 15, "*"))
+            .appendField("列数")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, "Sheet");
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された列の位置の後にいくつかの列を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnsAfter(Integer,Integer)');
     }
@@ -910,23 +886,27 @@ Blockly.JavaScript['sheet_insertcolumnsafter_afterposition_howmany'] = function(
 Blockly.Blocks['sheet_insertcolumnsbefore_beforeposition_howmany'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("前に列挿入");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("beforePosition")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-        this.appendDummyInput()
-            .appendField("の前に");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.appendValueInput("howMany")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
-        this.appendDummyInput()
-            .appendField("の列を挿入");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.OP, 15, 15, "*"))
+            .appendField("列数")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, "Sheet");
         this.setColour(20);
         this.setTooltip('指定された列の位置の前にいくつかの列を挿入します。');
@@ -954,20 +934,23 @@ insertImage(url, column, row, offsetX, offsetY) void    Inserts an image in the 
 Blockly.Blocks['sheet_insertrowafter'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+            .appendField("後に行を挿入");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("afterPosition")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
-        this.appendDummyInput()
-            .appendField("の後に行を挿入");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("行番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.Msg.GAS.SS.IO.SHEET);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された行の位置の後に行を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowAfter(Integer)');
     }

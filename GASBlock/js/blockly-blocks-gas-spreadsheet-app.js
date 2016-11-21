@@ -217,7 +217,7 @@ Blockly.Blocks['spreadsheetapp_getactiverange'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-            .appendField("範囲を取得");
+            .appendField("範囲取得");
         this.appendDummyInput()
             .appendField("ユーザが選択した範囲");
         this.setInputsInline(true);
@@ -394,7 +394,7 @@ Blockly.Blocks['spreadsheetapp_setactiverange'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-            .appendField("範囲を選択する");
+            .appendField("範囲選択");
         this.appendValueInput("RANGE")
             .setCheck(Blockly.TYPE.GAS.RANGE)
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -419,7 +419,7 @@ Blockly.Blocks['spreadsheetapp_setactivesheet'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
-            .appendField("シートを選択");
+            .appendField("シート選択");
         this.appendValueInput("SHEET")
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)

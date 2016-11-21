@@ -27,11 +27,11 @@ Blockly.Blocks['spreadsheet_copy'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
-            .appendField("スプレッドシートをコピー");
+            .appendField("スプレッドシート複製");
         this.appendValueInput("SPREADSHEET")
             .setCheck(Blockly.TYPE.GAS.SS)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("コピー元スプレッドシート")
+            .appendField("複製元")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"));
         this.appendValueInput("NEWNAME")
             .setCheck("String")
@@ -58,7 +58,7 @@ Blockly.Blocks['spreadsheet_deleteactivesheet'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
-            .appendField("シートを削除");
+            .appendField("シート削除");
         this.appendValueInput("SPREADSHEET")
             .setCheck(Blockly.TYPE.GAS.SS)
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -198,7 +198,7 @@ Blockly.Blocks['spreadsheet_getid'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
-            .appendField("スプレッドシートのID取得");
+            .appendField("スプレッドシートID取得");
         this.appendValueInput("Spreadsheet")
             .setCheck(Blockly.TYPE.GAS.SS)
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -387,7 +387,7 @@ Blockly.Blocks['spreadsheet_geturl'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
-            .appendField("スプレッドシートのURL取得");
+            .appendField("スプレッドシートURL取得");
         this.appendValueInput("Spreadsheet")
             .setCheck(Blockly.TYPE.GAS.SS)
             .setAlign(Blockly.ALIGN_RIGHT)

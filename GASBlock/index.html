@@ -90,14 +90,16 @@
       $categoryGetSpreadSheet.append('<block type="spreadsheetapp_openbyurl"></block>');
       $categorySpreadSheet.append($categoryGetSpreadSheet);
 
-      $categorySpreadSheet.append('<block type="spreadsheetapp_create"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheetapp_setactivespreadsheet"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_copy"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_getid"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_getname"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_rename"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_geturl"></block>');
-      
+      var $categoryGetSpreadSheetOperation = $('<category name="スプレッドシート操作" colour="75" />');
+      $categoryGetSpreadSheetOperation.append('<block type="spreadsheetapp_create"></block>');
+      $categoryGetSpreadSheetOperation.append('<block type="spreadsheetapp_setactivespreadsheet"></block>');
+      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_copy"></block>');
+      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_getname"></block>');
+      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_rename"></block>');
+      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_getid"></block>');
+      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_geturl"></block>');
+      $categorySpreadSheet.append($categoryGetSpreadSheetOperation);
+
       $categorySpreadSheetRoot.append($categorySpreadSheet);
 
       // スプレッドシート > スプレッドシート > シート
@@ -144,7 +146,6 @@
       $categoryColOperation.append('<block type="sheet_insertcolumnafter"></block>');
       $categoryColOperation.append('<block type="sheet_insertcolumnbefore"></block>');
       $categoryColOperation.append('<block type="sheet_insertcolumns_columnindex"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumns_columnindex_numcolumns"></block>');
       $categoryColOperation.append('<block type="sheet_insertcolumnsafter_afterposition_howmany"></block>');
       $categoryColOperation.append('<block type="sheet_insertcolumnsbefore_beforeposition_howmany"></block>');
       $categoryRowColOperation.append($categoryColOperation);
