@@ -298,7 +298,7 @@ Blockly.Blocks['spreadsheet_getrange_a1notation'] = {
             .appendField("A1/R1C1表記")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
         this.setInputsInline(false);
-        this.setOutput(true, Blockly.Msg.GAS.SS.IO.RANGE);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
         this.setColour(Blockly.COLOR.GAS.RANGE);
         this.setTooltip('A1表記またはR1C1表記で指定された範囲を返します');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getrangea1notation');
