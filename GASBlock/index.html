@@ -124,6 +124,10 @@
       $categorySheetOperation.append('<block type="spreadsheet_setactivesheet_sheet"></block>');
       $categorySheetOperation.append('<block type="sheet_activate"></block>');
       $categorySheetOperation.append('<block type="sheet_copyto"></block>');
+      $categorySheetOperation.append('<block type="sheet_getindex"></block>');
+      $categorySheetOperation.append('<block type="sheet_getlastcolumn"></block>');
+      $categorySheetOperation.append('<block type="sheet_getlastrow"></block>');
+      $categorySheetOperation.append('<block type="sheet_getname"></block>');
       $categorySheet.append($categorySheetOperation);
 
       var $categoryRowColOperation = $('<category name="行・列操作" colour="60" />');
@@ -147,17 +151,11 @@
       $categoryColOperation.append('<block type="sheet_deletecolumn"></block>');
       $categoryColOperation.append('<block type="sheet_deletecolumns"></block>');
       $categoryColOperation.append('<block type="sheet_autoresizecolumn"></block>');
+      
       $categoryRowColOperation.append($categoryColOperation);
       $categorySheet.append($categoryRowColOperation);
 
-      $categorySheet.append('<block type="sheet_getactivecell"></block>');
-      $categorySheet.append('<block type="sheet_getactiverange"></block>');
-      $categorySheet.append('<block type="sheet_getdatarange"></block>');
-      $categorySheet.append('<block type="sheet_getindex"></block>');
-      $categorySheet.append('<block type="sheet_getlastcolumn"></block>');
-      $categorySheet.append('<block type="sheet_getlastrow"></block>');
-      $categorySheet.append('<block type="sheet_getname"></block>');
-      $categorySheet.append('<block type="sheet_getrange_row_column"></block>');
+      
       $categorySheet.append('<block type="sheet_getrange_row_column_numrows"></block>');
       $categorySheet.append('<block type="sheet_getrange_row_column_numrows_numcolumns"></block>');
       $categorySheet.append('<block type="sheet_getrange_a1notation"></block>');
@@ -173,9 +171,14 @@
       $categorySpreadSheetRoot.append($categorySheet);
 
       var $categoryRange = $('<category name="範囲" colour="45" />');
+
       $categoryRange.append('<block type="spreadsheetapp_getactiverange"></block>');
       $categoryRange.append('<block type="spreadsheetapp_setactiverange"></block>');
       $categoryRange.append('<block type="spreadsheet_getrange_a1notation"></block>');
+      $categoryRange.append('<block type="sheet_getactivecell"></block>');
+      $categoryRange.append('<block type="sheet_getactiverange"></block>');
+      $categoryRange.append('<block type="sheet_getdatarange"></block>');
+      $categoryRange.append('<block type="sheet_getrange_row_column"></block>');
       $categoryRange.append('<block type="range_setvalue"></block>');
       $categorySpreadSheetRoot.append($categoryRange);
 

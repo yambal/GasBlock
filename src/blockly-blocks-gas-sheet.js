@@ -282,15 +282,18 @@ Blockly.JavaScript['sheet_deleterows'] = function(block) {
 Blockly.Blocks['sheet_getactivecell'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+      .appendField("範囲取得");
+    this.appendDummyInput()
+      .appendField("アクティブなセル");
     this.appendValueInput("Sheet")
       .setCheck(Blockly.TYPE.GAS.SHEET)
-      .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-    this.appendDummyInput()
-      .appendField("のアクティブなセルの範囲");
-    this.setInputsInline(true);
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("シート")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(20);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
     this.setTooltip('シート内のアクティブなセルを返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getActiveCell()');
   }
@@ -307,15 +310,16 @@ Blockly.JavaScript['sheet_getactivecell'] = function(block) {
 Blockly.Blocks['sheet_getactiverange'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+      .appendField("アクティブ範囲取得");
     this.appendValueInput("Sheet")
       .setCheck(Blockly.TYPE.GAS.SHEET)
-      .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-    this.appendDummyInput()
-      .appendField("のアクティブ範囲");
-    this.setInputsInline(true);
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("シート")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(20);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
     this.setTooltip('アクティブシートのアクティブ範囲を返します。現在アクティブと見なされているセルの範囲を返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getActiveRange()');
   }
@@ -337,15 +341,16 @@ getColumnWidth(columnPosition)  Integer Gets the width in pixels of the given co
 Blockly.Blocks['sheet_getdatarange'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+      .appendField("データが存在する範囲を取得");
     this.appendValueInput("Sheet")
       .setCheck(Blockly.TYPE.GAS.SHEET)
-      .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-    this.appendDummyInput()
-      .appendField("のデータが存在する範囲");
-    this.setInputsInline(true);
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("シート")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(20);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
     this.setTooltip('データが存在する次元に対応するRangeを返します');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getDataRange()');
   }
@@ -367,15 +372,16 @@ getFrozenRows() Integer Returns the number of frozen rows.
 Blockly.Blocks['sheet_getindex'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_INDEX);
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+      .appendField("シートの位置");
     this.appendValueInput("Sheet")
       .setCheck(Blockly.TYPE.GAS.SHEET)
-      .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-    this.appendDummyInput()
-      .appendField("のシートインデックス");
-    this.setInputsInline(true);
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("シート")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, "Number");
-    this.setColour(20);
+    this.setColour(Blockly.COLOR.GAS.SEET);
     this.setTooltip('スプレッドシート内のシートの位置を取得します。 1で始まります。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getIndex()');
   }
@@ -392,15 +398,18 @@ Blockly.JavaScript['sheet_getindex'] = function(block) {
 Blockly.Blocks['sheet_getlastcolumn'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+      .appendField("最後の列位置");
     this.appendValueInput("Sheet")
       .setCheck(Blockly.TYPE.GAS.SHEET)
-      .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-    this.appendDummyInput()
-      .appendField("の最後の列位置");
-    this.setInputsInline(true);
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("シート")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, "Number");
-    this.setColour(20);
+    this.setColour(Blockly.COLOR.GAS.SEET);
     this.setTooltip('最後の列の位置を返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getLastColumn()');
   }
@@ -417,15 +426,18 @@ Blockly.JavaScript['sheet_getlastcolumn'] = function(block) {
 Blockly.Blocks['sheet_getlastrow'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+      .appendField("最後の行位置");
     this.appendValueInput("Sheet")
       .setCheck(Blockly.TYPE.GAS.SHEET)
-      .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-    this.appendDummyInput()
-      .appendField("の最後の行位置");
-    this.setInputsInline(true);
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("シート")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, "Number");
-    this.setColour(20);
+    this.setColour(Blockly.COLOR.GAS.SEET);
     this.setTooltip('最後の行の位置を返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getLastRow()');
   }
@@ -446,15 +458,16 @@ getMaxRows()    Integer Returns the current number of rows in the sheet, regardl
 Blockly.Blocks['sheet_getname'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GAS.SS.IO.STRING);
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
+      .appendField("シート名");
     this.appendValueInput("Sheet")
       .setCheck(Blockly.TYPE.GAS.SHEET)
-      .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-    this.appendDummyInput()
-      .appendField("の名前");
-    this.setInputsInline(true);
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("シート")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, "String");
-    this.setColour(20);
+    this.setColour(Blockly.COLOR.GAS.SEET);
     this.setTooltip('シートの名前を返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getName()');
   }
@@ -477,23 +490,24 @@ getProtections(type)    Protection[]    Gets an array of objects representing al
 Blockly.Blocks['sheet_getrange_row_column'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+      .appendField("範囲取得");
     this.appendValueInput("Sheet")
       .setCheck(Blockly.TYPE.GAS.SHEET)
-      .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-    this.appendDummyInput()
-      .appendField("の");
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("シート")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
     this.appendValueInput("row")
-      .setCheck("Number")
-      .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("行番号")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
     this.appendValueInput("column")
-      .setCheck("Number")
-      .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-    this.appendDummyInput()
-      .appendField("の範囲");
-    this.setInputsInline(true);
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("列番号")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(20);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
     this.setTooltip('指定された座標にある範囲を返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getRange(Integer,Integer)');
   }
@@ -1033,7 +1047,7 @@ Blockly.JavaScript['sheet_insertrows_rowindex'] = function(block) {
   var value_rowindex = Blockly.JavaScript.valueToCode(block, 'rowIndex', Blockly.JavaScript.ORDER_NONE);
   var value_howMany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
   var code = value_sheet + '.insertRows(' + value_rowindex + ');\n';
-  if(value_howMany){
+  if (value_howMany) {
     code = value_sheet + '.insertRows(' + value_rowindex + ',' + value_howMany + ');\n';
   }
   return code;

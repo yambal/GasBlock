@@ -1,0 +1,9 @@
+.appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+
+this.appendDummyInput()
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+      .appendField("範囲取得");
+
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("行番号")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
