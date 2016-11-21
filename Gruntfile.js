@@ -8,6 +8,13 @@ module.exports = function(grunt) {
                     filter: 'isFile',
                     flatten: true,
                     expand: true
+                },
+                {
+                    src: ['src/img/*.png'],
+                    dest: 'GASBlock/img/',
+                    filter: 'isFile',
+                    flatten: true,
+                    expand: true
                 }]
             }
         }

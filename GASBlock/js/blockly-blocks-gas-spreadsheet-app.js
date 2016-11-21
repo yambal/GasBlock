@@ -79,6 +79,28 @@ Blockly.Msg.GAS.HELP.SETACTIVESHEET = "スプレッドシート内のアクテ�
 Blockly.Msg.GAS.SS_AP.SETACTIVE_SPREADSHEET = "をアクティブ";
 Blockly.Msg.GAS.HELP.SETACTIVESPREADSHEET = "アクティブなスプレッドシートを設定します";
 
+Blockly.COLOR = {};
+Blockly.COLOR.GAS = {};
+Blockly.COLOR.GAS.SS = 75;
+Blockly.COLOR.GAS.SEET = 60;
+Blockly.COLOR.GAS.RANGE = 45;
+Blockly.COLOR.GAS.TOAST = 160;
+
+Blockly.IMG = {};
+Blockly.IMG.ICON = {};
+Blockly.IMG.ICON.GAS = {};
+Blockly.IMG.ICON.GAS.SS = "img/SS.png";
+Blockly.IMG.ICON.GAS.SEET = "img/Sheet.png";
+Blockly.IMG.ICON.GAS.OP = "img/Option.png";
+Blockly.IMG.ICON.GAS.ROWS = "img/Rows.png";
+Blockly.IMG.ICON.GAS.COLS = "img/Columns.png";
+Blockly.IMG.ICON.GAS.RANG = "img/Range.png";
+Blockly.IMG.ICON.COM = {};
+Blockly.IMG.ICON.COM.STR = "img/String.png";
+Blockly.IMG.ICON.COM.NUM = "img/Number.png";
+Blockly.IMG.ICON.COM.ARR = "img/Array.png";
+Blockly.IMG.ICON.COM.TST = "img/Toast.png";
+
 /*
 Blockly.Msg.GAS_PREADSHEETAPP_NEW_DATA_VALIDATION = "データ検証ためのルールビルダー";
 Blockly.Msg.GAS_PREADSHEETAPP_NEW_DATA_VALIDATION_HELP = "データ検証ルールのためのビルダーを作成します";
@@ -109,23 +131,28 @@ Blockly.JavaScript['next'] = function(block) {
 Blockly.Blocks['spreadsheetapp_create'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SS);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.CREATE);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
+            .appendField("新規スプレッドシート作成");
         this.appendValueInput("NAME")
             .setCheck("String")
-            .appendField(Blockly.Msg.GAS.SS.IO.STRING_NAME);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("名前")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
         this.appendValueInput("ROWS")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW_LENGTH);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.OP, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+            .appendField("行数");
         this.appendValueInput("COLUMNS")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
-        this.setInputsInline(true);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.OP, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("列数");
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SS);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SS);
         this.setTooltip(Blockly.Msg.GAS.HELP.SS_CREATE);
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#create(String)');
     }
@@ -168,13 +195,14 @@ Blockly.JavaScript['spreadsheetapp_flush'] = function(block) {
 Blockly.Blocks['spreadsheetapp_getactive'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
+            .appendField("スプレッドシート取得");
         this.appendDummyInput()
             .appendField(Blockly.Msg.GAS.SS_AP.GETACTIVE);
         this.setInputsInline(true);
         this.setOutput(true, Blockly.TYPE.GAS.SS);
-        this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.GETACTIVE);
+        this.setColour(Blockly.COLOR.GAS.SS);
+        this.setTooltip("現在アクティブなスプレッドシートを返します。スプレッドシートがない場合はnullを返します。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActive()');
     }
 };
@@ -188,13 +216,14 @@ Blockly.JavaScript['spreadsheetapp_getactive'] = function(block) {
 Blockly.Blocks['spreadsheetapp_getactiverange'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("範囲を取得");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.GETACTIVERANGE);
+            .appendField("ユーザが選択した範囲");
         this.setInputsInline(true);
         this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-        this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.GETACTIVERANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip("ユーザが選択した範囲を返します。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveRange()');
     }
 };
@@ -208,13 +237,14 @@ Blockly.JavaScript['spreadsheetapp_getactiverange'] = function(block) {
 Blockly.Blocks['spreadsheetapp_getactivesheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField("シート取得");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.GETACTIVESHEET);
+            .appendField("現在のアクティブ");
         this.setInputsInline(true);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.GETACTIVESHEET);
+        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setTooltip("アクティブシートを取得します。スプレッドシート画面に表示されているシートです。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveSheet()');
     }
 };
@@ -228,13 +258,14 @@ Blockly.JavaScript['spreadsheetapp_getactivesheet'] = function(block) {
 Blockly.Blocks['spreadsheetapp_getactivespreadsheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SS);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
+            .appendField("スプレッドシート取得");
         this.appendDummyInput()
             .appendField(Blockly.Msg.GAS.SS_AP.GETACTIVESPREADSHEET);
         this.setInputsInline(true);
         this.setOutput(true, Blockly.TYPE.GAS.SS);
-        this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.GETACTIVESPREADSHEET);
+        this.setColour(Blockly.COLOR.GAS.SS);
+        this.setTooltip("現在アクティブなスプレッドシートを返します。スプレッドシートがない場合はnullを返します。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveSpreadsheet()');
     }
 };
@@ -312,16 +343,17 @@ Blockly.JavaScript['spreadsheetapp_open'] = function(block) {
 Blockly.Blocks['spreadsheetapp_openbyid'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SS);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.OPENBYID);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
+            .appendField("スプレッドシート取得");
         this.appendValueInput("ID")
             .setCheck("String")
-            .appendField(Blockly.Msg.GAS.SS.IO.STRING_ID);
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("ID")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SS);
-        this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.OPENBYID);
+        this.setColour(Blockly.COLOR.GAS.SS);
+        this.setTooltip("指定したIDでスプレッドシートを開きます。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#openById(String)');
     }
 };
@@ -336,16 +368,17 @@ Blockly.JavaScript['spreadsheetapp_openbyid'] = function(block) {
 Blockly.Blocks['spreadsheetapp_openbyurl'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SS);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.OPENBYURL);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
+            .appendField("スプレッドシート取得");
         this.appendValueInput("URL")
             .setCheck("String")
-            .appendField(Blockly.Msg.GAS.SS.IO.STRING_URL);
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("URL")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SS);
-        this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.OPENBYURL);
+        this.setColour(Blockly.COLOR.GAS.SS);
+        this.setTooltip("指定したURLでスプレッドシートを開きます。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#openByUrl(String)');
     }
 };
@@ -360,16 +393,17 @@ Blockly.JavaScript['spreadsheetapp_openbyurl'] = function(block) {
 Blockly.Blocks['spreadsheetapp_setactiverange'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.RANGE_ACTIVED);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("範囲を選択する");
         this.appendValueInput("RANGE")
             .setCheck(Blockly.TYPE.GAS.RANGE)
-            .appendField(Blockly.Msg.GAS.SS.IO.RANGE);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.SETACTIVERANGE);
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("範囲");
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-        this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.SETACTIVERANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip("アプリケーションのアクティブ範囲を設定します。スプレッドシートのUIには、選択した範囲を含むシートが表示され、選択した範囲で定義されたセルが選択されます。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#setActiveRange(Range)');
     }
 };
@@ -384,16 +418,17 @@ Blockly.JavaScript['spreadsheetapp_setactiverange'] = function(block) {
 Blockly.Blocks['spreadsheetapp_setactivesheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET_ACTIVED);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField("シートを選択");
         this.appendValueInput("SHEET")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.SETACTIVESHEET);
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.SETACTIVESHEET);
+        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setTooltip("アクティブシートに設定します。シートが別のスプレッドシートに属していない場合、スプレッドシートのUIには選択したシートが表示されます。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#setActiveSheet(Sheet)');
     }
 };
@@ -408,17 +443,17 @@ Blockly.JavaScript['spreadsheetapp_setactivesheet'] = function(block) {
 Blockly.Blocks['spreadsheetapp_setactivespreadsheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+            .appendField("スプレッドシートをアクティブ");
         this.appendValueInput("SPREADSHEET")
             .setCheck(Blockly.TYPE.GAS.SS)
-            .appendField(Blockly.Msg.GAS.SS.IO.SS);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.SETACTIVE_SPREADSHEET);
-        this.setInputsInline(true);
-        this.setColour(20);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("スプレッドシート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setColour(Blockly.COLOR.GAS.SS);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(Blockly.Msg.GAS.HELP.SETACTIVESPREADSHEET);
+        this.setTooltip("アクティブなスプレッドシートを設定します。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#setActiveSpreadsheet(Spreadsheet)');
     }
 };

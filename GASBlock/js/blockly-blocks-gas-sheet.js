@@ -3,16 +3,17 @@
 Blockly.Blocks['sheet_activate'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET_ACTIVED);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField("シートをアクティブ");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("をアクティブ");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(20);
-        this.setTooltip('シートをアクティブにします');
+        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setTooltip('このシートを有効にします。シート自体は変更されず、アクティブシートの親の概念のみが変更されます。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#activate()');
     }
 };
@@ -27,21 +28,24 @@ Blockly.JavaScript['sheet_activate'] = function(block) {
 // Appends a row to the spreadsheet.
 Blockly.Blocks['sheet_appendrow'] = {
     init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+            .appendField("行を追加");
         this.appendValueInput("SHEET")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の最後に");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("ROWCONTENT")
             .setCheck("Array")
-            .appendField(Blockly.Msg.GAS.SS.IO.ARRAY_OF_ROW_VALUES);
-        this.appendDummyInput()
-            .appendField("を");
-        this.appendDummyInput()
-            .appendField("追加");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("データ")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('スプレッドシートに行を追加します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#appendRow(Object)');
     }
@@ -59,20 +63,23 @@ Blockly.JavaScript['sheet_appendrow'] = function(block) {
 Blockly.Blocks['sheet_autoresizecolumn'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("幅を自動調整");
         this.appendValueInput("SHEET")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("COLUMN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-        this.appendDummyInput()
-            .appendField("の幅をフィット");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された列の幅を内容に合わせて設定します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#autoResizeColumn(Integer)');
     }
@@ -98,20 +105,21 @@ clearNotes()    Sheet   Clears the sheet of all notes.
 Blockly.Blocks['sheet_copyto'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET_COPIED);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField("シート複製");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("を");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("複製元シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("spreadsheet")
             .setCheck(Blockly.TYPE.GAS.SS)
-            .appendField(Blockly.Msg.GAS.SS.IO.SS);
-        this.appendDummyInput()
-            .appendField("にコピー");
-        this.setInputsInline(true);
-        this.setOutput(true, "Sheet");
-        this.setColour(20);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("複製先スプレッドシート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('シートを特定のスプレッドシートにコピーします。スプレッドシートはソースと同じスプレッドシートにすることができます。コピーした用紙の名前は「元の名前のコピー」となります。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#copyTo(Spreadsheet)');
     }
@@ -129,20 +137,23 @@ Blockly.JavaScript['sheet_copyto'] = function(block) {
 Blockly.Blocks['sheet_deletecolumn'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("列削除");
         this.appendValueInput("SHEET")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("COLUMN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-        this.appendDummyInput()
-            .appendField("を削除");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された列位置の列を削除します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteColumn(Integer)');
     }
@@ -160,26 +171,28 @@ Blockly.JavaScript['sheet_deletecolumn'] = function(block) {
 Blockly.Blocks['sheet_deletecolumns'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("列削除");
         this.appendValueInput("SHEET")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の列を");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("COLUMN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-        this.appendDummyInput()
-            .appendField("から");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.appendValueInput("HOWMANY")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH);
-        this.appendDummyInput()
-            .appendField("個削除");
-        this.setInputsInline(true);
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列数")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された列の位置から始まるいくつかの列を削除します');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteColumns(Integer,Integer)');
     }
@@ -198,20 +211,22 @@ Blockly.JavaScript['sheet_deletecolumns'] = function(block) {
 Blockly.Blocks['sheet_deleterow'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+            .appendField("行削除");
         this.appendValueInput("SHEET")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の行を");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("rowPosition")
-            .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
-        this.appendDummyInput()
-            .appendField("を削除");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("行番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された行位置の行を削除します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteRow(Integer)');
     }
@@ -229,27 +244,27 @@ Blockly.JavaScript['sheet_deleterow'] = function(block) {
 Blockly.Blocks['sheet_deleterows'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+            .appendField("行削除");
         this.appendValueInput("SHEET")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の行を");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("rowPosition")
-            .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW);
-        this.appendDummyInput()
-            .appendField("から");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("行番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.appendValueInput("HOWMANY")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_ROW_LENGTH);
-        this.appendDummyInput()
-            .appendField("個削除");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("行数")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(20);
-        this.setTooltip('gru指定された行位置から始まるいくつかの行を削除します。');
+        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setTooltip('指定された行位置から始まるいくつかの行を削除します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteRows(Integer,Integer)');
     }
 };
@@ -720,20 +735,23 @@ insertChart(chart)  void    Adds a new chart to this sheet.
 Blockly.Blocks['sheet_insertcolumnafter'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("後に列挿入");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("afterPosition")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-        this.appendDummyInput()
-            .appendField("の後に列を挿入");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された列の位置の後に列を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnAfter(Integer)');
     }
@@ -751,20 +769,23 @@ Blockly.JavaScript['sheet_insertcolumnafter'] = function(block) {
 Blockly.Blocks['sheet_insertcolumnbefore'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("前に列挿入");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
-            .appendField(Blockly.Msg.GAS.SS.IO.SHEET);
-        this.appendDummyInput()
-            .appendField("の");
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.appendValueInput("beforePosition")
             .setCheck("Number")
-            .appendField(Blockly.Msg.GAS.SS.IO.NUMBER_COL);
-        this.appendDummyInput()
-            .appendField("の前に列を挿入");
-        this.setInputsInline(true);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された列の位置の前に列を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnBefore(Integer)');
     }

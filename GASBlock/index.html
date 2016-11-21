@@ -65,6 +65,7 @@
 
       // UI
       var $categoryGasUI = $('<category name="UI" colour="210" />');
+      $categoryGasUI.append('<block type="spreadsheetapp_getui"></block>');
       $categoryGasUI.append('<block type="ui_alert_prompt"></block>');
       $categoryGasUI.append('<block type="alert_prompt_buttons"></block>');
       $categoryGasUI.append('<block type="alert_title_prompt_buttons"></block>');
@@ -77,61 +78,80 @@
       // スプレッドシート
       var $categorySpreadSheetRoot = $('<category name="スプレッドシート" colour="20" />');
       $categorySpreadSheetRoot.append('<block type="next"></block>');
-
-      // スプレッドシート > スプレッドシート APP
-      var $categorySpreadSheetAppClass = $('<category name="スプレッドシート APP" colour="20" />');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_create"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_flush"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getactive"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getactiverange"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getactivesheet"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getactivespreadsheet"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_getui"></block>');
-      //$categorySpreadSheetAppClass.append('<block type="spreadsheetapp_newdatavalidation"></block>');
-      //$categorySpreadSheetAppClass.append('<block type="spreadsheetapp_open"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_openbyid"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_openbyurl"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_setactiverange"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_setactivesheet"></block>');
-      $categorySpreadSheetAppClass.append('<block type="spreadsheetapp_setactivespreadsheet"></block>');
-      $categorySpreadSheetRoot.append($categorySpreadSheetAppClass);
+      $categorySpreadSheetRoot.append('<block type="spreadsheetapp_flush"></block>');
 
       // スプレッドシート > スプレッドシート
-      var $categorySpreadSheet = $('<category name="スプレッドシート" colour="20" />');
-      //$categorySpreadSheet.append('<block type="spreadsheet_addmenu"></block>');
+      var $categorySpreadSheet = $('<category name="スプレッドシート" colour="75" />');
+
+      var $categoryGetSpreadSheet = $('<category name="スプレッドシート取得" colour="75" />');
+      $categoryGetSpreadSheet.append('<block type="spreadsheetapp_getactive"></block>');
+      $categoryGetSpreadSheet.append('<block type="spreadsheetapp_getactivespreadsheet"></block>');
+      $categoryGetSpreadSheet.append('<block type="spreadsheetapp_openbyid"></block>');
+      $categoryGetSpreadSheet.append('<block type="spreadsheetapp_openbyurl"></block>');
+      $categorySpreadSheet.append($categoryGetSpreadSheet);
+
+      $categorySpreadSheet.append('<block type="spreadsheetapp_create"></block>');
+      $categorySpreadSheet.append('<block type="spreadsheetapp_setactivespreadsheet"></block>');
       $categorySpreadSheet.append('<block type="spreadsheet_copy"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_deleteactivesheet"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_deletesheet"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_duplicateactivesheet"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_getactivesheet"></block>');
       $categorySpreadSheet.append('<block type="spreadsheet_getid"></block>');
       $categorySpreadSheet.append('<block type="spreadsheet_getname"></block>');
       $categorySpreadSheet.append('<block type="spreadsheet_rename"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_renameactivesheet"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_getnumsheets"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_getrange_a1notation"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_getsheetbyname"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_getsheets"></block>');
       $categorySpreadSheet.append('<block type="spreadsheet_geturl"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_insertsheet"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_insertsheet_sheetindex"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_insertsheet_sheetname"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_insertsheet_sheetname_sheetindex"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_setactivesheet_sheet"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_toast"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_toast_msg_title"></block>');
-      $categorySpreadSheet.append('<block type="spreadsheet_toast_msg_title_timeoutseconds"></block>');
+      
+      $categorySpreadSheetRoot.append($categorySpreadSheet);
 
       // スプレッドシート > スプレッドシート > シート
-      var $categorySheet = $('<category name="シート" colour="20" />');
-      $categorySheet.append('<block type="sheet_activate"></block>');
-      $categorySheet.append('<block type="sheet_appendrow"></block>');
-      $categorySheet.append('<block type="sheet_autoresizecolumn"></block>');
-      $categorySheet.append('<block type="sheet_copyto"></block>');
-      $categorySheet.append('<block type="sheet_deletecolumn"></block>');
-      $categorySheet.append('<block type="sheet_deletecolumns"></block>');
-      $categorySheet.append('<block type="sheet_deleterow"></block>');
-      $categorySheet.append('<block type="sheet_deleterows"></block>');
+      var $categorySheet = $('<category name="シート" colour="60" />');
+
+      // スプレッドシート > スプレッドシート > シート　> シート取得
+      var $categoryGetSheet = $('<category name="シート取得" colour="60" />');
+      $categoryGetSheet.append('<block type="spreadsheetapp_getactivesheet"></block>');
+      $categoryGetSheet.append('<block type="spreadsheet_getactivesheet"></block>');
+      $categoryGetSheet.append('<block type="spreadsheet_getsheetbyname"></block>');
+      $categoryGetSheet.append('<block type="spreadsheet_getsheets"></block>');
+      $categorySheet.append($categoryGetSheet);
+
+      var $categorySheetOperation = $('<category name="シート操作" colour="60" />');
+      $categorySheetOperation.append('<block type="spreadsheetapp_setactivesheet"></block>');
+      $categorySheetOperation.append('<block type="spreadsheet_deleteactivesheet"></block>');
+      $categorySheetOperation.append('<block type="spreadsheet_deletesheet"></block>');
+      $categorySheetOperation.append('<block type="spreadsheet_duplicateactivesheet"></block>');
+      $categorySheetOperation.append('<block type="spreadsheet_renameactivesheet"></block>');
+      $categorySheetOperation.append('<block type="spreadsheet_getnumsheets"></block>');
+      $categorySheetOperation.append('<block type="spreadsheet_insertsheet"></block>');
+      $categorySheetOperation.append('<block type="spreadsheet_setactivesheet_sheet"></block>');
+      $categorySheetOperation.append('<block type="sheet_activate"></block>');
+      $categorySheetOperation.append('<block type="sheet_copyto"></block>');
+      $categorySheet.append($categorySheetOperation);
+
+      var $categoryRowColOperation = $('<category name="行・列操作" colour="60" />');
+      var $categoryRowOperation = $('<category name="行操作" colour="60" />');
+      $categoryRowOperation.append('<block type="sheet_appendrow"></block>');
+      $categoryRowOperation.append('<block type="sheet_deleterow"></block>');
+      $categoryRowOperation.append('<block type="sheet_deleterows"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrowafter"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrowbefore"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrows_rowindex"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrows_rowindex_numrows"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrowsafter_afterposition_howmany"></block>');
+      $categoryRowOperation.append('<block type="sheet_insertrowsbefore_beforeposition_howmany"></block>');
+      $categoryRowColOperation.append($categoryRowOperation);
+
+      var $categoryColOperation = $('<category name="列操作" colour="60" />');
+      $categoryColOperation.append('<block type="sheet_autoresizecolumn"></block>');
+      $categoryColOperation.append('<block type="sheet_deletecolumn"></block>');
+      $categoryColOperation.append('<block type="sheet_deletecolumns"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumnafter"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumnbefore"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumns_columnindex"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumns_columnindex_numcolumns"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumnsafter_afterposition_howmany"></block>');
+      $categoryColOperation.append('<block type="sheet_insertcolumnsbefore_beforeposition_howmany"></block>');
+      $categoryRowColOperation.append($categoryColOperation);
+      
+      $categorySheet.append($categoryRowColOperation);
+
+      
       $categorySheet.append('<block type="sheet_getactivecell"></block>');
       $categorySheet.append('<block type="sheet_getactiverange"></block>');
       $categorySheet.append('<block type="sheet_getdatarange"></block>');
@@ -146,31 +166,24 @@
       $categorySheet.append('<block type="sheet_getsheetid"></block>');
       $categorySheet.append('<block type="sheet_getsheetname"></block>');
       $categorySheet.append('<block type="sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns"></block>');
-      $categorySheet.append('<block type="sheet_insertcolumnafter"></block>');
-      $categorySheet.append('<block type="sheet_insertcolumnbefore"></block>');
-      $categorySheet.append('<block type="sheet_insertcolumns_columnindex"></block>');
-      $categorySheet.append('<block type="sheet_insertcolumns_columnindex_numcolumns"></block>');
-      $categorySheet.append('<block type="sheet_insertcolumnsafter_afterposition_howmany"></block>');
-      $categorySheet.append('<block type="sheet_insertcolumnsbefore_beforeposition_howmany"></block>');
-      $categorySheet.append('<block type="sheet_insertrowafter"></block>');
-      $categorySheet.append('<block type="sheet_insertrowbefore"></block>');
-      $categorySheet.append('<block type="sheet_insertrows_rowindex"></block>');
-      $categorySheet.append('<block type="sheet_insertrows_rowindex_numrows"></block>');
-      $categorySheet.append('<block type="sheet_insertrowsafter_afterposition_howmany"></block>');
-      $categorySheet.append('<block type="sheet_insertrowsbefore_beforeposition_howmany"></block>');
+
       $categorySheet.append('<block type="sheet_setactiverange"></block>');
       $categorySheet.append('<block type="sheet_setactiveselection"></block>');
       $categorySheet.append('<block type="sheet_setactiveselection_a1notation"></block>');
       $categorySheet.append('<block type="sheet_setname"></block>');
       $categorySheet.append('<block type="sheet_showsheet"></block>');
+      $categorySpreadSheetRoot.append($categorySheet);
 
-      $categorySpreadSheet.append($categorySheet);
-
-      $categorySpreadSheetRoot.append($categorySpreadSheet);
-
-      var $categoryRange = $('<category name="範囲" colour="20" />');
+      var $categoryRange = $('<category name="範囲" colour="45" />');
+      $categoryRange.append('<block type="spreadsheetapp_getactiverange"></block>');
+      $categoryRange.append('<block type="spreadsheetapp_setactiverange"></block>');
+      $categoryRange.append('<block type="spreadsheet_getrange_a1notation"></block>');
       $categoryRange.append('<block type="range_setvalue"></block>');
       $categorySpreadSheetRoot.append($categoryRange);
+
+      var $categoryMSG = $('<category name="メッセージ" colour="45" />');
+      $categoryMSG.append('<block type="spreadsheet_toast"></block>');
+      $categorySpreadSheetRoot.append($categoryMSG);
 
       /*
       var $categoryQModel = $('<category name="プロセスデータ" colour="210" />');

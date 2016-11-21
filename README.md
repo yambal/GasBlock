@@ -14,13 +14,13 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |Yes|	getActiveSheet()					|	Sheet			|
 |Yes|	getActiveSpreadsheet()					|	Spreadsheet		|
 |Yes|	getUi()							|	Ui			|
-|None|	newDataValidation()					|	DataValidationBuilder	|
-|None|	open(file)						|	Spreadsheet		|
 |Yes|	openById(id)						|	Spreadsheet		|
 |Yes|	openByUrl(url)						|	Spreadsheet		|
 |Yes|	setActiveRange(range)					|	Range			|
 |Yes|	setActiveSheet(sheet)					|	Sheet			|
 |Yes|	setActiveSpreadsheet(newActiveSpreadsheet)		|	void			|
+|No|	newDataValidation()					|	DataValidationBuilder	|
+|No|	open(file)						|	Spreadsheet		|
 
 ## Class Spreadsheet
 | 実装 |	Method									|	Return type		|
@@ -47,39 +47,39 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 |Yes		|	toast(msg)						|	void			|
 |Yes		|	toast(msg, title)						|	void			|
 |Yes		|	toast(msg, title, timeoutSeconds)			|	void			|
-|None		|	addEditor(emailAddress)				|	Spreadsheet		|
-|None		|	addEditor(user)						|	Spreadsheet		|
-|None		|	addEditors(emailAddresses)				|	Spreadsheet		|
-|None		|	addMenu(name, subMenus)				|	void			|
-|None		|	addViewer(emailAddress)				|	Spreadsheet		|
-|None		|	addViewer(user)					|	Spreadsheet		|
-|None		|	addViewers(emailAddresses)				|	Spreadsheet		|
-|None		|	getAs(contentType)					|	Blob			|
-|None		|	getBlob()						|	Blob			|
-|None		|	getEditors()						|	User[]			|
-|None		|	getFormUrl()						|	String			|
-|None		|	getNamedRanges()					|	NamedRange[]		|
-|None		|	getOwner()						|	User			|
-|None		|	getProtections(type)					|	Protection[]		|
-|None		|	getRangeByName(name)				|	Range			|
-|None		|	getSpreadsheetLocale()				|	String			|
-|None		|	getSpreadsheetTimeZone()				|	String			|
-|None		|	getViewers()						|	User[]			|
-|None		|	insertSheet(sheetIndex, options)			|	Sheet			|
-|None		|	insertSheet(options)					|	Sheet			|
-|None		|	insertSheet(sheetName, sheetIndex, options)		|	Sheet			|
-|None		|	insertSheet(sheetName, options)			|	Sheet			|
-|None		|	removeEditor(emailAddress)				|	Spreadsheet		|
-|None		|	removeEditor(user)					|	Spreadsheet		|
-|None		|	removeMenu(name)					|	void			|
-|None		|	removeNamedRange(name)				|	void			|
-|None		|	removeViewer(emailAddress)				|	Spreadsheet		|
-|None		|	removeViewer(user)					|	Spreadsheet		|
-|None		|	setNamedRange(name, range)				|	void			|
-|None		|	setSpreadsheetLocale(locale)				|	void			|
-|None		|	setSpreadsheetTimeZone(timezone)			|	void			|
-|None		|	show(userInterface)					|	void			|
-|None		|	updateMenu(name, subMenus)				|	void			|
+|No		|	addEditor(emailAddress)				|	Spreadsheet		|
+|No		|	addEditor(user)						|	Spreadsheet		|
+|No		|	addEditors(emailAddresses)				|	Spreadsheet		|
+|No		|	addMenu(name, subMenus)				|	void			|
+|No		|	addViewer(emailAddress)				|	Spreadsheet		|
+|No		|	addViewer(user)					|	Spreadsheet		|
+|No		|	addViewers(emailAddresses)				|	Spreadsheet		|
+|No		|	getAs(contentType)					|	Blob			|
+|No		|	getBlob()						|	Blob			|
+|No		|	getEditors()						|	User[]			|
+|No		|	getFormUrl()						|	String			|
+|No		|	getNamedRanges()					|	NamedRange[]		|
+|No		|	getOwner()						|	User			|
+|No		|	getProtections(type)					|	Protection[]		|
+|No		|	getRangeByName(name)				|	Range			|
+|No		|	getSpreadsheetLocale()				|	String			|
+|No		|	getSpreadsheetTimeZone()				|	String			|
+|No		|	getViewers()						|	User[]			|
+|No		|	insertSheet(sheetIndex, options)			|	Sheet			|
+|No		|	insertSheet(options)					|	Sheet			|
+|No		|	insertSheet(sheetName, sheetIndex, options)		|	Sheet			|
+|No		|	insertSheet(sheetName, options)			|	Sheet			|
+|No		|	removeEditor(emailAddress)				|	Spreadsheet		|
+|No		|	removeEditor(user)					|	Spreadsheet		|
+|No		|	removeMenu(name)					|	void			|
+|No		|	removeNamedRange(name)				|	void			|
+|No		|	removeViewer(emailAddress)				|	Spreadsheet		|
+|No		|	removeViewer(user)					|	Spreadsheet		|
+|No		|	setNamedRange(name, range)				|	void			|
+|No		|	setSpreadsheetLocale(locale)				|	void			|
+|No		|	setSpreadsheetTimeZone(timezone)			|	void			|
+|No		|	show(userInterface)					|	void			|
+|No		|	updateMenu(name, subMenus)				|	void			|
 
 ## Class Sheet
 | 実装 |	Method | Return type |
