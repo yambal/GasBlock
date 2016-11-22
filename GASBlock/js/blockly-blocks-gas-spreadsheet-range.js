@@ -1,13 +1,99 @@
 /**
  * Range : https://developers.google.com/apps-script/reference/spreadsheet/range
  **/
+
+// ------------------------------------------------------------
+// activate()
+// Make this range the active range.
+Blockly.Blocks['range_activate'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+        .appendField("範囲をアクティブ");
+    this.appendValueInput("RANGE")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('この範囲を有効範囲にします。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#activate()');
+  }
+};
+Blockly.JavaScript['range_activate'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.activate()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 /*
-activate()	Range	Make this range the active range.
 breakApart()	Range	Break any multi-column cells in the range into individual cells again.
+Range範囲内のマルチカラムセルを個々のセルに再度分割します。
+
 canEdit()	Boolean	Determines whether the user has permission to edit every cell in the range.
-clear()	Range	Clears the range of contents, formats, and data-validation rules.
+Booleanユーザーが範囲内のすべてのセルを編集する権限を持っているかどうかを決定します。
+*/
+
+// ------------------------------------------------------------
+// clear()
+// Clears the range of contents, formats, and data-validation rules.
+Blockly.Blocks['range_clear'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+        .appendField("範囲をクリア");
+    this.appendValueInput("RANGE")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('範囲コンテンツ、フォーマット、およびデータ検証ルールの範囲をクリアします。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#clear()');
+  }
+};
+Blockly.JavaScript['range_clear'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.clear()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 clear(options)	Range	Clears the range of contents, format, data-validation rules, and/or comments, as specified with the given advanced options.
-clearContent()	Range	Clears the content of the range, leaving the formatting intact.
+範囲指定された詳細オプションで指定された内容、形式、データ検証規則、および/またはコメントの範囲をクリアします。
+*/
+
+// ------------------------------------------------------------
+// clearContent()
+// Clears the content of the range, leaving the formatting intact.
+Blockly.Blocks['range_clearcntent'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+        .appendField("範囲をクリア （書式維持）");
+    this.appendValueInput("RANGE")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('範囲範囲の内容を消去し、書式設定はそのままにします。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#clearContent()');
+  }
+};
+Blockly.JavaScript['range_clearcntent'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.clearContent()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 clearDataValidations()	Range	Clears the data-validation rules for the range.
 clearFormat()	Range	Clears formatting for this range.
 clearNote()	Range	Clears the note in the given cell or cells.
@@ -17,9 +103,87 @@ copyTo(destination)	void	Copies the data from a range of cells to another range 
 copyTo(destination, options)	void	Copies the data from a range of cells to another range of cells.
 copyValuesToRange(gridId, column, columnEnd, row, rowEnd)	void	Copy the content of the range to the given location.
 copyValuesToRange(sheet, column, columnEnd, row, rowEnd)	void	Copy the content of the range to the given location.
-getA1Notation()	String	Returns a string description of the range, in A1 notation.
-getBackground()	String	Returns the background color of the top-left cell in the range (i.e., '#ffffff').
-getBackgrounds()	String[][]	Returns the background colors of the cells in the range (i.e., '#ffffff').
+*/
+
+// ------------------------------------------------------------
+//　getA1Notation()
+// Returns a string description of the range, in A1 notation.
+Blockly.Blocks['range_geta1notation'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
+        .appendField("範囲のA1表記");
+    this.appendValueInput("RANGE")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, "String");
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('範囲の文字列の説明をA1表記で返します。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getA1Notation()');
+  }
+};
+Blockly.JavaScript['range_geta1notation'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.getA1Notation()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ------------------------------------------------------------
+//　getBackground()
+// Returns the background color of the top-left cell in the range (i.e., '#ffffff').
+Blockly.Blocks['range_getbackground'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
+        .appendField("範囲の左上の背景色");
+    this.appendValueInput("Range")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, "String");
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('範囲の左上のセルの背景色を返します（「#ffffff」など）。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getBackground()');
+  }
+};
+Blockly.JavaScript['range_getbackground'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.getBackground()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ------------------------------------------------------------
+// getBackgrounds()
+// Returns the background colors of the cells in the range (i.e., '#ffffff').
+Blockly.Blocks['range_getbackgrounds'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"))
+        .appendField("背景色");
+    this.appendValueInput("Range")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, "Array");
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('範囲内のセルの背景色を返します（「#ffffff」など）。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getBackgrounds()');
+  }
+};
+Blockly.JavaScript['range_getbackgrounds'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.getBackgrounds()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 getCell(row, column)	Range	Returns a given cell within a range.
 getColumn()	Integer	Returns the starting column position for this range.
 getDataSourceUrl()	String	Returns a URL for the data in this range, which can be used to create charts and queries.
@@ -58,11 +222,138 @@ getNumColumns()	Integer	Returns the number of columns in this range.
 getNumRows()	Integer	Returns the number of rows in this range.
 getNumberFormat()	String	Get the number formatting of the top-left cell of the given range.
 getNumberFormats()	String[][]	Returns the number formats for the cells in the range.
-getRow()	Integer	Returns the row position for this range.
-getRowIndex()	Integer	Returns the row position for this range.
-getSheet()	Sheet	Returns the sheet this range belongs to.
-getValue()	Object	Returns the value of the top-left cell in the range.
-getValues()	Object[][]	Returns the rectangular grid of values for this range.
+*/
+
+// ------------------------------------------------------------
+// getRow()
+// Returns the row position for this range.
+Blockly.Blocks['range_getrow'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+        .appendField("範囲の行位置");
+    this.appendValueInput("RANGE")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, "Number");
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('この範囲の行位置を返します。 getRowIndex（）と同じです。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getRow()');
+  }
+};
+Blockly.JavaScript['range_getrow'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.getRow()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ------------------------------------------------------------
+// getRowIndex()
+// Returns the row position for this range.
+Blockly.Blocks['range_getrowindex'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+        .appendField("範囲の行位置");
+    this.appendValueInput("RANGE")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, "Number");
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('この範囲の行位置を返します。 getRow（）と同じです。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getRowIndex()');
+  }
+};
+Blockly.JavaScript['range_getrowindex'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.getRowIndex()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ------------------------------------------------------------
+// getSheet()
+// Returns the sheet this range belongs to.
+Blockly.Blocks['range_getsheet'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+        .appendField("シート取得");
+    this.appendValueInput("RANGE")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+    this.setColour(Blockly.COLOR.GAS.SEET);
+    this.setTooltip('この範囲が属するシートを返します。。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getSheet()');
+  }
+};
+Blockly.JavaScript['range_getsheet'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.getSheet()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ------------------------------------------------------------
+// getValue()
+// Returns the value of the top-left cell in the range.
+Blockly.Blocks['range_getvalue'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("範囲の左上の値");
+    this.appendValueInput("RANGE")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('範囲内の左上のセルの値を返します。値は、セルの値に応じて、Number、Boolean、Date、またはString型にすることができます。空のセルは空の文字列を返します。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getValue()');
+  }
+};
+Blockly.JavaScript['range_getvalue'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.getValue()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ------------------------------------------------------------
+// getValues()
+// Returns the rectangular grid of values for this range.
+Blockly.Blocks['range_getvalues'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"))
+        .appendField("範囲の値");
+    this.appendValueInput("RANGE")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, "Array");
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('範囲の値を行と列の2次元配列で返します。を返します。範囲は1,1から始まりますが、JavaScript配列は[0][0]から始まりまることに注意してください。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getValues()');
+  }
+};
+Blockly.JavaScript['range_getvalues'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.getValues()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 getVerticalAlignment()	String	Returns the vertical alignment (top/middle/bottom) of the cell in the top-left corner of the range.
 getVerticalAlignments()	String[][]	Returns the vertical alignments of the cells in the range.
 getWidth()	Integer	Returns the width of the range in columns.
@@ -82,8 +373,84 @@ offset(rowOffset, columnOffset)	Range	Returns a new range that is offset from th
 offset(rowOffset, columnOffset, numRows)	Range	Returns a new range that is relative to the current range, whose upper left point is offset from the current range by the given rows and columns, and with the given height in cells.
 offset(rowOffset, columnOffset, numRows, numColumns)	Range	Returns a new range that is relative to the current range, whose upper left point is offset from the current range by the given rows and columns, and with the given height and width in cells.
 protect()	Protection	Creates an object that can protect the range from being edited except by users who have permission.
-setBackground(color)	Range	Sets the background color of all cells in the range in CSS notation (like '#ffffff' or 'white').
-setBackgroundRGB(red, green, blue)	Range	Sets the background to the given RGB color.
+*/
+
+// ------------------------------------------------------------
+// setBackground(color)
+// Sets the background color of all cells in the range in CSS notation (like '#ffffff' or 'white').
+Blockly.Blocks['range_setbackground'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+        .appendField("背景色を設定");
+    this.appendValueInput("Range")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.appendValueInput("Color")
+        .setCheck("String")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("Color")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('範囲内のすべてのセルの背景色をCSS表記で設定します（「#ffffff」など）。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setBackground(String)');
+  }
+};
+Blockly.JavaScript['range_setbackground'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+  var value_color = Blockly.JavaScript.valueToCode(block, 'Color', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.setBackground(' + value_color + ')';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// ------------------------------------------------------------
+// setBackgroundRGB(red, green, blue)
+// Sets the background to the given RGB color.
+Blockly.Blocks['range_setbackgroundrgb'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+        .appendField("背景色を設定");
+    this.appendValueInput("Range")
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+    this.appendValueInput("red")
+        .setCheck("Number")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("Red")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.appendValueInput("green")
+        .setCheck("Number")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("Green")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.appendValueInput("blue")
+        .setCheck("Number")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("Blue")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('指定されたRGBカラーに背景を設定します。これは文字列の色をとるsetBackground呼び出しの便利なラッパーです。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setBackgroundRGB(Integer,Integer,Integer)');
+  }
+};
+Blockly.JavaScript['range_setbackgroundrgb'] = function(block) {
+  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+  var value_red = Blockly.JavaScript.valueToCode(block, 'red', Blockly.JavaScript.ORDER_NONE);
+  var value_green = Blockly.JavaScript.valueToCode(block, 'green', Blockly.JavaScript.ORDER_NONE);
+  var value_blue = Blockly.JavaScript.valueToCode(block, 'blue', Blockly.JavaScript.ORDER_NONE);
+  var code = value_range + '.setBackgroundRGB(' + value_red + ',' + value_green + ', ' + value_blue + ')';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+/*
 setBackgrounds(color)	Range	Sets a rectangular grid of background colors (must match dimensions of this range).
 setBorder(top, left, bottom, right, vertical, horizontal)	Range	Sets the border property.
 setBorder(top, left, bottom, right, vertical, horizontal, color, style)	Range	Sets the border property with color and/or style.
@@ -124,7 +491,7 @@ Blockly.Blocks['range_setvalue'] = {
         .setCheck(Blockly.TYPE.GAS.RANGE)
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("範囲")
-        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
     this.appendValueInput("value")
         .setCheck(["Boolean", "String", "Number", Blockly.TYPE.GAS.DATE])
         .setAlign(Blockly.ALIGN_RIGHT)

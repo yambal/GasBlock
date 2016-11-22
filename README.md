@@ -173,12 +173,12 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 ## Class Range
 | 実装 |	Method | Return type |
 | --- |:---:| ---:|
-| No | activate() | Range |
+| Yes | activate() | Range |
 | No | breakApart() | Range |
 | No | canEdit() | Boolean |
-| No | clear() | Range |
+| Yes | clear() | Range |
 | No | clear(options) | Range |
-| No | clearContent() | Range |
+| Yes | clearContent() | Range |
 | No | clearDataValidations() | Range |
 | No | clearFormat() | Range |
 | No | clearNote() | Range |
@@ -188,9 +188,9 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | copyTo(destination,options) | void |
 | No | copyValuesToRange(gridId,column, columnEnd,row, rowEnd) | void |
 | No | copyValuesToRange(sheet,column, columnEnd,row, rowEnd) | void |
-| No | getA1Notation() | String |
-| No | getBackground() | String |
-| No | getBackgrounds() | String[][] |
+| Yes | getA1Notation() | String |
+| Yes | getBackground() | String |
+| Yes | getBackgrounds() | String[][] |
 | No | getCell(row, column) | Range |
 | No | getColumn() | Integer |
 | No | getDataSourceUrl() | String |
@@ -229,11 +229,11 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | getNumRows() | Integer |
 | No | getNumberFormat() | String |
 | No | getNumberFormats() | String[][] |
-| No | getRow() | Integer |
-| No | getRowIndex() | Integer |
-| No | getSheet() | Sheet |
-| No | getValue() | Object |
-| No | getValues() | Object[][] |
+| Yes | getRow() | Integer |
+| Yes | getRowIndex() | Integer |
+| Yes | getSheet() | Sheet |
+| Yes | getValue() | Object |
+| Yes | getValues() | Object[][] |
 | No | getVerticalAlignment() | String |
 | No | getVerticalAlignments() | String[][] |
 | No | getWidth() | Integer |
@@ -253,8 +253,8 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | offset(rowOffset,columnOffset, numRows) | Range |
 | No | offset(rowOffset,columnOffset, numRows,numColumns) | Range |
 | No | protect() | Protection |
-| No | setBackground(color) | Range |
-| No | setBackgroundRGB(red,green, blue) | Range |
+| Yes | setBackground(color) | Range |
+| Yes | setBackgroundRGB(red,green, blue) | Range |
 | No | setBackgrounds(color) | Range |
 | No | setBorder(top, left,bottom, right,vertical, horizontal) | Range |
 | No | setBorder(top, left,bottom, right,vertical, horizontal,color, style) | Range |
@@ -282,7 +282,7 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | setNotes(notes) | Range |
 | No | setNumberFormat(numberFormat) | Range |
 | No | setNumberFormats(numberFormats) | Range |
-| No | setValue(value) | Range |
+| Yes | setValue(value) | Range |
 | No | setValues(values) | Range |
 | No | setVerticalAlignment(alignment) | Range |
 | No | setVerticalAlignments(alignments) | Range |
