@@ -1,83 +1,10 @@
 /* GAS */
-Blockly.Msg.GAS = {};
-Blockly.Msg.GAS.SS = {};
-Blockly.Msg.GAS.SS.IO = {};
-Blockly.Msg.GAS.SS_AP = {};
-Blockly.Msg.GAS.HELP = {};
-Blockly.Msg.GAS.UI = {};
-
-Blockly.Msg.GAS.SS.IO.STRING = "[テキスト]";
-Blockly.Msg.GAS.SS.IO.VOID = "[×]";
-Blockly.Msg.GAS.SS.IO.SS = "[スプレッドシート]";
-Blockly.Msg.GAS.SS.IO.SHEET = "[シート]";
-Blockly.Msg.GAS.SS.IO.RANGE = "[範囲]";
-Blockly.Msg.GAS.SS.IO.NUMBER = "[数]";
-Blockly.Msg.GAS.SS.IO.ARRAY = "[リスト]";
-Blockly.Msg.GAS.SS.IO.STRING_NAME = "名前" + Blockly.Msg.GAS.SS.IO.STRING;
-Blockly.Msg.GAS.SS.IO.STRING_ID = "ID" + Blockly.Msg.GAS.SS.IO.STRING;
-Blockly.Msg.GAS.SS.IO.STRING_URL = "URL" + Blockly.Msg.GAS.SS.IO.STRING;
-Blockly.Msg.GAS.SS.IO.STRING_A1NOTATION = "a1Notation" + Blockly.Msg.GAS.SS.IO.STRING;
-Blockly.Msg.GAS.SS.IO.STRING_TITLE = "タイトル" + Blockly.Msg.GAS.SS.IO.STRING;
-Blockly.Msg.GAS.SS.IO.STRING_MSG = "メッセージ" + Blockly.Msg.GAS.SS.IO.STRING;
-Blockly.Msg.GAS.SS.IO.RANGE_ACTIVED = "アクティブになった" + Blockly.Msg.GAS.SS.IO.RANGE;
-Blockly.Msg.GAS.SS.IO.SHEET_ACTIVE = "アクティブな" + Blockly.Msg.GAS.SS.IO.SHEET;
-Blockly.Msg.GAS.SS.IO.SHEET_ACTIVED = "アクティブになった" + Blockly.Msg.GAS.SS.IO.SHEET;
-Blockly.Msg.GAS.SS.IO.SHEET_COPIED = "コピーした" + Blockly.Msg.GAS.SS.IO.SHEET;
-Blockly.Msg.GAS.SS.IO.SS_ACTIVED = "アクティブになった" + Blockly.Msg.GAS.SS.IO.SS;
-Blockly.Msg.GAS.SS.IO.SS_COPY_ORIGINAL = "複製元" + Blockly.Msg.GAS.SS.IO.SS;
-Blockly.Msg.GAS.SS.IO.NUMBER_ROW_LENGTH = "行数" + Blockly.Msg.GAS.SS.IO.NUMBER;
-Blockly.Msg.GAS.SS.IO.NUMBER_ROW = "行" + Blockly.Msg.GAS.SS.IO.NUMBER;
-Blockly.Msg.GAS.SS.IO.NUMBER_COL_LENGTH = "列数" + Blockly.Msg.GAS.SS.IO.NUMBER;
-Blockly.Msg.GAS.SS.IO.NUMBER_COL = "列" + Blockly.Msg.GAS.SS.IO.NUMBER;
-Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_INDEX = "シートインデックス" + Blockly.Msg.GAS.SS.IO.NUMBER;
-Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_SEC = "秒" + Blockly.Msg.GAS.SS.IO.NUMBER;
-Blockly.Msg.GAS.SS.IO.NUMBER_SHEET_ID = "シートID" + Blockly.Msg.GAS.SS.IO.NUMBER;
-Blockly.Msg.GAS.SS.IO.ARRAY_OF_SHEET = "シート" + Blockly.Msg.GAS.SS.IO.ARRAY;
-Blockly.Msg.GAS.SS.IO.ARRAY_OF_ROW_VALUES = "行" + Blockly.Msg.GAS.SS.IO.ARRAY;
-Blockly.Msg.GAS.UI.UI = "[UI]";
-
 Blockly.TYPE = {};
 Blockly.TYPE.GAS = {};
 Blockly.TYPE.GAS.SS = "Spreadsheet";
 Blockly.TYPE.GAS.SHEET = "Sheet";
 Blockly.TYPE.GAS.RANGE = "Range";
 Blockly.TYPE.GAS.UI = "UI";
-
-Blockly.Msg.GAS.SS_AP.CREATE = "新規作成";
-Blockly.Msg.GAS.HELP.SS_CREATE = "与えられた名称で新しいスプレッドシートを作成します";
-
-Blockly.Msg.GAS.SS_AP.FLUSH = "更新を適用";
-Blockly.Msg.GAS.HELP.FLUSH = "保留中のすべてのスプレッドシートの変更を適用します";
-
-Blockly.Msg.GAS.SS_AP.GETACTIVE = "現在アクティブなスプレッドシート";
-Blockly.Msg.GAS.HELP.GETACTIVE = "現在アクティブなスプレッドシートを返し、無い場合はnullを返します";
-
-Blockly.Msg.GAS.SS_AP.GETACTIVESPREADSHEET = "現在アクティブなスプレッドシート";
-Blockly.Msg.GAS.HELP.GETACTIVESPREADSHEET = "現在アクティブなスプレッドシートを返し、無い場合はnullを返します";
-
-Blockly.Msg.GAS.SS_AP.GETACTIVESHEET = "現在のアクティブ";
-Blockly.Msg.GAS.HELP.GETACTIVESHEET = "スプレッドシート内のアクティブなシートを取得します";
-
-Blockly.Msg.GAS.SS_AP.GETACTIVERANGE = "選択されている範囲";
-Blockly.Msg.GAS.HELP.GETACTIVERANGE = "アクティブシートで選択した範囲を返します";
-
-Blockly.Msg.GAS.SS_AP.GETUI = "スプレッドシートのUI";
-Blockly.Msg.GAS.HELP.GETUI = "スプレッドシートのUI環境のインスタンスを返します";
-
-Blockly.Msg.GAS.SS_AP.OPENBYID = "スプレッドシート";
-Blockly.Msg.GAS.HELP.OPENBYID = "指定したIDのスプレッドシートを開きます";
-
-Blockly.Msg.GAS.SS_AP.OPENBYURL = "スプレッドシート";
-Blockly.Msg.GAS.HELP.OPENBYURL = "指定されたURLでスプレッドシートを開きます";
-
-Blockly.Msg.GAS.SS_AP.SETACTIVERANGE = "をアクティブ";
-Blockly.Msg.GAS.HELP.SETACTIVERANGE = "アクティブな範囲を設定します。選択した範囲を含むシートが表示され、セルを選択します";
-
-Blockly.Msg.GAS.SS_AP.SETACTIVESHEET = "をアクティブ";
-Blockly.Msg.GAS.HELP.SETACTIVESHEET = "スプレッドシート内のアクティブなシートを設定します";
-
-Blockly.Msg.GAS.SS_AP.SETACTIVE_SPREADSHEET = "をアクティブ";
-Blockly.Msg.GAS.HELP.SETACTIVESPREADSHEET = "アクティブなスプレッドシートを設定します";
 
 Blockly.COLOR = {};
 Blockly.COLOR.GAS = {};
@@ -100,13 +27,6 @@ Blockly.IMG.ICON.COM.STR = "img/String.png";
 Blockly.IMG.ICON.COM.NUM = "img/Number.png";
 Blockly.IMG.ICON.COM.ARR = "img/Array.png";
 Blockly.IMG.ICON.COM.TST = "img/Toast.png";
-
-/*
-Blockly.Msg.GAS_PREADSHEETAPP_NEW_DATA_VALIDATION = "データ検証ためのルールビルダー";
-Blockly.Msg.GAS_PREADSHEETAPP_NEW_DATA_VALIDATION_HELP = "データ検証ルールのためのビルダーを作成します";
-Blockly.Msg.GAS_PREADSHEETAPP_OPEN = "スプレッドシート";
-Blockly.Msg.GAS_PREADSHEETAPP_OPEN_HELP = "指定されたFileオブジェクトに対応するスプレッドシートを開きます";
-*/
 
 Blockly.Blocks['next'] = {
     init: function() {
@@ -153,7 +73,7 @@ Blockly.Blocks['spreadsheetapp_create'] = {
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SS);
         this.setColour(Blockly.COLOR.GAS.SS);
-        this.setTooltip(Blockly.Msg.GAS.HELP.SS_CREATE);
+        this.setTooltip("与えられた名称で新しいスプレッドシートを作成します");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#create(String)');
     }
 };
@@ -173,14 +93,12 @@ Blockly.JavaScript['spreadsheetapp_create'] = function(block) {
 Blockly.Blocks['spreadsheetapp_flush'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS.IO.VOID);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.FLUSH);
+            .appendField("更新を適用");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.FLUSH);
+        this.setTooltip("保留中のすべてのスプレッドシートの変更を適用します");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#flush()');
     }
 };
@@ -198,7 +116,7 @@ Blockly.Blocks['spreadsheetapp_getactive'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
             .appendField("スプレッドシート取得");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.GETACTIVE);
+            .appendField("現在アクティブなスプレッドシート");
         this.setInputsInline(true);
         this.setOutput(true, Blockly.TYPE.GAS.SS);
         this.setColour(Blockly.COLOR.GAS.SS);
@@ -261,7 +179,7 @@ Blockly.Blocks['spreadsheetapp_getactivespreadsheet'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
             .appendField("スプレッドシート取得");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.GETACTIVESPREADSHEET);
+            .appendField("現在アクティブなスプレッドシート");
         this.setInputsInline(true);
         this.setOutput(true, Blockly.TYPE.GAS.SS);
         this.setColour(Blockly.COLOR.GAS.SS);
@@ -279,13 +197,13 @@ Blockly.JavaScript['spreadsheetapp_getactivespreadsheet'] = function(block) {
 Blockly.Blocks['spreadsheetapp_getui'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.UI.UI);
+            .appendField("UI");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GAS.SS_AP.GETUI);
+            .appendField("スプレッドシートのUI");
         this.setOutput(true, Blockly.TYPE.GAS.UI);
         this.setInputsInline(true);
         this.setColour(20);
-        this.setTooltip(Blockly.Msg.GAS.HELP.GETUI);
+        this.setTooltip("スプレッドシートのUI環境のインスタンスを返します");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getUi()');
     }
 };

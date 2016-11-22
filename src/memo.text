@@ -1,4 +1,4 @@
-.appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*");
 
 this.appendDummyInput()
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))

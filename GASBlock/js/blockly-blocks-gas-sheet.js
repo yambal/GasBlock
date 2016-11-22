@@ -907,7 +907,7 @@ Blockly.Blocks['sheet_insertrowafter'] = {
             .appendField("行番号")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
-        this.setOutput(true, Blockly.Msg.GAS.SS.IO.SHEET);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
         this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された行の位置の後に行を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowAfter(Integer)');
@@ -941,7 +941,7 @@ Blockly.Blocks['sheet_insertrowbefore'] = {
             .appendField("行番号")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
-        this.setOutput(true, Blockly.Msg.GAS.SS.IO.SHEET);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
         this.setColour(Blockly.COLOR.GAS.SEET);
         this.setTooltip('指定された行の位置の前に行を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowBefore(Integer)');
