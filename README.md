@@ -169,3 +169,123 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | unhideColumn(column) | void |
 | No | unhideRow(row) | void |
 | No | updateChart(chart) | void |
+
+## Class Range
+| 実装 |	Method | Return type |
+| --- |:---:| ---:|
+| No | activate() | Range |
+| No | breakApart() | Range |
+| No | canEdit() | Boolean |
+| No | clear() | Range |
+| No | clear(options) | Range |
+| No | clearContent() | Range |
+| No | clearDataValidations() | Range |
+| No | clearFormat() | Range |
+| No | clearNote() | Range |
+| No | copyFormatToRange(gridId,column, columnEnd,row, rowEnd) | void |
+| No | copyFormatToRange(sheet,column, columnEnd,row, rowEnd) | void |
+| No | copyTo(destination) | void |
+| No | copyTo(destination,options) | void |
+| No | copyValuesToRange(gridId,column, columnEnd,row, rowEnd) | void |
+| No | copyValuesToRange(sheet,column, columnEnd,row, rowEnd) | void |
+| No | getA1Notation() | String |
+| No | getBackground() | String |
+| No | getBackgrounds() | String[][] |
+| No | getCell(row, column) | Range |
+| No | getColumn() | Integer |
+| No | getDataSourceUrl() | String |
+| No | getDataTable() | DataTable |
+| No | getDataTable(firstRowIsHeader) | DataTable |
+| No | getDataValidation() | DataValidation |
+| No | getDataValidations() | DataValidation[][] |
+| No | getDisplayValue() | String |
+| No | getDisplayValues() | String[][] |
+| No | getFontColor() | String |
+| No | getFontColors() | String[][] |
+| No | getFontFamilies() | String[][] |
+| No | getFontFamily() | String |
+| No | getFontLine() | String |
+| No | getFontLines() | String[][] |
+| No | getFontSize() | Integer |
+| No | getFontSizes() | Integer[][] |
+| No | getFontStyle() | String |
+| No | getFontStyles() | String[][] |
+| No | getFontWeight() | String |
+| No | getFontWeights() | String[][] |
+| No | getFormula() | String |
+| No | getFormulaR1C1() | String |
+| No | getFormulas() | String[][] |
+| No | getFormulasR1C1() | String[][] |
+| No | getGridId() | Integer |
+| No | getHeight() | Integer |
+| No | getHorizontalAlignment() | String |
+| No | getHorizontalAlignments() | String[][] |
+| No | getLastColumn() | Integer |
+| No | getLastRow() | Integer |
+| No | getMergedRanges() | Range[] |
+| No | getNote() | String |
+| No | getNotes() | String[][] |
+| No | getNumColumns() | Integer |
+| No | getNumRows() | Integer |
+| No | getNumberFormat() | String |
+| No | getNumberFormats() | String[][] |
+| No | getRow() | Integer |
+| No | getRowIndex() | Integer |
+| No | getSheet() | Sheet |
+| No | getValue() | Object |
+| No | getValues() | Object[][] |
+| No | getVerticalAlignment() | String |
+| No | getVerticalAlignments() | String[][] |
+| No | getWidth() | Integer |
+| No | getWrap() | Boolean |
+| No | getWraps() | Boolean[][] |
+| No | isBlank() | Boolean |
+| No | isEndColumnBounded() | Boolean |
+| No | isEndRowBounded() | Boolean |
+| No | isPartOfMerge() | Boolean |
+| No | isStartColumnBounded() | Boolean |
+| No | isStartRowBounded() | Boolean |
+| No | merge() | Range |
+| No | mergeAcross() | Range |
+| No | mergeVertically() | Range |
+| No | moveTo(target) | void |
+| No | offset(rowOffset,columnOffset) | Range |
+| No | offset(rowOffset,columnOffset, numRows) | Range |
+| No | offset(rowOffset,columnOffset, numRows,numColumns) | Range |
+| No | protect() | Protection |
+| No | setBackground(color) | Range |
+| No | setBackgroundRGB(red,green, blue) | Range |
+| No | setBackgrounds(color) | Range |
+| No | setBorder(top, left,bottom, right,vertical, horizontal) | Range |
+| No | setBorder(top, left,bottom, right,vertical, horizontal,color, style) | Range |
+| No | setDataValidation(rule) | Range |
+| No | setDataValidations(rules) | Range |
+| No | setFontColor(color) | Range |
+| No | setFontColors(colors) | Range |
+| No | setFontFamilies(fontFamilies) | Range |
+| No | setFontFamily(fontFamily) | Range |
+| No | setFontLine(fontLine) | Range |
+| No | setFontLines(fontLines) | Range |
+| No | setFontSize(size) | Range |
+| No | setFontSizes(sizes) | Range |
+| No | setFontStyle(fontStyle) | Range |
+| No | setFontStyles(fontStyles) | Range |
+| No | setFontWeight(fontWeight) | Range |
+| No | setFontWeights(fontWeights) | Range |
+| No | setFormula(formula) | Range |
+| No | setFormulaR1C1(formula) | Range |
+| No | setFormulas(formulas) | Range |
+| No | setFormulasR1C1(formulas) | Range |
+| No | setHorizontalAlignment(alignment) | Range |
+| No | setHorizontalAlignments(alignments) | Range |
+| No | setNote(note) | Range |
+| No | setNotes(notes) | Range |
+| No | setNumberFormat(numberFormat) | Range |
+| No | setNumberFormats(numberFormats) | Range |
+| No | setValue(value) | Range |
+| No | setValues(values) | Range |
+| No | setVerticalAlignment(alignment) | Range |
+| No | setVerticalAlignments(alignments) | Range |
+| No | setWrap(isWrapEnabled) | Range |
+| No | setWraps(isWrapEnabled) | Range |
+| No | sort(sortSpecObj) | Range |

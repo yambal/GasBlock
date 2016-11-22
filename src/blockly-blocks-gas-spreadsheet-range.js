@@ -118,29 +118,28 @@ setNumberFormats(numberFormats)	Range	Sets a rectangular grid of number or date 
 Blockly.Blocks['range_setvalue'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("範囲");
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+        .appendField("範囲に値をセット");
     this.appendValueInput("Range")
-        .setCheck("Range")
-        .appendField("範囲");
-    this.appendDummyInput()
-        .appendField("に");
+        .setCheck(Blockly.TYPE.GAS.RANGE)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("範囲")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
     this.appendValueInput("value")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("をセット");
-    this.setInputsInline(true);
-    this.setOutput(true, "Range");
-    this.setColour(20);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
+        .setCheck(["Boolean", "String", "Number", Blockly.TYPE.GAS.DATE])
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("値");
+    this.setInputsInline(false);
+    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setTooltip('範囲の値を設定します。値は、数値、文字列、ブール値または日付にすることができます。 =で始まる場合は、式として解釈されます。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setValue(Object)');
   }
 };
 Blockly.JavaScript['range_setvalue'] = function(block) {
   var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
   var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_NONE);
-  // TODO: Assemble JavaScript into code variable.
   var code = value_range + '.setValue(' + value_value  + ')';
-  // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 

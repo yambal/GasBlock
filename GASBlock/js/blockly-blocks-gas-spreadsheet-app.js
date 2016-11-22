@@ -4,6 +4,7 @@ Blockly.TYPE.GAS = {};
 Blockly.TYPE.GAS.SS = "Spreadsheet";
 Blockly.TYPE.GAS.SHEET = "Sheet";
 Blockly.TYPE.GAS.RANGE = "Range";
+Blockly.TYPE.GAS.DATE = "Date";
 Blockly.TYPE.GAS.UI = "UI";
 
 Blockly.COLOR = {};
