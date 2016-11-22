@@ -23,9 +23,11 @@
                     <li class="nav-item">
                         <a class="showJavascript nav-link" href="#">GAS</a>
                     </li>
+                    <!-- TODO
                     <li class="nav-item">
                         <a class="showXml nav-link" href="#">XML</a>
                     </li>
+                    //-->
                 </ul>
             </div>
         </div>
@@ -217,37 +219,6 @@
             $categoryMSG.append('<block type="spreadsheet_toast"></block>');
             $categorySpreadSheetRoot.append($categoryMSG);
 
-            /*
-            var $categoryQModel = $('<category name="プロセスデータ" colour="210" />');
-            $categoryQModel.append('<block type="get_process_instance_title"></block>');
-            $categoryQModel.append('<block type="set_process_instance_title"></block>');
-            $categoryQModel.append('<block type="get_process_instance_sequencenumber"></block>');
-            $categoryQModel.append('<block type="get_process_instance_model_info_id"></block>');
-            $categoryQModel.append('<block type="get_process_instance_model_info_name"></block>');
-
-            $categoryQModel.append('<block type="data_get_string_string"></block>');                // data.get() 文字型 java.lang.String
-            $categoryQModel.append('<block type="data_get_number_java_math_bigdecimal"></block>');  // data.get() 数値型 java.math.BigDecimal
-            $categoryQModel.append('<block type="data_get_select_java_util_arraylist"></block>');   // data.get() 選択型 java.util.ArrayList
-            $categoryQModel.append('<block type="data_get_date_com_questetra_bpms_util_addableDate"></block>'); // data.get() 日付型　com.questetra.bpms.util.AddableDate
-            $categoryQModel.append('<block type="data_get_datetime_com_questetra_bpms_util_addableDate"></block>'); // data.get() 日時型　com.questetra.bpms.util.AddableDate
-            $categoryQModel.append('<block type="data_get_user_com_questetra_bpms_core_event_scripttask_quserview"></block>'); // data.get() ユーザー型　com.questetra.bpms.core.event.scripttask.QuserView
-            $categoryQModel.append('<block type="data_get_group_com_questetra_bpms_core_event_scripttask_qgroupview"></block>'); // data.get() 組織型　com.questetra.bpms.core.event.scripttask.QgroupView
-            $categoryQModel.append('<block type="data_get_table_com_questetra_bpms_core_model_formdata_listarray"></block>'); // data.get() テーブル型　com.questetra.bpms.core.model.formdata.ListArray
-
-            $categoryQModel.append('<block type="retval_put_string_string"></block>');              // retVal.put() 文字型 String | java.lang.String
-            $categoryQModel.append('<block type="retval_put_number_java_math_bigdecimal"></block>');// retVal.put() 数値型 java.math.BigDecimal
-            $categoryQModel.append('<block type="retval_put_select_java_util_arraylist"></block>'); // retVal.put() 選択型 java.util.ArrayList
-            $categoryQModel.append('<block type="retval_put_date_long"></block>');                  // retVal.put()　日付型 java.lang.Long
-            $categoryQModel.append('<block type="retval_put_datetime_long"></block>');              // retVal.put() 日時型 java.lang.Long
-            $categoryQModel.append('<block type="retval_put_user_com_questetra_bpms_core_event_scripttask_quserview"></block>');// retVal.put() ユーザー型 com.questetra.bpms.core.event.scripttask.QuserView
-            $categoryQModel.append('<block type="retval_put_group_com_questetra_bpms_core_event_scripttask_qgroupview"></block>');// retVal.put() 組織型 com.questetra.bpms.core.event.scripttask.QgroupView
-            $categoryQModel.append('<block type="retval_put_table_com_questetra_bpms_core_model_formdata_listarray"></block>');// retVal.put() テーブル型 com.questetra.bpms.core.model.formdata.ListArray
-            var $categoryParse = $('<category name="型変換" colour="65" />');
-            $categoryParse.append('<block type="tostring"></block>');
-            $categoryParse.append('<block type="tobigdecimal"></block>');
-
-            */
-
             // Logic
             var $categoryLogic = $('<category name="論理" colour="210" />');
             $categoryLogic.append('<block type="controls_if"></block>');
@@ -343,7 +314,6 @@
 
             // *****************************************************************
             // プラグイン初期化
-
             var blockly = $('#Blockly').blockly({
                 codeTypes: [{
                     name: 'javascript'
@@ -378,7 +348,9 @@
             // *****************************************************************
             // 保存と復元に関して...
             // XMLをセットする（.getXMLで現在のXMLを取得できるので、ソレを保存に使う）
-            blockly.setXML('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="variables_set" id="o~.XhM22:0I5=%u]sQ:I" x="13" y="88"><field name="VAR">a</field><value name="VALUE"><block type="text" id="AVJLzTm+UzjeKVV@oM:p"><field name="TEXT">Hello! Blockly!</field></block></value></block></xml>');
+
+            // Default
+            blockly.setXML('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="procedures_defnoreturn" id="tn?hX5:ig.rjX=6,w#@4" x="100" y="0"><field name="NAME">myFunction</field><comment pinned="false" h="80" w="160">Describe this function...</comment></block></xml>');
         });
     })(window.jQuery);
     </script>
