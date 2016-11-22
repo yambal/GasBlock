@@ -188,6 +188,7 @@
             $categoryRange.append('<block type="sheet_setactiveselection_a1notation"></block>');
             $categoryRange.append('<block type="range_activate"></block>');
             $categoryRange.append('<block type="range_setvalue"></block>');
+            $categoryRange.append('<block type="range_setvalues"></block>');
             $categoryRange.append('<block type="range_clear"></block>');
             $categoryRange.append('<block type="range_clearcntent"></block>');
             $categoryRange.append('<block type="range_geta1notation"></block>');
@@ -199,6 +200,17 @@
             $categoryRange.append('<block type="range_getbackgrounds"></block>');
             $categoryRange.append('<block type="range_setbackground"></block>');
             $categoryRange.append('<block type="range_setbackgroundrgb"></block>');
+            $categoryRange.append('<block type="range_copyto"></block>');
+            $categoryRange.append('<block type="range_copyvaluestorange_gridid"></block>');
+            $categoryRange.append('<block type="range_copyvaluestorange_sheet"></block>');
+            $categoryRange.append('<block type="range_getgridid"></block>');
+            $categoryRange.append('<block type="range_getcell"></block>');
+            $categoryRange.append('<block type="range_getcolumn"></block>');
+            $categoryRange.append('<block type="range_moveto"></block>');
+            $categoryRange.append('<block type="range_getlastcolumn"></block>');
+            $categoryRange.append('<block type="range_getlastrow"></block>');
+            $categoryRange.append('<block type="range_getnumcolumns"></block>');
+            $categoryRange.append('<block type="range_getnumrows"></block>');
             $categorySpreadSheetRoot.append($categoryRange);
 
             var $categoryMSG = $('<category name="メッセージ" colour="45" />');

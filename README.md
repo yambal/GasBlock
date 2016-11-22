@@ -174,11 +174,30 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | 実装 |	Method | Return type |
 | --- |:---:| ---:|
 | Yes | activate() | Range |
+| Yes | clear() | Range |
+| Yes | clearContent() | Range |
+| Yes | getA1Notation() | String |
+| Yes | getBackground() | String |
+| Yes | getBackgrounds() | String[][] |
+| Yes | getCell(row, column) | Range |
+| Yes | getColumn() | Integer |
+| Yes | getGridId() | Integer |
+| Yes | getLastColumn() | Integer |
+| Yes | getLastRow() | Integer |
+| Yes | getNumColumns() | Integer |
+| Yes | getNumRows() | Integer |
+| Yes | getRow() | Integer |
+| Yes | getRowIndex() | Integer |
+| Yes | getSheet() | Sheet |
+| Yes | getValue() | Object |
+| Yes | getValues() | Object[][] |
+| Yes | setBackground(color) | Range |
+| Yes | setBackgroundRGB(red,green, blue) | Range |
+| Yes | setValue(value) | Range |
+| Yes | setValues(values) | Range |
 | No | breakApart() | Range |
 | No | canEdit() | Boolean |
-| Yes | clear() | Range |
 | No | clear(options) | Range |
-| Yes | clearContent() | Range |
 | No | clearDataValidations() | Range |
 | No | clearFormat() | Range |
 | No | clearNote() | Range |
@@ -188,11 +207,6 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | copyTo(destination,options) | void |
 | No | copyValuesToRange(gridId,column, columnEnd,row, rowEnd) | void |
 | No | copyValuesToRange(sheet,column, columnEnd,row, rowEnd) | void |
-| Yes | getA1Notation() | String |
-| Yes | getBackground() | String |
-| Yes | getBackgrounds() | String[][] |
-| No | getCell(row, column) | Range |
-| No | getColumn() | Integer |
 | No | getDataSourceUrl() | String |
 | No | getDataTable() | DataTable |
 | No | getDataTable(firstRowIsHeader) | DataTable |
@@ -216,24 +230,14 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | getFormulaR1C1() | String |
 | No | getFormulas() | String[][] |
 | No | getFormulasR1C1() | String[][] |
-| No | getGridId() | Integer |
 | No | getHeight() | Integer |
 | No | getHorizontalAlignment() | String |
 | No | getHorizontalAlignments() | String[][] |
-| No | getLastColumn() | Integer |
-| No | getLastRow() | Integer |
 | No | getMergedRanges() | Range[] |
 | No | getNote() | String |
 | No | getNotes() | String[][] |
-| No | getNumColumns() | Integer |
-| No | getNumRows() | Integer |
 | No | getNumberFormat() | String |
 | No | getNumberFormats() | String[][] |
-| Yes | getRow() | Integer |
-| Yes | getRowIndex() | Integer |
-| Yes | getSheet() | Sheet |
-| Yes | getValue() | Object |
-| Yes | getValues() | Object[][] |
 | No | getVerticalAlignment() | String |
 | No | getVerticalAlignments() | String[][] |
 | No | getWidth() | Integer |
@@ -253,8 +257,6 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | offset(rowOffset,columnOffset, numRows) | Range |
 | No | offset(rowOffset,columnOffset, numRows,numColumns) | Range |
 | No | protect() | Protection |
-| Yes | setBackground(color) | Range |
-| Yes | setBackgroundRGB(red,green, blue) | Range |
 | No | setBackgrounds(color) | Range |
 | No | setBorder(top, left,bottom, right,vertical, horizontal) | Range |
 | No | setBorder(top, left,bottom, right,vertical, horizontal,color, style) | Range |
@@ -282,8 +284,6 @@ https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
 | No | setNotes(notes) | Range |
 | No | setNumberFormat(numberFormat) | Range |
 | No | setNumberFormats(numberFormats) | Range |
-| Yes | setValue(value) | Range |
-| No | setValues(values) | Range |
 | No | setVerticalAlignment(alignment) | Range |
 | No | setVerticalAlignments(alignments) | Range |
 | No | setWrap(isWrapEnabled) | Range |
