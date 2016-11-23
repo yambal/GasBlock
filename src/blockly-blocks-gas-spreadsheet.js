@@ -7,10 +7,74 @@
 
 // ----------------------------------------------------------------
 // addEditors(emailAddresses)
-
+*/
 // ----------------------------------------------------------------
 // addMenu()
+// Creates a new menu in the Spreadsheet UI. Each menu entry runs a user-defined function. Usually, you will want to call it from the onOpen function so that the menu is automatically created when the Spreadsheet is loaded.
+Blockly.Blocks['spreadsheet_addmenu'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField("メニューを作成");
+    this.appendValueInput("SPREADSHEET")
+      .setCheck(Blockly.TYPE.GAS.SS)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("スプレッドシート")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"));
+    this.appendValueInput("name")
+      .setCheck("String")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("メニュー")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+    this.appendValueInput("subMenus")
+      .setCheck("Array")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("サブメニュー")
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(210);
+    this.setTooltip('スプレッドシートのUIに新しいメニューを作成します。各メニュー項目は、ユーザー定義関数を実行します。通常、スプレッドシートがロードされたときにメニューが自動的に作成されるように、onOpen関数から呼び出す必要があります。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addMenu(String,Object)');
+  }
+};
+Blockly.JavaScript['spreadsheet_addmenu'] = function(block) {
+    var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SPREADSHEET', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
+  var value_submenus = Blockly.JavaScript.valueToCode(block, 'subMenus', Blockly.JavaScript.ORDER_NONE);
+  var code = value_spreadsheet + '.addMenu(' + value_name + ', ' + value_submenus + ');\n';
+  return code;
+};
 
+//
+Blockly.Blocks['sheet_menu_tem'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("サブメニュー項目");
+    this.appendValueInput("name")
+        .setCheck("String")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("サブメニュー名")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+    this.appendValueInput("function")
+        .setCheck("String")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("呼び出し関数")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, "Object");
+    this.setColour(210);
+    this.setTooltip('「メニューを作成」に使用するサブメニューの項目です。リストにして使用します。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addMenu(String,Object)');
+  }
+};
+Blockly.JavaScript['sheet_menu_tem'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
+  var value_function = Blockly.JavaScript.valueToCode(block, 'function', Blockly.JavaScript.ORDER_NONE);
+  var code = '{name:' + value_name + ',functionName:' + value_function + '}';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/*
 // ----------------------------------------------------------------
 // addViewer(String)
 
@@ -634,3 +698,21 @@ unhideColumn(column)    void    Unhides the column in the given range.
 unhideRow(row)  void    Unhides the row in the given range.
 updateMenu(name, subMenus)  void    Updates a menu that was added by addMenu(name, subMenus).
 */
+
+Blockly.Blocks['spreadsheet_onopen'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("スプレッドシートを開いたとき");
+    this.appendStatementInput("onOpen.funtion")
+        .setCheck(null);
+    this.setColour(285);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.JavaScript['spreadsheet_onopen'] = function(block) {
+  var statements_onopen_funtion = Blockly.JavaScript.statementToCode(block, 'onOpen.funtion');
+  var code = 'function onOpen() {\n' + statements_onopen_funtion + '};\n';
+  return code;
+};
