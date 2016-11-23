@@ -45,7 +45,7 @@ Blockly.Blocks['sheet_appendrow'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
         this.setTooltip('スプレッドシートに行を追加します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#appendRow(Object)');
     }
@@ -153,7 +153,7 @@ Blockly.Blocks['sheet_deletecolumn'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
         this.setTooltip('指定された列位置の列を削除します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteColumn(Integer)');
     }
@@ -192,7 +192,7 @@ Blockly.Blocks['sheet_deletecolumns'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
         this.setTooltip('指定された列の位置から始まるいくつかの列を削除します');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteColumns(Integer,Integer)');
     }
@@ -226,7 +226,7 @@ Blockly.Blocks['sheet_deleterow'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
         this.setTooltip('指定された行位置の行を削除します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteRow(Integer)');
     }
@@ -263,7 +263,7 @@ Blockly.Blocks['sheet_deleterows'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
         this.setTooltip('指定された行位置から始まるいくつかの行を削除します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteRows(Integer,Integer)');
     }
@@ -409,7 +409,7 @@ Blockly.Blocks['sheet_getlastcolumn'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "Number");
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
         this.setTooltip('最後の列の位置を返します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getLastColumn()');
     }
@@ -437,7 +437,7 @@ Blockly.Blocks['sheet_getlastrow'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "Number");
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
         this.setTooltip('最後の行の位置を返します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getLastRow()');
     }
@@ -660,7 +660,7 @@ Blockly.Blocks['sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns'] =
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "Array");
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWCOL);
         this.setTooltip('指定された座標から始まるこの範囲の矩形グリッド値を返します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getSheetValues(Integer,Integer,Integer,Integer)');
     }
@@ -709,7 +709,7 @@ Blockly.Blocks['sheet_insertcolumnafter'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
         this.setTooltip('指定された列の位置の後に列を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnAfter(Integer)');
     }
@@ -743,7 +743,7 @@ Blockly.Blocks['sheet_insertcolumnbefore'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
         this.setTooltip('指定された列の位置の前に列を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnBefore(Integer)');
     }
@@ -782,7 +782,7 @@ Blockly.Blocks['sheet_insertcolumns_columnindex'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
         this.setTooltip('シートの指定された場所に空白の列を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumns(Integer)');
     }
@@ -825,7 +825,7 @@ Blockly.Blocks['sheet_insertcolumnsafter_afterposition_howmany'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "Sheet");
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
         this.setTooltip('指定された列の位置の後にいくつかの列を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnsAfter(Integer,Integer)');
     }
@@ -866,7 +866,7 @@ Blockly.Blocks['sheet_insertcolumnsbefore_beforeposition_howmany'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "Sheet");
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
         this.setTooltip('指定された列の位置の前にいくつかの列を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnsBefore(Integer,Integer)');
     }
@@ -908,7 +908,7 @@ Blockly.Blocks['sheet_insertrowafter'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
         this.setTooltip('指定された行の位置の後に行を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowAfter(Integer)');
     }
@@ -942,7 +942,7 @@ Blockly.Blocks['sheet_insertrowbefore'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
         this.setTooltip('指定された行の位置の前に行を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowBefore(Integer)');
     }
@@ -981,7 +981,7 @@ Blockly.Blocks['sheet_insertrows_rowindex'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
         this.setTooltip('指定された場所のシートに空の行を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRows(Integer)');
     }
@@ -1024,7 +1024,7 @@ Blockly.Blocks['sheet_insertrowsafter_afterposition_howmany'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
         this.setTooltip('指定された行の位置の後ろにいくつかの行を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowsAfter(Integer,Integer)');
     }
@@ -1064,7 +1064,7 @@ Blockly.Blocks['sheet_insertrowsbefore_beforeposition_howmany'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
         this.setTooltip('指定された行の位置の前にいくつかの行を挿入します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowsBefore(Integer,Integer)');
     }

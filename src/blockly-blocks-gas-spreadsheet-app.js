@@ -12,6 +12,9 @@ Blockly.COLOR.GAS = {};
 Blockly.COLOR.GAS.SS = 75;
 Blockly.COLOR.GAS.SEET = 60;
 Blockly.COLOR.GAS.RANGE = 45;
+Blockly.COLOR.GAS.ROWCOL = 30;
+Blockly.COLOR.GAS.ROWINDEX = 15;
+Blockly.COLOR.GAS.COLINDEX = 0;
 Blockly.COLOR.GAS.TOAST = 160;
 
 Blockly.IMG = {};

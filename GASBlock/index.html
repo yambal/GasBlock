@@ -46,8 +46,12 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <p>とりあえず作った保存機能</p>
         <table class="table">
-            <tr><th>タイトル</th><th>-</th><th>-</th></tr>
-            <tbody id="savedList"></tbody>
+          <tr>
+            <th>タイトル</th>
+            <th>-</th>
+            <th>-</th>
+          </tr>
+          <tbody id="savedList"></tbody>
         </table>
       </div>
     </div>
@@ -159,77 +163,110 @@
       $categorySheetDisplay.append('<block type="sheet_showsheet"></block>');
       $categorySheet.append($categorySheetDisplay);
 
-      // スプレッドシート > スプレッドシート > シート　> 行・列操作
-      var $categoryRowColOperation = $('<category name="行・列" colour="60" />');
-      $categoryRowColOperation.append('<block type="sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns"></block>');
 
-      var $categoryRowOperation = $('<category name="行" colour="60" />');
-      $categoryRowOperation.append('<block type="sheet_getlastrow"></block>');
-      $categoryRowOperation.append('<block type="sheet_appendrow"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrows_rowindex"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrowafter"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrowsafter_afterposition_howmany"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrowbefore"></block>');
-      $categoryRowOperation.append('<block type="sheet_insertrowsbefore_beforeposition_howmany"></block>');
-      $categoryRowOperation.append('<block type="sheet_deleterow"></block>');
-      $categoryRowOperation.append('<block type="sheet_deleterows"></block>');
-      $categoryRowColOperation.append($categoryRowOperation);
-
-      var $categoryColOperation = $('<category name="列" colour="60" />');
-      $categoryColOperation.append('<block type="sheet_getlastcolumn"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumns_columnindex"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumnafter"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumnsafter_afterposition_howmany"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumnbefore"></block>');
-      $categoryColOperation.append('<block type="sheet_insertcolumnsbefore_beforeposition_howmany"></block>');
-      $categoryColOperation.append('<block type="sheet_deletecolumn"></block>');
-      $categoryColOperation.append('<block type="sheet_deletecolumns"></block>');
-      $categoryColOperation.append('<block type="sheet_autoresizecolumn"></block>');
-
-      $categoryRowColOperation.append($categoryColOperation);
-      $categorySheet.append($categoryRowColOperation);
 
       $categorySpreadSheetRoot.append($categorySheet);
 
       var $categoryRange = $('<category name="範囲" colour="45" />');
+      var $categoryGetRange = $('<category name="範囲取得" colour="45" />');
+      $categoryGetRange.append('<block type="spreadsheetapp_getactiverange"></block>');
+      $categoryGetRange.append('<block type="spreadsheet_getrange_a1notation"></block>');
+      $categoryGetRange.append('<block type="sheet_getactiverange"></block>');
+      $categoryGetRange.append('<block type="sheet_getdatarange"></block>');
+      $categoryGetRange.append('<block type="sheet_getrange"></block>');
+      $categoryGetRange.append('<block type="sheet_getrange_a1notation"></block>');
+      $categoryGetRange.append('<block type="sheet_getactivecell"></block>');
+      $categoryGetRange.append('<block type="range_getcell"></block>');
+      $categoryRange.append($categoryGetRange);
 
-      $categoryRange.append('<block type="spreadsheetapp_getactiverange"></block>');
-      $categoryRange.append('<block type="spreadsheetapp_setactiverange"></block>');
-      $categoryRange.append('<block type="spreadsheet_getrange_a1notation"></block>');
-      $categoryRange.append('<block type="sheet_getactivecell"></block>');
-      $categoryRange.append('<block type="sheet_getactiverange"></block>');
-      $categoryRange.append('<block type="sheet_getdatarange"></block>');
-      $categoryRange.append('<block type="sheet_getrange"></block>');
-      $categoryRange.append('<block type="sheet_getrange_a1notation"></block>');
-      $categoryRange.append('<block type="sheet_setactiverange"></block>');
-      $categoryRange.append('<block type="sheet_setactiveselection"></block>');
-      $categoryRange.append('<block type="sheet_setactiveselection_a1notation"></block>');
-      $categoryRange.append('<block type="range_activate"></block>');
-      $categoryRange.append('<block type="range_setvalue"></block>');
-      $categoryRange.append('<block type="range_setvalues"></block>');
-      $categoryRange.append('<block type="range_clear"></block>');
-      $categoryRange.append('<block type="range_clearcntent"></block>');
+      var $categoryRangeValue = $('<category name="値" colour="45" />');
+      $categoryRangeValue.append('<block type="range_setvalue"></block>');
+      $categoryRangeValue.append('<block type="range_setvalues"></block>');
+      $categoryRangeValue.append('<block type="range_clear"></block>');
+      $categoryRangeValue.append('<block type="range_clearcntent"></block>');
+      $categoryRangeValue.append('<block type="range_getvalue"></block>');
+      $categoryRangeValue.append('<block type="range_getvalues"></block>');
+      $categoryRange.append($categoryRangeValue);
+
+      var $categoryRangeCopyMove = $('<category name="複製/移動" colour="45" />');
+      $categoryRangeCopyMove.append('<block type="range_copyto"></block>');
+      /*
+      $categoryRangeCopyMove.append('<block type="range_copyvaluestorange_gridid"></block>');
+      */
+      $categoryRangeCopyMove.append('<block type="range_copyvaluestorange_sheet"></block>');
+      $categoryRangeCopyMove.append('<block type="range_moveto"></block>');
+      $categoryRange.append($categoryRangeCopyMove);
+
+      var $categoryRangeActivate = $('<category name="アクティブ化" colour="45" />');
+      $categoryRangeActivate.append('<block type="spreadsheetapp_setactiverange"></block>');
+      $categoryRangeActivate.append('<block type="sheet_setactiverange"></block>');
+      $categoryRangeActivate.append('<block type="sheet_setactiveselection"></block>');
+      $categoryRangeActivate.append('<block type="sheet_setactiveselection_a1notation"></block>');
+      $categoryRangeActivate.append('<block type="range_activate"></block>');
+      $categoryRange.append($categoryRangeActivate);
+
+      var $categoryRangeBG = $('<category name="背景色" colour="45" />');
+      $categoryRangeBG.append('<block type="range_getbackground"></block>');
+      $categoryRangeBG.append('<block type="range_getbackgrounds"></block>');
+      $categoryRangeBG.append('<block type="range_setbackground"></block>');
+      $categoryRangeBG.append('<block type="range_setbackgroundrgb"></block>');
+      $categoryRange.append($categoryRangeBG);
+
       $categoryRange.append('<block type="range_geta1notation"></block>');
-      $categoryRange.append('<block type="range_getrow"></block>');
-      $categoryRange.append('<block type="range_getrowindex"></block>');
-      $categoryRange.append('<block type="range_getvalue"></block>');
-      $categoryRange.append('<block type="range_getvalues"></block>');
-      $categoryRange.append('<block type="range_getbackground"></block>');
-      $categoryRange.append('<block type="range_getbackgrounds"></block>');
-      $categoryRange.append('<block type="range_setbackground"></block>');
-      $categoryRange.append('<block type="range_setbackgroundrgb"></block>');
-      $categoryRange.append('<block type="range_copyto"></block>');
-      $categoryRange.append('<block type="range_copyvaluestorange_gridid"></block>');
-      $categoryRange.append('<block type="range_copyvaluestorange_sheet"></block>');
+
+      /*
       $categoryRange.append('<block type="range_getgridid"></block>');
-      $categoryRange.append('<block type="range_getcell"></block>');
-      $categoryRange.append('<block type="range_getcolumn"></block>');
-      $categoryRange.append('<block type="range_moveto"></block>');
-      $categoryRange.append('<block type="range_getlastcolumn"></block>');
-      $categoryRange.append('<block type="range_getlastrow"></block>');
-      $categoryRange.append('<block type="range_getnumcolumns"></block>');
-      $categoryRange.append('<block type="range_getnumrows"></block>');
+    */
       $categorySpreadSheetRoot.append($categoryRange);
+
+      // スプレッドシート > スプレッドシート > シート　> 行・列操作
+      var $categoryRowColOperation = $('<category name="行・列" colour="30" />');
+
+       var $categoryRowColValue = $('<category name="値" colour="30" />');
+      $categoryRowColValue.append('<block type="sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns"></block>');
+      $categoryRowColValue.append('<block type="sheet_appendrow"></block>');
+      $categoryRowColOperation.append($categoryRowColValue);
+      
+      var $categoryRowIndex = $('<category name="位置と数" colour="30" />');
+      $categoryRowIndex.append('<block type="sheet_getlastrow"></block>');
+      $categoryRowIndex.append('<block type="range_getlastrow"></block>');
+      $categoryRowIndex.append('<block type="range_getrow"></block>');
+      $categoryRowIndex.append('<block type="range_getnumrows"></block>');
+      $categoryRowIndex.append('<block type="sheet_getlastcolumn"></block>');
+      $categoryRowIndex.append('<block type="range_getlastcolumn"></block>');
+      //$categoryRowIndex.append('<block type="range_getrowindex"></block>');
+      $categoryRowIndex.append('<block type="range_getcolumn"></block>');
+      $categoryRowIndex.append('<block type="range_getnumcolumns"></block>');
+      $categoryRowColOperation.append($categoryRowIndex);
+
+      var $categoryRowColDelete = $('<category name="削除" colour="30" />');
+      $categoryRowColDelete.append('<block type="sheet_deleterow"></block>');
+      $categoryRowColDelete.append('<block type="sheet_deleterows"></block>');
+      $categoryRowColDelete.append('<block type="sheet_deletecolumn"></block>');
+      $categoryRowColDelete.append('<block type="sheet_deletecolumns"></block>');
+      $categoryRowColOperation.append($categoryRowColDelete);
+
+      var $categoryRowAdd = $('<category name="行を追加" colour="15" />');
+      $categoryRowAdd.append('<block type="sheet_appendrow"></block>');
+      $categoryRowAdd.append('<block type="sheet_insertrows_rowindex"></block>');
+      $categoryRowAdd.append('<block type="sheet_insertrowafter"></block>');
+      $categoryRowAdd.append('<block type="sheet_insertrowsafter_afterposition_howmany"></block>');
+      $categoryRowAdd.append('<block type="sheet_insertrowbefore"></block>');
+      $categoryRowAdd.append('<block type="sheet_insertrowsbefore_beforeposition_howmany"></block>');
+      $categoryRowColOperation.append($categoryRowAdd);
+
+      var $categoryColAdd = $('<category name="列を追加" colour="0" />');
+      $categoryColAdd.append('<block type="sheet_insertcolumns_columnindex"></block>');
+      $categoryColAdd.append('<block type="sheet_insertcolumnafter"></block>');
+      $categoryColAdd.append('<block type="sheet_insertcolumnsafter_afterposition_howmany"></block>');
+      $categoryColAdd.append('<block type="sheet_insertcolumnbefore"></block>');
+      $categoryColAdd.append('<block type="sheet_insertcolumnsbefore_beforeposition_howmany"></block>');
+      //$categoryColAdd.append('<block type="sheet_autoresizecolumn"></block>');
+      $categoryRowColOperation.append($categoryColAdd);
+
+
+
+      $categorySpreadSheetRoot.append($categoryRowColOperation);
 
       var $categoryMSG = $('<category name="メッセージ" colour="160" />');
       $categoryMSG.append('<block type="spreadsheet_toast"></block>');
@@ -352,7 +389,7 @@
       $(".showBlock").click(function(event) {
         blockly.show("blocks");
         $(this).addClass('active');
-        
+
         $(".showJavascript").removeClass('active');
         $("#Blockly-row").show();
         blockly.resize();
@@ -379,7 +416,7 @@
       // SAVE
       var mb = myBlocks();
 
-      function showSavedList(){
+      function showSavedList() {
         $(".save-btn").prop("disabled", true);
 
         $("#Saved-row").show();
@@ -394,7 +431,7 @@
         loadList();
       }
 
-      function hideSavedList(){
+      function hideSavedList() {
         $(".save-btn").prop("disabled", false);
         $("#Saved-row").hide();
         $(".showSaved").removeClass('active');
@@ -408,19 +445,19 @@
         var xml = blockly.getXML();
         showSavedList();
 
-        setTimeout(function(){
-            mb.save(null, xml);
-            showSavedList();
+        setTimeout(function() {
+          mb.save(null, xml);
+          showSavedList();
         }, 1000);
       });
 
-      $("#savedList").on("click", ".deleteOne", function(){
+      $("#savedList").on("click", ".deleteOne", function() {
         var id = $(this).data('id');
         mb.deleteOne(id);
         loadList();
       });
 
-      $("#savedList").on("click", ".applyOne", function(){
+      $("#savedList").on("click", ".applyOne", function() {
         var id = $(this).data('id');
         var one = mb.loadOne(id);
         blockly.setXML(one.xml);
@@ -432,10 +469,10 @@
         var savedList = mb.load();
         savedList.reverse();
         for (var i = 0; i < savedList.length; i++) {
-            $("#savedList").append('<tr><td>' +savedList[i].label  + '</td><td><button class="applyOne btn btn-primary btn-sm" data-id="' + savedList[i].id + '">Blockに追加</button></td><td><button class="deleteOne btn btn-danger btn-sm" data-id="' + savedList[i].id + '">削除</button></td></tr>');
+          $("#savedList").append('<tr><td>' + savedList[i].label + '</td><td><button class="applyOne btn btn-primary btn-sm" data-id="' + savedList[i].id + '">Blockに追加</button></td><td><button class="deleteOne btn btn-danger btn-sm" data-id="' + savedList[i].id + '">削除</button></td></tr>');
         }
       }
-      loadList();
+      hideSavedList();
     });
   })(window.jQuery);
   </script>

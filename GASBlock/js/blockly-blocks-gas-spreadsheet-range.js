@@ -374,7 +374,9 @@ Blockly.JavaScript['range_getcell'] = function(block) {
 Blockly.Blocks['range_getcolumn'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
       .appendField("範囲の列位置");
     this.appendValueInput("RANGE")
       .setCheck(Blockly.TYPE.GAS.RANGE)
@@ -383,7 +385,7 @@ Blockly.Blocks['range_getcolumn'] = {
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
     this.setInputsInline(false);
     this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.COLINDEX);
     this.setTooltip('この範囲の開始列を返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getColumn()');
   }
@@ -458,7 +460,9 @@ Blockly.Blocks['range_getlastcolumn'] = {
   init: function() {
     this.appendDummyInput()
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
-      .appendField("最後の行番号");
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+      .appendField("最後の列位置");
     this.appendValueInput("Range")
       .setCheck(Blockly.TYPE.GAS.RANGE)
       .setAlign(Blockly.ALIGN_RIGHT)
@@ -466,7 +470,7 @@ Blockly.Blocks['range_getlastcolumn'] = {
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
     this.setInputsInline(false);
     this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.COLINDEX );
     this.setTooltip('終了列の位置を返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getLastColumn()');
   }
@@ -483,8 +487,10 @@ Blockly.JavaScript['range_getlastcolumn'] = function(block) {
 Blockly.Blocks['range_getlastrow'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
-      .appendField("最後の列番号");
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+      .appendField("最後の行位置");
     this.appendValueInput("Range")
       .setCheck(Blockly.TYPE.GAS.RANGE)
       .setAlign(Blockly.ALIGN_RIGHT)
@@ -492,9 +498,9 @@ Blockly.Blocks['range_getlastrow'] = {
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
     this.setInputsInline(false);
     this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('終了列の位置を返します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getLastColumn()');
+    this.setColour(Blockly.COLOR.GAS.ROWINDEX);
+    this.setTooltip('終了行の位置を返します。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getLastRow()');
   }
 };
 Blockly.JavaScript['range_getlastrow'] = function(block) {
@@ -514,7 +520,9 @@ getNotes()  String[][]  Returns the notes associated with the cells in the range
 Blockly.Blocks['range_getnumcolumns'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
       .appendField("範囲の列数");
     this.appendValueInput("Range")
       .setCheck(Blockly.TYPE.GAS.RANGE)
@@ -523,7 +531,7 @@ Blockly.Blocks['range_getnumcolumns'] = {
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
     this.setInputsInline(false);
     this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.COLINDEX);
     this.setTooltip('範囲の列数を返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getNumColumns()');
   }
@@ -539,7 +547,9 @@ Blockly.JavaScript['range_getnumcolumns'] = function(block) {
 Blockly.Blocks['range_getnumrows'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
       .appendField("範囲の行数");
     this.appendValueInput("Range")
       .setCheck(Blockly.TYPE.GAS.RANGE)
@@ -548,7 +558,7 @@ Blockly.Blocks['range_getnumrows'] = {
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
     this.setInputsInline(false);
     this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.ROWINDEX);
     this.setTooltip('範囲の行数を返します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getNumRows()');
   }
@@ -571,6 +581,8 @@ Blockly.Blocks['range_getrow'] = {
   init: function() {
     this.appendDummyInput()
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
       .appendField("範囲の行位置");
     this.appendValueInput("RANGE")
       .setCheck(Blockly.TYPE.GAS.RANGE)
@@ -579,7 +591,7 @@ Blockly.Blocks['range_getrow'] = {
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
     this.setInputsInline(false);
     this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
+    this.setColour(Blockly.COLOR.GAS.ROWINDEX);
     this.setTooltip('この範囲の行位置を返します。 getRowIndex（）と同じです。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getRow()');
   }
@@ -590,6 +602,7 @@ Blockly.JavaScript['range_getrow'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+/*
 // ------------------------------------------------------------
 // getRowIndex()
 // Returns the row position for this range.
@@ -615,6 +628,7 @@ Blockly.JavaScript['range_getrowindex'] = function(block) {
   var code = value_range + '.getRowIndex()';
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+*/
 
 // ------------------------------------------------------------
 // getSheet()
