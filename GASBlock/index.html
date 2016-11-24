@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>GASBlock</title>
+    <link href="img/KyotoGAS.png" rel="apple-touch-icon">
+    <link href="img/KyotoGAS.ico" rel="icon">
 </head>
 
 <body>
@@ -23,11 +25,9 @@
                     <li class="nav-item">
                         <a class="showJavascript nav-link" href="#">GAS</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="showXml nav-link" href="#">XML</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="showSaved nav-link" href="#">保存リスト</a>
                     </li>
@@ -105,7 +105,7 @@
             $categoryMSG.append('<block type="spreadsheet_toast"></block>');
             $categoryGasUI.append($categoryMSG);
 
-                        var $categoryDialog = $('<category name="ダイアログ" colour="' + Blockly.COLOR.GAS.UI + '" />');
+            var $categoryDialog = $('<category name="ダイアログ" colour="' + Blockly.COLOR.GAS.UI + '" />');
             $categoryDialog.append('<block type="spreadsheetapp_getui"></block>');
             $categoryDialog.append('<block type="ui_alert_prompt"></block>');
             $categoryDialog.append('<block type="alert_title_prompt_buttons"></block>');
@@ -299,7 +299,7 @@
 
             $categorySpreadSheetRoot.append($categoryRowColOperation);
 
-            
+
 
 
 
@@ -431,12 +431,12 @@
             });
 
             $(".showXml").click(function(event) {
-                    blockly.show("xml");
-                    $(this).addClass('active');
-                    $(".showBlock").removeClass('active');
-                    $(".showJavascript").removeClass('active');
+                blockly.show("xml");
+                $(this).addClass('active');
+                $(".showBlock").removeClass('active');
+                $(".showJavascript").removeClass('active');
 
-                    hideSavedList();
+                hideSavedList();
             });
 
 
