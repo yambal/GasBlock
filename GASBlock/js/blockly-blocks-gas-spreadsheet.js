@@ -12,66 +12,66 @@
 // addMenu()
 // Creates a new menu in the Spreadsheet UI. Each menu entry runs a user-defined function. Usually, you will want to call it from the onOpen function so that the menu is automatically created when the Spreadsheet is loaded.
 Blockly.Blocks['spreadsheet_addmenu'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField("メニューを作成");
-    this.appendValueInput("SPREADSHEET")
-      .setCheck(Blockly.TYPE.GAS.SS)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("スプレッドシート")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"));
-    this.appendValueInput("name")
-      .setCheck("String")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("メニュー")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
-    this.appendValueInput("subMenus")
-      .setCheck("Array")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("サブメニュー")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"));
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(Blockly.COLOR.GAS.UI);
-    this.setTooltip('スプレッドシートのUIに新しいメニューを作成します。各メニュー項目は、ユーザー定義関数を実行します。通常、スプレッドシートがロードされたときにメニューが自動的に作成されるように、onOpen関数から呼び出す必要があります。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addMenu(String,Object)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField("メニューを作成");
+        this.appendValueInput("SPREADSHEET")
+            .setCheck(Blockly.TYPE.GAS.SS)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("スプレッドシート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"));
+        this.appendValueInput("name")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("メニュー")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+        this.appendValueInput("subMenus")
+            .setCheck("Array")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("サブメニュー")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"));
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(Blockly.COLOR.GAS.UI);
+        this.setTooltip('スプレッドシートのUIに新しいメニューを作成します。各メニュー項目は、ユーザー定義関数を実行します。通常、スプレッドシートがロードされたときにメニューが自動的に作成されるように、onOpen関数から呼び出す必要があります。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addMenu(String,Object)');
+    }
 };
 Blockly.JavaScript['spreadsheet_addmenu'] = function(block) {
     var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SPREADSHEET', Blockly.JavaScript.ORDER_NONE);
-  var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
-  var value_submenus = Blockly.JavaScript.valueToCode(block, 'subMenus', Blockly.JavaScript.ORDER_NONE);
-  var code = value_spreadsheet + '.addMenu(' + value_name + ', ' + value_submenus + ');\n';
-  return code;
+    var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
+    var value_submenus = Blockly.JavaScript.valueToCode(block, 'subMenus', Blockly.JavaScript.ORDER_NONE);
+    var code = value_spreadsheet + '.addMenu(' + value_name + ', ' + value_submenus + ');\n';
+    return code;
 };
 
 //
 Blockly.Blocks['sheet_menu_tem'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("サブメニュー項目");
-    this.appendValueInput("name")
-        .setCheck("String")
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("サブメニュー名")
-        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
-    this.appendValueInput("function")
-        .setCheck("String")
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("呼び出し関数")
-        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Object");
-    this.setColour(Blockly.COLOR.GAS.UI);
-    this.setTooltip('「メニューを作成」に使用するサブメニューの項目です。リストにして使用します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addMenu(String,Object)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField("サブメニュー項目");
+        this.appendValueInput("name")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("サブメニュー名")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+        this.appendValueInput("function")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("呼び出し関数")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Object");
+        this.setColour(Blockly.COLOR.GAS.UI);
+        this.setTooltip('「メニューを作成」に使用するサブメニューの項目です。リストにして使用します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addMenu(String,Object)');
+    }
 };
 Blockly.JavaScript['sheet_menu_tem'] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
-  var value_function = Blockly.JavaScript.valueToCode(block, 'function', Blockly.JavaScript.ORDER_NONE);
-  var code = '{name:' + value_name + ',functionName:' + value_function + '}';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
+    var value_function = Blockly.JavaScript.valueToCode(block, 'function', Blockly.JavaScript.ORDER_NONE);
+    var code = '{name:' + value_name + ',functionName:' + value_function + '}';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -515,10 +515,10 @@ Blockly.JavaScript['spreadsheet_insertsheet'] = function(block) {
     var code = value_spreadsheet + '.insertSheet()';
     if (value_SheetName && !value_sheetIndex) {
         code = value_spreadsheet + '.insertSheet(' + value_SheetName + ')';
-    }else if (!value_SheetName && value_sheetIndex){
+    } else if (!value_SheetName && value_sheetIndex) {
         code = value_spreadsheet + '.insertSheet(' + value_sheetIndex + ')';
-    }else if (value_SheetName && value_sheetIndex){
-        code = value_spreadsheet + '.insertSheet('+ value_SheetName + ',' + value_sheetIndex + ')';
+    } else if (value_SheetName && value_sheetIndex) {
+        code = value_spreadsheet + '.insertSheet(' + value_SheetName + ',' + value_sheetIndex + ')';
     }
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -685,9 +685,9 @@ Blockly.JavaScript['spreadsheet_toast'] = function(block) {
     var value_title = Blockly.JavaScript.valueToCode(block, 'title', Blockly.JavaScript.ORDER_NONE);
     var value_timeoutSeconds = Blockly.JavaScript.valueToCode(block, 'timeoutSeconds', Blockly.JavaScript.ORDER_NONE);
     var code = value_spreadsheet + '.toast(' + value_msg + ');\n';
-    if(value_title && !value_timeoutSeconds){
+    if (value_title && !value_timeoutSeconds) {
         code = value_spreadsheet + '.toast(' + value_msg + ',' + value_title + ');\n';
-    }else if(value_title && value_timeoutSeconds){
+    } else if (value_title && value_timeoutSeconds) {
         code = value_spreadsheet + '.toast(' + value_msg + ',' + value_title + ',' + value_timeoutSeconds + ');\n';
     }
     return code;

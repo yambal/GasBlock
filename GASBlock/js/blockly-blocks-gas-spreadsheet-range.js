@@ -6,26 +6,26 @@
 // activate()
 // Make this range the active range.
 Blockly.Blocks['range_activate'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("範囲をアクティブ");
-    this.appendValueInput("RANGE")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('この範囲を有効範囲にします。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#activate()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("範囲をアクティブ");
+        this.appendValueInput("RANGE")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('この範囲を有効範囲にします。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#activate()');
+    }
 };
 Blockly.JavaScript['range_activate'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.activate()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.activate()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -40,26 +40,26 @@ Booleanユーザーが範囲内のすべてのセルを編集する権限を持�
 // clear()
 // Clears the range of contents, formats, and data-validation rules.
 Blockly.Blocks['range_clear'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("範囲をクリア");
-    this.appendValueInput("RANGE")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲コンテンツ、フォーマット、およびデータ検証ルールの範囲をクリアします。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#clear()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("範囲をクリア");
+        this.appendValueInput("RANGE")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲コンテンツ、フォーマット、およびデータ検証ルールの範囲をクリアします。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#clear()');
+    }
 };
 Blockly.JavaScript['range_clear'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.clear()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.clear()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -71,26 +71,26 @@ clear(options)  Range Clears the range of contents, format, data-validation rule
 // clearContent()
 // Clears the content of the range, leaving the formatting intact.
 Blockly.Blocks['range_clearcntent'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("範囲をクリア （書式維持）");
-    this.appendValueInput("RANGE")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲範囲の内容を消去し、書式設定はそのままにします。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#clearContent()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("範囲をクリア （書式維持）");
+        this.appendValueInput("RANGE")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲範囲の内容を消去し、書式設定はそのままにします。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#clearContent()');
+    }
 };
 Blockly.JavaScript['range_clearcntent'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.clearContent()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.clearContent()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -105,33 +105,33 @@ copyFormatToRange(sheet, column, columnEnd, row, rowEnd)  void  Copy the formatt
 // copyTo(destination)  
 // Copies the data from a range of cells to another range of cells.
 Blockly.Blocks['range_copyto'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("コピー");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー元")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.appendValueInput("destination")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('ある範囲のセルから別の範囲のセルにデータをコピーします。値とフォーマットの両方がコピーされます。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#copyTo(Range)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("コピー");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー元")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.appendValueInput("destination")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('ある範囲のセルから別の範囲のセルにデータをコピーします。値とフォーマットの両方がコピーされます。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#copyTo(Range)');
+    }
 };
 Blockly.JavaScript['range_copyto'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var value_destination = Blockly.JavaScript.valueToCode(block, 'destination', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.copyTo(' + value_destination + ');\n';
-  return code;
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var value_destination = Blockly.JavaScript.valueToCode(block, 'destination', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.copyTo(' + value_destination + ');\n';
+    return code;
 };
 
 /*
@@ -142,114 +142,114 @@ copyTo(destination, options)  void  Copies the data from a range of cells to ano
 // value_rowend(gridId, column, columnEnd, row, rowEnd)
 // Copy the content of the range to the given location.
 Blockly.Blocks['range_copyvaluestorange_gridid'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("コピー");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー元")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.appendValueInput("gridId")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先グリッドID")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("column")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先開始列番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("columnEnd")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先終了列番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("row")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先開始行番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("rowEnd")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先終了行番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('指定した場所に範囲の内容をコピーします。宛先がソース範囲よりも大きいか小さい場合、ソースはそれに応じて繰り返されるか、または切り捨てられます。 gridIdパラメーターの詳細については、getGridId（）を参照してください。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#copyFormatToRange(Integer,Integer,Integer,Integer,Integer)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("コピー");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー元")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.appendValueInput("gridId")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先グリッドID")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("column")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先開始列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("columnEnd")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先終了列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("row")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先開始行番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("rowEnd")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先終了行番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('指定した場所に範囲の内容をコピーします。宛先がソース範囲よりも大きいか小さい場合、ソースはそれに応じて繰り返されるか、または切り捨てられます。 gridIdパラメーターの詳細については、getGridId（）を参照してください。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#copyFormatToRange(Integer,Integer,Integer,Integer,Integer)');
+    }
 };
 Blockly.JavaScript['range_copyvaluestorange_gridid'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var value_gridid = Blockly.JavaScript.valueToCode(block, 'gridId', Blockly.JavaScript.ORDER_NONE);
-  var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
-  var value_columnend = Blockly.JavaScript.valueToCode(block, 'columnEnd', Blockly.JavaScript.ORDER_NONE);
-  var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_NONE);
-  var value_rowend = Blockly.JavaScript.valueToCode(block, 'rowEnd', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.copyValuesToRange(' + value_gridid + ',' + value_column + ',' + value_columnend + ',' + value_row + ',' + value_rowend + ');\n';
-  return code;
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var value_gridid = Blockly.JavaScript.valueToCode(block, 'gridId', Blockly.JavaScript.ORDER_NONE);
+    var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
+    var value_columnend = Blockly.JavaScript.valueToCode(block, 'columnEnd', Blockly.JavaScript.ORDER_NONE);
+    var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_NONE);
+    var value_rowend = Blockly.JavaScript.valueToCode(block, 'rowEnd', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.copyValuesToRange(' + value_gridid + ',' + value_column + ',' + value_columnend + ',' + value_row + ',' + value_rowend + ');\n';
+    return code;
 };
 
 // ------------------------------------------------------------
 // copyValuesToRange(sheet, column, columnEnd, row, rowEnd) 
 // Copy the content of the range to the given location.
 Blockly.Blocks['range_copyvaluestorange_sheet'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("コピー");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー元")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.appendValueInput("Sheet")
-      .setCheck(Blockly.TYPE.GAS.SHEET)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先シート")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
-    this.appendValueInput("column")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先開始列番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("columnEnd")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先終了列番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("row")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先開始行番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("rowEnd")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("コピー先終了行番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('指定した場所に範囲の内容をコピーします。宛先がソース範囲よりも大きいか小さい場合、ソースはそれに応じて繰り返されるか、または切り捨てられます。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#copyValuesToRange(Sheet,Integer,Integer,Integer,Integer)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("コピー");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー元")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendValueInput("column")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先開始列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("columnEnd")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先終了列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("row")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先開始行番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("rowEnd")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("コピー先終了行番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('指定した場所に範囲の内容をコピーします。宛先がソース範囲よりも大きいか小さい場合、ソースはそれに応じて繰り返されるか、または切り捨てられます。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#copyValuesToRange(Sheet,Integer,Integer,Integer,Integer)');
+    }
 };
 Blockly.JavaScript['range_copyvaluestorange_sheet'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
-  var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
-  var value_columnend = Blockly.JavaScript.valueToCode(block, 'columnEnd', Blockly.JavaScript.ORDER_NONE);
-  var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_NONE);
-  var value_rowend = Blockly.JavaScript.valueToCode(block, 'rowEnd', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.copyValuesToRange(' + value_sheet + ',' + value_column + ',' + value_columnend + ',' + value_row + ',' + value_rowend + ');\n';
-  return code;
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
+    var value_columnend = Blockly.JavaScript.valueToCode(block, 'columnEnd', Blockly.JavaScript.ORDER_NONE);
+    var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_NONE);
+    var value_rowend = Blockly.JavaScript.valueToCode(block, 'rowEnd', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.copyValuesToRange(' + value_sheet + ',' + value_column + ',' + value_columnend + ',' + value_row + ',' + value_rowend + ');\n';
+    return code;
 };
 
 // ------------------------------------------------------------
@@ -257,143 +257,143 @@ Blockly.JavaScript['range_copyvaluestorange_sheet'] = function(block) {
 //　getA1Notation()
 // Returns a string description of the range, in A1 notation.
 Blockly.Blocks['range_geta1notation'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
-      .appendField("範囲のA1表記");
-    this.appendValueInput("RANGE")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "String");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲の文字列の説明をA1表記で返します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getA1Notation()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
+            .appendField("範囲のA1表記");
+        this.appendValueInput("RANGE")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "String");
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲の文字列の説明をA1表記で返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getA1Notation()');
+    }
 };
 Blockly.JavaScript['range_geta1notation'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getA1Notation()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getA1Notation()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 //　getBackground()
 // Returns the background color of the top-left cell in the range (i.e., '#ffffff').
 Blockly.Blocks['range_getbackground'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
-      .appendField("範囲の左上の背景色");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "String");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲の左上のセルの背景色を返します（「#ffffff」など）。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getBackground()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
+            .appendField("範囲の左上の背景色");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "String");
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲の左上のセルの背景色を返します（「#ffffff」など）。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getBackground()');
+    }
 };
 Blockly.JavaScript['range_getbackground'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getBackground()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getBackground()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // getBackgrounds()
 // Returns the background colors of the cells in the range (i.e., '#ffffff').
 Blockly.Blocks['range_getbackgrounds'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"))
-      .appendField("背景色");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Array");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲内のセルの背景色を返します（「#ffffff」など）。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getBackgrounds()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"))
+            .appendField("背景色");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Array");
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲内のセルの背景色を返します（「#ffffff」など）。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getBackgrounds()');
+    }
 };
 Blockly.JavaScript['range_getbackgrounds'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getBackgrounds()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getBackgrounds()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // getCell(row, column)
 // Returns a given cell within a range.
 Blockly.Blocks['range_getcell'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("範囲内の範囲");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.appendValueInput("row")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲内行番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("column")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲内列番号")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('ある範囲内の指定されたセルを返します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getCell(Integer,Integer)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("範囲内の範囲");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.appendValueInput("row")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲内行番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("column")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲内列番号")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('ある範囲内の指定されたセルを返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getCell(Integer,Integer)');
+    }
 };
 Blockly.JavaScript['range_getcell'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_NONE);
-  var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getCell(' + value_row + ', ' + value_column + ')';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_NONE);
+    var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getCell(' + value_row + ', ' + value_column + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // getColumn()
 // Returns the starting column position for this range.
 Blockly.Blocks['range_getcolumn'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
-      .appendField("範囲の列位置");
-    this.appendValueInput("RANGE")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.COLINDEX);
-    this.setTooltip('この範囲の開始列を返します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getColumn()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("範囲の列位置");
+        this.appendValueInput("RANGE")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Number");
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
+        this.setTooltip('この範囲の開始列を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getColumn()');
+    }
 };
 Blockly.JavaScript['range_getcolumn'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getColumn()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getColumn()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 /*
 getDataSourceUrl()  String  Returns a URL for the data in this range, which can be used to create charts and queries.
@@ -425,26 +425,26 @@ getFormulasR1C1() String[][]  Returns the formulas (R1C1 notation) for the cells
 // getGridId() 
 // Returns the grid ID of the range's parent sheet.
 Blockly.Blocks['range_getgridid'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
-      .appendField("グリッドID");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('グリッドIDを返します。スプレッドシートで作成された最初のグリッドIDは0で後続のシートのグリッドIDは増加し続け、削除されたシートのグリッドIDは再利用されません。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getGridId()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+            .appendField("グリッドID");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Number");
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('グリッドIDを返します。スプレッドシートで作成された最初のグリッドIDは0で後続のシートのグリッドIDは増加し続け、削除されたシートのグリッドIDは再利用されません。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getGridId()');
+    }
 };
 Blockly.JavaScript['range_getgridid'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getGridId()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getGridId()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -457,56 +457,56 @@ getHorizontalAlignments() String[][]  Returns the horizontal alignments of the c
 // getLastColumn()
 // Returns the end column position.
 Blockly.Blocks['range_getlastcolumn'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
-      .appendField("最後の列位置");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.COLINDEX );
-    this.setTooltip('終了列の位置を返します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getLastColumn()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("最後の列位置");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Number");
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
+        this.setTooltip('終了列の位置を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getLastColumn()');
+    }
 };
 Blockly.JavaScript['range_getlastcolumn'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getLastColumn()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getLastColumn()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // getLastRow()
 //Returns the end row position.
 Blockly.Blocks['range_getlastrow'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
-      .appendField("最後の行位置");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.ROWINDEX);
-    this.setTooltip('終了行の位置を返します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getLastRow()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+            .appendField("最後の行位置");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Number");
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
+        this.setTooltip('終了行の位置を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getLastRow()');
+    }
 };
 Blockly.JavaScript['range_getlastrow'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getLastRow()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getLastRow()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -518,55 +518,55 @@ getNotes()  String[][]  Returns the notes associated with the cells in the range
 // getNumColumns()
 // Returns the number of columns in this range.
 Blockly.Blocks['range_getnumcolumns'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
-      .appendField("範囲の列数");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.COLINDEX);
-    this.setTooltip('範囲の列数を返します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getNumColumns()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("範囲の列数");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Number");
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
+        this.setTooltip('範囲の列数を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getNumColumns()');
+    }
 };
 Blockly.JavaScript['range_getnumcolumns'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getNumColumns()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getNumColumns()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // getNumRows()
 // Returns the number of rows in this range.
 Blockly.Blocks['range_getnumrows'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
-      .appendField("範囲の行数");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.ROWINDEX);
-    this.setTooltip('範囲の行数を返します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getNumRows()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+            .appendField("範囲の行数");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Number");
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
+        this.setTooltip('範囲の行数を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getNumRows()');
+    }
 };
 Blockly.JavaScript['range_getnumrows'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getNumRows()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getNumRows()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -578,28 +578,28 @@ getNumberFormats()  String[][]  Returns the number formats for the cells in the 
 // getRow()
 // Returns the row position for this range.
 Blockly.Blocks['range_getrow'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
-      .appendField("範囲の行位置");
-    this.appendValueInput("RANGE")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Number");
-    this.setColour(Blockly.COLOR.GAS.ROWINDEX);
-    this.setTooltip('この範囲の行位置を返します。 getRowIndex（）と同じです。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getRow()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
+            .appendField("範囲の行位置");
+        this.appendValueInput("RANGE")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Number");
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
+        this.setTooltip('この範囲の行位置を返します。 getRowIndex（）と同じです。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getRow()');
+    }
 };
 Blockly.JavaScript['range_getrow'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getRow()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getRow()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -634,77 +634,77 @@ Blockly.JavaScript['range_getrowindex'] = function(block) {
 // getSheet()
 // Returns the sheet this range belongs to.
 Blockly.Blocks['range_getsheet'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
-      .appendField("シート取得");
-    this.appendValueInput("RANGE")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-    this.setColour(Blockly.COLOR.GAS.SEET);
-    this.setTooltip('この範囲が属するシートを返します。。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getSheet()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField("シート取得");
+        this.appendValueInput("RANGE")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setTooltip('この範囲が属するシートを返します。。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getSheet()');
+    }
 };
 Blockly.JavaScript['range_getsheet'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getSheet()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getSheet()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // getValue()
 // Returns the value of the top-left cell in the range.
 Blockly.Blocks['range_getvalue'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField("範囲の左上の値");
-    this.appendValueInput("RANGE")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, null);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲内の左上のセルの値を返します。値は、セルの値に応じて、Number、Boolean、Date、またはString型にすることができます。空のセルは空の文字列を返します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getValue()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField("範囲の左上の値");
+        this.appendValueInput("RANGE")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, null);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲内の左上のセルの値を返します。値は、セルの値に応じて、Number、Boolean、Date、またはString型にすることができます。空のセルは空の文字列を返します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getValue()');
+    }
 };
 Blockly.JavaScript['range_getvalue'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getValue()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getValue()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // getValues()
 // Returns the rectangular grid of values for this range.
 Blockly.Blocks['range_getvalues'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"))
-      .appendField("範囲の値");
-    this.appendValueInput("RANGE")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, "Array");
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲の値を行と列の2次元配列で返します。を返します。範囲は1,1から始まりますが、JavaScript配列は[0][0]から始まりまることに注意してください。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getValues()');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"))
+            .appendField("範囲の値");
+        this.appendValueInput("RANGE")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, "Array");
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲の値を行と列の2次元配列で返します。を返します。範囲は1,1から始まりますが、JavaScript配列は[0][0]から始まりまることに注意してください。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getValues()');
+    }
 };
 Blockly.JavaScript['range_getvalues'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.getValues()';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.getValues()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -726,33 +726,33 @@ mergeVertically() Range Merges the cells in the range together.
 
 // moveTo(target)  void  Cut and paste (both format and values) from this range to the target range.
 Blockly.Blocks['range_moveto'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("移動");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("移動元")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.appendValueInput("destination")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("移動先")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('この範囲からターゲット範囲にカットアンドペースト（形式と値の両方）します。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#moveTo(Range)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("移動");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("移動元")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.appendValueInput("destination")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("移動先")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('この範囲からターゲット範囲にカットアンドペースト（形式と値の両方）します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#moveTo(Range)');
+    }
 };
 Blockly.JavaScript['range_moveto'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var value_destination = Blockly.JavaScript.valueToCode(block, 'destination', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.moveTo(' + value_destination + ');\n';
-  return code;
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var value_destination = Blockly.JavaScript.valueToCode(block, 'destination', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.moveTo(' + value_destination + ');\n';
+    return code;
 };
 
 /*
@@ -766,76 +766,76 @@ protect() Protection  Creates an object that can protect the range from being ed
 // setBackground(color)
 // Sets the background color of all cells in the range in CSS notation (like '#ffffff' or 'white').
 Blockly.Blocks['range_setbackground'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("背景色を設定");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.appendValueInput("Color")
-      .setCheck("String")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("Color")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲内のすべてのセルの背景色をCSS表記で設定します（「#ffffff」など）。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setBackground(String)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("背景色を設定");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.appendValueInput("Color")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Color")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲内のすべてのセルの背景色をCSS表記で設定します（「#ffffff」など）。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setBackground(String)');
+    }
 };
 Blockly.JavaScript['range_setbackground'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var value_color = Blockly.JavaScript.valueToCode(block, 'Color', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.setBackground(' + value_color + ')';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var value_color = Blockly.JavaScript.valueToCode(block, 'Color', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.setBackground(' + value_color + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // setBackgroundRGB(red, green, blue)
 // Sets the background to the given RGB color.
 Blockly.Blocks['range_setbackgroundrgb'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("背景色を設定");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.appendValueInput("red")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("Red")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("green")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("Green")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.appendValueInput("blue")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("Blue")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('指定されたRGBカラーに背景を設定します。これは文字列の色をとるsetBackground呼び出しの便利なラッパーです。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setBackgroundRGB(Integer,Integer,Integer)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("背景色を設定");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.appendValueInput("red")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Red")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("green")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Green")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("blue")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Blue")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('指定されたRGBカラーに背景を設定します。これは文字列の色をとるsetBackground呼び出しの便利なラッパーです。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setBackgroundRGB(Integer,Integer,Integer)');
+    }
 };
 Blockly.JavaScript['range_setbackgroundrgb'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var value_red = Blockly.JavaScript.valueToCode(block, 'red', Blockly.JavaScript.ORDER_NONE);
-  var value_green = Blockly.JavaScript.valueToCode(block, 'green', Blockly.JavaScript.ORDER_NONE);
-  var value_blue = Blockly.JavaScript.valueToCode(block, 'blue', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.setBackgroundRGB(' + value_red + ',' + value_green + ', ' + value_blue + ')';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var value_red = Blockly.JavaScript.valueToCode(block, 'red', Blockly.JavaScript.ORDER_NONE);
+    var value_green = Blockly.JavaScript.valueToCode(block, 'green', Blockly.JavaScript.ORDER_NONE);
+    var value_blue = Blockly.JavaScript.valueToCode(block, 'blue', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.setBackgroundRGB(' + value_red + ',' + value_green + ', ' + value_blue + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
@@ -871,63 +871,63 @@ setNumberFormats(numberFormats) Range Sets a rectangular grid of number or date 
 // --------------------------------------------------------------------------
 // setValue(value)  Range Sets the value of the range.
 Blockly.Blocks['range_setvalue'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("範囲に値をセット");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.appendValueInput("value")
-      .setCheck(["Boolean", "String", "Number", Blockly.TYPE.GAS.DATE])
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("値");
-    this.setInputsInline(false);
-    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲の値を設定します。値は、数値、文字列、ブール値または日付にすることができます。 =で始まる場合は、式として解釈されます。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setValue(Object)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("範囲に値をセット");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.appendValueInput("value")
+            .setCheck(["Boolean", "String", "Number", Blockly.TYPE.GAS.DATE])
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("値");
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲の値を設定します。値は、数値、文字列、ブール値または日付にすることができます。 =で始まる場合は、式として解釈されます。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setValue(Object)');
+    }
 };
 Blockly.JavaScript['range_setvalue'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.setValue(' + value_value + ')';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.setValue(' + value_value + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // --------------------------------------------------------------------------
 // setValues(values)
 // Sets a rectangular grid of values (must match dimensions of this range).
 Blockly.Blocks['range_setvalues'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
-      .appendField("範囲に値をセット");
-    this.appendValueInput("Range")
-      .setCheck(Blockly.TYPE.GAS.RANGE)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("範囲")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
-    this.appendValueInput("values")
-      .setCheck("Array")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("値")
-      .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"));
-    this.setInputsInline(false);
-    this.setOutput(true, Blockly.TYPE.GAS.RANGE);
-    this.setColour(Blockly.COLOR.GAS.RANGE);
-    this.setTooltip('範囲の値を設定します。値は、数値、文字列、ブール値または日付にすることができます。 =で始まる場合は、式として解釈されます。');
-    this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setValue(Object)');
-  }
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
+            .appendField("範囲に値をセット");
+        this.appendValueInput("Range")
+            .setCheck(Blockly.TYPE.GAS.RANGE)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("範囲")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
+        this.appendValueInput("values")
+            .setCheck("Array")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("値")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.RANGE);
+        this.setColour(Blockly.COLOR.GAS.RANGE);
+        this.setTooltip('範囲の値を設定します。値は、数値、文字列、ブール値または日付にすることができます。 =で始まる場合は、式として解釈されます。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setValue(Object)');
+    }
 };
 Blockly.JavaScript['range_setvalues'] = function(block) {
-  var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
-  var value_values = Blockly.JavaScript.valueToCode(block, 'values', Blockly.JavaScript.ORDER_NONE);
-  var code = value_range + '.setValue(' + value_values + ')';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
+    var value_values = Blockly.JavaScript.valueToCode(block, 'values', Blockly.JavaScript.ORDER_NONE);
+    var code = value_range + '.setValue(' + value_values + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 /*
 setVerticalAlignment(alignment) Range Set the vertical (top to bottom) alignment for the given range (top/middle/bottom).

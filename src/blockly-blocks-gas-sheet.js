@@ -1177,9 +1177,46 @@ Blockly.JavaScript['sheet_setactiveselection_a1notation'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-
+// ----------------------------------------------------------------
+// setColumnWidth(columnPosition, width)
+// Sets the width of the given column in pixels.
+Blockly.Blocks['sheet_setclumnwidth'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("列幅をセット");
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendValueInput("columnPosition")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列位置")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("width")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("幅")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(Blockly.COLOR.GAS.COLINDEX);
+        this.setTooltip('指定された列の幅をピクセル単位で設定します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setColumnWidth(Integer,Integer)');
+    }
+};
+Blockly.JavaScript['sheet_setclumnwidth'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_columnPosition = Blockly.JavaScript.valueToCode(block, 'columnPosition', Blockly.JavaScript.ORDER_NONE);
+    var value_width = Blockly.JavaScript.valueToCode(block, 'width', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.setColumnWidth(' + value_columnPosition + ', ' + value_width + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 /*
-setColumnWidth(columnPosition, width)   Sheet   Sets the width of the given column in pixels.
 setFrozenColumns(columns)   void    Freezes the given number of columns.
 setFrozenRows(rows) void    Freezes the given number of rows.
 */
@@ -1216,8 +1253,46 @@ Blockly.JavaScript['sheet_setname'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+
+// setRowHeight(rowPosition, height)   Sheet   Sets the row height of the given row in pixels.
+Blockly.Blocks['sheet_setrowheight'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
+            .appendField("列幅をセット");
+        this.appendValueInput("Sheet")
+            .setCheck(Blockly.TYPE.GAS.SHEET)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("シート")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+        this.appendValueInput("rowPosition")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("列位置")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.appendValueInput("height")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("幅")
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
+        this.setInputsInline(false);
+        this.setOutput(true, Blockly.TYPE.GAS.SHEET);
+        this.setColour(Blockly.COLOR.GAS.ROWINDEX);
+        this.setTooltip('指定された行の行の高さをピクセル単位で設定します。');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setRowHeight(Integer,Integer)');
+    }
+};
+Blockly.JavaScript['sheet_setrowheight'] = function(block) {
+    var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
+    var value_rowPosition = Blockly.JavaScript.valueToCode(block, 'rowPosition', Blockly.JavaScript.ORDER_NONE);
+    var value_height = Blockly.JavaScript.valueToCode(block, 'height', Blockly.JavaScript.ORDER_NONE);
+    var code = value_sheet + '.setRowHeight(' + value_rowPosition + ', ' + value_height + ')';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 /*
-setRowHeight(rowPosition, height)   Sheet   Sets the row height of the given row in pixels.
 setTabColor(color)  Sheet   Sets the sheet tab color.
 showColumns(columnIndex)    void    Unhides the column at the given index.
 showColumns(columnIndex, numColumns)    void    Unhides one or more consecutive columns starting at the given index.

@@ -122,6 +122,7 @@
             // Utilities
             var $categoryUtilities = $('<category name="ユーティリティ" colour="' + Blockly.COLOR.GAS.UTILIRIES + '" />');
             $categoryUtilities.append('<block type="utilities_sleep"></block>');
+            $categoryUtilities.append('<block type="utilities_colorpicker"></block>');
 
 
             // スプレッドシート > スプレッドシート > メニュー
@@ -246,7 +247,7 @@
             var $categoryRangeBG = $('<category name="背景色" colour="45" />');
             $categoryRangeBG.append('<block type="range_getbackground"></block>');
             $categoryRangeBG.append('<block type="range_getbackgrounds"></block>');
-            $categoryRangeBG.append('<block type="range_setbackground"></block>');
+            $categoryRangeBG.append('<block type="range_setbackground"><value name="Color"><block type="utilities_colorpicker"><field name="NAME">#ffffff</field></block></value></block>');
             $categoryRangeBG.append('<block type="range_setbackgroundrgb"></block>');
             $categoryRange.append($categoryRangeBG);
 
@@ -274,6 +275,12 @@
             $categoryRowIndex.append('<block type="range_getcolumn"></block>');
             $categoryRowIndex.append('<block type="range_getnumcolumns"></block>');
             $categoryRowColOperation.append($categoryRowIndex);
+
+            // スプレッドシート > スプレッドシート > 行・列 > 
+            var $categoryRowColSize = $('<category name="幅と高さ" colour="30" />');
+            $categoryRowColSize.append('<block type="sheet_setclumnwidth"></block>');
+            $categoryRowColSize.append('<block type="sheet_setrowheight"></block>');
+            $categoryRowColOperation.append($categoryRowColSize);
 
             // スプレッドシート > スプレッドシート > 行・列 > 削除
             var $categoryRowColDelete = $('<category name="削除" colour="30" />');

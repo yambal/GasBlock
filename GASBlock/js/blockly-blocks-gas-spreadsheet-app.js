@@ -1,6 +1,3 @@
-
-
-
 // ------------------------------------------------------------
 // SpreadsheetApp.create()
 Blockly.Blocks['spreadsheetapp_create'] = {
