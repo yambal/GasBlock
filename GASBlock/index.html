@@ -63,6 +63,7 @@
     <script src="js/blockly-blocks-javascript.min.js"></script>
     <script src="js/blockly-blocks-exe.js"></script>
     <script src="js/blockly-blocks-gas-params.js"></script>
+    <script src="js/blockly-blocks-gas-utilities.js"></script>
     <script src="js/blockly-blocks-gas-spreadsheet-app.js"></script>
     <script src="js/blockly-blocks-gas-spreadsheet.js"></script>
     <script src="js/blockly-blocks-gas-sheet.js"></script>
@@ -117,6 +118,11 @@
             $categoryDialog.append('<block type="button"></block>');
             $categoryDialog.append('<block type="alert_button_set"></block>');
             $categoryGasUI.append($categoryDialog);
+
+            // Utilities
+            var $categoryUtilities = $('<category name="ユーティリティ" colour="' + Blockly.COLOR.GAS.UTILIRIES + '" />');
+            $categoryUtilities.append('<block type="utilities_sleep"></block>');
+
 
             // スプレッドシート > スプレッドシート > メニュー
             var $categorySSMenu = $('<category name="メニュー" colour="' + Blockly.COLOR.GAS.UI + '" />');
@@ -375,6 +381,7 @@
             $xml.append($categoryGasLogger);
             $xml.append($categoryTrigger);
             $xml.append($categoryGasUI);
+            $xml.append($categoryUtilities);
             $xml.append('<sep></sep>');
 
             $xml.append($categorySpreadSheetRoot);

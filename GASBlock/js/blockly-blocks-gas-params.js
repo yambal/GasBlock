@@ -18,6 +18,7 @@ Blockly.COLOR.GAS.ROWINDEX = 15;
 Blockly.COLOR.GAS.COLINDEX = 0;
 Blockly.COLOR.GAS.TOAST = 160;
 Blockly.COLOR.GAS.TRIGGER = 285;
+Blockly.COLOR.GAS.UTILIRIES = 285;
 Blockly.COLOR.GAS.UI = 160;
 
 Blockly.IMG = {};
