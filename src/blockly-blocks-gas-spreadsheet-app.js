@@ -1,54 +1,5 @@
-/* GAS */
-Blockly.TYPE = {};
-Blockly.TYPE.GAS = {};
-Blockly.TYPE.GAS.SS = "Spreadsheet";
-Blockly.TYPE.GAS.SHEET = "Sheet";
-Blockly.TYPE.GAS.RANGE = "Range";
-Blockly.TYPE.GAS.DATE = "Date";
-Blockly.TYPE.GAS.UI = "UI";
 
-Blockly.COLOR = {};
-Blockly.COLOR.GAS = {};
-Blockly.COLOR.GAS.SS = 75;
-Blockly.COLOR.GAS.SEET = 60;
-Blockly.COLOR.GAS.RANGE = 45;
-Blockly.COLOR.GAS.ROWCOL = 30;
-Blockly.COLOR.GAS.ROWINDEX = 15;
-Blockly.COLOR.GAS.COLINDEX = 0;
-Blockly.COLOR.GAS.TOAST = 160;
 
-Blockly.IMG = {};
-Blockly.IMG.ICON = {};
-Blockly.IMG.ICON.GAS = {};
-Blockly.IMG.ICON.GAS.SS = "img/SS.png";
-Blockly.IMG.ICON.GAS.SEET = "img/Sheet.png";
-Blockly.IMG.ICON.GAS.OP = "img/Option.png";
-Blockly.IMG.ICON.GAS.ROWS = "img/Rows.png";
-Blockly.IMG.ICON.GAS.COLS = "img/Columns.png";
-Blockly.IMG.ICON.GAS.RANG = "img/Range.png";
-Blockly.IMG.ICON.COM = {};
-Blockly.IMG.ICON.COM.STR = "img/String.png";
-Blockly.IMG.ICON.COM.NUM = "img/Number.png";
-Blockly.IMG.ICON.COM.ARR = "img/Array.png";
-Blockly.IMG.ICON.COM.TST = "img/Toast.png";
-
-Blockly.Blocks['next'] = {
-    init: function() {
-        this.appendValueInput("INPUT")
-            .setCheck(null)
-            .appendField("");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-    }
-};
-Blockly.JavaScript['next'] = function(block) {
-    var value_input = Blockly.JavaScript.valueToCode(block, 'INPUT', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = value_input + ';\n';
-    return code;
-};
 
 // ------------------------------------------------------------
 // SpreadsheetApp.create()
@@ -201,12 +152,11 @@ Blockly.JavaScript['spreadsheetapp_getactivespreadsheet'] = function(block) {
 Blockly.Blocks['spreadsheetapp_getui'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("UI");
-        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"))
             .appendField("スプレッドシートのUI");
         this.setOutput(true, Blockly.TYPE.GAS.UI);
         this.setInputsInline(true);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.UI);
         this.setTooltip("スプレッドシートのUI環境のインスタンスを返します");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getUi()');
     }

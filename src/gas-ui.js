@@ -3,64 +3,41 @@
 Blockly.Blocks['ui_alert_prompt'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("クリックしたボタン");
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTN, 15, 15, "*"));
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"))
+        .appendField("アラート");
     this.appendValueInput("UI")
         .setCheck("UI")
-        .appendField("UI");
-    this.appendDummyInput()
-        .appendField("に");
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("UI")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"));
     this.appendValueInput("prompt")
         .setCheck("String")
-        .appendField("アラート");
-    this.appendDummyInput()
-        .appendField("を表示");
-    this.setInputsInline(true);
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("メッセージ")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
+    this.appendValueInput("ButtonSet")
+        .setCheck("ButtonSet")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.OP, 15, 15, "*"))
+        .appendField("ボタンセット")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTNSET, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, "Button");
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
+    this.setColour(Blockly.COLOR.GAS.UI);
+    this.setTooltip('指定されたメッセージとボタンのセットを持つダイアログボックスをユーザのエディタで開きます。このメソッドは、ダイアログが開いている間にサーバーサイドスクリプトを中断します。');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/base/ui#alert(String,ButtonSet)');
   }
 };
 Blockly.JavaScript['ui_alert_prompt'] = function(block) {
   var value_ui = Blockly.JavaScript.valueToCode(block, 'UI', Blockly.JavaScript.ORDER_NONE);
   var value_prompt = Blockly.JavaScript.valueToCode(block, 'prompt', Blockly.JavaScript.ORDER_NONE);
-  var code = value_ui + '.alert(' + value_prompt + ')';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
-
-// ------------------------------------------------
-// alert(prompt, buttons)
-Blockly.Blocks['alert_prompt_buttons'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("クリックしたボタン");
-    this.appendValueInput("UI")
-        .setCheck("UI")
-        .appendField("UI");
-    this.appendDummyInput()
-        .appendField("に");
-    this.appendValueInput("prompt")
-        .setCheck("String")
-        .appendField("アラート");
-    this.appendDummyInput()
-        .appendField("と");
-    this.appendValueInput("ButtonSet")
-        .setCheck("ButtonSet")
-        .appendField("ボタンセット");
-    this.appendDummyInput()
-        .appendField("を表示");
-    this.setInputsInline(true);
-    this.setOutput(true, "Button");
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
-  }
-};
-Blockly.JavaScript['alert_prompt_buttons'] = function(block) {
-  var value_ui = Blockly.JavaScript.valueToCode(block, 'UI', Blockly.JavaScript.ORDER_NONE);
-  var value_prompt = Blockly.JavaScript.valueToCode(block, 'prompt', Blockly.JavaScript.ORDER_NONE);
   var value_buttonset = Blockly.JavaScript.valueToCode(block, 'ButtonSet', Blockly.JavaScript.ORDER_NONE);
-  var code = value_ui + '.alert(' + value_prompt + ', ' + value_buttonset + ')';
+  var code = value_ui + '.alert(' + value_prompt + ')';
+  if(value_buttonset){
+    code = value_ui + '.alert(' + value_prompt + ',' + value_buttonset + ')';
+  }
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
@@ -69,26 +46,33 @@ Blockly.JavaScript['alert_prompt_buttons'] = function(block) {
 Blockly.Blocks['alert_title_prompt_buttons'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("クリックしたボタン");
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTN, 15, 15, "*"));
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"))
+        .appendField("アラート");
     this.appendValueInput("UI")
         .setCheck("UI")
-        .appendField("UI");
-    this.appendDummyInput()
-        .appendField("に");
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("UI")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"));
     this.appendValueInput("title")
         .setCheck("String")
-        .appendField("タイトル");
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("タイトル")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
     this.appendValueInput("prompt")
         .setCheck("String")
-        .appendField("アラート");
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("メッセージ")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
     this.appendValueInput("buttons")
         .setCheck("ButtonSet")
-        .appendField("ボタンセット");
-    this.appendDummyInput()
-        .appendField("を表示する");
-    this.setInputsInline(true);
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("ボタンセット")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTNSET, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, "Button");
-    this.setColour(330);
+    this.setColour(Blockly.COLOR.GAS.UI);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -178,24 +162,22 @@ Blockly.JavaScript['ui_prompt_prompt'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-
-
 Blockly.Blocks['button'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ボタン");
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTN, 15, 15, "*"))
+        .appendField("ボタン")
+        .appendField(new Blockly.FieldDropdown([["CLOSE", "CLOSE"], ["OK", "OK"], ["CANCEL", "CANCEL"], ["YES", "YES"], ["NO", "NO"]]), "Button");
     this.appendValueInput("UI")
         .setCheck("UI")
-        .appendField("UI");
-    this.appendDummyInput()
-        .appendField("のボタン");
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["CLOSE", "CLOSE"], ["OK", "OK"], ["CANCEL", "CANCEL"], ["YES", "YES"], ["NO", "NO"]]), "Button");
-    this.setInputsInline(true);
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("UI")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, "Button");
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
+    this.setColour(Blockly.COLOR.GAS.UI);
+    this.setTooltip('ボタンを返します');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/base/button');
   }
 };
 Blockly.JavaScript['button'] = function(block) {
@@ -206,26 +188,23 @@ Blockly.JavaScript['button'] = function(block) {
 };
 
 
-
-
 //
 Blockly.Blocks['alert_button_set'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ボタンセット");
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTNSET, 15, 15, "*"))
+        .appendField("ボタンセット")
+        .appendField(new Blockly.FieldDropdown([["OK", "OK"], ["OK, CANCEL", "OK_CANCEL"], ["YES, NO", "YES_NO"], ["YES, NO, CANCEL", "YES_NO_CANCEL"]]), "ButtonSet");
     this.appendValueInput("UI")
         .setCheck("UI")
-        .appendField("UI");
-    this.appendDummyInput()
-        .appendField("の");
-    this.appendDummyInput()
-        .appendField("ボタンセット")
-        .appendField(new Blockly.FieldDropdown([["OK", "OPTIONNAME"], ["OK, CANCEL", "OK_CANCEL"], ["YES, NO", "YES_NO"], ["YES, NO, CANCEL", "YES_NO_CANCEL"]]), "ButtonSet");
-    this.setInputsInline(true);
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("UI")
+        .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"));
+    this.setInputsInline(false);
     this.setOutput(true, "ButtonSet");
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
+    this.setColour(Blockly.COLOR.GAS.UI);
+    this.setTooltip('ボタンセットを返します');
+    this.setHelpUrl('https://developers.google.com/apps-script/reference/base/button-set');
   }
 };
 Blockly.JavaScript['alert_button_set'] = function(block) {

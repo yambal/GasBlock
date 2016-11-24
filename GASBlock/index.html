@@ -23,11 +23,11 @@
                     <li class="nav-item">
                         <a class="showJavascript nav-link" href="#">GAS</a>
                     </li>
-                    <!-- TODO
+
                     <li class="nav-item">
                         <a class="showXml nav-link" href="#">XML</a>
                     </li>
-                    //-->
+
                     <li class="nav-item">
                         <a class="showSaved nav-link" href="#">保存リスト</a>
                     </li>
@@ -61,10 +61,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
     <script src="js/jquery.blockly.min.js"></script>
     <script src="js/blockly-blocks-javascript.min.js"></script>
+    <script src="js/blockly-blocks-exe.js"></script>
+    <script src="js/blockly-blocks-gas-params.js"></script>
     <script src="js/blockly-blocks-gas-spreadsheet-app.js"></script>
     <script src="js/blockly-blocks-gas-spreadsheet.js"></script>
     <script src="js/blockly-blocks-gas-sheet.js"></script>
     <script src="js/blockly-blocks-gas-spreadsheet-range.js"></script>
+    <script src="js/blockly-blocks-gas-triggers.js"></script>
     <script src="js/gas-logger.js"></script>
     <script src="js/gas-ui.js"></script>
     <script src="js/my-blocks.js"></script>
@@ -77,31 +80,54 @@
 
             var $xml = $('<xml />');
 
+            var $categoryAuxiliary = $('<category name="補助" colour="210" />');
+            $categoryAuxiliary.append('<block type="next"></block>');
+            $categoryAuxiliary.append('<block type="comment"></block>');
+            //$categoryAuxiliary.append('<block type="getmember"></block>');
+
             // Logger
             var $categoryGasLogger = $('<category name="ロガー" colour="210" />');
             $categoryGasLogger.append('<block type="logger"></block>');
-            $categoryGasLogger.append('<block type="logger_log"></block>');
-            $categoryGasLogger.append('<block type="logger_clear"></block>');
-            $categoryGasLogger.append('<block type="logger_getlog"></block>');
-            $categoryGasLogger.append('<block type="logger_log_format__values_"></block>');
+            $categoryGasLogger.append('<block type="logger_log"><value name="Logger"><block type="logger" /></value></block>');
+            $categoryGasLogger.append('<block type="logger_clear"><value name="Logger"><block type="logger" /></value></block>');
+            $categoryGasLogger.append('<block type="logger_getlog"><value name="Logger"><block type="logger" /></value></block>');
+            //$categoryGasLogger.append('<block type="logger_log_format__values_"><value name="Logger"><block type="logger" /></value></block>');
+
+            // Trigger
+            var $categoryTrigger = $('<category name="トリガー" colour="' + Blockly.COLOR.GAS.TRIGGER + '" />');
+            $categoryTrigger.append('<block type="gas_trigger_onopen"></block>');
+            $categoryTrigger.append('<block type="gas_trigger_onedit"></block>');
 
             // UI
-            var $categoryGasUI = $('<category name="UI" colour="210" />');
-            $categoryGasUI.append('<block type="spreadsheetapp_getui"></block>');
-            $categoryGasUI.append('<block type="ui_alert_prompt"></block>');
-            $categoryGasUI.append('<block type="alert_prompt_buttons"></block>');
-            $categoryGasUI.append('<block type="alert_title_prompt_buttons"></block>');
-            $categoryGasUI.append('<block type="ui_prompt_prompt"></block>');
-            $categoryGasUI.append('<block type="promptresponse_getresponsetext"></block>');
-            $categoryGasUI.append('<block type="promptresponse_getselectedbutton"></block>');
-            $categoryGasUI.append('<block type="button"></block>');
-            $categoryGasUI.append('<block type="alert_button_set"></block>');
+            var $categoryGasUI = $('<category name="UI" colour="' + Blockly.COLOR.GAS.UI + '" />');
+
+            var $categoryMSG = $('<category name="メッセージ" colour="' + Blockly.COLOR.GAS.UI + '" />');
+            $categoryMSG.append('<block type="spreadsheet_toast"></block>');
+            $categoryGasUI.append($categoryMSG);
+
+                        var $categoryDialog = $('<category name="ダイアログ" colour="' + Blockly.COLOR.GAS.UI + '" />');
+            $categoryDialog.append('<block type="spreadsheetapp_getui"></block>');
+            $categoryDialog.append('<block type="ui_alert_prompt"></block>');
+            $categoryDialog.append('<block type="alert_title_prompt_buttons"></block>');
+            /*
+            $categoryDialog.append('<block type="ui_prompt_prompt"></block>');
+            $categoryDialog.append('<block type="promptresponse_getresponsetext"></block>');
+            $categoryDialog.append('<block type="promptresponse_getselectedbutton"></block>');
+            */
+            $categoryDialog.append('<block type="button"></block>');
+            $categoryDialog.append('<block type="alert_button_set"></block>');
+            $categoryGasUI.append($categoryDialog);
+
+            // スプレッドシート > スプレッドシート > メニュー
+            var $categorySSMenu = $('<category name="メニュー" colour="' + Blockly.COLOR.GAS.UI + '" />');
+            $categorySSMenu.append('<block type="spreadsheet_addmenu"></block>');
+            $categorySSMenu.append('<block type="sheet_menu_tem"></block>');
+            $categoryGasUI.append($categorySSMenu);
 
             // スプレッドシート
             var $categorySpreadSheetRoot = $('<category name="スプレッドシート" colour="20" />');
-            $categorySpreadSheetRoot.append('<block type="next"></block>');
+
             $categorySpreadSheetRoot.append('<block type="spreadsheetapp_flush"></block>');
-            $categorySpreadSheetRoot.append('<block type="spreadsheet_onopen"></block>');
 
             // スプレッドシート > スプレッドシート
             var $categorySpreadSheet = $('<category name="スプレッドシート" colour="75" />');
@@ -273,16 +299,9 @@
 
             $categorySpreadSheetRoot.append($categoryRowColOperation);
 
-            // スプレッドシート > スプレッドシート > メニュー
-            var $categorySSMenu = $('<category name="メニュー" colour="210" />');
-            $categorySSMenu.append('<block type="spreadsheet_addmenu"></block>');
-            $categorySSMenu.append('<block type="sheet_menu_tem"></block>');
-            $categorySpreadSheetRoot.append($categorySSMenu);
+            
 
-            // スプレッドシート > スプレッドシート > メッセージ
-            var $categoryMSG = $('<category name="メッセージ" colour="160" />');
-            $categoryMSG.append('<block type="spreadsheet_toast"></block>');
-            $categorySpreadSheetRoot.append($categoryMSG);
+
 
             // Logic
             var $categoryLogic = $('<category name="論理" colour="210" />');
@@ -352,12 +371,13 @@
             $categoryError.append('<block type="controls_try"></block>');
             $categoryError.append('<block type="throw_new_error"></block>');
 
-
-            $xml.append($categorySpreadSheetRoot);
+            $xml.append($categoryAuxiliary);
+            $xml.append($categoryGasLogger);
+            $xml.append($categoryTrigger);
+            $xml.append($categoryGasUI);
             $xml.append('<sep></sep>');
 
-            $xml.append($categoryGasLogger);
-            $xml.append($categoryGasUI);
+            $xml.append($categorySpreadSheetRoot);
             $xml.append('<sep></sep>');
             /*
             $xml.append($categoryParse);
@@ -393,6 +413,7 @@
                 blockly.show("javascript");
                 $(this).addClass('active');
                 $(".showBlock").removeClass('active');
+                $(".showXml").removeClass('active');
                 $("#Blockly-row").show();
 
                 hideSavedList();
@@ -401,21 +422,23 @@
             $(".showBlock").click(function(event) {
                 blockly.show("blocks");
                 $(this).addClass('active');
-
                 $(".showJavascript").removeClass('active');
+                $(".showXml").removeClass('active');
                 $("#Blockly-row").show();
                 blockly.resize();
 
                 hideSavedList();
             });
-            /*
-                  $(".showXml").click(function(event) {
+
+            $(".showXml").click(function(event) {
                     blockly.show("xml");
                     $(this).addClass('active');
                     $(".showBlock").removeClass('active');
                     $(".showJavascript").removeClass('active');
-                  });
-            */
+
+                    hideSavedList();
+            });
+
 
             // *****************************************************************
             // 保存と復元に関して...
@@ -439,6 +462,7 @@
                 //$(".showXml").removeClass('active');
                 $(".showJavascript").removeClass('active');
                 $(".showBlock").removeClass('active');
+                $(".showXml").removeClass('active');
 
                 loadList();
             }

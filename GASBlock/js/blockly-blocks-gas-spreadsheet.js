@@ -32,7 +32,7 @@ Blockly.Blocks['spreadsheet_addmenu'] = {
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"));
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(210);
+    this.setColour(Blockly.COLOR.GAS.UI);
     this.setTooltip('スプレッドシートのUIに新しいメニューを作成します。各メニュー項目は、ユーザー定義関数を実行します。通常、スプレッドシートがロードされたときにメニューが自動的に作成されるように、onOpen関数から呼び出す必要があります。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addMenu(String,Object)');
   }
@@ -62,7 +62,7 @@ Blockly.Blocks['sheet_menu_tem'] = {
         .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
     this.setInputsInline(false);
     this.setOutput(true, "Object");
-    this.setColour(210);
+    this.setColour(Blockly.COLOR.GAS.UI);
     this.setTooltip('「メニューを作成」に使用するサブメニューの項目です。リストにして使用します。');
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#addMenu(String,Object)');
   }
@@ -698,21 +698,3 @@ unhideColumn(column)    void    Unhides the column in the given range.
 unhideRow(row)  void    Unhides the row in the given range.
 updateMenu(name, subMenus)  void    Updates a menu that was added by addMenu(name, subMenus).
 */
-
-Blockly.Blocks['spreadsheet_onopen'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("スプレッドシートを開いたとき");
-    this.appendStatementInput("onOpen.funtion")
-        .setCheck(null);
-    this.setColour(285);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
-  }
-};
-
-Blockly.JavaScript['spreadsheet_onopen'] = function(block) {
-  var statements_onopen_funtion = Blockly.JavaScript.statementToCode(block, 'onOpen.funtion');
-  var code = 'function onOpen() {\n' + statements_onopen_funtion + '};\n';
-  return code;
-};
