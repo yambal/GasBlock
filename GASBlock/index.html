@@ -2,485 +2,492 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <title>GASBlock</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>GASBlock</title>
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div id="Switcher-row" class="row">
-      <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="showBlock nav-link active" href="#">Block</a>
-          </li>
-          <li class="nav-item">
-            <a class="showJavascript nav-link" href="#">GAS</a>
-          </li>
-          <!-- TODO
+    <div class="container-fluid">
+        <div id="Switcher-row" class="row">
+            <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="showBlock nav-link active" href="#">Block</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="showJavascript nav-link" href="#">GAS</a>
+                    </li>
+                    <!-- TODO
                     <li class="nav-item">
                         <a class="showXml nav-link" href="#">XML</a>
                     </li>
                     //-->
-          <li class="nav-item">
-            <a class="showSaved nav-link" href="#">保存リスト</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-        <button class="save-btn btn btn-info">save</button>
-      </div>
+                    <li class="nav-item">
+                        <a class="showSaved nav-link" href="#">保存リスト</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                <button class="save-btn btn btn-info">save</button>
+            </div>
+        </div>
+        <div id="Blockly-row" class="row">
+            <div id="Blockly-col" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div id="Blockly"></div>
+            </div>
+        </div>
+        <div id="Saved-row" class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <p>とりあえず作った保存機能</p>
+                <table class="table">
+                    <tr>
+                        <th>タイトル</th>
+                        <th>-</th>
+                        <th>-</th>
+                    </tr>
+                    <tbody id="savedList"></tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div id="Blockly-row" class="row">
-      <div id="Blockly-col" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div id="Blockly"></div>
-      </div>
-    </div>
-    <div id="Saved-row" class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <p>とりあえず作った保存機能</p>
-        <table class="table">
-          <tr>
-            <th>タイトル</th>
-            <th>-</th>
-            <th>-</th>
-          </tr>
-          <tbody id="savedList"></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
-  <script src="js/jquery.blockly.min.js"></script>
-  <script src="js/blockly-blocks-javascript.min.js"></script>
-  <script src="js/blockly-blocks-gas-spreadsheet-app.js"></script>
-  <script src="js/blockly-blocks-gas-spreadsheet.js"></script>
-  <script src="js/blockly-blocks-gas-sheet.js"></script>
-  <script src="js/blockly-blocks-gas-spreadsheet-range.js"></script>
-  <script src="js/gas-logger.js"></script>
-  <script src="js/gas-ui.js"></script>
-  <script src="js/my-blocks.js"></script>
-  <script>
-  (function() {
-    $(document).ready(function() {
-      // *****************************************************************
-      // ToolBoxを生成する
-      // オプション：toolBoxXMLText　に XML(Text)が渡せれば、生成の手段は問わない
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
+    <script src="js/jquery.blockly.min.js"></script>
+    <script src="js/blockly-blocks-javascript.min.js"></script>
+    <script src="js/blockly-blocks-gas-spreadsheet-app.js"></script>
+    <script src="js/blockly-blocks-gas-spreadsheet.js"></script>
+    <script src="js/blockly-blocks-gas-sheet.js"></script>
+    <script src="js/blockly-blocks-gas-spreadsheet-range.js"></script>
+    <script src="js/gas-logger.js"></script>
+    <script src="js/gas-ui.js"></script>
+    <script src="js/my-blocks.js"></script>
+    <script>
+    (function() {
+        $(document).ready(function() {
+            // *****************************************************************
+            // ToolBoxを生成する
+            // オプション：toolBoxXMLText　に XML(Text)が渡せれば、生成の手段は問わない
 
-      var $xml = $('<xml />');
+            var $xml = $('<xml />');
 
-      // Logger
-      var $categoryGasLogger = $('<category name="ロガー" colour="210" />');
-      $categoryGasLogger.append('<block type="logger"></block>');
-      $categoryGasLogger.append('<block type="logger_log"></block>');
-      $categoryGasLogger.append('<block type="logger_clear"></block>');
-      $categoryGasLogger.append('<block type="logger_getlog"></block>');
-      $categoryGasLogger.append('<block type="logger_log_format__values_"></block>');
+            // Logger
+            var $categoryGasLogger = $('<category name="ロガー" colour="210" />');
+            $categoryGasLogger.append('<block type="logger"></block>');
+            $categoryGasLogger.append('<block type="logger_log"></block>');
+            $categoryGasLogger.append('<block type="logger_clear"></block>');
+            $categoryGasLogger.append('<block type="logger_getlog"></block>');
+            $categoryGasLogger.append('<block type="logger_log_format__values_"></block>');
 
-      // UI
-      var $categoryGasUI = $('<category name="UI" colour="210" />');
-      $categoryGasUI.append('<block type="spreadsheetapp_getui"></block>');
-      $categoryGasUI.append('<block type="ui_alert_prompt"></block>');
-      $categoryGasUI.append('<block type="alert_prompt_buttons"></block>');
-      $categoryGasUI.append('<block type="alert_title_prompt_buttons"></block>');
-      $categoryGasUI.append('<block type="ui_prompt_prompt"></block>');
-      $categoryGasUI.append('<block type="promptresponse_getresponsetext"></block>');
-      $categoryGasUI.append('<block type="promptresponse_getselectedbutton"></block>');
-      $categoryGasUI.append('<block type="button"></block>');
-      $categoryGasUI.append('<block type="alert_button_set"></block>');
+            // UI
+            var $categoryGasUI = $('<category name="UI" colour="210" />');
+            $categoryGasUI.append('<block type="spreadsheetapp_getui"></block>');
+            $categoryGasUI.append('<block type="ui_alert_prompt"></block>');
+            $categoryGasUI.append('<block type="alert_prompt_buttons"></block>');
+            $categoryGasUI.append('<block type="alert_title_prompt_buttons"></block>');
+            $categoryGasUI.append('<block type="ui_prompt_prompt"></block>');
+            $categoryGasUI.append('<block type="promptresponse_getresponsetext"></block>');
+            $categoryGasUI.append('<block type="promptresponse_getselectedbutton"></block>');
+            $categoryGasUI.append('<block type="button"></block>');
+            $categoryGasUI.append('<block type="alert_button_set"></block>');
 
-      // スプレッドシート
-      var $categorySpreadSheetRoot = $('<category name="スプレッドシート" colour="20" />');
-      $categorySpreadSheetRoot.append('<block type="next"></block>');
-      $categorySpreadSheetRoot.append('<block type="spreadsheetapp_flush"></block>');
-      $categorySpreadSheetRoot.append('<block type="spreadsheet_onopen"></block>');
+            // スプレッドシート
+            var $categorySpreadSheetRoot = $('<category name="スプレッドシート" colour="20" />');
+            $categorySpreadSheetRoot.append('<block type="next"></block>');
+            $categorySpreadSheetRoot.append('<block type="spreadsheetapp_flush"></block>');
+            $categorySpreadSheetRoot.append('<block type="spreadsheet_onopen"></block>');
 
-      // スプレッドシート > スプレッドシート
-      var $categorySpreadSheet = $('<category name="スプレッドシート" colour="75" />');
+            // スプレッドシート > スプレッドシート
+            var $categorySpreadSheet = $('<category name="スプレッドシート" colour="75" />');
 
-      var $categoryGetSpreadSheet = $('<category name="スプレッドシート取得" colour="75" />');
-      $categoryGetSpreadSheet.append('<block type="spreadsheetapp_getactive"></block>');
-      $categoryGetSpreadSheet.append('<block type="spreadsheetapp_getactivespreadsheet"></block>');
-      $categoryGetSpreadSheet.append('<block type="spreadsheetapp_openbyid"></block>');
-      $categoryGetSpreadSheet.append('<block type="spreadsheetapp_openbyurl"></block>');
-      $categorySpreadSheet.append($categoryGetSpreadSheet);
+            var $categoryGetSpreadSheet = $('<category name="スプレッドシート取得" colour="75" />');
+            $categoryGetSpreadSheet.append('<block type="spreadsheetapp_getactive"></block>');
+            $categoryGetSpreadSheet.append('<block type="spreadsheetapp_getactivespreadsheet"></block>');
+            $categoryGetSpreadSheet.append('<block type="spreadsheetapp_openbyid"></block>');
+            $categoryGetSpreadSheet.append('<block type="spreadsheetapp_openbyurl"></block>');
+            $categorySpreadSheet.append($categoryGetSpreadSheet);
 
-      var $categoryGetSpreadSheetOperation = $('<category name="スプレッドシート操作" colour="75" />');
-      $categoryGetSpreadSheetOperation.append('<block type="spreadsheetapp_create"></block>');
-      $categoryGetSpreadSheetOperation.append('<block type="spreadsheetapp_setactivespreadsheet"></block>');
-      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_copy"></block>');
-      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_getname"></block>');
-      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_rename"></block>');
-      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_getid"></block>');
-      $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_geturl"></block>');
-      $categorySpreadSheet.append($categoryGetSpreadSheetOperation);
+            var $categoryGetSpreadSheetOperation = $('<category name="スプレッドシート操作" colour="75" />');
+            $categoryGetSpreadSheetOperation.append('<block type="spreadsheetapp_create"></block>');
+            $categoryGetSpreadSheetOperation.append('<block type="spreadsheetapp_setactivespreadsheet"></block>');
+            $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_copy"></block>');
+            $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_getname"></block>');
+            $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_rename"></block>');
+            $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_getid"></block>');
+            $categoryGetSpreadSheetOperation.append('<block type="spreadsheet_geturl"></block>');
+            $categorySpreadSheet.append($categoryGetSpreadSheetOperation);
 
-      $categorySpreadSheetRoot.append($categorySpreadSheet);
+            $categorySpreadSheetRoot.append($categorySpreadSheet);
 
-      // スプレッドシート > スプレッドシート > シート
-      var $categorySheet = $('<category name="シート" colour="60" />');
+            // スプレッドシート > スプレッドシート > シート
+            var $categorySheet = $('<category name="シート" colour="60" />');
 
-      // スプレッドシート > スプレッドシート > シート　> シート取得
-      var $categoryGetSheet = $('<category name="シート取得" colour="60" />');
-      $categoryGetSheet.append('<block type="spreadsheetapp_getactivesheet"></block>');
-      $categoryGetSheet.append('<block type="spreadsheet_getactivesheet"></block>');
-      $categoryGetSheet.append('<block type="spreadsheet_getsheetbyname"></block>');
-      $categoryGetSheet.append('<block type="range_getsheet"></block>');
-      $categoryGetSheet.append('<block type="spreadsheet_getsheets"></block>');
-      $categorySheet.append($categoryGetSheet);
+            // スプレッドシート > スプレッドシート > シート　> シート取得
+            var $categoryGetSheet = $('<category name="シート取得" colour="60" />');
+            $categoryGetSheet.append('<block type="spreadsheetapp_getactivesheet"></block>');
+            $categoryGetSheet.append('<block type="spreadsheet_getactivesheet"></block>');
+            $categoryGetSheet.append('<block type="spreadsheet_getsheetbyname"></block>');
+            $categoryGetSheet.append('<block type="range_getsheet"></block>');
+            $categoryGetSheet.append('<block type="spreadsheet_getsheets"></block>');
+            $categorySheet.append($categoryGetSheet);
 
-      // スプレッドシート > スプレッドシート > シート　> シート操作
-      var $categorySheetOperation = $('<category name="シート操作" colour="60" />');
-      $categorySheetOperation.append('<block type="spreadsheet_deleteactivesheet"></block>');
-      $categorySheetOperation.append('<block type="spreadsheet_deletesheet"></block>');
-      $categorySheetOperation.append('<block type="spreadsheet_duplicateactivesheet"></block>');
-      $categorySheetOperation.append('<block type="spreadsheet_insertsheet"></block>');
-      $categorySheetOperation.append('<block type="sheet_copyto"></block>');
-      $categorySheet.append($categorySheetOperation);
+            // スプレッドシート > スプレッドシート > シート　> シート操作
+            var $categorySheetOperation = $('<category name="シート操作" colour="60" />');
+            $categorySheetOperation.append('<block type="spreadsheet_deleteactivesheet"></block>');
+            $categorySheetOperation.append('<block type="spreadsheet_deletesheet"></block>');
+            $categorySheetOperation.append('<block type="spreadsheet_duplicateactivesheet"></block>');
+            $categorySheetOperation.append('<block type="spreadsheet_insertsheet"></block>');
+            $categorySheetOperation.append('<block type="sheet_copyto"></block>');
+            $categorySheet.append($categorySheetOperation);
 
-      var $categorySheetNameID = $('<category name="シート名、ID、数、位置" colour="60" />');
-      $categorySheetNameID.append('<block type="spreadsheet_renameactivesheet"></block>');
-      $categorySheetNameID.append('<block type="sheet_getname"></block>');
-      $categorySheetNameID.append('<block type="sheet_getsheetname"></block>');
-      $categorySheetNameID.append('<block type="sheet_setname"></block>');
-      $categorySheetNameID.append('<block type="sheet_getsheetid"></block>');
-      $categorySheetNameID.append('<block type="spreadsheet_getnumsheets"></block>');
-      $categorySheetNameID.append('<block type="sheet_getindex"></block>');
-      $categorySheet.append($categorySheetNameID);
+            // スプレッドシート > スプレッドシート > シート　> シート名、ID、数、位置
+            var $categorySheetNameID = $('<category name="シート名、ID、数、位置" colour="60" />');
+            $categorySheetNameID.append('<block type="spreadsheet_renameactivesheet"></block>');
+            $categorySheetNameID.append('<block type="sheet_getname"></block>');
+            $categorySheetNameID.append('<block type="sheet_getsheetname"></block>');
+            $categorySheetNameID.append('<block type="sheet_setname"></block>');
+            $categorySheetNameID.append('<block type="sheet_getsheetid"></block>');
+            $categorySheetNameID.append('<block type="spreadsheet_getnumsheets"></block>');
+            $categorySheetNameID.append('<block type="sheet_getindex"></block>');
+            // $categoryRange.append('<block type="range_getgridid"></block>');
+            $categorySheet.append($categorySheetNameID);
 
-      // スプレッドシート > スプレッドシート > シート　> シート表示
-      var $categorySheetDisplay = $('<category name="シート表示" colour="60" />');
-      $categorySheetDisplay.append('<block type="spreadsheetapp_setactivesheet"></block>');
-      $categorySheetDisplay.append('<block type="spreadsheet_setactivesheet_sheet"></block>');
-      $categorySheetDisplay.append('<block type="sheet_activate"></block>');
-      $categorySheetDisplay.append('<block type="sheet_showsheet"></block>');
-      $categorySheet.append($categorySheetDisplay);
+            // スプレッドシート > スプレッドシート > シート　> シート表示
+            var $categorySheetDisplay = $('<category name="シート表示" colour="60" />');
+            $categorySheetDisplay.append('<block type="spreadsheetapp_setactivesheet"></block>');
+            $categorySheetDisplay.append('<block type="spreadsheet_setactivesheet_sheet"></block>');
+            $categorySheetDisplay.append('<block type="sheet_activate"></block>');
+            $categorySheetDisplay.append('<block type="sheet_showsheet"></block>');
+            $categorySheet.append($categorySheetDisplay);
 
+            $categorySpreadSheetRoot.append($categorySheet);
 
+            // スプレッドシート > スプレッドシート > 範囲
+            var $categoryRange = $('<category name="範囲" colour="45" />');
 
-      $categorySpreadSheetRoot.append($categorySheet);
+            // スプレッドシート > スプレッドシート > 範囲 > 範囲取得
+            var $categoryGetRange = $('<category name="範囲取得" colour="45" />');
+            $categoryGetRange.append('<block type="spreadsheetapp_getactiverange"></block>');
+            $categoryGetRange.append('<block type="spreadsheet_getrange_a1notation"></block>');
+            $categoryGetRange.append('<block type="sheet_getactiverange"></block>');
+            $categoryGetRange.append('<block type="sheet_getdatarange"></block>');
+            $categoryGetRange.append('<block type="sheet_getrange"></block>');
+            $categoryGetRange.append('<block type="sheet_getrange_a1notation"></block>');
+            $categoryGetRange.append('<block type="sheet_getactivecell"></block>');
+            $categoryGetRange.append('<block type="range_getcell"></block>');
+            $categoryRange.append($categoryGetRange);
 
-      var $categoryRange = $('<category name="範囲" colour="45" />');
-      var $categoryGetRange = $('<category name="範囲取得" colour="45" />');
-      $categoryGetRange.append('<block type="spreadsheetapp_getactiverange"></block>');
-      $categoryGetRange.append('<block type="spreadsheet_getrange_a1notation"></block>');
-      $categoryGetRange.append('<block type="sheet_getactiverange"></block>');
-      $categoryGetRange.append('<block type="sheet_getdatarange"></block>');
-      $categoryGetRange.append('<block type="sheet_getrange"></block>');
-      $categoryGetRange.append('<block type="sheet_getrange_a1notation"></block>');
-      $categoryGetRange.append('<block type="sheet_getactivecell"></block>');
-      $categoryGetRange.append('<block type="range_getcell"></block>');
-      $categoryRange.append($categoryGetRange);
+            // スプレッドシート > スプレッドシート > 範囲 > 値
+            var $categoryRangeValue = $('<category name="値" colour="45" />');
+            $categoryRangeValue.append('<block type="range_setvalue"></block>');
+            $categoryRangeValue.append('<block type="range_setvalues"></block>');
+            $categoryRangeValue.append('<block type="range_clear"></block>');
+            $categoryRangeValue.append('<block type="range_clearcntent"></block>');
+            $categoryRangeValue.append('<block type="range_getvalue"></block>');
+            $categoryRangeValue.append('<block type="range_getvalues"></block>');
+            $categoryRange.append($categoryRangeValue);
 
-      var $categoryRangeValue = $('<category name="値" colour="45" />');
-      $categoryRangeValue.append('<block type="range_setvalue"></block>');
-      $categoryRangeValue.append('<block type="range_setvalues"></block>');
-      $categoryRangeValue.append('<block type="range_clear"></block>');
-      $categoryRangeValue.append('<block type="range_clearcntent"></block>');
-      $categoryRangeValue.append('<block type="range_getvalue"></block>');
-      $categoryRangeValue.append('<block type="range_getvalues"></block>');
-      $categoryRange.append($categoryRangeValue);
+            // スプレッドシート > スプレッドシート > 範囲 > 複製/移動
+            var $categoryRangeCopyMove = $('<category name="複製/移動" colour="45" />');
+            $categoryRangeCopyMove.append('<block type="range_copyto"></block>');
+            // $categoryRangeCopyMove.append('<block type="range_copyvaluestorange_gridid"></block>');
+            $categoryRangeCopyMove.append('<block type="range_copyvaluestorange_sheet"></block>');
+            $categoryRangeCopyMove.append('<block type="range_moveto"></block>');
+            $categoryRange.append($categoryRangeCopyMove);
 
-      var $categoryRangeCopyMove = $('<category name="複製/移動" colour="45" />');
-      $categoryRangeCopyMove.append('<block type="range_copyto"></block>');
-      /*
-      $categoryRangeCopyMove.append('<block type="range_copyvaluestorange_gridid"></block>');
-      */
-      $categoryRangeCopyMove.append('<block type="range_copyvaluestorange_sheet"></block>');
-      $categoryRangeCopyMove.append('<block type="range_moveto"></block>');
-      $categoryRange.append($categoryRangeCopyMove);
+            // スプレッドシート > スプレッドシート > 範囲 > アクティブ化
+            var $categoryRangeActivate = $('<category name="アクティブ化" colour="45" />');
+            $categoryRangeActivate.append('<block type="spreadsheetapp_setactiverange"></block>');
+            $categoryRangeActivate.append('<block type="sheet_setactiverange"></block>');
+            $categoryRangeActivate.append('<block type="sheet_setactiveselection"></block>');
+            $categoryRangeActivate.append('<block type="sheet_setactiveselection_a1notation"></block>');
+            $categoryRangeActivate.append('<block type="range_activate"></block>');
+            $categoryRange.append($categoryRangeActivate);
 
-      var $categoryRangeActivate = $('<category name="アクティブ化" colour="45" />');
-      $categoryRangeActivate.append('<block type="spreadsheetapp_setactiverange"></block>');
-      $categoryRangeActivate.append('<block type="sheet_setactiverange"></block>');
-      $categoryRangeActivate.append('<block type="sheet_setactiveselection"></block>');
-      $categoryRangeActivate.append('<block type="sheet_setactiveselection_a1notation"></block>');
-      $categoryRangeActivate.append('<block type="range_activate"></block>');
-      $categoryRange.append($categoryRangeActivate);
+            // スプレッドシート > スプレッドシート > 範囲 > 背景色
+            var $categoryRangeBG = $('<category name="背景色" colour="45" />');
+            $categoryRangeBG.append('<block type="range_getbackground"></block>');
+            $categoryRangeBG.append('<block type="range_getbackgrounds"></block>');
+            $categoryRangeBG.append('<block type="range_setbackground"></block>');
+            $categoryRangeBG.append('<block type="range_setbackgroundrgb"></block>');
+            $categoryRange.append($categoryRangeBG);
 
-      var $categoryRangeBG = $('<category name="背景色" colour="45" />');
-      $categoryRangeBG.append('<block type="range_getbackground"></block>');
-      $categoryRangeBG.append('<block type="range_getbackgrounds"></block>');
-      $categoryRangeBG.append('<block type="range_setbackground"></block>');
-      $categoryRangeBG.append('<block type="range_setbackgroundrgb"></block>');
-      $categoryRange.append($categoryRangeBG);
+            $categoryRange.append('<block type="range_geta1notation"></block>');
+            $categorySpreadSheetRoot.append($categoryRange);
 
-      $categoryRange.append('<block type="range_geta1notation"></block>');
+            // スプレッドシート > スプレッドシート > 行・列
+            var $categoryRowColOperation = $('<category name="行・列" colour="30" />');
 
-      /*
-      $categoryRange.append('<block type="range_getgridid"></block>');
-    */
-      $categorySpreadSheetRoot.append($categoryRange);
+            // スプレッドシート > スプレッドシート > 行・列 > 値
+            var $categoryRowColValue = $('<category name="値" colour="30" />');
+            $categoryRowColValue.append('<block type="sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns"></block>');
+            $categoryRowColValue.append('<block type="sheet_appendrow"></block>');
+            $categoryRowColOperation.append($categoryRowColValue);
 
-      // スプレッドシート > スプレッドシート > シート　> 行・列操作
-      var $categoryRowColOperation = $('<category name="行・列" colour="30" />');
+            // スプレッドシート > スプレッドシート > 行・列 > 位置と数
+            var $categoryRowIndex = $('<category name="位置と数" colour="30" />');
+            $categoryRowIndex.append('<block type="sheet_getlastrow"></block>');
+            $categoryRowIndex.append('<block type="range_getlastrow"></block>');
+            $categoryRowIndex.append('<block type="range_getrow"></block>');
+            $categoryRowIndex.append('<block type="range_getnumrows"></block>');
+            $categoryRowIndex.append('<block type="sheet_getlastcolumn"></block>');
+            $categoryRowIndex.append('<block type="range_getlastcolumn"></block>');
+            //$categoryRowIndex.append('<block type="range_getrowindex"></block>');
+            $categoryRowIndex.append('<block type="range_getcolumn"></block>');
+            $categoryRowIndex.append('<block type="range_getnumcolumns"></block>');
+            $categoryRowColOperation.append($categoryRowIndex);
 
-       var $categoryRowColValue = $('<category name="値" colour="30" />');
-      $categoryRowColValue.append('<block type="sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns"></block>');
-      $categoryRowColValue.append('<block type="sheet_appendrow"></block>');
-      $categoryRowColOperation.append($categoryRowColValue);
+            // スプレッドシート > スプレッドシート > 行・列 > 削除
+            var $categoryRowColDelete = $('<category name="削除" colour="30" />');
+            $categoryRowColDelete.append('<block type="sheet_deleterow"></block>');
+            $categoryRowColDelete.append('<block type="sheet_deleterows"></block>');
+            $categoryRowColDelete.append('<block type="sheet_deletecolumn"></block>');
+            $categoryRowColDelete.append('<block type="sheet_deletecolumns"></block>');
+            $categoryRowColOperation.append($categoryRowColDelete);
 
-      var $categoryRowIndex = $('<category name="位置と数" colour="30" />');
-      $categoryRowIndex.append('<block type="sheet_getlastrow"></block>');
-      $categoryRowIndex.append('<block type="range_getlastrow"></block>');
-      $categoryRowIndex.append('<block type="range_getrow"></block>');
-      $categoryRowIndex.append('<block type="range_getnumrows"></block>');
-      $categoryRowIndex.append('<block type="sheet_getlastcolumn"></block>');
-      $categoryRowIndex.append('<block type="range_getlastcolumn"></block>');
-      //$categoryRowIndex.append('<block type="range_getrowindex"></block>');
-      $categoryRowIndex.append('<block type="range_getcolumn"></block>');
-      $categoryRowIndex.append('<block type="range_getnumcolumns"></block>');
-      $categoryRowColOperation.append($categoryRowIndex);
+            // スプレッドシート > スプレッドシート > 行・列 > 行を追加
+            var $categoryRowAdd = $('<category name="行を追加" colour="15" />');
+            $categoryRowAdd.append('<block type="sheet_appendrow"></block>');
+            $categoryRowAdd.append('<block type="sheet_insertrows_rowindex"></block>');
+            $categoryRowAdd.append('<block type="sheet_insertrowafter"></block>');
+            $categoryRowAdd.append('<block type="sheet_insertrowsafter_afterposition_howmany"></block>');
+            $categoryRowAdd.append('<block type="sheet_insertrowbefore"></block>');
+            $categoryRowAdd.append('<block type="sheet_insertrowsbefore_beforeposition_howmany"></block>');
+            $categoryRowColOperation.append($categoryRowAdd);
 
-      var $categoryRowColDelete = $('<category name="削除" colour="30" />');
-      $categoryRowColDelete.append('<block type="sheet_deleterow"></block>');
-      $categoryRowColDelete.append('<block type="sheet_deleterows"></block>');
-      $categoryRowColDelete.append('<block type="sheet_deletecolumn"></block>');
-      $categoryRowColDelete.append('<block type="sheet_deletecolumns"></block>');
-      $categoryRowColOperation.append($categoryRowColDelete);
+            // スプレッドシート > スプレッドシート > 行・列 > 列を追加
+            var $categoryColAdd = $('<category name="列を追加" colour="0" />');
+            $categoryColAdd.append('<block type="sheet_insertcolumns_columnindex"></block>');
+            $categoryColAdd.append('<block type="sheet_insertcolumnafter"></block>');
+            $categoryColAdd.append('<block type="sheet_insertcolumnsafter_afterposition_howmany"></block>');
+            $categoryColAdd.append('<block type="sheet_insertcolumnbefore"></block>');
+            $categoryColAdd.append('<block type="sheet_insertcolumnsbefore_beforeposition_howmany"></block>');
+            //$categoryColAdd.append('<block type="sheet_autoresizecolumn"></block>');
+            $categoryRowColOperation.append($categoryColAdd);
 
-      var $categoryRowAdd = $('<category name="行を追加" colour="15" />');
-      $categoryRowAdd.append('<block type="sheet_appendrow"></block>');
-      $categoryRowAdd.append('<block type="sheet_insertrows_rowindex"></block>');
-      $categoryRowAdd.append('<block type="sheet_insertrowafter"></block>');
-      $categoryRowAdd.append('<block type="sheet_insertrowsafter_afterposition_howmany"></block>');
-      $categoryRowAdd.append('<block type="sheet_insertrowbefore"></block>');
-      $categoryRowAdd.append('<block type="sheet_insertrowsbefore_beforeposition_howmany"></block>');
-      $categoryRowColOperation.append($categoryRowAdd);
+            $categorySpreadSheetRoot.append($categoryRowColOperation);
 
-      var $categoryColAdd = $('<category name="列を追加" colour="0" />');
-      $categoryColAdd.append('<block type="sheet_insertcolumns_columnindex"></block>');
-      $categoryColAdd.append('<block type="sheet_insertcolumnafter"></block>');
-      $categoryColAdd.append('<block type="sheet_insertcolumnsafter_afterposition_howmany"></block>');
-      $categoryColAdd.append('<block type="sheet_insertcolumnbefore"></block>');
-      $categoryColAdd.append('<block type="sheet_insertcolumnsbefore_beforeposition_howmany"></block>');
-      //$categoryColAdd.append('<block type="sheet_autoresizecolumn"></block>');
-      $categoryRowColOperation.append($categoryColAdd);
+            // スプレッドシート > スプレッドシート > メニュー
+            var $categorySSMenu = $('<category name="メニュー" colour="210" />');
+            $categorySSMenu.append('<block type="spreadsheet_addmenu"></block>');
+            $categorySSMenu.append('<block type="sheet_menu_tem"></block>');
+            $categorySpreadSheetRoot.append($categorySSMenu);
 
-      $categorySpreadSheetRoot.append($categoryRowColOperation);
+            // スプレッドシート > スプレッドシート > メッセージ
+            var $categoryMSG = $('<category name="メッセージ" colour="160" />');
+            $categoryMSG.append('<block type="spreadsheet_toast"></block>');
+            $categorySpreadSheetRoot.append($categoryMSG);
 
-      var $categorySSMenu = $('<category name="メニュー" colour="210" />');
-      $categorySSMenu.append('<block type="spreadsheet_addmenu"></block>');
-      $categorySSMenu.append('<block type="sheet_menu_tem"></block>');
-      $categorySpreadSheetRoot.append($categorySSMenu);
-      
+            // Logic
+            var $categoryLogic = $('<category name="論理" colour="210" />');
+            $categoryLogic.append('<block type="controls_if"></block>');
+            $categoryLogic.append('<block type="logic_compare"></block>');
+            $categoryLogic.append('<block type="logic_operation"></block>');
+            $categoryLogic.append('<block type="logic_negate"></block>');
+            $categoryLogic.append('<block type="logic_boolean"></block>');
+            $categoryLogic.append('<block type="logic_null"></block>');
+            $categoryLogic.append('<block type="logic_ternary"></block>');
 
-      var $categoryMSG = $('<category name="メッセージ" colour="160" />');
-      $categoryMSG.append('<block type="spreadsheet_toast"></block>');
-      $categorySpreadSheetRoot.append($categoryMSG);
+            // Loops
+            var $categoryLoops = $('<category name="繰り返し" colour="120">');
+            $categoryLoops.append('<block type="controls_repeat_ext"><value name="TIMES"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>')
+            $categoryLoops.append('<block type="controls_whileUntil"></block>');
+            $categoryLoops.append('<block type="controls_for"><value name="FROM"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="TO"><shadow type="math_number"><field name="NUM">10</field></shadow></value><value name="BY"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block>');
+            $categoryLoops.append('<block type="controls_forEach"></block>');
+            $categoryLoops.append('<block type="controls_flow_statements"></block>');
 
-      // Logic
-      var $categoryLogic = $('<category name="論理" colour="210" />');
-      $categoryLogic.append('<block type="controls_if"></block>');
-      $categoryLogic.append('<block type="logic_compare"></block>');
-      $categoryLogic.append('<block type="logic_operation"></block>');
-      $categoryLogic.append('<block type="logic_negate"></block>');
-      $categoryLogic.append('<block type="logic_boolean"></block>');
-      $categoryLogic.append('<block type="logic_null"></block>');
-      $categoryLogic.append('<block type="logic_ternary"></block>');
+            // Math
+            var $categoryMath = $('<category name="数学" colour="230" />');
+            $categoryMath.append('<block type="math_number"></block>');
+            $categoryMath.append('<block type="math_arithmetic"><value name="A"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="B"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block>');
+            $categoryMath.append('<block type="math_single"><value name="NUM"><shadow type="math_number"><field name="NUM">9</field></shadow></value></block>');
+            $categoryMath.append('<block type="math_trig"><value name="NUM"><shadow type="math_number"><field name="NUM">45</field></shadow></value></block>');
+            $categoryMath.append('<block type="math_constant"></block>');
+            $categoryMath.append('<block type="math_number_property"><value name="NUMBER_TO_CHECK"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block>');
+            $categoryMath.append('<block type="math_change"><value name="DELTA"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block>');
+            $categoryMath.append('<block type="math_round"><value name="NUM"><shadow type="math_number"><field name="NUM">3.1</field></shadow></value></block>');
+            $categoryMath.append('<block type="math_on_list"></block>');
+            $categoryMath.append('<block type="math_modulo"><value name="DIVIDEND"><shadow type="math_number"><field name="NUM">64</field></shadow></value><value name="DIVISOR"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>');
+            $categoryMath.append('<block type="math_constrain"><value name="VALUE"><shadow type="math_number"><field name="NUM">50</field></shadow></value><value name="LOW"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="HIGH"><shadow type="math_number"><field name="NUM">100</field></shadow></value></block>');
+            $categoryMath.append('<block type="math_random_int"><value name="FROM"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="TO"><shadow type="math_number"><field name="NUM">100</field></shadow></value></block>');
+            $categoryMath.append('<block type="math_random_float"></block>');
 
-      // Loops
-      var $categoryLoops = $('<category name="繰り返し" colour="120">');
-      $categoryLoops.append('<block type="controls_repeat_ext"><value name="TIMES"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>')
-      $categoryLoops.append('<block type="controls_whileUntil"></block>');
-      $categoryLoops.append('<block type="controls_for"><value name="FROM"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="TO"><shadow type="math_number"><field name="NUM">10</field></shadow></value><value name="BY"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block>');
-      $categoryLoops.append('<block type="controls_forEach"></block>');
-      $categoryLoops.append('<block type="controls_flow_statements"></block>');
+            // Text
+            var $categoryText = $('<category name="テキスト" colour="160" />');
+            $categoryText.append('<block type="text"></block>');
 
-      // Math
-      var $categoryMath = $('<category name="数学" colour="230" />');
-      $categoryMath.append('<block type="math_number"></block>');
-      $categoryMath.append('<block type="math_arithmetic"><value name="A"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="B"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block>');
-      $categoryMath.append('<block type="math_single"><value name="NUM"><shadow type="math_number"><field name="NUM">9</field></shadow></value></block>');
-      $categoryMath.append('<block type="math_trig"><value name="NUM"><shadow type="math_number"><field name="NUM">45</field></shadow></value></block>');
-      $categoryMath.append('<block type="math_constant"></block>');
-      $categoryMath.append('<block type="math_number_property"><value name="NUMBER_TO_CHECK"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block>');
-      $categoryMath.append('<block type="math_change"><value name="DELTA"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block>');
-      $categoryMath.append('<block type="math_round"><value name="NUM"><shadow type="math_number"><field name="NUM">3.1</field></shadow></value></block>');
-      $categoryMath.append('<block type="math_on_list"></block>');
-      $categoryMath.append('<block type="math_modulo"><value name="DIVIDEND"><shadow type="math_number"><field name="NUM">64</field></shadow></value><value name="DIVISOR"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>');
-      $categoryMath.append('<block type="math_constrain"><value name="VALUE"><shadow type="math_number"><field name="NUM">50</field></shadow></value><value name="LOW"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="HIGH"><shadow type="math_number"><field name="NUM">100</field></shadow></value></block>');
-      $categoryMath.append('<block type="math_random_int"><value name="FROM"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="TO"><shadow type="math_number"><field name="NUM">100</field></shadow></value></block>');
-      $categoryMath.append('<block type="math_random_float"></block>');
+            $categoryText.append('<block type="text_join"></block>');
 
-      // Text
-      var $categoryText = $('<category name="テキスト" colour="160" />');
-      $categoryText.append('<block type="text"></block>');
+            $categoryText.append('<block type="text_append"><value name="TEXT"><shadow type="text"></shadow></value></block>');
+            $categoryText.append('<block type="text_length"><value name="VALUE"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block>');
+            $categoryText.append('<block type="text_isEmpty"><value name="VALUE"><shadow type="text"><field name="TEXT"></field></shadow></value></block>');
+            $categoryText.append('<block type="text_indexOf"><value name="FIND"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block>');
+            $categoryText.append('<block type="text_charAt"></block>');
+            $categoryText.append('<block type="text_getSubstring"></block>');
+            $categoryText.append('<block type="text_changeCase"><value name="TEXT"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block>');
+            $categoryText.append('<block type="text_trim"><value name="TEXT"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block>');
 
-      $categoryText.append('<block type="text_join"></block>');
+            // List
+            var $categoryList = $('<category name="リスト" colour="260">');
+            $categoryList.append('<block type="lists_create_with"><mutation items="0"></mutation></block>');
+            $categoryList.append('<block type="lists_create_with"></block>');
+            $categoryList.append('<block type="lists_repeat"><value name="NUM"><shadow type="math_number"><field name="NUM">5</field></shadow></value></block>');
+            $categoryList.append('<block type="lists_length"></block>');
+            $categoryList.append('<block type="lists_isEmpty"></block>');
+            $categoryList.append('<block type="lists_indexOf"></block>');
+            $categoryList.append('<block type="lists_getIndex"></block>');
+            $categoryList.append('<block type="lists_setIndex"></block>');
+            $categoryList.append('<block type="lists_getSublist"></block>');
+            $categoryList.append('<block type="lists_split"><value name="DELIM"><shadow type="text"><field name="TEXT">,</field></shadow></value></block>');
+            $categoryList.append('<block type="lists_sort"></block>');
 
-      $categoryText.append('<block type="text_append"><value name="TEXT"><shadow type="text"></shadow></value></block>');
-      $categoryText.append('<block type="text_length"><value name="VALUE"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block>');
-      $categoryText.append('<block type="text_isEmpty"><value name="VALUE"><shadow type="text"><field name="TEXT"></field></shadow></value></block>');
-      $categoryText.append('<block type="text_indexOf"><value name="FIND"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block>');
-      $categoryText.append('<block type="text_charAt"></block>');
-      $categoryText.append('<block type="text_getSubstring"></block>');
-      $categoryText.append('<block type="text_changeCase"><value name="TEXT"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block>');
-      $categoryText.append('<block type="text_trim"><value name="TEXT"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block>');
-
-      // List
-      var $categoryList = $('<category name="リスト" colour="260">');
-      $categoryList.append('<block type="lists_create_with"><mutation items="0"></mutation></block>');
-      $categoryList.append('<block type="lists_create_with"></block>');
-      $categoryList.append('<block type="lists_repeat"><value name="NUM"><shadow type="math_number"><field name="NUM">5</field></shadow></value></block>');
-      $categoryList.append('<block type="lists_length"></block>');
-      $categoryList.append('<block type="lists_isEmpty"></block>');
-      $categoryList.append('<block type="lists_indexOf"></block>');
-      $categoryList.append('<block type="lists_getIndex"></block>');
-      $categoryList.append('<block type="lists_setIndex"></block>');
-      $categoryList.append('<block type="lists_getSublist"></block>');
-      $categoryList.append('<block type="lists_split"><value name="DELIM"><shadow type="text"><field name="TEXT">,</field></shadow></value></block>');
-      $categoryList.append('<block type="lists_sort"></block>');
-
-      // Error
-      var $categoryError = $('<category name="エラー処理" colour="210">');
-      $categoryError.append('<block type="controls_try"></block>');
-      $categoryError.append('<block type="throw_new_error"></block>');
+            // Error
+            var $categoryError = $('<category name="エラー処理" colour="210">');
+            $categoryError.append('<block type="controls_try"></block>');
+            $categoryError.append('<block type="throw_new_error"></block>');
 
 
-      $xml.append($categorySpreadSheetRoot);
-      $xml.append('<sep></sep>');
+            $xml.append($categorySpreadSheetRoot);
+            $xml.append('<sep></sep>');
 
-      $xml.append($categoryGasLogger);
-      $xml.append($categoryGasUI);
-      $xml.append('<sep></sep>');
-      /*
-      $xml.append($categoryParse);
-      $xml.append('<sep></sep>');
-      */
-      $xml.append($categoryLogic);
-      $xml.append($categoryLoops);
-      $xml.append($categoryMath);
-      $xml.append($categoryText);
-      $xml.append($categoryList);
-      $xml.append('<sep></sep>');
-      $xml.append('<category name="変数" colour="330" custom="VARIABLE"></category>'); // 変数
-      $xml.append('<category name="関数" colour="290" custom="PROCEDURE"></category>'); // 関数
-      $xml.append($categoryError);
+            $xml.append($categoryGasLogger);
+            $xml.append($categoryGasUI);
+            $xml.append('<sep></sep>');
+            /*
+            $xml.append($categoryParse);
+            $xml.append('<sep></sep>');
+            */
+            $xml.append($categoryLogic);
+            $xml.append($categoryLoops);
+            $xml.append($categoryMath);
+            $xml.append($categoryText);
+            $xml.append($categoryList);
+            $xml.append('<sep></sep>');
+            $xml.append('<category name="変数" colour="330" custom="VARIABLE"></category>'); // 変数
+            $xml.append('<category name="関数" colour="290" custom="PROCEDURE"></category>'); // 関数
+            $xml.append($categoryError);
 
-      var $parseWrapper = $('<div>');
-      $parseWrapper.append($xml);
-      var toolBoxXMLText = $parseWrapper.html();
+            var $parseWrapper = $('<div>');
+            $parseWrapper.append($xml);
+            var toolBoxXMLText = $parseWrapper.html();
 
-      // *****************************************************************
-      // プラグイン初期化
-      var blockly = $('#Blockly').blockly({
-        codeTypes: [{
-          name: 'javascript'
-        }],
-        toolBoxXMLText: toolBoxXMLText,
-        media: "https://dl.dropboxusercontent.com/u/438976/Qlockly/media/"
-      });
-
-      // *****************************************************************
-      // ビューの操作
-      $(".showJavascript").click(function(event) {
-        blockly.show("javascript");
-        $(this).addClass('active');
-        $(".showBlock").removeClass('active');
-        $("#Blockly-row").show();
-
-        hideSavedList();
-      });
-
-      $(".showBlock").click(function(event) {
-        blockly.show("blocks");
-        $(this).addClass('active');
-
-        $(".showJavascript").removeClass('active');
-        $("#Blockly-row").show();
-        blockly.resize();
-
-        hideSavedList();
-      });
-      /*
-            $(".showXml").click(function(event) {
-              blockly.show("xml");
-              $(this).addClass('active');
-              $(".showBlock").removeClass('active');
-              $(".showJavascript").removeClass('active');
+            // *****************************************************************
+            // プラグイン初期化
+            var blockly = $('#Blockly').blockly({
+                codeTypes: [{
+                    name: 'javascript'
+                }],
+                toolBoxXMLText: toolBoxXMLText,
+                media: "https://dl.dropboxusercontent.com/u/438976/Qlockly/media/"
             });
-      */
 
-      // *****************************************************************
-      // 保存と復元に関して...
-      // XMLをセットする（.getXMLで現在のXMLを取得できるので、ソレを保存に使う）
+            // *****************************************************************
+            // ビューの操作
+            $(".showJavascript").click(function(event) {
+                blockly.show("javascript");
+                $(this).addClass('active');
+                $(".showBlock").removeClass('active');
+                $("#Blockly-row").show();
 
-      // Default
-      blockly.setXML('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="procedures_defnoreturn" id="tn?hX5:ig.rjX=6,w#@4" x="100" y="0"><field name="NAME">myFunction</field><comment pinned="false" h="80" w="160">Describe this function...</comment></block></xml>');
+                hideSavedList();
+            });
 
-      // *****************************************************************
-      // SAVE
-      var mb = myBlocks();
+            $(".showBlock").click(function(event) {
+                blockly.show("blocks");
+                $(this).addClass('active');
 
-      function showSavedList() {
-        $(".save-btn").prop("disabled", true);
+                $(".showJavascript").removeClass('active');
+                $("#Blockly-row").show();
+                blockly.resize();
 
-        $("#Saved-row").show();
-        blockly.hide();
-        $("#Blockly-row").hide();
+                hideSavedList();
+            });
+            /*
+                  $(".showXml").click(function(event) {
+                    blockly.show("xml");
+                    $(this).addClass('active');
+                    $(".showBlock").removeClass('active');
+                    $(".showJavascript").removeClass('active');
+                  });
+            */
 
-        $(this).addClass('active');
-        //$(".showXml").removeClass('active');
-        $(".showJavascript").removeClass('active');
-        $(".showBlock").removeClass('active');
+            // *****************************************************************
+            // 保存と復元に関して...
+            // XMLをセットする（.getXMLで現在のXMLを取得できるので、ソレを保存に使う）
 
-        loadList();
-      }
+            // Default
+            blockly.setXML('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="procedures_defnoreturn" id="tn?hX5:ig.rjX=6,w#@4" x="100" y="0"><field name="NAME">myFunction</field><comment pinned="false" h="80" w="160">Describe this function...</comment></block></xml>');
 
-      function hideSavedList() {
-        $(".save-btn").prop("disabled", false);
-        $("#Saved-row").hide();
-        $(".showSaved").removeClass('active');
-      }
+            // *****************************************************************
+            // SAVE
+            var mb = myBlocks();
 
-      $(".showSaved").click(function(event) {
-        showSavedList();
-      });
+            function showSavedList() {
+                $(".save-btn").prop("disabled", true);
 
-      $(".save-btn").click(function(event) {
-        var xml = blockly.getXML();
-        showSavedList();
+                $("#Saved-row").show();
+                blockly.hide();
+                $("#Blockly-row").hide();
 
-        setTimeout(function() {
-          mb.save(null, xml);
-          showSavedList();
-        }, 1000);
-      });
+                $(this).addClass('active');
+                //$(".showXml").removeClass('active');
+                $(".showJavascript").removeClass('active');
+                $(".showBlock").removeClass('active');
 
-      $("#savedList").on("click", ".deleteOne", function() {
-        var id = $(this).data('id');
-        mb.deleteOne(id);
-        loadList();
-      });
+                loadList();
+            }
 
-      $("#savedList").on("click", ".applyOne", function() {
-        var id = $(this).data('id');
-        var one = mb.loadOne(id);
-        blockly.setXML(one.xml);
-        blockly.resize();
-      });
+            function hideSavedList() {
+                $(".save-btn").prop("disabled", false);
+                $("#Saved-row").hide();
+                $(".showSaved").removeClass('active');
+            }
 
-      function loadList() {
-        $("#savedList").html('');
-        var savedList = mb.load();
-        savedList.reverse();
-        for (var i = 0; i < savedList.length; i++) {
-          $("#savedList").append('<tr><td>' + savedList[i].label + '</td><td><button class="applyOne btn btn-primary btn-sm" data-id="' + savedList[i].id + '">Blockに追加</button></td><td><button class="deleteOne btn btn-danger btn-sm" data-id="' + savedList[i].id + '">削除</button></td></tr>');
-        }
-      }
-      hideSavedList();
-    });
-  })(window.jQuery);
-  </script>
+            $(".showSaved").click(function(event) {
+                showSavedList();
+            });
+
+            $(".save-btn").click(function(event) {
+                var xml = blockly.getXML();
+                showSavedList();
+
+                setTimeout(function() {
+                    mb.save(null, xml);
+                    showSavedList();
+                }, 1000);
+            });
+
+            $("#savedList").on("click", ".deleteOne", function() {
+                var id = $(this).data('id');
+                mb.deleteOne(id);
+                loadList();
+            });
+
+            $("#savedList").on("click", ".applyOne", function() {
+                var id = $(this).data('id');
+                var one = mb.loadOne(id);
+                blockly.setXML(one.xml);
+                blockly.resize();
+            });
+
+            function loadList() {
+                $("#savedList").html('');
+                var savedList = mb.load();
+                savedList.reverse();
+                for (var i = 0; i < savedList.length; i++) {
+                    $("#savedList").append('<tr><td>' + savedList[i].label + '</td><td><button class="applyOne btn btn-primary btn-sm" data-id="' + savedList[i].id + '">Blockに追加</button></td><td><button class="deleteOne btn btn-danger btn-sm" data-id="' + savedList[i].id + '">削除</button></td></tr>');
+                }
+            }
+            hideSavedList();
+        });
+    })(window.jQuery);
+    </script>
 </body>
 
 </html>
