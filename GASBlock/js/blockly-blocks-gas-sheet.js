@@ -530,9 +530,9 @@ Blockly.JavaScript['sheet_getrange'] = function(block) {
     var value_numrows = Blockly.JavaScript.valueToCode(block, 'numrows', Blockly.JavaScript.ORDER_NONE);
     var value_numcols = Blockly.JavaScript.valueToCode(block, 'numcols', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getRange(' + value_row + ',' + value_column + ')';
-    if (value_numrows && !numcols) {
+    if (value_numrows && !value_numcols) {
         code = value_sheet + '.getRange(' + value_row + ',' + value_column + ',' + value_numrows + ')';
-    } else if (value_numrows && numcols) {
+    } else if (value_numrows && value_numcols) {
         code = value_sheet + '.getRange(' + value_row + ',' + value_column + ',' + value_numrows + ',' + value_numcols + ')';
     }
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
