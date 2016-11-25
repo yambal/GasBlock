@@ -67,6 +67,7 @@
     <script src="js/jquery.blockly.min.js"></script>
     <script src="js/blockly-blocks-javascript.min.js"></script>
     <script src="js/blockly-blocks-exe.js"></script>
+    <script src="js/blockly-blocks-my-utility.js"></script>
     <script src="js/blockly-blocks-gas-params.js"></script>
     <script src="js/blockly-blocks-gas-utilities.js"></script>
     <script src="js/blockly-blocks-gas-spreadsheet-app.js"></script>
@@ -128,6 +129,12 @@
             var $categoryUtilities = $('<category name="ユーティリティ" colour="' + Blockly.COLOR.GAS.UTILIRIES + '" />');
             $categoryUtilities.append('<block type="utilities_sleep"></block>');
             $categoryUtilities.append('<block type="utilities_colorpicker"></block>');
+            $categoryUtilities.append('<block type="myutility_getdate"></block>');
+            $categoryUtilities.append('<block type="myutility_date_gethours"></block>');
+            $categoryUtilities.append('<block type="myutility_date_getminutes"></block>');
+            $categoryUtilities.append('<block type="myutility_date_getseconds"></block>');
+            $categoryUtilities.append('<block type="myutility_str_slice"></block>');
+            $categoryUtilities.append('<block type="myutility_date_parseint"></block>');
 
 
             // スプレッドシート > スプレッドシート > メニュー
