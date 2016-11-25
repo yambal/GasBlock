@@ -1,23 +1,23 @@
 // activate()
 // Activates this sheet.
-Blockly.Blocks['sheet_activate'] = {
+Blockly.Blocks['gas_sheet_activate'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
             .appendField("シートをアクティブ");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('このシートを有効にします。シート自体は変更されず、アクティブシートの親の概念のみが変更されます。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#activate()');
     }
 };
-Blockly.JavaScript['sheet_activate'] = function(block) {
+Blockly.JavaScript['gas_sheet_activate'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.activate()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -26,10 +26,10 @@ Blockly.JavaScript['sheet_activate'] = function(block) {
 // ----------------------------------------------------------------
 // appendRow(rowContents)
 // Appends a row to the spreadsheet.
-Blockly.Blocks['sheet_appendrow'] = {
+Blockly.Blocks['gas_sheet_appendrow'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
             .appendField("行を追加");
@@ -37,7 +37,7 @@ Blockly.Blocks['sheet_appendrow'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("ROWCONTENT")
             .setCheck("Array")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -50,7 +50,7 @@ Blockly.Blocks['sheet_appendrow'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#appendRow(Object)');
     }
 };
-Blockly.JavaScript['sheet_appendrow'] = function(block) {
+Blockly.JavaScript['gas_sheet_appendrow'] = function(block) {
     var value_rowcontent = Blockly.JavaScript.valueToCode(block, 'ROWCONTENT', Blockly.JavaScript.ORDER_NONE);
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.appendRow(' + value_rowcontent + ')';
@@ -60,10 +60,10 @@ Blockly.JavaScript['sheet_appendrow'] = function(block) {
 // ----------------------------------------------------------------
 // autoResizeColumn()
 // Sets the width of the given column to fit its contents
-Blockly.Blocks['sheet_autoresizecolumn'] = {
+Blockly.Blocks['gas_sheet_autoresizecolumn'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
             .appendField("幅を自動調整");
@@ -71,7 +71,7 @@ Blockly.Blocks['sheet_autoresizecolumn'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("COLUMN")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -79,12 +79,12 @@ Blockly.Blocks['sheet_autoresizecolumn'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('指定された列の幅を内容に合わせて設定します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#autoResizeColumn(Integer)');
     }
 };
-Blockly.JavaScript['sheet_autoresizecolumn'] = function(block) {
+Blockly.JavaScript['gas_sheet_autoresizecolumn'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var value_column = Blockly.JavaScript.valueToCode(block, 'COLUMN', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.autoResizeColumn(' + value_column + ')';
@@ -102,16 +102,16 @@ clearNotes()    Sheet   Clears the sheet of all notes.
 // ----------------------------------------------------------------
 // copyTo(spreadsheet)
 // Copies the sheet to a given spreadsheet, which can be the same spreadsheet as the source.
-Blockly.Blocks['sheet_copyto'] = {
+Blockly.Blocks['gas_sheet_copyto'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
             .appendField("シート複製");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("複製元シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("spreadsheet")
             .setCheck(Blockly.TYPE.GAS.SS)
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -119,12 +119,12 @@ Blockly.Blocks['sheet_copyto'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('シートを特定のスプレッドシートにコピーします。スプレッドシートはソースと同じスプレッドシートにすることができます。コピーした用紙の名前は「元の名前のコピー」となります。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#copyTo(Spreadsheet)');
     }
 };
-Blockly.JavaScript['sheet_copyto'] = function(block) {
+Blockly.JavaScript['gas_sheet_copyto'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'spreadsheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.copyTo(' + value_spreadsheet + ')';
@@ -134,10 +134,10 @@ Blockly.JavaScript['sheet_copyto'] = function(block) {
 // ----------------------------------------------------------------
 // deleteColumn(columnPosition)
 // Deletes the column at the given column position.
-Blockly.Blocks['sheet_deletecolumn'] = {
+Blockly.Blocks['gas_sheet_deletecolumn'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
             .appendField("列削除");
@@ -145,7 +145,7 @@ Blockly.Blocks['sheet_deletecolumn'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("COLUMN")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -158,7 +158,7 @@ Blockly.Blocks['sheet_deletecolumn'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteColumn(Integer)');
     }
 };
-Blockly.JavaScript['sheet_deletecolumn'] = function(block) {
+Blockly.JavaScript['gas_sheet_deletecolumn'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var value_column = Blockly.JavaScript.valueToCode(block, 'COLUMN', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.deleteColumn(' + value_column + ')';
@@ -168,7 +168,7 @@ Blockly.JavaScript['sheet_deletecolumn'] = function(block) {
 // ----------------------------------------------------------------
 // deleteColumns(columnPosition, howMany)
 // Deletes a number of columns starting at the given column position.
-Blockly.Blocks['sheet_deletecolumns'] = {
+Blockly.Blocks['gas_sheet_deletecolumns'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
@@ -177,7 +177,7 @@ Blockly.Blocks['sheet_deletecolumns'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("COLUMN")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -197,7 +197,7 @@ Blockly.Blocks['sheet_deletecolumns'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteColumns(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_deletecolumns'] = function(block) {
+Blockly.JavaScript['gas_sheet_deletecolumns'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var value_column = Blockly.JavaScript.valueToCode(block, 'COLUMN', Blockly.JavaScript.ORDER_NONE);
     var value_howmany = Blockly.JavaScript.valueToCode(block, 'HOWMANY', Blockly.JavaScript.ORDER_NONE);
@@ -208,10 +208,10 @@ Blockly.JavaScript['sheet_deletecolumns'] = function(block) {
 // ----------------------------------------------------------------
 // deleteRow(rowPosition)
 // Deletes the row at the given row position.
-Blockly.Blocks['sheet_deleterow'] = {
+Blockly.Blocks['gas_sheet_deleterow'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
             .appendField("行削除");
@@ -219,7 +219,7 @@ Blockly.Blocks['sheet_deleterow'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("rowPosition")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("行番号")
@@ -231,7 +231,7 @@ Blockly.Blocks['sheet_deleterow'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteRow(Integer)');
     }
 };
-Blockly.JavaScript['sheet_deleterow'] = function(block) {
+Blockly.JavaScript['gas_sheet_deleterow'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var value_rowposition = Blockly.JavaScript.valueToCode(block, 'rowPosition', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.deleteRow(' + value_rowposition + ')';
@@ -241,7 +241,7 @@ Blockly.JavaScript['sheet_deleterow'] = function(block) {
 // ----------------------------------------------------------------
 // deleteRows(rowPosition, howMany)
 // Deletes a number of rows starting at the given row position.
-Blockly.Blocks['sheet_deleterows'] = {
+Blockly.Blocks['gas_sheet_deleterows'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
@@ -250,7 +250,7 @@ Blockly.Blocks['sheet_deleterows'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("rowPosition")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("行番号")
@@ -268,7 +268,7 @@ Blockly.Blocks['sheet_deleterows'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#deleteRows(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_deleterows'] = function(block) {
+Blockly.JavaScript['gas_sheet_deleterows'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var value_rowposition = Blockly.JavaScript.valueToCode(block, 'rowPosition', Blockly.JavaScript.ORDER_NONE);
     var value_howmany = Blockly.JavaScript.valueToCode(block, 'HOWMANY', Blockly.JavaScript.ORDER_NONE);
@@ -279,7 +279,7 @@ Blockly.JavaScript['sheet_deleterows'] = function(block) {
 // ----------------------------------------------------------------
 // getActiveCell()
 // Returns the active cell in this sheet.
-Blockly.Blocks['sheet_getactivecell'] = {
+Blockly.Blocks['gas_sheet_getactivecell'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -290,7 +290,7 @@ Blockly.Blocks['sheet_getactivecell'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.RANGE);
         this.setColour(Blockly.COLOR.GAS.RANGE);
@@ -298,7 +298,7 @@ Blockly.Blocks['sheet_getactivecell'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getActiveCell()');
     }
 };
-Blockly.JavaScript['sheet_getactivecell'] = function(block) {
+Blockly.JavaScript['gas_sheet_getactivecell'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getActiveCell()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -307,7 +307,7 @@ Blockly.JavaScript['sheet_getactivecell'] = function(block) {
 // ----------------------------------------------------------------
 // getActiveRange()
 // Returns the active range for the active sheet.
-Blockly.Blocks['sheet_getactiverange'] = {
+Blockly.Blocks['gas_sheet_getactiverange'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -316,7 +316,7 @@ Blockly.Blocks['sheet_getactiverange'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.RANGE);
         this.setColour(Blockly.COLOR.GAS.RANGE);
@@ -324,7 +324,7 @@ Blockly.Blocks['sheet_getactiverange'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getActiveRange()');
     }
 };
-Blockly.JavaScript['sheet_getactiverange'] = function(block) {
+Blockly.JavaScript['gas_sheet_getactiverange'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getActiveRange()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -338,7 +338,7 @@ getColumnWidth(columnPosition)  Integer Gets the width in pixels of the given co
 // ----------------------------------------------------------------
 // getDataRange()
 // Returns a Range corresponding to the dimensions in which data is present.
-Blockly.Blocks['sheet_getdatarange'] = {
+Blockly.Blocks['gas_sheet_getdatarange'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -347,7 +347,7 @@ Blockly.Blocks['sheet_getdatarange'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.RANGE);
         this.setColour(Blockly.COLOR.GAS.RANGE);
@@ -355,7 +355,7 @@ Blockly.Blocks['sheet_getdatarange'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getDataRange()');
     }
 };
-Blockly.JavaScript['sheet_getdatarange'] = function(block) {
+Blockly.JavaScript['gas_sheet_getdatarange'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getDataRange()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -369,7 +369,7 @@ getFrozenRows() Integer Returns the number of frozen rows.
 // ----------------------------------------------------------------
 // getIndex()
 // Gets the position of the sheet in its parent spreadsheet.
-Blockly.Blocks['sheet_getindex'] = {
+Blockly.Blocks['gas_sheet_getindex'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
@@ -378,15 +378,15 @@ Blockly.Blocks['sheet_getindex'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "Number");
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('スプレッドシート内のシートの位置を取得します。 1で始まります。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getIndex()');
     }
 };
-Blockly.JavaScript['sheet_getindex'] = function(block) {
+Blockly.JavaScript['gas_sheet_getindex'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getIndex()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -395,7 +395,7 @@ Blockly.JavaScript['sheet_getindex'] = function(block) {
 // ----------------------------------------------------------------
 // getLastColumn()
 // Returns the position of the last column that has content.
-Blockly.Blocks['sheet_getlastcolumn'] = {
+Blockly.Blocks['gas_sheet_getlastcolumn'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
@@ -406,7 +406,7 @@ Blockly.Blocks['sheet_getlastcolumn'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "Number");
         this.setColour(Blockly.COLOR.GAS.COLINDEX);
@@ -414,7 +414,7 @@ Blockly.Blocks['sheet_getlastcolumn'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getLastColumn()');
     }
 };
-Blockly.JavaScript['sheet_getlastcolumn'] = function(block) {
+Blockly.JavaScript['gas_sheet_getlastcolumn'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getLastColumn()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -423,7 +423,7 @@ Blockly.JavaScript['sheet_getlastcolumn'] = function(block) {
 // ----------------------------------------------------------------
 // getLastRow()
 // Returns the position of the last row that has content.
-Blockly.Blocks['sheet_getlastrow'] = {
+Blockly.Blocks['gas_sheet_getlastrow'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
@@ -434,7 +434,7 @@ Blockly.Blocks['sheet_getlastrow'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "Number");
         this.setColour(Blockly.COLOR.GAS.ROWINDEX);
@@ -442,7 +442,7 @@ Blockly.Blocks['sheet_getlastrow'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getLastRow()');
     }
 };
-Blockly.JavaScript['sheet_getlastrow'] = function(block) {
+Blockly.JavaScript['gas_sheet_getlastrow'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getLastRow()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -455,7 +455,7 @@ getMaxRows()    Integer Returns the current number of rows in the sheet, regardl
 // ----------------------------------------------------------------
 // getName()
 // Returns the name of the sheet.
-Blockly.Blocks['sheet_getname'] = {
+Blockly.Blocks['gas_sheet_getname'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
@@ -464,15 +464,15 @@ Blockly.Blocks['sheet_getname'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "String");
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('シートの名前を返します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getName()');
     }
 };
-Blockly.JavaScript['sheet_getname'] = function(block) {
+Blockly.JavaScript['gas_sheet_getname'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getName()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -487,7 +487,7 @@ getProtections(type)    Protection[]    Gets an array of objects representing al
 // ----------------------------------------------------------------
 // getRange(row, column)
 // Returns the range with the top left cell at the given coordinates.
-Blockly.Blocks['sheet_getrange'] = {
+Blockly.Blocks['gas_sheet_getrange'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -496,7 +496,7 @@ Blockly.Blocks['sheet_getrange'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("row")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("行番号")
@@ -523,7 +523,7 @@ Blockly.Blocks['sheet_getrange'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getRange(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_getrange'] = function(block) {
+Blockly.JavaScript['gas_sheet_getrange'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_NONE);
     var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
@@ -541,7 +541,7 @@ Blockly.JavaScript['sheet_getrange'] = function(block) {
 // ----------------------------------------------------------------
 // getRange(a1Notation)
 // Returns the range as specified in A1 notation or R1C1 notation.
-Blockly.Blocks['sheet_getrange_a1notation'] = {
+Blockly.Blocks['gas_sheet_getrange_a1notation'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -550,7 +550,7 @@ Blockly.Blocks['sheet_getrange_a1notation'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("a1Notation")
             .setCheck("String")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -563,7 +563,7 @@ Blockly.Blocks['sheet_getrange_a1notation'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getRange(String)');
     }
 };
-Blockly.JavaScript['sheet_getrange_a1notation'] = function(block) {
+Blockly.JavaScript['gas_sheet_getrange_a1notation'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_a1notation = Blockly.JavaScript.valueToCode(block, 'a1Notation', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getRange(' + value_a1notation + ')';
@@ -576,7 +576,7 @@ getRowHeight(rowPosition)   Integer Gets the height in pixels of the given row.
 // ----------------------------------------------------------------
 // getSheetId()
 // Returns the ID of the sheet represented by this object.
-Blockly.Blocks['sheet_getsheetid'] = {
+Blockly.Blocks['gas_sheet_getsheetid'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
@@ -585,15 +585,15 @@ Blockly.Blocks['sheet_getsheetid'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "Number");
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('シートのIDを返します。スプレッドシートに固有のシートのIDです。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getSheetId()');
     }
 };
-Blockly.JavaScript['sheet_getsheetid'] = function(block) {
+Blockly.JavaScript['gas_sheet_getsheetid'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getSheetId()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -602,7 +602,7 @@ Blockly.JavaScript['sheet_getsheetid'] = function(block) {
 // ----------------------------------------------------------------
 // getSheetName()
 // Returns the sheet name.
-Blockly.Blocks['sheet_getsheetname'] = {
+Blockly.Blocks['gas_sheet_getsheetname'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
@@ -611,15 +611,15 @@ Blockly.Blocks['sheet_getsheetname'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, "String");
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('シート名を返します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getSheetName()');
     }
 };
-Blockly.JavaScript['sheet_getsheetname'] = function(block) {
+Blockly.JavaScript['gas_sheet_getsheetname'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.getSheetName()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -628,7 +628,7 @@ Blockly.JavaScript['sheet_getsheetname'] = function(block) {
 // ----------------------------------------------------------------
 // getSheetValues(startRow, startColumn, numRows, numColumns)
 //Returns the rectangular grid of values for this range starting at the given coordinates.
-Blockly.Blocks['sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns'] = {
+Blockly.Blocks['gas_sheet_getsheetvalues'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"))
@@ -637,7 +637,7 @@ Blockly.Blocks['sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns'] =
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("startRow")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -665,7 +665,7 @@ Blockly.Blocks['sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns'] =
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#getSheetValues(Integer,Integer,Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_getsheetvalues_startrow_startcolumn_numrows_numcolumns'] = function(block) {
+Blockly.JavaScript['gas_sheet_getsheetvalues'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_startrow = Blockly.JavaScript.valueToCode(block, 'startRow', Blockly.JavaScript.ORDER_NONE);
     var value_startcolumn = Blockly.JavaScript.valueToCode(block, 'startColumn', Blockly.JavaScript.ORDER_NONE);
@@ -690,10 +690,10 @@ insertChart(chart)  void    Adds a new chart to this sheet.
 // ----------------------------------------------------------------
 // insertColumnAfter(afterPosition) 
 // Inserts a column after the given column position.
-Blockly.Blocks['sheet_insertcolumnafter'] = {
+Blockly.Blocks['gas_sheet_insertcolumnafter'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
             .appendField("後に列挿入");
@@ -701,7 +701,7 @@ Blockly.Blocks['sheet_insertcolumnafter'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("afterPosition")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -714,7 +714,7 @@ Blockly.Blocks['sheet_insertcolumnafter'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnAfter(Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertcolumnafter'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertcolumnafter'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_afterposition = Blockly.JavaScript.valueToCode(block, 'afterPosition', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.insertColumnAfter(' + value_afterposition + ')';
@@ -724,10 +724,10 @@ Blockly.JavaScript['sheet_insertcolumnafter'] = function(block) {
 // ----------------------------------------------------------------
 // insertColumnBefore(beforePosition)
 // Inserts a column before the given column position.
-Blockly.Blocks['sheet_insertcolumnbefore'] = {
+Blockly.Blocks['gas_sheet_insertcolumnbefore'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
             .appendField("前に列挿入");
@@ -735,7 +735,7 @@ Blockly.Blocks['sheet_insertcolumnbefore'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("beforePosition")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -748,7 +748,7 @@ Blockly.Blocks['sheet_insertcolumnbefore'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnBefore(Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertcolumnbefore'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertcolumnbefore'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.insertColumnBefore(' + value_beforePosition + ')';
@@ -758,7 +758,7 @@ Blockly.JavaScript['sheet_insertcolumnbefore'] = function(block) {
 // ----------------------------------------------------------------
 // insertColumns(columnIndex)
 // Inserts a blank column in a sheet at the specified location.
-Blockly.Blocks['sheet_insertcolumns_columnindex'] = {
+Blockly.Blocks['gas_sheet_insertcolumns_columnindex'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
@@ -767,7 +767,7 @@ Blockly.Blocks['sheet_insertcolumns_columnindex'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("columnIndex")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -787,7 +787,7 @@ Blockly.Blocks['sheet_insertcolumns_columnindex'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumns(Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertcolumns_columnindex'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertcolumns_columnindex'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_columnIndex = Blockly.JavaScript.valueToCode(block, 'columnIndex', Blockly.JavaScript.ORDER_NONE);
     var value_numColumns = Blockly.JavaScript.valueToCode(block, 'numColumns', Blockly.JavaScript.ORDER_NONE);
@@ -801,10 +801,10 @@ Blockly.JavaScript['sheet_insertcolumns_columnindex'] = function(block) {
 // ----------------------------------------------------------------
 // insertColumnsAfter(afterPosition, howMany)
 // Inserts a number of columns after the given column position.
-Blockly.Blocks['sheet_insertcolumnsafter_afterposition_howmany'] = {
+Blockly.Blocks['gas_sheet_insertcolumnsafter_afterposition_howmany'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
             .appendField("後に列挿入");
@@ -812,7 +812,7 @@ Blockly.Blocks['sheet_insertcolumnsafter_afterposition_howmany'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("afterPosition")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("列番号")
@@ -830,7 +830,7 @@ Blockly.Blocks['sheet_insertcolumnsafter_afterposition_howmany'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnsAfter(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertcolumnsafter_afterposition_howmany'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertcolumnsafter_afterposition_howmany'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_afterposition = Blockly.JavaScript.valueToCode(block, 'afterPosition', Blockly.JavaScript.ORDER_NONE);
     var value_howmany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
@@ -841,10 +841,10 @@ Blockly.JavaScript['sheet_insertcolumnsafter_afterposition_howmany'] = function(
 // ----------------------------------------------------------------
 // insertColumnsBefore(beforePosition, howMany)
 // Inserts a number of columns before the given column position.
-Blockly.Blocks['sheet_insertcolumnsbefore_beforeposition_howmany'] = {
+Blockly.Blocks['gas_sheet_insertcolumnsbefore_beforeposition_howmany'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
             .appendField("前に列挿入");
@@ -852,7 +852,7 @@ Blockly.Blocks['sheet_insertcolumnsbefore_beforeposition_howmany'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("beforePosition")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -871,7 +871,7 @@ Blockly.Blocks['sheet_insertcolumnsbefore_beforeposition_howmany'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertColumnsBefore(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertcolumnsbefore_beforeposition_howmany'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertcolumnsbefore_beforeposition_howmany'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
     var value_howmany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
@@ -889,10 +889,10 @@ insertImage(url, column, row, offsetX, offsetY) void    Inserts an image in the 
 // ----------------------------------------------------------------
 // insertRowAfter(afterPosition)
 // Inserts a row after the given row position.
-Blockly.Blocks['sheet_insertrowafter'] = {
+Blockly.Blocks['gas_sheet_insertrowafter'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
             .appendField("後に行を挿入");
@@ -900,7 +900,7 @@ Blockly.Blocks['sheet_insertrowafter'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("afterPosition")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -913,7 +913,7 @@ Blockly.Blocks['sheet_insertrowafter'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowAfter(Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertrowafter'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertrowafter'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_afterposition = Blockly.JavaScript.valueToCode(block, 'afterPosition', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.insertRowAfter(' + value_afterposition + ')';
@@ -923,10 +923,10 @@ Blockly.JavaScript['sheet_insertrowafter'] = function(block) {
 // ----------------------------------------------------------------
 // insertRowBefore(beforePosition)
 // Inserts a row before the given row position.
-Blockly.Blocks['sheet_insertrowbefore'] = {
+Blockly.Blocks['gas_sheet_insertrowbefore'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
             .appendField("前に行を挿入");
@@ -934,7 +934,7 @@ Blockly.Blocks['sheet_insertrowbefore'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("beforePosition")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -947,7 +947,7 @@ Blockly.Blocks['sheet_insertrowbefore'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowBefore(Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertrowbefore'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertrowbefore'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.insertRowBefore(' + value_beforePosition + ')';
@@ -957,7 +957,7 @@ Blockly.JavaScript['sheet_insertrowbefore'] = function(block) {
 // ----------------------------------------------------------------
 // insertRows(rowIndex)
 // Inserts a blank row in a sheet at the specified location.
-Blockly.Blocks['sheet_insertrows_rowindex'] = {
+Blockly.Blocks['gas_sheet_insertrows_rowindex'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
@@ -966,7 +966,7 @@ Blockly.Blocks['sheet_insertrows_rowindex'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("rowIndex")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -986,7 +986,7 @@ Blockly.Blocks['sheet_insertrows_rowindex'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRows(Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertrows_rowindex'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertrows_rowindex'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_rowindex = Blockly.JavaScript.valueToCode(block, 'rowIndex', Blockly.JavaScript.ORDER_NONE);
     var value_howMany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
@@ -1000,10 +1000,10 @@ Blockly.JavaScript['sheet_insertrows_rowindex'] = function(block) {
 // ----------------------------------------------------------------
 // insertRowsAfter(afterPosition, howMany)
 // Inserts a number of rows after the given row position.
-Blockly.Blocks['sheet_insertrowsafter_afterposition_howmany'] = {
+Blockly.Blocks['gas_sheet_insertrowsafter_afterposition_howmany'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
             .appendField("後に行を追加");
@@ -1011,7 +1011,7 @@ Blockly.Blocks['sheet_insertrowsafter_afterposition_howmany'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("afterPosition")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1029,7 +1029,7 @@ Blockly.Blocks['sheet_insertrowsafter_afterposition_howmany'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowsAfter(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertrowsafter_afterposition_howmany'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertrowsafter_afterposition_howmany'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_afterposition = Blockly.JavaScript.valueToCode(block, 'afterPosition', Blockly.JavaScript.ORDER_NONE);
     var value_howmany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
@@ -1040,10 +1040,10 @@ Blockly.JavaScript['sheet_insertrowsafter_afterposition_howmany'] = function(blo
 // ----------------------------------------------------------------
 // insertRowsBefore(beforePosition, howMany)
 // Inserts a number of rows before the given row position.
-Blockly.Blocks['sheet_insertrowsbefore_beforeposition_howmany'] = {
+Blockly.Blocks['gas_sheet_insertrowsbefore_beforeposition_howmany'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.ROWS, 15, 15, "*"))
             .appendField("前に行を追加");
@@ -1051,7 +1051,7 @@ Blockly.Blocks['sheet_insertrowsbefore_beforeposition_howmany'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("beforePosition")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1069,7 +1069,7 @@ Blockly.Blocks['sheet_insertrowsbefore_beforeposition_howmany'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#insertRowsBefore(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_insertrowsbefore_beforeposition_howmany'] = function(block) {
+Blockly.JavaScript['gas_sheet_insertrowsbefore_beforeposition_howmany'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_beforePosition = Blockly.JavaScript.valueToCode(block, 'beforePosition', Blockly.JavaScript.ORDER_NONE);
     var value_howmany = Blockly.JavaScript.valueToCode(block, 'howMany', Blockly.JavaScript.ORDER_NONE);
@@ -1086,7 +1086,7 @@ removeChart(chart)  void    Removes a chart from the parent sheet.
 // ----------------------------------------------------------------
 // setActiveRange(range)
 // Sets the active range for the active sheet.
-Blockly.Blocks['sheet_setactiverange'] = {
+Blockly.Blocks['gas_sheet_setactiverange'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -1095,7 +1095,7 @@ Blockly.Blocks['sheet_setactiverange'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("Range")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -1107,7 +1107,7 @@ Blockly.Blocks['sheet_setactiverange'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setActiveRange(Range)');
     }
 };
-Blockly.JavaScript['sheet_setactiverange'] = function(block) {
+Blockly.JavaScript['gas_sheet_setactiverange'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.setActiveRange(' + value_range + ')';
@@ -1117,7 +1117,7 @@ Blockly.JavaScript['sheet_setactiverange'] = function(block) {
 // ----------------------------------------------------------------
 // setActiveSelection(range)
 // Sets the active selection region for this sheet.
-Blockly.Blocks['sheet_setactiveselection'] = {
+Blockly.Blocks['gas_sheet_setactiveselection'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -1126,7 +1126,7 @@ Blockly.Blocks['sheet_setactiveselection'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("Range")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -1138,7 +1138,7 @@ Blockly.Blocks['sheet_setactiveselection'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setActiveSelection(Range)');
     }
 };
-Blockly.JavaScript['sheet_setactiveselection'] = function(block) {
+Blockly.JavaScript['gas_sheet_setactiveselection'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.setActiveSelection(' + value_range + ')';
@@ -1148,7 +1148,7 @@ Blockly.JavaScript['sheet_setactiveselection'] = function(block) {
 // ----------------------------------------------------------------
 // setActiveSelection(a1Notation)
 // Sets the active selection, as specified in A1 notation or R1C1 notation.
-Blockly.Blocks['sheet_setactiveselection_a1notation'] = {
+Blockly.Blocks['gas_sheet_setactiveselection_a1notation'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -1157,7 +1157,7 @@ Blockly.Blocks['sheet_setactiveselection_a1notation'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("a1Notation")
             .setCheck("String")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1170,7 +1170,7 @@ Blockly.Blocks['sheet_setactiveselection_a1notation'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setActiveSelection(String)');
     }
 };
-Blockly.JavaScript['sheet_setactiveselection_a1notation'] = function(block) {
+Blockly.JavaScript['gas_sheet_setactiveselection_a1notation'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_a1Notation = Blockly.JavaScript.valueToCode(block, 'a1Notation', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.setActiveSelection(' + value_a1Notation + ')';
@@ -1180,10 +1180,10 @@ Blockly.JavaScript['sheet_setactiveselection_a1notation'] = function(block) {
 // ----------------------------------------------------------------
 // setColumnWidth(columnPosition, width)
 // Sets the width of the given column in pixels.
-Blockly.Blocks['sheet_setclumnwidth'] = {
+Blockly.Blocks['gas_sheet_setclumnwidth'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
             .appendField("列幅をセット");
@@ -1191,7 +1191,7 @@ Blockly.Blocks['sheet_setclumnwidth'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("columnPosition")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1209,7 +1209,7 @@ Blockly.Blocks['sheet_setclumnwidth'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setColumnWidth(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_setclumnwidth'] = function(block) {
+Blockly.JavaScript['gas_sheet_setclumnwidth'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_columnPosition = Blockly.JavaScript.valueToCode(block, 'columnPosition', Blockly.JavaScript.ORDER_NONE);
     var value_width = Blockly.JavaScript.valueToCode(block, 'width', Blockly.JavaScript.ORDER_NONE);
@@ -1224,16 +1224,16 @@ setFrozenRows(rows) void    Freezes the given number of rows.
 // ----------------------------------------------------------------
 // setName(name)
 // Sets the sheet name.
-Blockly.Blocks['sheet_setname'] = {
+Blockly.Blocks['gas_sheet_setname'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
             .appendField("名前をセット");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("name")
             .setCheck("String")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1241,12 +1241,12 @@ Blockly.Blocks['sheet_setname'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('シート名を設定します。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setName(String)');
     }
 };
-Blockly.JavaScript['sheet_setname'] = function(block) {
+Blockly.JavaScript['gas_sheet_setname'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.setName(' + value_name + ')';
@@ -1255,10 +1255,10 @@ Blockly.JavaScript['sheet_setname'] = function(block) {
 
 
 // setRowHeight(rowPosition, height)   Sheet   Sets the row height of the given row in pixels.
-Blockly.Blocks['sheet_setrowheight'] = {
+Blockly.Blocks['gas_sheet_setrowheight'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.COLS, 15, 15, "*"))
             .appendField("列幅をセット");
@@ -1266,7 +1266,7 @@ Blockly.Blocks['sheet_setrowheight'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("rowPosition")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1284,7 +1284,7 @@ Blockly.Blocks['sheet_setrowheight'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#setRowHeight(Integer,Integer)');
     }
 };
-Blockly.JavaScript['sheet_setrowheight'] = function(block) {
+Blockly.JavaScript['gas_sheet_setrowheight'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_rowPosition = Blockly.JavaScript.valueToCode(block, 'rowPosition', Blockly.JavaScript.ORDER_NONE);
     var value_height = Blockly.JavaScript.valueToCode(block, 'height', Blockly.JavaScript.ORDER_NONE);
@@ -1303,24 +1303,24 @@ showRows(rowIndex, numRows) void    Unhides one or more consecutive rows startin
 // ----------------------------------------------------------------
 // showSheet()
 // Makes the sheet visible.
-Blockly.Blocks['sheet_showsheet'] = {
+Blockly.Blocks['gas_sheet_showsheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
             .appendField("シートを表示する");
         this.appendValueInput("Sheet")
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('シートを可視にします。シートがすでに表示されている場合は効果がありません。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/sheet#showSheet()');
     }
 };
-Blockly.JavaScript['sheet_showsheet'] = function(block) {
+Blockly.JavaScript['gas_sheet_showsheet'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var code = value_sheet + '.showSheet()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];

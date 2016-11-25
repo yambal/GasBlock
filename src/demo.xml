@@ -2,9 +2,9 @@
   <block type="gas_trigger_onopen" id="-I]cM)#LNOBa#IZSWZVQ" x="113" y="-512">
     <field name="event">e</field>
     <statement name="onOpen">
-      <block type="spreadsheet_addmenu" id="H)`8H9U7fT8/ddELj(??">
+      <block type="gas_spreadsheet_addmenu" id="H)`8H9U7fT8/ddELj(??">
         <value name="SPREADSHEET">
-          <block type="spreadsheetapp_getactive" id="0lb-mV|}6!~io8vl2pZ`"></block>
+          <block type="gas_spreadsheetapp_getactive" id="0lb-mV|}6!~io8vl2pZ`"></block>
         </value>
         <value name="name">
           <block type="text" id="m@?-vG!es1=:)zyvFL?f">
@@ -15,7 +15,7 @@
           <block type="lists_create_with" id="dSw;4aPJWfmF{q]=IgOm">
             <mutation items="2"></mutation>
             <value name="ADD0">
-              <block type="sheet_menu_tem" id="S0]k]J[E.n/YC?cZE-bm">
+              <block type="gas_sheet_menu_tem" id="S0]k]J[E.n/YC?cZE-bm">
                 <value name="name">
                   <block type="text" id="]GL!`QWWMnHD=a=/3}U2">
                     <field name="TEXT">開始</field>
@@ -29,7 +29,7 @@
               </block>
             </value>
             <value name="ADD1">
-              <block type="sheet_menu_tem" id="v@N8O4~SJ^|+uvQ+mnZ+">
+              <block type="gas_sheet_menu_tem" id="v@N8O4~SJ^|+uvQ+mnZ+">
                 <value name="name">
                   <block type="text" id="{,o#}YYlvaSrteow}]15">
                     <field name="TEXT">停止</field>
@@ -267,7 +267,7 @@
                   <block type="variables_set" id="J~65.piJa7DVbFI=E@ei">
                     <field name="VAR">dispRange</field>
                     <value name="VALUE">
-                      <block type="sheet_getrange" id="CNC:Dk~B*]hBFs|YDPr_">
+                      <block type="gas_sheet_getrange" id="CNC:Dk~B*]hBFs|YDPr_">
                         <value name="Sheet">
                           <block type="variables_get" id="wH~/gRcyg8r7IkLUxEO7">
                             <field name="VAR">Sheet</field>
@@ -342,7 +342,7 @@
                                 <statement name="DO">
                                   <block type="next" id="smi9z6MPZmoCQCR*vWDG">
                                     <value name="INPUT">
-                                      <block type="logger_log" id=":6z;1~.loQ`Wl~g*xg@T">
+                                      <block type="gas_logger_log" id=":6z;1~.loQ`Wl~g*xg@T">
                                         <value name="Logger">
                                           <block type="logger" id="V?@;ZJpCKjw6.fnZ%[g:"></block>
                                         </value>
@@ -433,7 +433,7 @@
                                           </block>
                                         </value>
                                         <value name="ARG3">
-                                          <block type="utilities_colorpicker" id="~KbL]%ibEK-@.NcX=mb@">
+                                          <block type="js_ext_color_colorpicker" id="~KbL]%ibEK-@.NcX=mb@">
                                             <field name="NAME">#ffffff</field>
                                           </block>
                                         </value>
@@ -529,7 +529,7 @@
                                                   </block>
                                                 </value>
                                                 <value name="ARG3">
-                                                  <block type="utilities_colorpicker" id=",CI#-OW9I7e(JhG9#,51">
+                                                  <block type="js_ext_color_colorpicker" id=",CI#-OW9I7e(JhG9#,51">
                                                     <field name="NAME">#000000</field>
                                                   </block>
                                                 </value>
@@ -595,13 +595,13 @@
       <block type="variables_set" id=".hjl!c2p2XIBHTUi|Tzo">
         <field name="VAR">Sheet</field>
         <value name="VALUE">
-          <block type="spreadsheetapp_getactivesheet" id="bv1DGdh6f=`|Vw.d,XLj"></block>
+          <block type="gas_spreadsheetapp_getactivesheet" id="bv1DGdh6f=`|Vw.d,XLj"></block>
         </value>
         <next>
           <block type="variables_set" id="Z*J[U(_[e+hiX8OlGCUk">
             <field name="VAR">now</field>
             <value name="VALUE">
-              <block type="myutility_getdate" id="m#LN{gz`VDHB_4Rs-XAu"></block>
+              <block type="js_ext_date_getdate" id="m#LN{gz`VDHB_4Rs-XAu"></block>
             </value>
             <next>
               <block type="variables_set" id="o4*nU;0}PFvnOp}/o=FN" collapsed="true">
@@ -610,7 +610,7 @@
                   <block type="text_join" id="Q9=atG!tk%.0CSv-w+Xa">
                     <mutation items="3"></mutation>
                     <value name="ADD0">
-                      <block type="myutility_str_slice" id="LFE*9BHe@Z#izv8{PVsw">
+                      <block type="js_ext_str_slice" id="LFE*9BHe@Z#izv8{PVsw">
                         <value name="string">
                           <block type="text_join" id="e+gB*%7+5t|b.;+6u^Qm">
                             <mutation items="2"></mutation>
@@ -620,7 +620,7 @@
                               </block>
                             </value>
                             <value name="ADD1">
-                              <block type="myutility_date_gethours" id="P{Rp4kKkwhU[{z;~JXHo">
+                              <block type="js_ext_date_gethours" id="P{Rp4kKkwhU[{z;~JXHo">
                                 <value name="Date">
                                   <block type="variables_get" id="}TN;1Dyrz9`ToEa*!U[]">
                                     <field name="VAR">now</field>
@@ -638,7 +638,7 @@
                       </block>
                     </value>
                     <value name="ADD1">
-                      <block type="myutility_str_slice" id="e|lX=TFR*awYvB`1QAHo">
+                      <block type="js_ext_str_slice" id="e|lX=TFR*awYvB`1QAHo">
                         <value name="string">
                           <block type="text_join" id="HEH;s:#EI-aBkYzL4K79">
                             <mutation items="2"></mutation>
@@ -648,7 +648,7 @@
                               </block>
                             </value>
                             <value name="ADD1">
-                              <block type="myutility_date_getminutes" id="o]C9#V}5raFK7LsE9B0E">
+                              <block type="js_ext_date_getminutes" id="o]C9#V}5raFK7LsE9B0E">
                                 <value name="Date">
                                   <block type="variables_get" id="OuCM95-%8DRcNT!usD|q">
                                     <field name="VAR">now</field>
@@ -666,7 +666,7 @@
                       </block>
                     </value>
                     <value name="ADD2">
-                      <block type="myutility_str_slice" id="`|=(MayehZWpifmIe88o">
+                      <block type="js_ext_str_slice" id="`|=(MayehZWpifmIe88o">
                         <value name="string">
                           <block type="text_join" id="+![gQm5nblf0[hcM}0@I">
                             <mutation items="2"></mutation>
@@ -676,7 +676,7 @@
                               </block>
                             </value>
                             <value name="ADD1">
-                              <block type="myutility_date_getseconds" id="yVy7`Y-j}mB015CurV/H">
+                              <block type="js_ext_date_getseconds" id="yVy7`Y-j}mB015CurV/H">
                                 <value name="Date">
                                   <block type="variables_get" id="+T3di?%p#ES(fu82;6#6">
                                     <field name="VAR">now</field>
@@ -713,9 +713,9 @@
                       </block>
                     </value>
                     <value name="ARG2">
-                      <block type="myutility_date_parseint" id=".4?J[o!JRW860DgDk]4}">
+                      <block type="js_ext_parseint" id=".4?J[o!JRW860DgDk]4}">
                         <value name="Date">
-                          <block type="myutility_str_slice" id=",!@Bdu#[AsG{`:D,ANTe">
+                          <block type="js_ext_str_slice" id=",!@Bdu#[AsG{`:D,ANTe">
                             <value name="string">
                               <block type="variables_get" id="cph2u7(yZ1IXzQ3{XV;!">
                                 <field name="VAR">hhmmss</field>
@@ -753,9 +753,9 @@
                           </block>
                         </value>
                         <value name="ARG2">
-                          <block type="myutility_date_parseint" id="J~m4dl0VTD22]g.#RfYv">
+                          <block type="js_ext_parseint" id="J~m4dl0VTD22]g.#RfYv">
                             <value name="Date">
-                              <block type="myutility_str_slice" id="9ohJZKUM2Yl@8:NVolwD">
+                              <block type="js_ext_str_slice" id="9ohJZKUM2Yl@8:NVolwD">
                                 <value name="string">
                                   <block type="variables_get" id="_!sbA.gm{cl*rS=EkD;{">
                                     <field name="VAR">hhmmss</field>
@@ -793,9 +793,9 @@
                               </block>
                             </value>
                             <value name="ARG2">
-                              <block type="myutility_date_parseint" id="_hC=2Vh)^(gH18-hAOus">
+                              <block type="js_ext_parseint" id="_hC=2Vh)^(gH18-hAOus">
                                 <value name="Date">
-                                  <block type="myutility_str_slice" id="5L?Vq[MiT9#iEjQX?}lp">
+                                  <block type="js_ext_str_slice" id="5L?Vq[MiT9#iEjQX?}lp">
                                     <value name="string">
                                       <block type="variables_get" id="9ECbr%8xC}Gw^^%l_wog">
                                         <field name="VAR">hhmmss</field>
@@ -833,9 +833,9 @@
                                   </block>
                                 </value>
                                 <value name="ARG2">
-                                  <block type="myutility_date_parseint" id="~(nCGIf+g_/Ool]^sqmp">
+                                  <block type="js_ext_parseint" id="~(nCGIf+g_/Ool]^sqmp">
                                     <value name="Date">
-                                      <block type="myutility_str_slice" id="!7PK[e}[oY^T;H#7hTjT">
+                                      <block type="js_ext_str_slice" id="!7PK[e}[oY^T;H#7hTjT">
                                         <value name="string">
                                           <block type="variables_get" id="U3q~_Pn]fGEX*u:toxSU">
                                             <field name="VAR">hhmmss</field>
@@ -873,9 +873,9 @@
                                       </block>
                                     </value>
                                     <value name="ARG2">
-                                      <block type="myutility_date_parseint" id="{],lmM{=!]Fx}onl+W](">
+                                      <block type="js_ext_parseint" id="{],lmM{=!]Fx}onl+W](">
                                         <value name="Date">
-                                          <block type="myutility_str_slice" id="Y;Nn(KxmcGBh^~BCa341">
+                                          <block type="js_ext_str_slice" id="Y;Nn(KxmcGBh^~BCa341">
                                             <value name="string">
                                               <block type="variables_get" id="fz07.~o}qq)%+sCrkk8)">
                                                 <field name="VAR">hhmmss</field>
@@ -913,9 +913,9 @@
                                           </block>
                                         </value>
                                         <value name="ARG2">
-                                          <block type="myutility_date_parseint" id="XA5NKj+(a/~0j-jCeIHu">
+                                          <block type="js_ext_parseint" id="XA5NKj+(a/~0j-jCeIHu">
                                             <value name="Date">
-                                              <block type="myutility_str_slice" id=":o/]lfWHmwc[o|Bt0Ub.">
+                                              <block type="js_ext_str_slice" id=":o/]lfWHmwc[o|Bt0Ub.">
                                                 <value name="string">
                                                   <block type="variables_get" id="Gw(X,_(6TNp/q@?ni6;D">
                                                     <field name="VAR">hhmmss</field>
@@ -936,9 +936,9 @@
                                           </block>
                                         </value>
                                         <next>
-                                          <block type="spreadsheetapp_flush" id="+@t!g6d}ioK,;bs]BsTS">
+                                          <block type="gas_spreadsheetapp_flush" id="+@t!g6d}ioK,;bs]BsTS">
                                             <next>
-                                              <block type="utilities_sleep" id="|n2pb%Y^u],C4*=DmA0@">
+                                              <block type="gas_utilities_sleep" id="|n2pb%Y^u],C4*=DmA0@">
                                                 <value name="milliseconds">
                                                   <block type="math_number" id="c*YM)H{lD|7U`Im:3,)?">
                                                     <field name="NUM">250</field>
@@ -1007,12 +1007,12 @@
     <statement name="STACK">
       <block type="next" id="5|%(o!tJnUHd=QptPHOQ">
         <value name="INPUT">
-          <block type="logger_log" id="nB#LFXRnRnWm*f_WOAx(">
+          <block type="gas_logger_log" id="nB#LFXRnRnWm*f_WOAx(">
             <value name="Logger">
               <block type="logger" id="Xb(@9hn3inT:^ZGmy?fo"></block>
             </value>
             <value name="String">
-              <block type="range_geta1notation" id="(nkrSph;=db%18x[D+rt">
+              <block type="gas_range_geta1notation" id="(nkrSph;=db%18x[D+rt">
                 <value name="RANGE">
                   <block type="variables_get" id="cD}Fjl0suP}x7=hvsXC5">
                     <field name="VAR">dispRange</field>
@@ -1025,14 +1025,14 @@
         <next>
           <block type="next" id="?|{E|Wt-=[f4!iQmRsuj">
             <value name="INPUT">
-              <block type="logger_log" id=",Do~P=CsV/;h;N}PJg6+">
+              <block type="gas_logger_log" id=",Do~P=CsV/;h;N}PJg6+">
                 <value name="Logger">
                   <block type="logger" id="EiecyHp,tba%~hL,pyM7"></block>
                 </value>
                 <value name="String">
-                  <block type="range_geta1notation" id="Vzy*119*U^0jea7VaSEE">
+                  <block type="gas_range_geta1notation" id="Vzy*119*U^0jea7VaSEE">
                     <value name="RANGE">
-                      <block type="range_getcell" id="wo|W.lZ3S-n_Ha)}9c-:">
+                      <block type="gas_range_getcell" id="wo|W.lZ3S-n_Ha)}9c-:">
                         <value name="Range">
                           <block type="variables_get" id="~`1{Vz66neR1:v/-t-B~">
                             <field name="VAR">dispRange</field>
@@ -1057,9 +1057,9 @@
             <next>
               <block type="next" id="T|F%]~F7BTErO%TYg-4-">
                 <value name="INPUT">
-                  <block type="range_setbackground" id="i=sXf%{wMhQX{eB=Fz9q">
+                  <block type="gas_range_setbackground" id="i=sXf%{wMhQX{eB=Fz9q">
                     <value name="Range">
-                      <block type="range_getcell" id="Y{)5Ko~u#3A`YPj}jz2v">
+                      <block type="gas_range_getcell" id="Y{)5Ko~u#3A`YPj}jz2v">
                         <value name="Range">
                           <block type="variables_get" id="LlT~KGlg4]q)-Fs0felP">
                             <field name="VAR">dispRange</field>

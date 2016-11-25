@@ -1,6 +1,6 @@
 // ------------------------------------------------------------
 // SpreadsheetApp.create()
-Blockly.Blocks['spreadsheetapp_create'] = {
+Blockly.Blocks['gas_spreadsheetapp_create'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
@@ -29,7 +29,7 @@ Blockly.Blocks['spreadsheetapp_create'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#create(String)');
     }
 };
-Blockly.JavaScript['spreadsheetapp_create'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_create'] = function(block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
     var value_rows = Blockly.JavaScript.valueToCode(block, 'ROWS', Blockly.JavaScript.ORDER_NONE);
     var value_columns = Blockly.JavaScript.valueToCode(block, 'COLUMNS', Blockly.JavaScript.ORDER_NONE);
@@ -42,19 +42,20 @@ Blockly.JavaScript['spreadsheetapp_create'] = function(block) {
 
 // ------------------------------------------------------------
 // SpreadsheetApp.flush()
-Blockly.Blocks['spreadsheetapp_flush'] = {
+Blockly.Blocks['gas_spreadsheetapp_flush'] = {
     init: function() {
         this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
             .appendField("更新を適用");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(20);
+        this.setColour(Blockly.COLOR.GAS.SS);
         this.setTooltip("保留中のすべてのスプレッドシートの変更を適用します");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#flush()');
     }
 };
-Blockly.JavaScript['spreadsheetapp_flush'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_flush'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
     var code = 'SpreadsheetApp.flush();\n';
     return code;
@@ -62,7 +63,7 @@ Blockly.JavaScript['spreadsheetapp_flush'] = function(block) {
 
 // ------------------------------------------------------------
 // SpreadsheetApp.getActive()
-Blockly.Blocks['spreadsheetapp_getactive'] = {
+Blockly.Blocks['gas_spreadsheetapp_getactive'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
@@ -76,14 +77,14 @@ Blockly.Blocks['spreadsheetapp_getactive'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActive()');
     }
 };
-Blockly.JavaScript['spreadsheetapp_getactive'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_getactive'] = function(block) {
     var code = 'SpreadsheetApp.getActive()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // SpreadsheetApp.getActiveRange()
-Blockly.Blocks['spreadsheetapp_getactiverange'] = {
+Blockly.Blocks['gas_spreadsheetapp_getactiverange'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -97,35 +98,35 @@ Blockly.Blocks['spreadsheetapp_getactiverange'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveRange()');
     }
 };
-Blockly.JavaScript['spreadsheetapp_getactiverange'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_getactiverange'] = function(block) {
     var code = 'SpreadsheetApp.getActiveRange()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // SpreadsheetApp.getActiveSheet()
-Blockly.Blocks['spreadsheetapp_getactivesheet'] = {
+Blockly.Blocks['gas_spreadsheetapp_getactivesheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
             .appendField("シート取得");
         this.appendDummyInput()
             .appendField("現在のアクティブ");
         this.setInputsInline(true);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip("アクティブシートを取得します。スプレッドシート画面に表示されているシートです。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveSheet()');
     }
 };
-Blockly.JavaScript['spreadsheetapp_getactivesheet'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_getactivesheet'] = function(block) {
     var code = 'SpreadsheetApp.getActiveSheet()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // SpreadsheetApp.getActiveSpreadsheet()
-Blockly.Blocks['spreadsheetapp_getactivespreadsheet'] = {
+Blockly.Blocks['gas_spreadsheetapp_getactivespreadsheet'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
@@ -139,14 +140,14 @@ Blockly.Blocks['spreadsheetapp_getactivespreadsheet'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveSpreadsheet()');
     }
 };
-Blockly.JavaScript['spreadsheetapp_getactivespreadsheet'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_getactivespreadsheet'] = function(block) {
     var code = 'SpreadsheetApp.getActiveSpreadsheet()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------------------
 // SpreadsheetApp.getUi()
-Blockly.Blocks['spreadsheetapp_getui'] = {
+Blockly.Blocks['gas_spreadsheetapp_getui'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"))
@@ -158,7 +159,7 @@ Blockly.Blocks['spreadsheetapp_getui'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getUi()');
     }
 };
-Blockly.JavaScript['spreadsheetapp_getui'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_getui'] = function(block) {
     var code = 'SpreadsheetApp.getUi()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -209,7 +210,7 @@ Blockly.JavaScript['spreadsheetapp_open'] = function(block) {
 
 // ------------------------------------------------------------
 // SpreadsheetApp.openById()
-Blockly.Blocks['spreadsheetapp_openbyid'] = {
+Blockly.Blocks['gas_spreadsheetapp_openbyid'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
@@ -226,7 +227,7 @@ Blockly.Blocks['spreadsheetapp_openbyid'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#openById(String)');
     }
 };
-Blockly.JavaScript['spreadsheetapp_openbyid'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_openbyid'] = function(block) {
     var value_id = Blockly.JavaScript.valueToCode(block, 'ID', Blockly.JavaScript.ORDER_NONE);
     var code = 'SpreadsheetApp.openById(' + value_id + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -234,7 +235,7 @@ Blockly.JavaScript['spreadsheetapp_openbyid'] = function(block) {
 
 // ------------------------------------------------------------
 // SpreadsheetApp.openByUrl()
-Blockly.Blocks['spreadsheetapp_openbyurl'] = {
+Blockly.Blocks['gas_spreadsheetapp_openbyurl'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
@@ -251,7 +252,7 @@ Blockly.Blocks['spreadsheetapp_openbyurl'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#openByUrl(String)');
     }
 };
-Blockly.JavaScript['spreadsheetapp_openbyurl'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_openbyurl'] = function(block) {
     var value_url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_NONE);
     var code = 'SpreadsheetApp.openByUrl(' + value_url + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -259,7 +260,7 @@ Blockly.JavaScript['spreadsheetapp_openbyurl'] = function(block) {
 
 // ------------------------------------------------------------
 // SpreadsheetApp.setActiveRange(range)
-Blockly.Blocks['spreadsheetapp_setactiverange'] = {
+Blockly.Blocks['gas_spreadsheetapp_setactiverange'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -276,7 +277,7 @@ Blockly.Blocks['spreadsheetapp_setactiverange'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#setActiveRange(Range)');
     }
 };
-Blockly.JavaScript['spreadsheetapp_setactiverange'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_setactiverange'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = 'SpreadsheetApp.setActiveRange(' + value_range + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -284,24 +285,24 @@ Blockly.JavaScript['spreadsheetapp_setactiverange'] = function(block) {
 
 // ------------------------------------------------------------
 // SpreadsheetApp.setActiveSheet(sheet)
-Blockly.Blocks['spreadsheetapp_setactivesheet'] = {
+Blockly.Blocks['gas_spreadsheetapp_setactivesheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
             .appendField("シート選択");
         this.appendValueInput("SHEET")
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip("アクティブシートに設定します。シートが別のスプレッドシートに属していない場合、スプレッドシートのUIには選択したシートが表示されます。");
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#setActiveSheet(Sheet)');
     }
 };
-Blockly.JavaScript['spreadsheetapp_setactivesheet'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_setactivesheet'] = function(block) {
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'SHEET', Blockly.JavaScript.ORDER_NONE);
     var code = 'SpreadsheetApp.setActiveSheet(' + value_sheet + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -309,9 +310,10 @@ Blockly.JavaScript['spreadsheetapp_setactivesheet'] = function(block) {
 
 // ------------------------------------------------------------
 // SpreadsheetApp.setActiveSpreadsheet(newActiveSpreadsheet)
-Blockly.Blocks['spreadsheetapp_setactivespreadsheet'] = {
+Blockly.Blocks['gas_spreadsheetapp_setactivespreadsheet'] = {
     init: function() {
         this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SS, 15, 15, "*"))
             .appendField("スプレッドシートをアクティブ");
         this.appendValueInput("SPREADSHEET")
             .setCheck(Blockly.TYPE.GAS.SS)
@@ -326,8 +328,8 @@ Blockly.Blocks['spreadsheetapp_setactivespreadsheet'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#setActiveSpreadsheet(Spreadsheet)');
     }
 };
-Blockly.JavaScript['spreadsheetapp_setactivespreadsheet'] = function(block) {
+Blockly.JavaScript['gas_spreadsheetapp_setactivespreadsheet'] = function(block) {
     var value_spreadsheet = Blockly.JavaScript.valueToCode(block, 'SPREADSHEET', Blockly.JavaScript.ORDER_NONE);
-    var code = 'SpreadsheetApp.setActiveSpreadsheet(' + value_spreadsheet + ')';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    var code = 'SpreadsheetApp.setActiveSpreadsheet(' + value_spreadsheet + ');\n';
+    return code;//[code, Blockly.JavaScript.ORDER_ATOMIC];
 };

@@ -5,7 +5,7 @@
 // ------------------------------------------------------------
 // activate()
 // Make this range the active range.
-Blockly.Blocks['range_activate'] = {
+Blockly.Blocks['gas_range_activate'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -22,7 +22,7 @@ Blockly.Blocks['range_activate'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#activate()');
     }
 };
-Blockly.JavaScript['range_activate'] = function(block) {
+Blockly.JavaScript['gas_range_activate'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.activate()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -39,7 +39,7 @@ Booleanユーザーが範囲内のすべてのセルを編集する権限を持�
 // ------------------------------------------------------------
 // clear()
 // Clears the range of contents, formats, and data-validation rules.
-Blockly.Blocks['range_clear'] = {
+Blockly.Blocks['gas_range_clear'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -56,7 +56,7 @@ Blockly.Blocks['range_clear'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#clear()');
     }
 };
-Blockly.JavaScript['range_clear'] = function(block) {
+Blockly.JavaScript['gas_range_clear'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.clear()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -70,7 +70,7 @@ clear(options)  Range Clears the range of contents, format, data-validation rule
 // ------------------------------------------------------------
 // clearContent()
 // Clears the content of the range, leaving the formatting intact.
-Blockly.Blocks['range_clearcntent'] = {
+Blockly.Blocks['gas_range_clearcntent'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -87,7 +87,7 @@ Blockly.Blocks['range_clearcntent'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#clearContent()');
     }
 };
-Blockly.JavaScript['range_clearcntent'] = function(block) {
+Blockly.JavaScript['gas_range_clearcntent'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.clearContent()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -104,7 +104,7 @@ copyFormatToRange(sheet, column, columnEnd, row, rowEnd)  void  Copy the formatt
 // ------------------------------------------------------------
 // copyTo(destination)  
 // Copies the data from a range of cells to another range of cells.
-Blockly.Blocks['range_copyto'] = {
+Blockly.Blocks['gas_range_copyto'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -127,7 +127,7 @@ Blockly.Blocks['range_copyto'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#copyTo(Range)');
     }
 };
-Blockly.JavaScript['range_copyto'] = function(block) {
+Blockly.JavaScript['gas_range_copyto'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var value_destination = Blockly.JavaScript.valueToCode(block, 'destination', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.copyTo(' + value_destination + ');\n';
@@ -141,7 +141,7 @@ copyTo(destination, options)  void  Copies the data from a range of cells to ano
 // ------------------------------------------------------------
 // value_rowend(gridId, column, columnEnd, row, rowEnd)
 // Copy the content of the range to the given location.
-Blockly.Blocks['range_copyvaluestorange_gridid'] = {
+Blockly.Blocks['gas_range_copyvaluestorange_gridid'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -184,7 +184,7 @@ Blockly.Blocks['range_copyvaluestorange_gridid'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#copyFormatToRange(Integer,Integer,Integer,Integer,Integer)');
     }
 };
-Blockly.JavaScript['range_copyvaluestorange_gridid'] = function(block) {
+Blockly.JavaScript['gas_range_copyvaluestorange_gridid'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var value_gridid = Blockly.JavaScript.valueToCode(block, 'gridId', Blockly.JavaScript.ORDER_NONE);
     var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
@@ -198,7 +198,7 @@ Blockly.JavaScript['range_copyvaluestorange_gridid'] = function(block) {
 // ------------------------------------------------------------
 // copyValuesToRange(sheet, column, columnEnd, row, rowEnd) 
 // Copy the content of the range to the given location.
-Blockly.Blocks['range_copyvaluestorange_sheet'] = {
+Blockly.Blocks['gas_range_copyvaluestorange_sheet'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -212,7 +212,7 @@ Blockly.Blocks['range_copyvaluestorange_sheet'] = {
             .setCheck(Blockly.TYPE.GAS.SHEET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("コピー先シート")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"));
         this.appendValueInput("column")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -241,7 +241,7 @@ Blockly.Blocks['range_copyvaluestorange_sheet'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#copyValuesToRange(Sheet,Integer,Integer,Integer,Integer)');
     }
 };
-Blockly.JavaScript['range_copyvaluestorange_sheet'] = function(block) {
+Blockly.JavaScript['gas_range_copyvaluestorange_sheet'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var value_sheet = Blockly.JavaScript.valueToCode(block, 'Sheet', Blockly.JavaScript.ORDER_NONE);
     var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
@@ -256,7 +256,7 @@ Blockly.JavaScript['range_copyvaluestorange_sheet'] = function(block) {
 
 //　getA1Notation()
 // Returns a string description of the range, in A1 notation.
-Blockly.Blocks['range_geta1notation'] = {
+Blockly.Blocks['gas_range_geta1notation'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
@@ -273,7 +273,7 @@ Blockly.Blocks['range_geta1notation'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getA1Notation()');
     }
 };
-Blockly.JavaScript['range_geta1notation'] = function(block) {
+Blockly.JavaScript['gas_range_geta1notation'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getA1Notation()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -282,7 +282,7 @@ Blockly.JavaScript['range_geta1notation'] = function(block) {
 // ------------------------------------------------------------
 //　getBackground()
 // Returns the background color of the top-left cell in the range (i.e., '#ffffff').
-Blockly.Blocks['range_getbackground'] = {
+Blockly.Blocks['gas_range_getbackground'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"))
@@ -299,7 +299,7 @@ Blockly.Blocks['range_getbackground'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getBackground()');
     }
 };
-Blockly.JavaScript['range_getbackground'] = function(block) {
+Blockly.JavaScript['gas_range_getbackground'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getBackground()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -308,7 +308,7 @@ Blockly.JavaScript['range_getbackground'] = function(block) {
 // ------------------------------------------------------------
 // getBackgrounds()
 // Returns the background colors of the cells in the range (i.e., '#ffffff').
-Blockly.Blocks['range_getbackgrounds'] = {
+Blockly.Blocks['gas_range_getbackgrounds'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"))
@@ -325,7 +325,7 @@ Blockly.Blocks['range_getbackgrounds'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getBackgrounds()');
     }
 };
-Blockly.JavaScript['range_getbackgrounds'] = function(block) {
+Blockly.JavaScript['gas_range_getbackgrounds'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getBackgrounds()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -334,7 +334,7 @@ Blockly.JavaScript['range_getbackgrounds'] = function(block) {
 // ------------------------------------------------------------
 // getCell(row, column)
 // Returns a given cell within a range.
-Blockly.Blocks['range_getcell'] = {
+Blockly.Blocks['gas_range_getcell'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -360,7 +360,7 @@ Blockly.Blocks['range_getcell'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getCell(Integer,Integer)');
     }
 };
-Blockly.JavaScript['range_getcell'] = function(block) {
+Blockly.JavaScript['gas_range_getcell'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_NONE);
     var value_column = Blockly.JavaScript.valueToCode(block, 'column', Blockly.JavaScript.ORDER_NONE);
@@ -371,7 +371,7 @@ Blockly.JavaScript['range_getcell'] = function(block) {
 // ------------------------------------------------------------
 // getColumn()
 // Returns the starting column position for this range.
-Blockly.Blocks['range_getcolumn'] = {
+Blockly.Blocks['gas_range_getcolumn'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
@@ -390,7 +390,7 @@ Blockly.Blocks['range_getcolumn'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getColumn()');
     }
 };
-Blockly.JavaScript['range_getcolumn'] = function(block) {
+Blockly.JavaScript['gas_range_getcolumn'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getColumn()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -424,7 +424,7 @@ getFormulasR1C1() String[][]  Returns the formulas (R1C1 notation) for the cells
 // ------------------------------------------------------------
 // getGridId() 
 // Returns the grid ID of the range's parent sheet.
-Blockly.Blocks['range_getgridid'] = {
+Blockly.Blocks['gas_range_getgridid'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
@@ -441,7 +441,7 @@ Blockly.Blocks['range_getgridid'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getGridId()');
     }
 };
-Blockly.JavaScript['range_getgridid'] = function(block) {
+Blockly.JavaScript['gas_range_getgridid'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getGridId()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -456,7 +456,7 @@ getHorizontalAlignments() String[][]  Returns the horizontal alignments of the c
 // ------------------------------------------------------------
 // getLastColumn()
 // Returns the end column position.
-Blockly.Blocks['range_getlastcolumn'] = {
+Blockly.Blocks['gas_range_getlastcolumn'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
@@ -475,7 +475,7 @@ Blockly.Blocks['range_getlastcolumn'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getLastColumn()');
     }
 };
-Blockly.JavaScript['range_getlastcolumn'] = function(block) {
+Blockly.JavaScript['gas_range_getlastcolumn'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getLastColumn()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -484,7 +484,7 @@ Blockly.JavaScript['range_getlastcolumn'] = function(block) {
 // ------------------------------------------------------------
 // getLastRow()
 //Returns the end row position.
-Blockly.Blocks['range_getlastrow'] = {
+Blockly.Blocks['gas_range_getlastrow'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
@@ -503,7 +503,7 @@ Blockly.Blocks['range_getlastrow'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getLastRow()');
     }
 };
-Blockly.JavaScript['range_getlastrow'] = function(block) {
+Blockly.JavaScript['gas_range_getlastrow'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getLastRow()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -517,7 +517,7 @@ getNotes()  String[][]  Returns the notes associated with the cells in the range
 
 // getNumColumns()
 // Returns the number of columns in this range.
-Blockly.Blocks['range_getnumcolumns'] = {
+Blockly.Blocks['gas_range_getnumcolumns'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
@@ -536,7 +536,7 @@ Blockly.Blocks['range_getnumcolumns'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getNumColumns()');
     }
 };
-Blockly.JavaScript['range_getnumcolumns'] = function(block) {
+Blockly.JavaScript['gas_range_getnumcolumns'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getNumColumns()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -544,7 +544,7 @@ Blockly.JavaScript['range_getnumcolumns'] = function(block) {
 
 // getNumRows()
 // Returns the number of rows in this range.
-Blockly.Blocks['range_getnumrows'] = {
+Blockly.Blocks['gas_range_getnumrows'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"));
@@ -563,7 +563,7 @@ Blockly.Blocks['range_getnumrows'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getNumRows()');
     }
 };
-Blockly.JavaScript['range_getnumrows'] = function(block) {
+Blockly.JavaScript['gas_range_getnumrows'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getNumRows()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -577,7 +577,7 @@ getNumberFormats()  String[][]  Returns the number formats for the cells in the 
 // ------------------------------------------------------------
 // getRow()
 // Returns the row position for this range.
-Blockly.Blocks['range_getrow'] = {
+Blockly.Blocks['gas_range_getrow'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
@@ -596,7 +596,7 @@ Blockly.Blocks['range_getrow'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getRow()');
     }
 };
-Blockly.JavaScript['range_getrow'] = function(block) {
+Blockly.JavaScript['gas_range_getrow'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getRow()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -606,7 +606,7 @@ Blockly.JavaScript['range_getrow'] = function(block) {
 // ------------------------------------------------------------
 // getRowIndex()
 // Returns the row position for this range.
-Blockly.Blocks['range_getrowindex'] = {
+Blockly.Blocks['gas_range_getrowindex'] = {
   init: function() {
     this.appendDummyInput()
       .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.NUM, 15, 15, "*"))
@@ -623,7 +623,7 @@ Blockly.Blocks['range_getrowindex'] = {
     this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getRowIndex()');
   }
 };
-Blockly.JavaScript['range_getrowindex'] = function(block) {
+Blockly.JavaScript['gas_range_getrowindex'] = function(block) {
   var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
   var code = value_range + '.getRowIndex()';
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -633,10 +633,10 @@ Blockly.JavaScript['range_getrowindex'] = function(block) {
 // ------------------------------------------------------------
 // getSheet()
 // Returns the sheet this range belongs to.
-Blockly.Blocks['range_getsheet'] = {
+Blockly.Blocks['gas_range_getsheet'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SEET, 15, 15, "*"))
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.SHEET, 15, 15, "*"))
             .appendField("シート取得");
         this.appendValueInput("RANGE")
             .setCheck(Blockly.TYPE.GAS.RANGE)
@@ -645,12 +645,12 @@ Blockly.Blocks['range_getsheet'] = {
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"));
         this.setInputsInline(false);
         this.setOutput(true, Blockly.TYPE.GAS.SHEET);
-        this.setColour(Blockly.COLOR.GAS.SEET);
+        this.setColour(Blockly.COLOR.GAS.SHEET);
         this.setTooltip('この範囲が属するシートを返します。。');
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getSheet()');
     }
 };
-Blockly.JavaScript['range_getsheet'] = function(block) {
+Blockly.JavaScript['gas_range_getsheet'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getSheet()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -659,7 +659,7 @@ Blockly.JavaScript['range_getsheet'] = function(block) {
 // ------------------------------------------------------------
 // getValue()
 // Returns the value of the top-left cell in the range.
-Blockly.Blocks['range_getvalue'] = {
+Blockly.Blocks['gas_range_getvalue'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("範囲の左上の値");
@@ -675,7 +675,7 @@ Blockly.Blocks['range_getvalue'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getValue()');
     }
 };
-Blockly.JavaScript['range_getvalue'] = function(block) {
+Blockly.JavaScript['gas_range_getvalue'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getValue()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -684,7 +684,7 @@ Blockly.JavaScript['range_getvalue'] = function(block) {
 // ------------------------------------------------------------
 // getValues()
 // Returns the rectangular grid of values for this range.
-Blockly.Blocks['range_getvalues'] = {
+Blockly.Blocks['gas_range_getvalues'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.ARR, 15, 15, "*"))
@@ -701,7 +701,7 @@ Blockly.Blocks['range_getvalues'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#getValues()');
     }
 };
-Blockly.JavaScript['range_getvalues'] = function(block) {
+Blockly.JavaScript['gas_range_getvalues'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'RANGE', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.getValues()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -725,7 +725,7 @@ mergeVertically() Range Merges the cells in the range together.
 */
 
 // moveTo(target)  void  Cut and paste (both format and values) from this range to the target range.
-Blockly.Blocks['range_moveto'] = {
+Blockly.Blocks['gas_range_moveto'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -748,7 +748,7 @@ Blockly.Blocks['range_moveto'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#moveTo(Range)');
     }
 };
-Blockly.JavaScript['range_moveto'] = function(block) {
+Blockly.JavaScript['gas_range_moveto'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var value_destination = Blockly.JavaScript.valueToCode(block, 'destination', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.moveTo(' + value_destination + ');\n';
@@ -765,7 +765,7 @@ protect() Protection  Creates an object that can protect the range from being ed
 // ------------------------------------------------------------
 // setBackground(color)
 // Sets the background color of all cells in the range in CSS notation (like '#ffffff' or 'white').
-Blockly.Blocks['range_setbackground'] = {
+Blockly.Blocks['gas_range_setbackground'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -787,7 +787,7 @@ Blockly.Blocks['range_setbackground'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setBackground(String)');
     }
 };
-Blockly.JavaScript['range_setbackground'] = function(block) {
+Blockly.JavaScript['gas_range_setbackground'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var value_color = Blockly.JavaScript.valueToCode(block, 'Color', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.setBackground(' + value_color + ')';
@@ -797,7 +797,7 @@ Blockly.JavaScript['range_setbackground'] = function(block) {
 // ------------------------------------------------------------
 // setBackgroundRGB(red, green, blue)
 // Sets the background to the given RGB color.
-Blockly.Blocks['range_setbackgroundrgb'] = {
+Blockly.Blocks['gas_range_setbackgroundrgb'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -829,7 +829,7 @@ Blockly.Blocks['range_setbackgroundrgb'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setBackgroundRGB(Integer,Integer,Integer)');
     }
 };
-Blockly.JavaScript['range_setbackgroundrgb'] = function(block) {
+Blockly.JavaScript['gas_range_setbackgroundrgb'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var value_red = Blockly.JavaScript.valueToCode(block, 'red', Blockly.JavaScript.ORDER_NONE);
     var value_green = Blockly.JavaScript.valueToCode(block, 'green', Blockly.JavaScript.ORDER_NONE);
@@ -870,7 +870,7 @@ setNumberFormats(numberFormats) Range Sets a rectangular grid of number or date 
 
 // --------------------------------------------------------------------------
 // setValue(value)  Range Sets the value of the range.
-Blockly.Blocks['range_setvalue'] = {
+Blockly.Blocks['gas_range_setvalue'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -891,7 +891,7 @@ Blockly.Blocks['range_setvalue'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setValue(Object)');
     }
 };
-Blockly.JavaScript['range_setvalue'] = function(block) {
+Blockly.JavaScript['gas_range_setvalue'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.setValue(' + value_value + ')';
@@ -901,7 +901,7 @@ Blockly.JavaScript['range_setvalue'] = function(block) {
 // --------------------------------------------------------------------------
 // setValues(values)
 // Sets a rectangular grid of values (must match dimensions of this range).
-Blockly.Blocks['range_setvalues'] = {
+Blockly.Blocks['gas_range_setvalues'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.RANG, 15, 15, "*"))
@@ -923,7 +923,7 @@ Blockly.Blocks['range_setvalues'] = {
         this.setHelpUrl('https://developers.google.com/apps-script/reference/spreadsheet/range#setValue(Object)');
     }
 };
-Blockly.JavaScript['range_setvalues'] = function(block) {
+Blockly.JavaScript['gas_range_setvalues'] = function(block) {
     var value_range = Blockly.JavaScript.valueToCode(block, 'Range', Blockly.JavaScript.ORDER_NONE);
     var value_values = Blockly.JavaScript.valueToCode(block, 'values', Blockly.JavaScript.ORDER_NONE);
     var code = value_range + '.setValue(' + value_values + ')';

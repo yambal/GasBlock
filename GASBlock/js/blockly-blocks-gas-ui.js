@@ -1,6 +1,6 @@
 // ------------------------------------------------
-// alert(prompt, buttons)
-Blockly.Blocks['ui_alert_prompt'] = {
+// alert(prompt, gas_buttons)
+Blockly.Blocks['gas_ui_alert_prompt'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTN, 15, 15, "*"));
@@ -17,33 +17,33 @@ Blockly.Blocks['ui_alert_prompt'] = {
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("メッセージ")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
-        this.appendValueInput("ButtonSet")
-            .setCheck("ButtonSet")
+        this.appendValueInput("gas_buttonSet")
+            .setCheck(Blockly.TYPE.GAS.BUTTON_SET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.OP, 15, 15, "*"))
             .appendField("ボタンセット")
-            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTNSET, 15, 15, "*"));
+            .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
         this.setInputsInline(false);
-        this.setOutput(true, "Button");
+        this.setOutput(true, Blockly.TYPE.GAS.BUTTON);
         this.setColour(Blockly.COLOR.GAS.UI);
         this.setTooltip('指定されたメッセージとボタンのセットを持つダイアログボックスをユーザのエディタで開きます。このメソッドは、ダイアログが開いている間にサーバーサイドスクリプトを中断します。');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/base/ui#alert(String,ButtonSet)');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/base/ui#alert(String)');
     }
 };
-Blockly.JavaScript['ui_alert_prompt'] = function(block) {
+Blockly.JavaScript['gas_ui_alert_prompt'] = function(block) {
     var value_ui = Blockly.JavaScript.valueToCode(block, 'UI', Blockly.JavaScript.ORDER_NONE);
     var value_prompt = Blockly.JavaScript.valueToCode(block, 'prompt', Blockly.JavaScript.ORDER_NONE);
-    var value_buttonset = Blockly.JavaScript.valueToCode(block, 'ButtonSet', Blockly.JavaScript.ORDER_NONE);
+    var value_gas_buttonset = Blockly.JavaScript.valueToCode(block, 'gas_buttonSet', Blockly.JavaScript.ORDER_NONE);
     var code = value_ui + '.alert(' + value_prompt + ')';
-    if (value_buttonset) {
-        code = value_ui + '.alert(' + value_prompt + ',' + value_buttonset + ')';
+    if (value_gas_buttonset) {
+        code = value_ui + '.alert(' + value_prompt + ',' + value_gas_buttonset + ')';
     }
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------
-// alert(title, prompt, buttons)
-Blockly.Blocks['alert_title_prompt_buttons'] = {
+// alert(title, prompt, gas_buttons)
+Blockly.Blocks['gas_alert_title_prompt_gas_buttons'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTN, 15, 15, "*"));
@@ -65,30 +65,30 @@ Blockly.Blocks['alert_title_prompt_buttons'] = {
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("メッセージ")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
-        this.appendValueInput("buttons")
-            .setCheck("ButtonSet")
+        this.appendValueInput("gas_buttons")
+            .setCheck(Blockly.TYPE.GAS.BUTTON_SET)
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("ボタンセット")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTNSET, 15, 15, "*"));
         this.setInputsInline(false);
-        this.setOutput(true, "Button");
+        this.setOutput(true, Blockly.TYPE.GAS.BUTTON);
         this.setColour(Blockly.COLOR.GAS.UI);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/base/ui#alert(String,ButtonSet)');
     }
 };
-Blockly.JavaScript['alert_title_prompt_buttons'] = function(block) {
+Blockly.JavaScript['gas_alert_title_prompt_gas_buttons'] = function(block) {
     var value_ui = Blockly.JavaScript.valueToCode(block, 'UI', Blockly.JavaScript.ORDER_NONE);
     var value_title = Blockly.JavaScript.valueToCode(block, 'title', Blockly.JavaScript.ORDER_NONE);
     var value_prompt = Blockly.JavaScript.valueToCode(block, 'prompt', Blockly.JavaScript.ORDER_NONE);
-    var value_buttonset = Blockly.JavaScript.valueToCode(block, 'buttons', Blockly.JavaScript.ORDER_NONE);
-    var code = value_ui + '.alert(' + value_title + ',' + value_prompt + ', ' + value_buttonset + ')';
+    var value_gas_buttonset = Blockly.JavaScript.valueToCode(block, 'gas_buttons', Blockly.JavaScript.ORDER_NONE);
+    var code = value_ui + '.alert(' + value_title + ',' + value_prompt + ', ' + value_gas_buttonset + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 
-//
-Blockly.Blocks['promptresponse_getresponsetext'] = {
+/*
+Blockly.Blocks['gas_promptresponse_getresponsetext'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("テキスト");
@@ -104,13 +104,14 @@ Blockly.Blocks['promptresponse_getresponsetext'] = {
         this.setHelpUrl('http://www.example.com/');
     }
 };
-Blockly.JavaScript['promptresponse_getresponsetext'] = function(block) {
+Blockly.JavaScript['gas_promptresponse_getresponsetext'] = function(block) {
     var value_promptresponse = Blockly.JavaScript.valueToCode(block, 'PromptResponse', Blockly.JavaScript.ORDER_NONE);
     var code = value_promptresponse　 + '.getResponseText()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-Blockly.Blocks['promptresponse_getselectedbutton'] = {
+
+Blockly.Blocks['gas_promptresponse_getselectedgas_button'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("ボタン");
@@ -120,21 +121,21 @@ Blockly.Blocks['promptresponse_getselectedbutton'] = {
         this.appendDummyInput()
             .appendField("のボタン");
         this.setInputsInline(true);
-        this.setOutput(true, "Button");
+        this.setOutput(true, Blockly.TYPE.GAS.BUTTON);
         this.setColour(330);
         this.setTooltip('');
         this.setHelpUrl('http://www.example.com/');
     }
 };
-Blockly.JavaScript['promptresponse_getselectedbutton'] = function(block) {
+Blockly.JavaScript['gas_promptresponse_getselectedgas_button'] = function(block) {
     var value_promptresponse = Blockly.JavaScript.valueToCode(block, 'PromptResponse', Blockly.JavaScript.ORDER_NONE);
-    var code = value_promptresponse　 + '.getSelectedButton()';
+    var code = value_promptresponse　 + '.getSelectedgas_button()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // ------------------------------------------------
-// alert(prompt, buttons)
-Blockly.Blocks['ui_prompt_prompt'] = {
+// alert(prompt, gas_buttons)
+Blockly.Blocks['gas_ui_prompt_prompt'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("入力欄の応答");
@@ -155,14 +156,15 @@ Blockly.Blocks['ui_prompt_prompt'] = {
         this.setHelpUrl('http://www.example.com/');
     }
 };
-Blockly.JavaScript['ui_prompt_prompt'] = function(block) {
+Blockly.JavaScript['gas_ui_prompt_prompt'] = function(block) {
     var value_ui = Blockly.JavaScript.valueToCode(block, 'UI', Blockly.JavaScript.ORDER_NONE);
     var value_prompt = Blockly.JavaScript.valueToCode(block, 'prompt', Blockly.JavaScript.ORDER_NONE);
     var code = value_ui + '.prompt(' + value_prompt + ')';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+*/
 
-Blockly.Blocks['button'] = {
+Blockly.Blocks['gas_button'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTN, 15, 15, "*"))
@@ -173,29 +175,29 @@ Blockly.Blocks['button'] = {
                 ["CANCEL", "CANCEL"],
                 ["YES", "YES"],
                 ["NO", "NO"]
-            ]), "Button");
+            ]), "gas_button");
         this.appendValueInput("UI")
             .setCheck("UI")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("UI")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"));
         this.setInputsInline(false);
-        this.setOutput(true, "Button");
+        this.setOutput(true, Blockly.TYPE.GAS.BUTTON);
         this.setColour(Blockly.COLOR.GAS.UI);
         this.setTooltip('ボタンを返します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/base/button');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/base/gas_button');
     }
 };
-Blockly.JavaScript['button'] = function(block) {
+Blockly.JavaScript['gas_button'] = function(block) {
     var value_ui = Blockly.JavaScript.valueToCode(block, 'UI', Blockly.JavaScript.ORDER_NONE);
-    var dropdown_button = block.getFieldValue('Button');
-    var code = value_ui + '.Button.' + dropdown_button;
+    var dropdown_gas_button = block.getFieldValue('gas_button');
+    var code = value_ui + '.gas_button.' + dropdown_gas_button;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 
 //
-Blockly.Blocks['alert_button_set'] = {
+Blockly.Blocks['alert_gas_button_set'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.BTNSET, 15, 15, "*"))
@@ -205,23 +207,22 @@ Blockly.Blocks['alert_button_set'] = {
                 ["OK, CANCEL", "OK_CANCEL"],
                 ["YES, NO", "YES_NO"],
                 ["YES, NO, CANCEL", "YES_NO_CANCEL"]
-            ]), "ButtonSet");
+            ]), "gas_buttonSet");
         this.appendValueInput("UI")
             .setCheck("UI")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("UI")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.GAS.DIALOG, 15, 15, "*"));
         this.setInputsInline(false);
-        this.setOutput(true, "ButtonSet");
+        this.setOutput(true, Blockly.TYPE.GAS.BUTTON_SET);
         this.setColour(Blockly.COLOR.GAS.UI);
         this.setTooltip('ボタンセットを返します');
-        this.setHelpUrl('https://developers.google.com/apps-script/reference/base/button-set');
+        this.setHelpUrl('https://developers.google.com/apps-script/reference/base/gas_button-set');
     }
 };
-Blockly.JavaScript['alert_button_set'] = function(block) {　　
+Blockly.JavaScript['alert_gas_button_set'] = function(block) {　　
     var value_ui = Blockly.JavaScript.valueToCode(block, 'UI', Blockly.JavaScript.ORDER_NONE);
-    var dropdown_buttonset = block.getFieldValue('ButtonSet');
-    var code = value_ui + '.ButtonSet.' + dropdown_buttonset;
-    // TODO: Change ORDER_NONE to the correct strength.
+    var dropdown_gas_buttonset = block.getFieldValue('gas_buttonSet');
+    var code = value_ui + '.gas_buttonSet.' + dropdown_gas_buttonset;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };

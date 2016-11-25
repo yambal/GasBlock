@@ -1,6 +1,6 @@
 var myBlocks = function() {
   function loadList() {
-    var savedText = sessionStorage.getItem('blocks');
+    var savedText = localStorage.getItem('blocks');
     if (savedText) {
       var saved = JSON.parse(savedText);
       return saved;
@@ -19,7 +19,7 @@ var myBlocks = function() {
     var savedList = loadList();
     savedList.push(one);
 
-    sessionStorage.setItem('blocks', JSON.stringify(savedList));
+    localStorage.setItem('blocks', JSON.stringify(savedList));
 
     return loadList();
   }
@@ -44,7 +44,7 @@ var myBlocks = function() {
         deleted.push(list[i]);
       }
     }
-    sessionStorage.setItem('blocks', JSON.stringify(deleted));
+    localStorage.setItem('blocks', JSON.stringify(deleted));
     return loadList();
   }
 
