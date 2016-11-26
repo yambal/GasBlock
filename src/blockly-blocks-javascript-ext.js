@@ -35,7 +35,7 @@ Blockly.JavaScript['js_ext_next'] = function(block) {
   }
 };
 Blockly.JavaScript['js_ext_comment'] = function(block) {
-  var value_comment = Blockly.JavaScript.valueToCode(block, 'comment', Blockly.JavaScript.ORDER_NONE);
+  var value_comment = Blockly.JavaScript.valueToCode(block, 'comment', Blockly.JavaScript.ORDER_ATOMIC);
   var code = '// ' +String(value_comment).replace(new RegExp("'",  "g"), "") + '\n';
   return code;
 };
