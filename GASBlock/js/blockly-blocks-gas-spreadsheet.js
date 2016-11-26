@@ -23,7 +23,7 @@ Blockly.Blocks['gas_spreadsheet_addmenu'] = {
         this.appendValueInput("name")
             .setCheck("String")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("メニュー")
+            .appendField("メニュー名")
             .appendField(new Blockly.FieldImage(Blockly.IMG.ICON.COM.STR, 15, 15, "*"));
         this.appendValueInput("subMenus")
             .setCheck("Array")
