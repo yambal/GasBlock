@@ -30,16 +30,21 @@
           <li class="nav-item">
             <a class="showJavascript nav-link" href="#">GAS</a>
           </li>
+          <!--
           <li class="nav-item">
             <a class="showXml nav-link" href="#">XML</a>
           </li>
+          // -->
           <li class="nav-item">
             <a class="showSaved nav-link" href="#">保存リスト</a>
+          </li>
+          <li class="nav-item">
+            <a class="showAbout nav-link" href="#">About</a>
           </li>
         </ul>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-        <gas_button class="save-btn btn btn-info">save</gas_button>
+        <button class="save-btn btn btn-info">save</button>
       </div>
     </div>
     <div id="Blockly-row" class="row">
@@ -58,6 +63,45 @@
           </tr>
           <tbody id="savedList"></tbody>
         </table>
+      </div>
+    </div>
+    <div id="About-row" class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h3>関連情報</h3>
+        <ul>
+          <li>Blockly : <a href="https://developers.google.com/blockly/">https://developers.google.com/blockly/</a></li>
+          <li>GASBlock @ Github : <a href="http://s.yambal.net/GASBlock">https://github.com/yambal/GasBlock</a></li>
+        </ul>
+        <hr />
+        <h3>GDG 発表資料</h3>
+        <p>DevFest Kansai 2016 (11/27) : <a href="https://devfestkansai.connpass.com/">https://devfestkansai.connpass.com/</a></p>
+        <div style="text-align: center;">
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR_o0SzQd-hD86eun8bmHNTZg7FddR6Crf8NUDAA-y_hwRp6-1jwhX0WyzSbYMN-95lO1F_-XVONHYS/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+        <hr />
+        <h3>Kyoto GAS</h3>
+        <div id="About-row" class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <p>Google Apps Script に関する勉強会等を実施するコミュニティです。</p>
+        <img src="img/KyotoGAS.png" />
+         <a href="https://sites.google.com/site/kyotogas/home">https://sites.google.com/site/kyotogas/home</a>
+        </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <a class="twitter-timeline" href="https://twitter.com/hashtag/kyotogas" data-widget-id="802417975240237056">#kyotogas のツイート</a>
+            <script>
+            ! function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0],
+                p = /^http:/.test(d.location) ? 'http' : 'https';
+              if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }
+            }(document, "script", "twitter-wjs");
+            </script>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -442,7 +486,9 @@
         $(".showXml").removeClass('active');
         $("#Blockly-row").show();
 
+        $(".save-btn").prop("disabled", false);
         hideSavedList();
+        hideAbout();
       });
 
       $(".showBlock").click(function(event) {
@@ -453,7 +499,9 @@
         $("#Blockly-row").show();
         blockly.resize();
 
+        $(".save-btn").prop("disabled", false);
         hideSavedList();
+        hideAbout();
       });
 
       $(".showXml").click(function(event) {
@@ -462,7 +510,9 @@
         $(".showBlock").removeClass('active');
         $(".showJavascript").removeClass('active');
 
+        $(".save-btn").prop("disabled", false);
         hideSavedList();
+        hideAbout();
       });
 
 
@@ -483,18 +533,18 @@
         $("#Saved-row").show();
         blockly.hide();
         $("#Blockly-row").hide();
+        $("#Avout-row").hide();
 
-        $(this).addClass('active');
-        //$(".showXml").removeClass('active');
+        $(".showSaved").addClass('active');
         $(".showJavascript").removeClass('active');
         $(".showBlock").removeClass('active');
         $(".showXml").removeClass('active');
 
+        hideAbout();
         loadList();
       }
 
       function hideSavedList() {
-        $(".save-btn").prop("disabled", false);
         $("#Saved-row").hide();
         $(".showSaved").removeClass('active');
       }
@@ -534,7 +584,34 @@
           $("#savedList").append('<tr><td>' + savedList[i].label + '</td><td><gas_button class="applyOne btn btn-primary btn-sm" data-id="' + savedList[i].id + '">Blockに追加</gas_button></td><td><gas_button class="deleteOne btn btn-danger btn-sm" data-id="' + savedList[i].id + '">削除</gas_button></td></tr>');
         }
       }
+
+      // *****************************************************************
+      $(".showAbout").click(function(event) {
+        showAbout();
+      });
+
+      function hideAbout() {
+        $("#About-row").hide();
+        $(".showAbout").removeClass('active');
+      }
+
+      function showAbout() {
+        $(".save-btn").prop("disabled", true);
+        $("#About-row").show();
+        $(".showAbout").addClass('active');
+        $(".showBlock").removeClass('active');
+        $(".showJavascript").removeClass('active');
+        $(".showXml").removeClass('active');
+
+
+        blockly.hide();
+        $("#Blockly-row").hide();
+        $("#Avout-row").hide();
+        hideSavedList();
+      }
+
       hideSavedList();
+      hideAbout();
     });
   })(window.jQuery);
   </script>
