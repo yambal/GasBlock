@@ -1,7 +1,13 @@
 # GasBlock
 GasBlock
 
+# Demo
 https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
+
+# その他
+Blocklyライブラリは、独自にカスタマイズしたものです
+
+https://github.com/yambal/myBlockly
 
 ## Class SpreadsheetApp
 | 実装 |	Method							|	Return type		|
