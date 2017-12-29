@@ -2,7 +2,7 @@
 GasBlock
 
 # Demo
-https://rawgit.com/yambal/GasBlock/master/GASBlock/index.html
+https://yambal.github.io/gas-block/dist/index.html
 
 # その他
 Blocklyライブラリは、独自にカスタマイズしたものです
