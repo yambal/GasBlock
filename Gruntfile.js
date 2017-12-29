@@ -4,14 +4,14 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     src: ['src/**/*.js'],
-                    dest: 'GASBlock/js/',
+                    dest: 'dist/js/',
                     filter: 'isFile',
                     flatten: true,
                     expand: true
                 },
                 {
                     src: ['src/img/*.png'],
-                    dest: 'GASBlock/img/',
+                    dest: 'dist/img/',
                     filter: 'isFile',
                     flatten: true,
                     expand: true
